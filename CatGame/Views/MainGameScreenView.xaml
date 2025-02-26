@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="CatGame.Views.MainGameScreenView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CatGame.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="{Binding Balance, StringFormat='Баланс: {0}'}" FontSize="20" Margin="0,0,0,20"/>
+            <Button Content="Мини-игра 1" Command="{Binding NavigateToMiniGame1Command}" Width="100" Height="30" Margin="5"/>
+            <Button Content="Магазин" Command="{Binding NavigateToShopCommand}" Width="100" Height="30" Margin="5"/>
+        </StackPanel>     
+    </Grid>
+</UserControl>

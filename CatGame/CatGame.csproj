@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Views\fonmenu.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resoursces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Views\fonmenu.png" />
+  </ItemGroup>
+
+</Project>
