@@ -12,13 +12,18 @@ namespace CatGame.ViewModels
     public class MiniGame1ViewModel : ViewModelBase
     {
         private readonly GameData _gameData;
-        public ICommand CompleteMiniGameCommand { get; }
+        private readonly NavigationService _navigationService;
 
-        public MiniGame1ViewModel(GameData gameData)
+        public MiniGame1ViewModel(GameData gameData, NavigationService navigationService)
         {
             _gameData = gameData;
+            _navigationService = navigationService;
+
+            // Инициализация команды
             CompleteMiniGameCommand = new RelayCommand(CompleteMiniGame);
         }
+
+        public ICommand CompleteMiniGameCommand { get; }
 
         private void CompleteMiniGame(object parameter)
         {
@@ -26,8 +31,8 @@ namespace CatGame.ViewModels
             int reward = 25; // Пример награды
             _gameData.Balance += reward;
 
-            // Вернуться на главный экран
-            NavigationService.Instance.CurrentView = new MainGameScreenViewModel();
+            // Возврат на главный экран
+            _navigationService.NavigateTo(new MainGameScreenViewModel(_gameData, _navigationService));
         }
     }
 }

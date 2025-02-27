@@ -2,8 +2,20 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CatGame"
-             StartupUri="MainWindow.xaml">
+             xmlns:viewModels="clr-namespace:CatGame.ViewModels"
+             xmlns:views="clr-namespace:CatGame.Views">
     <Application.Resources>
-         
+        <DataTemplate DataType="{x:Type viewModels:MainMenuViewModel}">
+            <views:MainMenuView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:MainGameScreenViewModel}">
+            <views:MainGameScreenView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:ShopViewModel}">
+            <views:ShopView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:MiniGame1ViewModel}">
+            <views:MiniGame1View/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

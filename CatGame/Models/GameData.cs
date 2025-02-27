@@ -14,20 +14,17 @@ namespace CatGame.Models
 
         public int Balance
         {
-            get { return _balance; }
+            get => _balance;
             set
             {
-                if (_balance != value)
-                {
-                    _balance = value;
-                    OnPropertyChanged();
-                }
+                _balance = value;
+                OnPropertyChanged();
             }
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

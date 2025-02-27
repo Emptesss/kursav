@@ -9,33 +9,23 @@ namespace CatGame.Services
 {
     public class NavigationService
     {
-        private ViewModelBase? _currentView;
-        private static NavigationService? _instance;
-        public event Action CurrentViewChanged;
+        private ViewModelBase _currentView;
+        private static NavigationService _instance;
 
-        public static NavigationService Instance
-        {
-            get
-            {
-                _instance ??= new NavigationService();
-                return _instance;
-            }
-        }
+        public static NavigationService Instance => _instance ??= new NavigationService();
 
-        public ViewModelBase? CurrentView
+        public ViewModelBase CurrentView
         {
             get => _currentView;
             set
             {
                 _currentView = value;
-                OnCurrentViewChanged();
+                CurrentViewChanged?.Invoke();
             }
         }
 
-        private void OnCurrentViewChanged()
-        {
-            CurrentViewChanged?.Invoke();
-        }
+        public event Action CurrentViewChanged;
+
         public void NavigateTo(ViewModelBase viewModel)
         {
             CurrentView = viewModel;

@@ -20,7 +20,7 @@ namespace CatGame
         public MainWindow()
         {
             InitializeComponent();
-            App.NavigationService.CurrentView = new MainMenuViewModel();
+           
         }
     }
 }

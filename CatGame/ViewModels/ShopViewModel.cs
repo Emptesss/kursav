@@ -13,23 +13,20 @@ namespace CatGame.ViewModels
     public class ShopViewModel : ViewModelBase
     {
         private readonly GameData _gameData;
-        public ICommand BuyItemCommand { get; }
+        private readonly NavigationService _navigationService;
 
-        public ShopViewModel(GameData gameData)
+        public ShopViewModel(GameData gameData, NavigationService navigationService)
         {
             _gameData = gameData;
+            _navigationService = navigationService;
+
+            // Инициализация команды
             BuyItemCommand = new RelayCommand(BuyItem);
         }
 
-        public int Balance
-        {
-            get { return _gameData.Balance; }
-            set
-            {
-                _gameData.Balance = value;
-                OnPropertyChanged(nameof(Balance));
-            }
-        }
+        public int Balance => _gameData.Balance;
+
+        public ICommand BuyItemCommand { get; }
 
         private void BuyItem(object parameter)
         {
@@ -41,9 +38,8 @@ namespace CatGame.ViewModels
             }
             else
             {
-                MessageBox.Show("Недостаточно монет!");
+                System.Windows.MessageBox.Show("Недостаточно монет!");
             }
-            OnPropertyChanged(nameof(Balance));
         }
     }
 }

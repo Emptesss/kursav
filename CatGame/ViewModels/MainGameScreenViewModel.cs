@@ -12,34 +12,33 @@ namespace CatGame.ViewModels
     public class MainGameScreenViewModel : ViewModelBase
     {
         private readonly GameData _gameData;
-        public ICommand NavigateToMiniGame1Command { get; }
-        public ICommand NavigateToShopCommand { get; }
+        private readonly NavigationService _navigationService;
 
-        public MainGameScreenViewModel()
+        public MainGameScreenViewModel(GameData gameData, NavigationService navigationService)
         {
-            _gameData = new GameData { Balance = 100 }; // Пример начального баланса
+            _gameData = gameData;
+            _navigationService = navigationService;
+
+            // Инициализация команд
             NavigateToMiniGame1Command = new RelayCommand(NavigateToMiniGame1);
             NavigateToShopCommand = new RelayCommand(NavigateToShop);
         }
 
-        public int Balance
-        {
-            get { return _gameData.Balance; }
-            set
-            {
-                _gameData.Balance = value;
-                OnPropertyChanged(nameof(Balance));
-            }
-        }
+        public int Balance => _gameData.Balance;
+
+        public ICommand NavigateToMiniGame1Command { get; }
+        public ICommand NavigateToShopCommand { get; }
 
         private void NavigateToMiniGame1(object parameter)
         {
-            NavigationService.Instance.CurrentView = new MiniGame1ViewModel(_gameData);
+            // Переход к мини-игре 1
+            _navigationService.NavigateTo(new MiniGame1ViewModel(_gameData, _navigationService));
         }
 
         private void NavigateToShop(object parameter)
         {
-            NavigationService.Instance.CurrentView = new ShopViewModel(_gameData);
+            // Переход к магазину
+            _navigationService.NavigateTo(new ShopViewModel(_gameData, _navigationService));
         }
     }
 }

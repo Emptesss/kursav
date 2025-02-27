@@ -1,33 +1,36 @@
-﻿using CatGame.Services;
+﻿using CatGame.Models;
+using CatGame.Services;
 using CatGame.ViewModels;
-using CatGame.Views;
-using System.Configuration;
-using System.Data;
 using System.Windows;
 
 namespace CatGame
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
+            // Создаем общие данные игры
+            var gameData = new GameData { Balance = 100 };
+
+            // Инициализация сервиса навигации
+            var navigationService = NavigationService.Instance;
+
+            // Создание главного окна
             var mainWindow = new MainWindow();
-            var navigationService = new NavigationService(mainWindow);
-            var mainMenuViewModel = new MainMenuViewModel();
-            navigationService.CurrentView = mainMenuViewModel;
 
-            // Create MainWindowViewModel and pass NavigationService
-            var mainWindowViewModel = new MainWindowViewModel(navigationService);
-            mainWindow.DataContext = mainWindowViewModel;
+            // Передаем gameData и navigationService в MainMenuViewModel
+            var mainMenuViewModel = new MainMenuViewModel(navigationService, gameData);
 
-            mainWindow.Content = new MainMenuView() { DataContext = mainMenuViewModel };
+            // Устанавливаем DataContext для главного окна
+            mainWindow.DataContext = new MainWindowViewModel(navigationService);
+
+            // Устанавливаем начальный экран
+            navigationService.NavigateTo(mainMenuViewModel);
+
+            // Показываем главное окно
             mainWindow.Show();
-
         }
     }
 }

@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="Cat Game" Height="450" Width="800">
     <Grid>
-        <ContentControl Content="{Binding CurrentView, Source={x:Static local:App.NavigationService}}"/>
+        <ContentControl Content="{Binding CurrentView}"/>
     </Grid>
 </Window>
