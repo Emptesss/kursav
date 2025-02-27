@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CatGame")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+47abbd3b04eef1a6c22d23e4a8b49f62359b9bd8")]
 [assembly: System.Reflection.AssemblyProductAttribute("CatGame")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CatGame")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

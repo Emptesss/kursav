@@ -7,33 +7,42 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Background>
-        <ImageBrush ImageSource="/Views/fonmenu.png" Stretch="UniformToFill"/>
+        <ImageBrush ImageSource="/Views/фон главное.jpg" Stretch="UniformToFill"/>
     </UserControl.Background>
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button Content="Играть" Command="{Binding PlayCommand}" Width="100" Height="30" Margin="5" BorderBrush="#FFE19889" BorderThickness="2">
+        <StackPanel>
+            <StackPanel Width="230" Height="168" RenderTransformOrigin="0.5,0.5">
+                <StackPanel.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="17" Y="220"/>
+                    </TransformGroup>
+                </StackPanel.RenderTransform>
+                <Button Content="Играть" Command="{Binding PlayCommand}" Width="150" Height="37" Margin="5" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFFFE685"/>
-                            <GradientStop Color="#FFE9AB9E" Offset="1"/>
+                            <GradientStop Color="#FFF99FC1"/>
+                            <GradientStop Color="White" Offset="1"/>
+                            <GradientStop Color="#FFF19EBC"/>
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Content="Правила" Command="{Binding RulesCommand}" Width="100" Height="30" Margin="5" BorderBrush="#FFE19889" BorderThickness="2">
+                <Button Content="Правила" Command="{Binding RulesCommand}" Width="150" Height="40" Margin="5" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFFFE685"/>
-                            <GradientStop Color="#FFE9AB9E" Offset="1"/>
+                            <GradientStop Color="#FFF19EBC"/>
+                            <GradientStop Color="#FFFFFEFE" Offset="1"/>
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
 
-                <Button Content="Выход" Command="{Binding ExitCommand}" Width="100" Height="30" Margin="5" BorderBrush="#FFE19889" BorderThickness="2">
+                <Button Content="Выход" Command="{Binding ExitCommand}" Width="150" Height="40" Margin="5" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFFFE685"/>
-                            <GradientStop Color="#FFE9AB9E" Offset="1"/>
+                            <GradientStop Color="#FFF19EBC"/>
+                            <GradientStop Color="#FFFEFFFD" Offset="1"/>
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
