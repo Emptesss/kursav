@@ -21,6 +21,7 @@ namespace CatGame.ViewModels
 
             // Инициализация команд
             NavigateToMiniGame1Command = new RelayCommand(NavigateToMiniGame1);
+            OpenMiniGamesMenuCommand = new RelayCommand(OpenMiniGamesMenu);
             NavigateToShopCommand = new RelayCommand(NavigateToShop);
         }
 
@@ -28,6 +29,8 @@ namespace CatGame.ViewModels
 
         public ICommand NavigateToMiniGame1Command { get; }
         public ICommand NavigateToShopCommand { get; }
+
+        public ICommand OpenMiniGamesMenuCommand { get; }
 
         private void NavigateToMiniGame1(object parameter)
         {
@@ -39,6 +42,10 @@ namespace CatGame.ViewModels
         {
             // Переход к магазину
             _navigationService.NavigateTo(new ShopViewModel(_gameData, _navigationService));
+        }
+        private void OpenMiniGamesMenu(object parameter)
+        {
+            _navigationService.NavigateTo(new MiniGamesMenuViewModel(_gameData, _navigationService));
         }
     }
 }

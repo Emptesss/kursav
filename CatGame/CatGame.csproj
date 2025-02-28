@@ -10,9 +10,12 @@
 
   <ItemGroup>
     <None Remove="Views\fonmenu.png" />
+    <None Remove="Views\игры.png" />
+    <None Remove="Views\котправо.png" />
     <None Remove="Views\монета.png" />
     <None Remove="Views\фон главное.jpg" />
     <None Remove="Views\фон главное.png" />
+    <None Remove="Views\шкафчик.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,9 +24,12 @@
 
   <ItemGroup>
     <Resource Include="Views\fonmenu.png" />
+    <Resource Include="Views\игры.png" />
+    <Resource Include="Views\котправо.png" />
     <Resource Include="Views\монета.png" />
     <Resource Include="Views\фон главное.jpg" />
     <Resource Include="Views\фон главное.png" />
+    <Resource Include="Views\шкафчик.png" />
   </ItemGroup>
 
 </Project>

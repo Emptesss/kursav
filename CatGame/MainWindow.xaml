@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CatGame"
         mc:Ignorable="d"
-        Title="Cat Game" Height="450" Width="800">
+        Title="Cat Game" 
+        WindowState="Maximized"
+        WindowStyle="None"
+        ResizeMode="NoResize">
     <Grid>
         <ContentControl Content="{Binding CurrentView}"/>
     </Grid>

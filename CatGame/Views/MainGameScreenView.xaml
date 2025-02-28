@@ -4,53 +4,118 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CatGame.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="1080" d:DesignWidth="1920
-             ">
+             mc:Ignorable="d"
+             d:DesignHeight="1080" 
+             d:DesignWidth="1980">
     <UserControl.Background>
         <ImageBrush ImageSource="/Views/fonmenu.png" Stretch="UniformToFill"/>
     </UserControl.Background>
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="432" RenderTransformOrigin="0.5,0.5" Height="366">
-            <StackPanel.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform X="735" Y="-225"/>
-                </TransformGroup>
-            </StackPanel.RenderTransform>
-            <TextBlock Text="{Binding Balance, StringFormat='Баланс: {0}'}" FontSize="20" Margin="0,0,0,20" Height="35"/>
-            <Button Content="Мини-игра 1" Command="{Binding NavigateToMiniGame1Command}" Width="312" Height="122" Margin="5" RenderTransformOrigin="0.5,0.5">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="-17"/>
-                    </TransformGroup>
-                </Button.RenderTransform>
-            </Button>
-            <Button Content="Магазин" Command="{Binding NavigateToShopCommand}" Width="313" Height="119" Margin="5" RenderTransformOrigin="0.5,0.5">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="33"/>
-                    </TransformGroup>
-                </Button.RenderTransform>
-            </Button>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Top Balance Panel -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,20,20,20">
+            <Image Source="/Views/монета.png" Width="100" Height="100"/>
+            <TextBlock Text="{Binding Balance, StringFormat='Баланс: {0}'}" 
+                       FontSize="24" Margin="10 0 0 0"
+                       VerticalAlignment="Center"/>
         </StackPanel>
-        <Rectangle HorizontalAlignment="Center" Height="280" Margin="0,800,0,0" Stroke="#FFD48497" StrokeThickness="5" VerticalAlignment="Top" Width="1920" >
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFF9BFCD"/>
-                    <GradientStop Color="#FFE9A5B5" Offset="1"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Image HorizontalAlignment="Left" Height="600" Margin="671,378,0,0" VerticalAlignment="Top" Width="600" Source="/Views/котправо.png"/>
-        <Image HorizontalAlignment="Left" Height="120" Margin="40,40,0,0" VerticalAlignment="Top" Width="128" Source="/Views/монета.png"/>
+
+        <!-- Main Content -->
+        <Grid Grid.Row="1" Grid.RowSpan="2"/>
+
+        <!-- Bottom Navigation -->
+        <Grid Grid.Row="3" Background="#FFE9A5B5" Height="150">
+            <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
+            <!-- Заменим существующий Image на кнопку с изображением -->
+            <Button Command="{Binding OpenMiniGamesMenuCommand}" 
+        Margin="-222,-646,1130,42"
+        Style="{StaticResource InvisibleButtonStyle}">
+                <Image Source="/Views/игры.png" 
+           RenderTransformOrigin="0.5,0.5"
+           Stretch="Uniform"
+           Opacity="1">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <!-- Эффект свечения -->
+                                    <Setter Property="Effect">
+                                        <Setter.Value>
+                                            <DropShadowEffect BlurRadius="20" 
+                                                Color="White"
+                                                Opacity="0.7"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <!-- Легкое увеличение -->
+                                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                                    <Setter Property="RenderTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Button>
+            <Button Command="{Binding NavigateToShopCommand}" 
+        Margin="1447,-568,10,75"
+        Style="{StaticResource InvisibleButtonStyle}">
+                <Image Source="/Views/шкафчик.png" 
+           Stretch="Fill"
+           RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Effect">
+                                        <Setter.Value>
+                                            <DropShadowEffect BlurRadius="20" 
+                                                Color="White"
+                                                Opacity="0.7"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="RenderTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Button>
+            <Image Source="/CatGame;component/Views/котправо.png" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Width="650" Height="650"
+                   Stretch="Uniform" Margin="0,-580,0,0"/>
+        </Grid>
     </Grid>
 </UserControl>

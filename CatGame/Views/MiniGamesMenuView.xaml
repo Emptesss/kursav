@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="CatGame.Views.MiniGamesMenuView"
+             xmlns:viewModels="clr-namespace:CatGame.ViewModels"
+             xmlns:local="clr-namespace:CatGame.Views"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="600" 
+             d:DesignWidth="800">
+    <Grid Background="#FFF9BFCD">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Выберите мини-игру" 
+                   FontSize="32"
+                   HorizontalAlignment="Center"
+                   Margin="20"
+                   Grid.Row="0"/>
+
+        <StackPanel Grid.Row="1" 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <Button Content="Мини-игра 1" 
+                    Command="{Binding SelectMiniGame1Command}"
+                    Style="{StaticResource MainButtonStyle}"
+                    Margin="10"/>
+        </StackPanel>
+
+        <Button Grid.Row="2" 
+                Content="Назад" 
+                Command="{Binding ReturnCommand}"
+                Style="{StaticResource MainButtonStyle}"
+                Margin="20"/>
+    </Grid>
+</UserControl>

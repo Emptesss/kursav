@@ -9,8 +9,8 @@ namespace CatGame.Services
 {
     public class NavigationService
     {
-        private ViewModelBase _currentView;
-        private static NavigationService _instance;
+        private ViewModelBase? _currentView;
+        private static NavigationService? _instance;
 
         public static NavigationService Instance => _instance ??= new NavigationService();
 

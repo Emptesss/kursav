@@ -5,6 +5,35 @@
              xmlns:viewModels="clr-namespace:CatGame.ViewModels"
              xmlns:views="clr-namespace:CatGame.Views">
     <Application.Resources>
+        <Style x:Key="MainButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Background" Value="#FFF9BFCD"/>
+            <Setter Property="BorderBrush" Value="#FFE9A5B5"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+        <Style x:Key="InvisibleButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="Transparent">
+                            <ContentPresenter/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
         <DataTemplate DataType="{x:Type viewModels:MainMenuViewModel}">
             <views:MainMenuView/>
         </DataTemplate>
@@ -16,6 +45,9 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModels:MiniGame1ViewModel}">
             <views:MiniGame1View/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:MiniGamesMenuViewModel}">
+            <views:MiniGamesMenuView/>
         </DataTemplate>
     </Application.Resources>
 </Application>

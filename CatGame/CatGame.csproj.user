@@ -16,6 +16,9 @@
     <Compile Update="Views\MiniGame1View.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\MiniGamesMenuView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\ShopView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -31,6 +34,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\MiniGame1View.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MiniGamesMenuView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\ShopView.xaml">

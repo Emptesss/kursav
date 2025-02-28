@@ -72,7 +72,7 @@
                     </Button.Background>
                 </Button>
             </StackPanel>
-            <Image Height="500" Width="500" RenderTransformOrigin="0.5,0.5" Source="/Views/котправо.png">
+            <Image Height="500" Width="500" RenderTransformOrigin="0.5,0.5" Source="/CatGame;component/Views/котправо.png">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
