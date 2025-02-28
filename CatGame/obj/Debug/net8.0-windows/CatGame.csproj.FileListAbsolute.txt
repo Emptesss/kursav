@@ -57,3 +57,6 @@ C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\CatGame.csproj.CoreCompil
 C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\CatGame.sourcelink.json
 C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\CatGame.genruntimeconfig.cache
 C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\ref\CatGame.dll
+C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\App.baml
+C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\CatGame.sourcelink.json

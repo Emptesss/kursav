@@ -10,7 +10,9 @@
 
   <ItemGroup>
     <None Remove="Views\fonmenu.png" />
+    <None Remove="Views\монета.png" />
     <None Remove="Views\фон главное.jpg" />
+    <None Remove="Views\фон главное.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,7 +21,9 @@
 
   <ItemGroup>
     <Resource Include="Views\fonmenu.png" />
+    <Resource Include="Views\монета.png" />
     <Resource Include="Views\фон главное.jpg" />
+    <Resource Include="Views\фон главное.png" />
   </ItemGroup>
 
 </Project>

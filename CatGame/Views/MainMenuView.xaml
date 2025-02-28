@@ -5,22 +5,30 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CatGame.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="1080" d:DesignWidth="1920">
     <UserControl.Background>
-        <ImageBrush ImageSource="/Views/фон главное.jpg" Stretch="UniformToFill"/>
+        <ImageBrush ImageSource="/Views/фон главное.png" Stretch="UniformToFill"/>
     </UserControl.Background>
     <Grid>
         <StackPanel>
-            <StackPanel Width="230" Height="168" RenderTransformOrigin="0.5,0.5">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="764" Height="481" RenderTransformOrigin="0.5,0.5">
                 <StackPanel.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
                         <SkewTransform/>
                         <RotateTransform/>
-                        <TranslateTransform X="17" Y="220"/>
+                        <TranslateTransform X="-2" Y="402"/>
                     </TransformGroup>
                 </StackPanel.RenderTransform>
-                <Button Content="Играть" Command="{Binding PlayCommand}" Width="150" Height="37" Margin="5" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium">
+                <Button Content="Играть" Command="{Binding PlayCommand}" Width="400" Height="100" Margin="5" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium" FontSize="72" RenderTransformOrigin="0.5,0.5">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="44"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFF99FC1"/>
@@ -29,7 +37,15 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Content="Правила" Command="{Binding RulesCommand}" Width="150" Height="40" Margin="5" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium">
+                <Button Content="Правила" Command="{Binding RulesCommand}" Width="400" Height="101" Margin="5" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium" FontSize="72" RenderTransformOrigin="0.5,0.5">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="70"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFF19EBC"/>
@@ -38,7 +54,16 @@
                     </Button.Background>
                 </Button>
 
-                <Button Content="Выход" Command="{Binding ExitCommand}" Width="150" Height="40" Margin="5" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium">
+                <Button Content="Выход" Command="{Binding ExitCommand}" Width="400
+                        " Height="100" Margin="5" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium" FontSize="72" RenderTransformOrigin="0.5,0.5">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="100"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFF19EBC"/>
@@ -47,6 +72,17 @@
                     </Button.Background>
                 </Button>
             </StackPanel>
+            <Image Height="500" Width="500" RenderTransformOrigin="0.5,0.5" Source="/Views/котправо.png">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-509" Y="26"/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Height="100" Width="100"/>
         </StackPanel>
     </Grid>
 </UserControl>

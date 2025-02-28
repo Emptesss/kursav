@@ -5,12 +5,52 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CatGame.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="1080" d:DesignWidth="1920
+             ">
+    <UserControl.Background>
+        <ImageBrush ImageSource="/Views/fonmenu.png" Stretch="UniformToFill"/>
+    </UserControl.Background>
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="{Binding Balance, StringFormat='Баланс: {0}'}" FontSize="20" Margin="0,0,0,20"/>
-            <Button Content="Мини-игра 1" Command="{Binding NavigateToMiniGame1Command}" Width="100" Height="30" Margin="5"/>
-            <Button Content="Магазин" Command="{Binding NavigateToShopCommand}" Width="100" Height="30" Margin="5"/>
-        </StackPanel>     
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="432" RenderTransformOrigin="0.5,0.5" Height="366">
+            <StackPanel.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="735" Y="-225"/>
+                </TransformGroup>
+            </StackPanel.RenderTransform>
+            <TextBlock Text="{Binding Balance, StringFormat='Баланс: {0}'}" FontSize="20" Margin="0,0,0,20" Height="35"/>
+            <Button Content="Мини-игра 1" Command="{Binding NavigateToMiniGame1Command}" Width="312" Height="122" Margin="5" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="-17"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button Content="Магазин" Command="{Binding NavigateToShopCommand}" Width="313" Height="119" Margin="5" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="33"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+        </StackPanel>
+        <Rectangle HorizontalAlignment="Center" Height="280" Margin="0,800,0,0" Stroke="#FFD48497" StrokeThickness="5" VerticalAlignment="Top" Width="1920" >
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF9BFCD"/>
+                    <GradientStop Color="#FFE9A5B5" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Image HorizontalAlignment="Left" Height="600" Margin="671,378,0,0" VerticalAlignment="Top" Width="600" Source="/Views/котправо.png"/>
+        <Image HorizontalAlignment="Left" Height="120" Margin="40,40,0,0" VerticalAlignment="Top" Width="128" Source="/Views/монета.png"/>
     </Grid>
 </UserControl>
