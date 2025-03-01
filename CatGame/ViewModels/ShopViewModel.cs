@@ -22,11 +22,13 @@ namespace CatGame.ViewModels
 
             // Инициализация команды
             BuyItemCommand = new RelayCommand(BuyItem);
+            ReturnCommand = new RelayCommand(ReturnToMain);
         }
 
         public int Balance => _gameData.Balance;
 
         public ICommand BuyItemCommand { get; }
+        public ICommand ReturnCommand { get; }
 
         private void BuyItem(object parameter)
         {
@@ -40,6 +42,10 @@ namespace CatGame.ViewModels
             {
                 System.Windows.MessageBox.Show("Недостаточно монет!");
             }
+        }
+        private void ReturnToMain(object parameter)
+        {
+            _navigationService.NavigateTo(new MainGameScreenViewModel(_gameData, _navigationService));
         }
     }
 }

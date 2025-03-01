@@ -6,8 +6,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="600" 
-             d:DesignWidth="800">
+             d:DesignHeight="1080" 
+             d:DesignWidth="1920">
     <Grid Background="#FFF9BFCD">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" MinHeight="80"/>
@@ -20,16 +20,12 @@
                    HorizontalAlignment="Center"
                    Margin="0,20,0,20"
                    Grid.Row="0" FontFamily="Montserrat ExtraBold" Foreground="#FFF17EAE" Width="228"/>
-        <Image Source="/Views/кнопкавыход.png" RenderTransformOrigin="0.5,0.5" Margin="711,10,22,10" Width="70" Height="70">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="0" X="0"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
+        <Button Command="{Binding ReturnCommand}" 
+        Style="{StaticResource InvisibleButtonStyle}"
+        Margin="1780,22,40,958" 
+        Width="100" Height="100" Grid.RowSpan="2">
+            <Image Source="/CatGame;component/Views/кнопкавыход.png" RenderTransformOrigin="1.793,0.506"/>
+        </Button>
 
         <StackPanel Grid.Row="1" 
                     HorizontalAlignment="Center"
@@ -67,11 +63,5 @@
                 </Button.RenderTransform>
             </Button>
         </StackPanel>
-
-        <Button Grid.Row="2" 
-                Content="Назад" 
-                Command="{Binding ReturnCommand}"
-                Style="{StaticResource MainButtonStyle}"
-                Margin="253,20,247,24"/>
     </Grid>
 </UserControl>

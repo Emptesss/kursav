@@ -19,39 +19,51 @@
         </Grid.RowDefinitions>
 
         <!-- Top Balance Panel -->
-        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,20,20,20">
-            <Image Source="/Views/монета.png" Width="100" Height="100"/>
+        <Grid Grid.Row="0" Margin="20,20,20,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="/Views/монета.png" 
+                   Width="100" 
+                   Height="100"
+                   Grid.Column="0"/>
+
             <TextBlock Text="{Binding Balance, StringFormat='Баланс: {0}'}" 
-                       FontSize="24" Margin="10 0 0 0"
-                       VerticalAlignment="Center"/>
-            <Image Source="/Views/кнопкавыход.png" Width="100" Height="100" RenderTransformOrigin="0.5,0.5">
-                <Image.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="0" X="1725"/>
-                    </TransformGroup>
-                </Image.RenderTransform>
-            </Image>
-        </StackPanel>
+                       FontSize="24" 
+                       Margin="10 0 0 0"
+                       VerticalAlignment="Center"
+                       Grid.Column="1"/>
+
+            <Button Command="{Binding ExitCommand}" 
+                    Grid.Column="2"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Margin="0,0,20,0"
+                    Style="{StaticResource InvisibleButtonStyle}">
+                <Image Source="/Views/кнопкавыход.png"
+                       Width="100"
+                       Height="100"/>
+            </Button>
+        </Grid>
 
         <!-- Main Content -->
         <Grid Grid.Row="1" Grid.RowSpan="2"/>
 
-        <!-- Bottom Navigation -->
+        <!-- Bottom Navigation (оставлено без изменений) -->
         <Grid Grid.Row="3" Background="#FFE9A5B5" Height="150">
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"/>
-            <!-- Заменим существующий Image на кнопку с изображением -->
             <Button Command="{Binding OpenMiniGamesMenuCommand}" 
-        Margin="-222,-646,1130,42"
-        Style="{StaticResource InvisibleButtonStyle}">
+                    Margin="-222,-646,1130,42"
+                    Style="{StaticResource InvisibleButtonStyle}">
                 <Image Source="/Views/игры.png" 
-           RenderTransformOrigin="0.5,0.5"
-           Stretch="Uniform"
-           Opacity="1">
+                       RenderTransformOrigin="0.5,0.5"
+                       Stretch="Uniform"
+                       Opacity="1">
                     <Image.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform ScaleX="-1"/>
@@ -64,15 +76,13 @@
                         <Style TargetType="Image">
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <!-- Эффект свечения -->
                                     <Setter Property="Effect">
                                         <Setter.Value>
                                             <DropShadowEffect BlurRadius="20" 
-                                                Color="White"
-                                                Opacity="0.7"/>
+                                                             Color="White"
+                                                             Opacity="0.7"/>
                                         </Setter.Value>
                                     </Setter>
-                                    <!-- Легкое увеличение -->
                                     <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
                                     <Setter Property="RenderTransform">
                                         <Setter.Value>
@@ -86,11 +96,12 @@
                 </Image>
             </Button>
             <Button Command="{Binding NavigateToShopCommand}" 
-        Margin="1447,-568,10,75"
-        Style="{StaticResource InvisibleButtonStyle}">
+                    Margin="1447,-568,10,75"
+                    Style="{StaticResource InvisibleButtonStyle}">
                 <Image Source="/Views/шкафчик.png" 
-           Stretch="Fill"
-           RenderTransformOrigin="0.5,0.5" Margin="10,0,0,0">
+                       Stretch="Fill"
+                       RenderTransformOrigin="0.5,0.5" 
+                       Margin="10,0,0,0">
                     <Image.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -106,8 +117,8 @@
                                     <Setter Property="Effect">
                                         <Setter.Value>
                                             <DropShadowEffect BlurRadius="20" 
-                                                Color="White"
-                                                Opacity="0.7"/>
+                                                             Color="White"
+                                                             Opacity="0.7"/>
                                         </Setter.Value>
                                     </Setter>
                                     <Setter Property="RenderTransform">
@@ -124,8 +135,10 @@
             <Image Source="/CatGame;component/Views/котправо.png" 
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
-                   Width="650" Height="650"
-                   Stretch="Uniform" Margin="0,-542,0,0"/>
+                   Width="650" 
+                   Height="650"
+                   Stretch="Uniform" 
+                   Margin="0,-542,0,0"/>
         </Grid>
     </Grid>
 </UserControl>

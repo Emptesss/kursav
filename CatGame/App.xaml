@@ -3,8 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CatGame"
              xmlns:viewModels="clr-namespace:CatGame.ViewModels"
-             xmlns:views="clr-namespace:CatGame.Views">
+             xmlns:views="clr-namespace:CatGame.Views"
+             xmlns:helpers="clr-namespace:CatGame.Helpers"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors">
+    
+
     <Application.Resources>
+        <!-- Конвертеры -->
+        <helpers:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
+
+        <!-- Стили -->
+        <Style x:Key="PauseMenuStyle" TargetType="ContentControl">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <!-- Добавьте этот тег -->
+                    <ControlTemplate>
+                        <views:PauseMenuView/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <Style x:Key="MainButtonStyle" TargetType="Button">
             <Setter Property="Width" Value="300"/>
             <Setter Property="Height" Value="80"/>
@@ -14,6 +32,7 @@
             <Setter Property="BorderBrush" Value="#FFE9A5B5"/>
             <Setter Property="BorderThickness" Value="2"/>
         </Style>
+
         <Style x:Key="InvisibleButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
@@ -34,18 +53,42 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+
+        <Style x:Key="ImageButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Image Source="{TemplateBinding Tag}"
+                           Stretch="Uniform"
+                           Width="180" 
+                           Height="40"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+        </Style>
+
+        <!-- DataTemplates -->
         <DataTemplate DataType="{x:Type viewModels:MainMenuViewModel}">
             <views:MainMenuView/>
         </DataTemplate>
+
         <DataTemplate DataType="{x:Type viewModels:MainGameScreenViewModel}">
             <views:MainGameScreenView/>
         </DataTemplate>
+
         <DataTemplate DataType="{x:Type viewModels:ShopViewModel}">
             <views:ShopView/>
         </DataTemplate>
+
         <DataTemplate DataType="{x:Type viewModels:MiniGame1ViewModel}">
             <views:MiniGame1View/>
         </DataTemplate>
+
         <DataTemplate DataType="{x:Type viewModels:MiniGamesMenuViewModel}">
             <views:MiniGamesMenuView/>
         </DataTemplate>

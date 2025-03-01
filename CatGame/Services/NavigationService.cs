@@ -30,5 +30,6 @@ namespace CatGame.Services
         {
             CurrentView = viewModel;
         }
+
     }
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using CatGame.Helpers;
 using CatGame.Services;
+using System.Windows;
 namespace CatGame.ViewModels
 {
     public class MainGameScreenViewModel : ViewModelBase
@@ -23,6 +24,7 @@ namespace CatGame.ViewModels
             NavigateToMiniGame1Command = new RelayCommand(NavigateToMiniGame1);
             OpenMiniGamesMenuCommand = new RelayCommand(OpenMiniGamesMenu);
             NavigateToShopCommand = new RelayCommand(NavigateToShop);
+            ExitCommand = new RelayCommand(ExitGame);
         }
 
         public int Balance => _gameData.Balance;
@@ -31,6 +33,7 @@ namespace CatGame.ViewModels
         public ICommand NavigateToShopCommand { get; }
 
         public ICommand OpenMiniGamesMenuCommand { get; }
+        public ICommand ExitCommand { get; }
 
         private void NavigateToMiniGame1(object parameter)
         {
@@ -46,6 +49,10 @@ namespace CatGame.ViewModels
         private void OpenMiniGamesMenu(object parameter)
         {
             _navigationService.NavigateTo(new MiniGamesMenuViewModel(_gameData, _navigationService));
+        }
+        private void ExitGame(object parameter)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

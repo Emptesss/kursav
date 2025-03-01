@@ -4,12 +4,62 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CatGame.Views"
+             xmlns:helpers="clr-namespace:CatGame.Helpers"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="1080" d:DesignWidth="1920"
+             Background="#FF1A1A1A">
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Мини-игра 1" FontSize="24" Margin="0,0,0,20"/>
-            <Button Content="Завершить игру" Command="{Binding CompleteMiniGameCommand}" Width="120" Height="30"/>
+        <Canvas x:Name="GameCanvas">
+            <i:Interaction.Behaviors>
+                <helpers:MousePositionBehavior MousePosition="{Binding MousePosition, Mode=OneWayToSource}"/>
+            </i:Interaction.Behaviors>
+
+            <Canvas.InputBindings>
+                <MouseBinding 
+            MouseAction="LeftClick" 
+            Command="{Binding ShootCommand}"
+            CommandParameter="{Binding MousePosition}"/>
+            </Canvas.InputBindings>
+            <ItemsControl ItemsSource="{Binding Bubbles}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Ellipse 
+                Width="40" 
+                Height="40" 
+                Fill="{Binding CurrentColor}"
+                Canvas.Left="100"
+                Canvas.Top="900"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Canvas>
+
+        <StackPanel Orientation="Horizontal" Margin="20">
+            <Border Background="#AAFFFFFF" CornerRadius="10" Padding="10">
+                <TextBlock Text="{Binding Score, StringFormat='Очки: {0}'}"
+                           FontSize="24"
+                           Foreground="Black"/>
+            </Border>
+            <Border Background="#AAFFFFFF" CornerRadius="10" Padding="10" Margin="10,0">
+                <Ellipse Width="40" Height="40" Fill="{Binding CurrentColor}"/>
+            </Border>
         </StackPanel>
+
+        <Button Command="{Binding PauseCommand}" 
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Top"
+                Margin="20"
+                Style="{StaticResource InvisibleButtonStyle}">
+            <Image Source="/Views/кнопкапауза.png" Width="50" Height="50"/>
+        </Button>
+
+        <ContentControl Content="{Binding PauseViewModel}"
+                Visibility="{Binding IsPaused, Converter={StaticResource BoolToVisibility}}"/>
     </Grid>
 </UserControl>

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\
+C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\
 CatGame
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\user\Desktop\курсовая\CatGame\CatGame\App.xaml
-6-965066246
+C:\Users\vkali\kursav\CatGame\App.xaml
+71370702012
 
-19-541530438
-198-556154604
-MainWindow.xaml;Views\MainGameScreenView.xaml;Views\MainMenuView.xaml;Views\MiniGame1View.xaml;Views\MiniGamesMenuView.xaml;Views\ShopView.xaml;
+26601287526
+199946631701
+MainWindow.xaml;Views\MainGameScreenView.xaml;Views\MainMenuView.xaml;Views\MiniGame1View.xaml;Views\MiniGamesMenuView.xaml;Views\PauseMenuView.xaml;Views\ShopView.xaml;
 
 False
 

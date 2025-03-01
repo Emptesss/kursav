@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="CatGame.Views.PauseMenuView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CatGame.Views"
+      Width="400" Height="300">
+
+    <Grid Background="#80000000">
+        <Border Background="#FFE9A5B5" 
+                CornerRadius="10"
+                Width="250" 
+                Height="200"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+            <StackPanel VerticalAlignment="Center"
+                      HorizontalAlignment="Center"
+                      Margin="10">
+
+                <!-- Кнопка Продолжить -->
+                <Button Command="{Binding ResumeCommand}"
+                      Margin="0,5"
+                      Style="{StaticResource InvisibleButtonStyle}">
+                    <Image Source="/Views/кнопкапродолжить.png"
+                         Width="180"
+                         Height="40"/>
+                </Button>
+
+                <!-- Кнопка Заново -->
+                <Button Command="{Binding RestartCommand}"
+                      Margin="0,5"
+                      Style="{StaticResource InvisibleButtonStyle}">
+                    <Image Source="/Views/кнопказаново.png"
+                         Width="180"
+                         Height="40"/>
+                </Button>
+
+                <!-- Кнопка Выход -->
+                <Button Command="{Binding ExitCommand}"
+                      Margin="0,5"
+                      Style="{StaticResource InvisibleButtonStyle}">
+                    <Image Source="/Views/кнопкавыход.png"
+                         Width="180"
+                         Height="40"/>
+                </Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

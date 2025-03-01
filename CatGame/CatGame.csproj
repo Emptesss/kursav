@@ -12,6 +12,9 @@
     <None Remove="Views\fonmenu.png" />
     <None Remove="Views\игры.png" />
     <None Remove="Views\кнопкавыход.png" />
+    <None Remove="Views\кнопказаново.png" />
+    <None Remove="Views\кнопкапауза.png" />
+    <None Remove="Views\кнопкапродолжить.png" />
     <None Remove="Views\котправо.png" />
     <None Remove="Views\монета.png" />
     <None Remove="Views\фон главное.jpg" />
@@ -24,9 +27,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Views\fonmenu.png" />
     <Resource Include="Views\игры.png" />
-    <Resource Include="Views\кнопкавыход.png" />
+    <Resource Include="Views\кнопкавыход.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\кнопказаново.png" />
+    <Resource Include="Views\кнопкапауза.png" />
+    <Resource Include="Views\кнопкапродолжить.png" />
     <Resource Include="Views\котправо.png" />
     <Resource Include="Views\монета.png" />
     <Resource Include="Views\фон главное.jpg" />
