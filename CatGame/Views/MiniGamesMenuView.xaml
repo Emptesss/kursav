@@ -10,30 +10,68 @@
              d:DesignWidth="800">
     <Grid Background="#FFF9BFCD">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" MinHeight="80"/>
+            <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Выберите мини-игру" 
-                   FontSize="32"
+        <TextBlock Text="Мини-игры" 
+                   FontSize="36"
                    HorizontalAlignment="Center"
-                   Margin="20"
-                   Grid.Row="0"/>
+                   Margin="0,20,0,20"
+                   Grid.Row="0" FontFamily="Montserrat ExtraBold" Foreground="#FFF17EAE" Width="228"/>
+        <Image Source="/Views/кнопкавыход.png" RenderTransformOrigin="0.5,0.5" Margin="711,10,22,10" Width="70" Height="70">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0" X="0"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
 
         <StackPanel Grid.Row="1" 
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Center">
+                    VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="352" Margin="0,121,0,0" Grid.RowSpan="2" Width="320">
+            <StackPanel.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-210" Y="-99"/>
+                </TransformGroup>
+            </StackPanel.RenderTransform>
             <Button Content="Мини-игра 1" 
                     Command="{Binding SelectMiniGame1Command}"
-                    Style="{StaticResource MainButtonStyle}"
-                    Margin="10"/>
+                    Style="{StaticResource MainButtonStyle}" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="0"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button Content="Мини-игра 2" 
+        Command="{Binding SelectMiniGame1Command}"
+        Style="{StaticResource MainButtonStyle}" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="0"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
         </StackPanel>
 
         <Button Grid.Row="2" 
                 Content="Назад" 
                 Command="{Binding ReturnCommand}"
                 Style="{StaticResource MainButtonStyle}"
-                Margin="20"/>
+                Margin="253,20,247,24"/>
     </Grid>
 </UserControl>
