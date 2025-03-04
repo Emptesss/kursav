@@ -10,26 +10,25 @@
              d:DesignWidth="1920">
     <Grid Background="#FFF9BFCD">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" MinHeight="80"/>
+            <RowDefinition Height="Auto" MinHeight="146"/>
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <TextBlock Text="Мини-игры" 
-                   FontSize="36"
+                   FontSize="72"
                    HorizontalAlignment="Center"
-                   Margin="0,20,0,20"
-                   Grid.Row="0" FontFamily="Montserrat ExtraBold" Foreground="#FFF17EAE" Width="228"/>
+                   Margin="0,52,0,32"
+                   Grid.Row="0" FontFamily="Montserrat ExtraBold" Foreground="#FFF5649E" Width="464"/>
         <Button Command="{Binding ReturnCommand}" 
         Style="{StaticResource InvisibleButtonStyle}"
-        Margin="1780,22,40,958" 
-        Width="100" Height="100" Grid.RowSpan="2">
+        Margin="1780,22,40,2">
             <Image Source="/CatGame;component/Views/кнопкавыход.png" RenderTransformOrigin="1.793,0.506"/>
         </Button>
 
         <StackPanel Grid.Row="1" 
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="352" Margin="0,121,0,0" Grid.RowSpan="2" Width="320">
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="810" Margin="330,148,0,0" Width="505" Grid.RowSpan="2">
             <StackPanel.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -38,29 +37,43 @@
                     <TranslateTransform X="-210" Y="-99"/>
                 </TransformGroup>
             </StackPanel.RenderTransform>
-            <Button Content="Мини-игра 1" 
+            <Button Content="Играть 1" 
                     Command="{Binding SelectMiniGame1Command}"
-                    Style="{StaticResource MainButtonStyle}" RenderTransformOrigin="0.5,0.5">
+                    Style="{StaticResource MainButtonStyle}" RenderTransformOrigin="0.5,0.5" Height="150" Width="450" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium" FontSize="72" Foreground="#FFF5649E" >
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
                         <SkewTransform/>
                         <RotateTransform/>
-                        <TranslateTransform X="0"/>
+                        <TranslateTransform Y="44"/>
                     </TransformGroup>
                 </Button.RenderTransform>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF99FC1"/>
+                        <GradientStop Color="White" Offset="1"/>
+                        <GradientStop Color="#FFF19EBC"/>
+                    </LinearGradientBrush>
+                </Button.Background>
             </Button>
-            <Button Content="Мини-игра 2" 
+            <Button Content="Играть 2" 
         Command="{Binding SelectMiniGame1Command}"
-        Style="{StaticResource MainButtonStyle}" RenderTransformOrigin="0.5,0.5">
+        Style="{StaticResource MainButtonStyle}" RenderTransformOrigin="0.5,0.5" Height="150" Width="450" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium" FontSize="72" Foreground="#FFF5649E" >
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
                         <SkewTransform/>
                         <RotateTransform/>
-                        <TranslateTransform X="0"/>
+                        <TranslateTransform Y="178"/>
                     </TransformGroup>
                 </Button.RenderTransform>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF99FC1"/>
+                        <GradientStop Color="White" Offset="1"/>
+                        <GradientStop Color="#FFF19EBC"/>
+                    </LinearGradientBrush>
+                </Button.Background>
             </Button>
         </StackPanel>
     </Grid>

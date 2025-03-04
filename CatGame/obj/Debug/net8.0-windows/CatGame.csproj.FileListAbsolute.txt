@@ -69,3 +69,8 @@ C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\Views\PauseMenuView.baml
 C:\Users\vkali\kursav\CatGame\bin\Debug\net8.0-windows\Microsoft.Xaml.Behaviors.dll
 C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\CatGame.csproj.AssemblyReference.cache
 C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\CatGame.csproj.Up2Date
+C:\Users\user\Desktop\курсовая\CatGame\CatGame\bin\Debug\net8.0-windows\Microsoft.Xaml.Behaviors.dll
+C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\CatGame.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\Views\PauseMenuView.g.cs
+C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\Views\PauseMenuView.baml
+C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\CatGame.csproj.Up2Date

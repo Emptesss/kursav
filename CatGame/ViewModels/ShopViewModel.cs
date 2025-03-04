@@ -1,13 +1,9 @@
 ﻿using CatGame.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
-using CatGame.Helpers;
 using CatGame.Services;
+using CatGame.Helpers;
+
 namespace CatGame.ViewModels
 {
     public class ShopViewModel : ViewModelBase
@@ -20,15 +16,17 @@ namespace CatGame.ViewModels
             _gameData = gameData;
             _navigationService = navigationService;
 
-            // Инициализация команды
+            // Инициализация команд
             BuyItemCommand = new RelayCommand(BuyItem);
             ReturnCommand = new RelayCommand(ReturnToMain);
+            ExitCommand = new RelayCommand(OnExit);
         }
 
-        public int Balance => _gameData.Balance;
-
+        public ICommand ExitCommand { get; }
         public ICommand BuyItemCommand { get; }
         public ICommand ReturnCommand { get; }
+
+        public int Balance => _gameData.Balance;
 
         private void BuyItem(object parameter)
         {
@@ -40,12 +38,18 @@ namespace CatGame.ViewModels
             }
             else
             {
-                System.Windows.MessageBox.Show("Недостаточно монет!");
+                MessageBox.Show("Недостаточно монет!");
             }
         }
+
         private void ReturnToMain(object parameter)
         {
             _navigationService.NavigateTo(new MainGameScreenViewModel(_gameData, _navigationService));
+        }
+
+        private void OnExit()
+        {
+            Application.Current.MainWindow.Close(); // Закрыть окно
         }
     }
 }

@@ -20,7 +20,7 @@
                         <TranslateTransform X="-2" Y="402"/>
                     </TransformGroup>
                 </StackPanel.RenderTransform>
-                <Button Content="Играть" Command="{Binding PlayCommand}" Width="400" Height="100" Margin="5" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium" FontSize="72" RenderTransformOrigin="0.5,0.5">
+                <Button Content="Играть" Command="{Binding PlayCommand}" Width="400" Height="100" Margin="5" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium" FontSize="72" RenderTransformOrigin="0.5,0.5" Foreground="Black">
                     <Button.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>

@@ -8,7 +8,7 @@
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920"
-             Background="#FF1A1A1A">
+             Background="#FFFFBFD2">
     <Grid>
         <Canvas x:Name="GameCanvas">
             <i:Interaction.Behaviors>
@@ -56,7 +56,7 @@
                 VerticalAlignment="Top"
                 Margin="20"
                 Style="{StaticResource InvisibleButtonStyle}">
-            <Image Source="/Views/кнопкапауза.png" Width="50" Height="50"/>
+            <Image Source="/Views/кнопкапауза.png" Width="100" Height="100"/>
         </Button>
 
         <ContentControl Content="{Binding PauseViewModel}"

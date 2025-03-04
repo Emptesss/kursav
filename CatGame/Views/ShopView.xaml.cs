@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CatGame.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,12 @@ namespace CatGame.Views
     /// </summary>
     public partial class ShopView : UserControl
     {
-        public ShopView()
-        {
-            InitializeComponent();
+        
+            public ShopView()
+            {
+                InitializeComponent();
+                DataContext = new ShopViewModel(); // Установка DataContext
+            }
         }
     }
-}
+
