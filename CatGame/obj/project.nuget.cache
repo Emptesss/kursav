@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "tLFE6VsQzYc=",
+  "dgSpecHash": "bZ0s0Sr0Wn8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Desktop\\курсовая\\CatGame\\CatGame\\CatGame.csproj",
+  "projectFilePath": "C:\\Users\\vkali\\kursav\\CatGame\\CatGame.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\user\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.135\\microsoft.xaml.behaviors.wpf.1.1.135.nupkg.sha512"
+    "C:\\Users\\vkali\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.135\\microsoft.xaml.behaviors.wpf.1.1.135.nupkg.sha512"
   ],
   "logs": []
 }

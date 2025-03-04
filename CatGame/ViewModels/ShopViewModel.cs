@@ -47,7 +47,7 @@ namespace CatGame.ViewModels
             _navigationService.NavigateTo(new MainGameScreenViewModel(_gameData, _navigationService));
         }
 
-        private void OnExit()
+        private void OnExit(object parameter)
         {
             Application.Current.MainWindow.Close(); // Закрыть окно
         }

@@ -25,7 +25,7 @@ namespace CatGame.Views
             public ShopView()
             {
                 InitializeComponent();
-                DataContext = new ShopViewModel(); // Установка DataContext
+                 // Установка DataContext
             }
         }
     }

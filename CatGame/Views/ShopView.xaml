@@ -35,7 +35,7 @@
                        Grid.Column="1"/>
 
             <!-- Кнопка выхода -->
-            <Button Command="{Binding ExitCommand}" 
+            <Button Command="{Binding ReturnCommand}" 
                     Grid.Column="2"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Top"
