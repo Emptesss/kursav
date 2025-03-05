@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\vkali\kursav\CatGame\App.xaml
-71370702012
-
-28-2146460536
+8-264070177
+22063168281
+331903696914
 199946631701
-MainWindow.xaml;Views\MainGameScreenView.xaml;Views\MainMenuView.xaml;Views\MiniGame1View.xaml;Views\MiniGamesMenuView.xaml;Views\PauseMenuView.xaml;Views\ShopView.xaml;
+MainWindow.xaml;Views\GameOverView.xaml;Views\MainGameScreenView.xaml;Views\MainMenuView.xaml;Views\MiniGame1View.xaml;Views\MiniGamesMenuView.xaml;Views\PauseMenuView.xaml;Views\ShopView.xaml;
 
-True
+False
 

@@ -6,27 +6,20 @@ namespace CatGame.ViewModels
 {
     public class PauseMenuViewModel : ViewModelBase
     {
-        private readonly MiniGame1ViewModel _gameViewModel;
+        private readonly MiniGame1ViewModel _game;
         private readonly NavigationService _navigation;
 
-        public PauseMenuViewModel(MiniGame1ViewModel gameViewModel, NavigationService navigation)
+        public PauseMenuViewModel(MiniGame1ViewModel game, NavigationService navigation)
         {
-            _gameViewModel = gameViewModel;
+            _game = game;
             _navigation = navigation;
 
-            InitializeCommands();
-        }
-
-        public ICommand ResumeCommand { get; private set; }
-        public ICommand RestartCommand { get; private set; }
-        public ICommand ExitCommand { get; private set; }
-
-        private void InitializeCommands()
-        {
-            ResumeCommand = new RelayCommand(_ => _gameViewModel.IsPaused = false);
-            RestartCommand = new RelayCommand(_ => _gameViewModel.InitializeGame());
+            ResumeCommand = new RelayCommand(_ => _game.IsPaused = false);
             ExitCommand = new RelayCommand(_ =>
-    _navigation.NavigateTo(new MainGameScreenViewModel(_gameViewModel.GameData, _navigation)));
+                _navigation.NavigateTo(new MainGameScreenViewModel(_game.GameData, _navigation)));
         }
+
+        public ICommand ResumeCommand { get; }
+        public ICommand ExitCommand { get; }
     }
 }

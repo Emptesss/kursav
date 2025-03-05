@@ -19,7 +19,7 @@
                    FontSize="72"
                    HorizontalAlignment="Center"
                    Margin="0,52,0,32"
-                   Grid.Row="0" FontFamily="Montserrat ExtraBold" Foreground="#FFF5649E" Width="464"/>
+                   Grid.Row="0" Foreground="#FFF5649E" Width="490"/>
         <Button Command="{Binding ReturnCommand}" 
         Style="{StaticResource InvisibleButtonStyle}"
         Margin="1780,22,40,2">
@@ -39,7 +39,7 @@
             </StackPanel.RenderTransform>
             <Button Content="Играть 1" 
                     Command="{Binding SelectMiniGame1Command}"
-                    Style="{StaticResource MainButtonStyle}" RenderTransformOrigin="0.5,0.5" Height="150" Width="450" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium" FontSize="72" Foreground="#FFF5649E" >
+                    Style="{StaticResource MainButtonStyle}"  RenderTransformOrigin="0.5,0.5" Height="150" Width="450" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium" FontSize="72" Foreground="#FFED3939" >
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -52,7 +52,7 @@
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFF99FC1"/>
                         <GradientStop Color="White" Offset="1"/>
-                        <GradientStop Color="#FFF19EBC"/>
+                        <GradientStop Color="#FFEF97B7"/>
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>

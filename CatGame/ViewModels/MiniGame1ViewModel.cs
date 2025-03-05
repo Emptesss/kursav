@@ -1,40 +1,56 @@
 ﻿using CatGame.Helpers;
 using CatGame.Models;
+using CatGame.Models.CatGame.Models;
 using CatGame.Services;
 using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace CatGame.ViewModels
 {
     public class MiniGame1ViewModel : ViewModelBase
     {
+        private const double CatSpeed = 30;
+        private const double FoodSize = 50.0;
+        private const double InitialFoodSpawnInterval = 1.5;
+        private const double InitialFoodSpeed = 250;
+        private const int InitialMaxFoodCount = 5;
+        private const int MaxMissedFood = 3;
+
+        private double _foodSpawnInterval = InitialFoodSpawnInterval;
+        private double _foodSpeed = InitialFoodSpeed;
+        private int _maxFoodCount = InitialMaxFoodCount;
+        private int _missedFoodCount = 0;
+        private double _foodSpawnTimer = 0;
+        private double _gameTime = 0;
+        private bool _isFacingRight = true;
+        private double _lastTime;
+
+        public static readonly double CatWidth = 260.0;
+        public static readonly double CatHeight = 260.0;
+
         private readonly GameData _gameData;
         private readonly NavigationService _navigation;
-        private DateTime _lastUpdate;
+        private GameOverViewModel _gameOverViewModel;
+        public GameOverViewModel GameOverViewModel => _gameOverViewModel ??= new GameOverViewModel(_gameData, _navigation);
+        private DateTime _lastUpdate = DateTime.Now;
         private bool _isPaused;
-        private string _currentColor;
-        private int _score;
         private Random _rnd = new Random();
-        private Point _mousePosition;
-        public Point MousePosition
-        {
-            get => _mousePosition;
-            set => SetProperty(ref _mousePosition, value);
-        }
+        private Point _catPosition = new Point(900, 720);
+        private bool _isGameOver;
 
-        public ObservableCollection<Bubble> Bubbles { get; } = new();
-        public string CurrentColor
+        public ObservableCollection<Food> Foods { get; } = new ObservableCollection<Food>();
+        public ObservableCollection<BadFood> BadFoods { get; } = new ObservableCollection<BadFood>();
+
+
+        public Point CatPosition
         {
-            get => _currentColor;
-            set => SetProperty(ref _currentColor, value);
-        }
-        public int Score
-        {
-            get => _score;
-            set => SetProperty(ref _score, value);
+            get => _catPosition;
+            set => SetProperty(ref _catPosition, value);
         }
 
         public MiniGame1ViewModel(GameData gameData, NavigationService navigation)
@@ -45,16 +61,20 @@ namespace CatGame.ViewModels
             InitializeCommands();
             InitializeGame();
             CompositionTarget.Rendering += GameLoop;
+
             PauseViewModel = new PauseMenuViewModel(this, navigation);
+            CompositionTarget.Rendering += (s, e) =>
+            {
+                if (e is RenderingEventArgs renderArgs)
+                    GameLoop(s, renderArgs);
+            };
         }
 
-        public ICommand ShootCommand { get; private set; }
         public ICommand PauseCommand { get; private set; }
-        public ICommand ResumeCommand { get; private set; }
-        public PauseMenuViewModel PauseViewModel { get; }
         public ICommand RestartCommand { get; private set; }
+        public ICommand MoveCommand { get; private set; }
         public ICommand ExitCommand { get; private set; }
-
+        public PauseMenuViewModel PauseViewModel { get; }
 
         public bool IsPaused
         {
@@ -62,121 +82,210 @@ namespace CatGame.ViewModels
             set => SetProperty(ref _isPaused, value);
         }
 
+        public GameData GameData => _gameData;
+
         private void InitializeCommands()
         {
-            ShootCommand = new RelayCommand(Shoot);
-            PauseCommand = new RelayCommand(_ => IsPaused = true);
-            ResumeCommand = new RelayCommand(_ => IsPaused = false);
+            PauseCommand = new RelayCommand(_ => IsPaused = !IsPaused);
             RestartCommand = new RelayCommand(_ => InitializeGame());
-            ExitCommand = new RelayCommand(_ => _navigation.NavigateTo(new MainGameScreenViewModel(_gameData, _navigation)));
+            ExitCommand = new RelayCommand(_ =>
+                _navigation.NavigateTo(new MainGameScreenViewModel(_gameData, _navigation)));
+
+            MoveCommand = new RelayCommand(param =>
+            {
+                if (param is string direction)
+                {
+                    Key key = direction == "Left" ? Key.Left : Key.Right;
+                    MoveCat(key);
+                }
+            });
+        }
+        public bool IsFacingRight
+        {
+            get => _isFacingRight;
+            set => SetProperty(ref _isFacingRight, value);
         }
 
         public void InitializeGame()
         {
-            Bubbles.Clear();
-            Score = 0;
-            CurrentColor = GetRandomColor();
-
-            for (int i = 0; i < 15; i++)
-            {
-                AddNewBubble();
-            }
+            Foods.Clear();
+            _gameData.CurrentGameBalance = 0; // Сбрасываем только текущий баланс игры
+            _foodSpawnTimer = 0;
+            _gameTime = 0;
+            _foodSpawnInterval = InitialFoodSpawnInterval;
+            _foodSpeed = InitialFoodSpeed;
+            _maxFoodCount = InitialMaxFoodCount;
+            _missedFoodCount = 0;
+            IsGameOver = false;
         }
-        public GameData GameData => _gameData;
 
         private void GameLoop(object sender, EventArgs e)
         {
+            if (IsPaused || !(e is RenderingEventArgs args)) return;
+
+            double currentTime = args.RenderingTime.TotalSeconds;
+            double delta = currentTime - _lastTime;
+            _lastTime = currentTime;
+
+            IncreaseDifficulty(_gameTime);
+            UpdateFoodPositions(delta);
+            SpawnFood(delta);
+
+            _gameTime += delta;
+        }
+        private void PlaySound(string soundFilePath)
+        {
+            try
+            {
+                var player = new MediaPlayer();
+                Uri soundUri = new Uri(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, soundFilePath), UriKind.Absolute);
+                player.Open(soundUri);
+                player.Volume = 0.5; // Настройка громкости
+                player.Play();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Ошибка при воспроизведении звука: {ex.Message}");
+            }
+        }
+
+        private void IncreaseDifficulty(double time)
+        {
+            _foodSpawnInterval = Math.Max(0.5, InitialFoodSpawnInterval - time / 35);
+
+            _foodSpeed = InitialFoodSpeed + (time / 10) * 5;
+
+            _maxFoodCount = 6;
+        }
+
+        private void UpdateFoodPositions(double delta)
+        {
+            foreach (var food in Foods.ToArray())
+            {
+                food.Position = new Point(food.Position.X, food.Position.Y + food.Speed * delta);
+
+                if (CheckCollision(food))
+                {
+                    _gameData.CurrentGameBalance += food.Reward; // Обновляем CurrentGameBalance
+                    Debug.WriteLine($"Монетка собрана! Текущий баланс: {_gameData.CurrentGameBalance}");
+                    Foods.Remove(food);
+                }
+                else if (food.Position.Y > 1080)
+                {
+                    Foods.Remove(food);
+                    _missedFoodCount++;
+                    PlaySound("Views/roblox-death-sound-effect.mp3");
+                    if (_missedFoodCount >= MaxMissedFood)
+                    {
+                        Debug.WriteLine($"Игра окончена! Текущий баланс: {_gameData.CurrentGameBalance}");
+                        GameOver();
+                    }
+                }
+            }
+            foreach (var badFood in BadFoods.ToArray())
+            {
+                badFood.Position = new Point(badFood.Position.X, badFood.Position.Y + badFood.Speed * delta);
+
+                if (CheckCollision(badFood))
+                {
+                    _missedFoodCount += badFood.Penalty;
+                    PlaySound("Views/roblox-death-sound-effect.mp3");// Отнимаем жизнь
+                    BadFoods.Remove(badFood);
+                    if (_missedFoodCount >= MaxMissedFood)
+                    {
+                        GameOver();
+                    }
+                }
+                else if (badFood.Position.Y > 1080)
+                {
+                    BadFoods.Remove(badFood);
+                }
+            }
+        }
+
+        private bool CheckCollision(Food food)
+        {
+            bool collisionX = food.Position.X + FoodSize > CatPosition.X &&
+                              food.Position.X < CatPosition.X + CatWidth;
+            bool collisionY = food.Position.Y + FoodSize > CatPosition.Y &&
+                              food.Position.Y < CatPosition.Y + CatHeight;
+            return collisionX && collisionY;
+        }
+
+        private void SpawnFood(double delta)
+        {
+            _foodSpawnTimer += delta;
+
+            if (_foodSpawnTimer >= _foodSpawnInterval && Foods.Count < _maxFoodCount)
+            {
+                if (_rnd.NextDouble() < 0.5)
+                {
+                    AddNewFood();
+                }
+                _foodSpawnTimer = 0;
+            }
+        }
+
+        private void AddNewFood()
+        {
+            if (_rnd.NextDouble() < 0.2) // 20% вероятность создания плохой еды
+            {
+                var badFood = new BadFood
+                {
+                    Position = new Point(_rnd.Next(500, 1420 - (int)FoodSize), -FoodSize),
+                    Speed = _foodSpeed * (0.8 + _rnd.NextDouble() * 0.4), // Скорость от 80% до 120% от базовой
+                    Reward = 0, // Плохая еда не дает награды
+                    Penalty = 1 // Штраф за сбор
+                };
+                BadFoods.Add(badFood);
+            }
+            else
+            {
+                var food = new Food
+                {
+                    Position = new Point(_rnd.Next(500, 1420 - (int)FoodSize), -FoodSize),
+                    Speed = _foodSpeed * (0.8 + _rnd.NextDouble() * 0.4), // Скорость от 80% до 120% от базовой
+                    Reward = 1
+                };
+                Foods.Add(food);
+            }
+        }
+
+        public void MoveCat(Key key)
+        {
             if (IsPaused) return;
 
-            var now = DateTime.Now;
-            var delta = (now - _lastUpdate).TotalSeconds;
-            _lastUpdate = now;
-
-            foreach (var bubble in Bubbles.ToArray())
+            double newX = CatPosition.X;
+            if (key == Key.Left)
             {
-                var newX = bubble.Position.X + 50 * delta;
-                var newY = bubble.Position.Y + Math.Sin(now.Ticks * 0.0000001) * 30 * delta;
-
-                if (newX > 1920) newX = 100;
-                if (newY > 1080) newY = 100;
-
-                bubble.Position = new Point(newX, newY);
+                newX -= CatSpeed;
+                IsFacingRight = false;
             }
-        }
-        private Bubble FindBubbleAtPosition(Point position)
-        {
-            return Bubbles.FirstOrDefault(b =>
-                Math.Sqrt(
-                    Math.Pow(b.Position.X - position.X, 2) +
-                    Math.Pow(b.Position.Y - position.Y, 2)
-                ) < b.Size
-            );
-        }
-        private List<Bubble> FindConnectedBubbles(Bubble startBubble)
-        {
-            var visited = new List<Bubble>();
-            var queue = new Queue<Bubble>();
-            queue.Enqueue(startBubble);
-
-            while (queue.Count > 0)
+            else if (key == Key.Right)
             {
-                var current = queue.Dequeue();
-                visited.Add(current);
-
-                foreach (var bubble in Bubbles)
-                {
-                    if (!visited.Contains(bubble) &&
-                        IsAdjacent(current, bubble) &&
-                        bubble.Color == current.Color)
-                    {
-                        queue.Enqueue(bubble);
-                    }
-                }
+                newX += CatSpeed;
+                IsFacingRight = true;
             }
-            return visited;
+
+            newX = Math.Clamp(newX, 0, 1920 - CatWidth);
+            CatPosition = new Point(newX, CatPosition.Y);
         }
-        private bool IsAdjacent(Bubble a, Bubble b)
+
+        public bool IsGameOver
         {
-            return Math.Sqrt(
-                Math.Pow(a.Position.X - b.Position.X, 2) +
-                Math.Pow(a.Position.Y - b.Position.Y, 2)
-            ) < a.Size + b.Size;
+            get => _isGameOver;
+            set => SetProperty(ref _isGameOver, value);
         }
-
-        private void Shoot(object parameter)
+        private void GameOver()
         {
-            if (parameter is Point position)
-            {
-                var targetBubble = FindBubbleAtPosition(position);
-                if (targetBubble != null && targetBubble.Color == CurrentColor)
-                {
-                    var connectedBubbles = FindConnectedBubbles(targetBubble);
-                    if (connectedBubbles.Count >= 3)
-                    {
-                        foreach (var bubble in connectedBubbles)
-                        {
-                            Bubbles.Remove(bubble);
-                            Score += connectedBubbles.Count * 10; // Бонус за группу
-                        }
-                        _gameData.Balance += Score / 100; // Начисление монет
-                    }
-                    CurrentColor = GetRandomColor();
-                }
-            }
+            IsPaused = true;
+            IsGameOver = true;
+            _gameOverViewModel = new GameOverViewModel(_gameData, _navigation); // Передаем текущий баланс
+            Debug.WriteLine($"Создано меню проигрыша. Текущий баланс: {_gameData.CurrentGameBalance}");
         }
-
-
-        private void AddNewBubble()
+        public void ShowGameOverMenu()
         {
-            Bubbles.Add(new Bubble
-            {
-                Position = new Point(_rnd.Next(100, 1700), _rnd.Next(100, 800)),
-                Color = GetRandomColor(),
-                Size = _rnd.Next(30, 60)
-            });
+            _navigation.NavigateTo(new GameOverViewModel(_gameData, _navigation));
         }
-
-        private string GetRandomColor() =>
-            new[] { "#FF0000", "#0000FF", "#00FF00", "#FFFF00" }[_rnd.Next(0, 4)];
     }
 }

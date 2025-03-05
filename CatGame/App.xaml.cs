@@ -7,9 +7,16 @@ namespace CatGame
 {
     public partial class App : Application
     {
+        public static MusicPlayer MusicPlayer { get; } = new MusicPlayer();
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
+            string musicPath = System.IO.Path.Combine(
+           AppDomain.CurrentDomain.BaseDirectory,
+           "Views/music.mp3");
+
+            MusicPlayer.Play(musicPath);
 
             // Создаем общие данные игры
             var gameData = new GameData { Balance = 100 };

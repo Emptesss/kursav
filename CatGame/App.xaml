@@ -9,8 +9,60 @@
     
 
     <Application.Resources>
-        <!-- Конвертеры -->
+        <FontFamily x:Key="MinecraftFont">pack://application:,,,/CatGame;component/Views/#Minecraft Rus</FontFamily>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="{StaticResource MinecraftFont}"/>
+            <Setter Property="Foreground" Value="#FF2D2D2D"/>
+            <!-- Общий цвет текста -->
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="{StaticResource MinecraftFont}"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Background" Value="#FFF9BFCD"/>
+        </Style>
+
+        <!-- Стиль для всех заголовков -->
+        <Style x:Key="HeaderText" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="FontSize" Value="72"/>
+            <Setter Property="Foreground" Value="#FFF5649E"/>
+        </Style>
         <helpers:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
+        <helpers:BoolToScaleConverter x:Key="BoolToScaleConverter"/>
+        <helpers:BoolToAngleConverter x:Key="BoolToAngleConverter"/>
+        <ElasticEase x:Key="ElasticEase" 
+                EasingMode="EaseOut" 
+                Oscillations="1" 
+                Springiness="3"/>
+
+        <SineEase x:Key="SineEaseOut" 
+             EasingMode="EaseOut"/>
+
+        <SineEase x:Key="SineEaseInOut" 
+             EasingMode="EaseInOut"/>
+        <QuadraticEase x:Key="QuadraticEaseOut" EasingMode="EaseOut"/>
+        <CubicEase x:Key="CubicEaseInOut" EasingMode="EaseInOut"/>
+        <ElasticEase x:Key="ElasticEaseOut" EasingMode="EaseOut" Oscillations="1"/>
+        <SineEase x:Key="SineEaseIn" EasingMode="EaseIn"/>
+        <BackEase x:Key="BackEaseOut" EasingMode="EaseOut" Amplitude="0.5"/>
+        <BounceEase x:Key="BounceEaseSoft" Bounces="2" Bounciness="1" EasingMode="EaseOut"/>
+        <BounceEase x:Key="BounceEaseOut" 
+               EasingMode="EaseOut" 
+               Bounces="2" 
+               Bounciness="1.5"/>
+
+        <CircleEase x:Key="CircleEaseOut" 
+               EasingMode="EaseOut"/>
+
+        <BackEase x:Key="BackEaseIn" 
+             EasingMode="EaseIn" 
+             Amplitude="0.3"/>
+
+        <CubicEase x:Key="CubicEaseIn" 
+              EasingMode="EaseIn"/>
+
+        <CubicEase x:Key="CubicEaseOut" 
+              EasingMode="EaseOut"/>
 
         <!-- Стили -->
         <Style x:Key="PauseMenuStyle" TargetType="ContentControl">
@@ -22,6 +74,11 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+        </Style>
+        <Style TargetType="Image" x:Key="CatStyle">
+            <Setter Property="Source" Value="/Views/кoтправо.png"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="200"/>
         </Style>
         <Style x:Key="MainButtonStyle" TargetType="Button">
             <Setter Property="Width" Value="300"/>
@@ -71,6 +128,9 @@
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Padding" Value="0"/>
         </Style>
+        <Style x:Key="FocusStyle" TargetType="Control">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        </Style>
 
         <!-- DataTemplates -->
         <DataTemplate DataType="{x:Type viewModels:MainMenuViewModel}">
@@ -91,6 +151,12 @@
 
         <DataTemplate DataType="{x:Type viewModels:MiniGamesMenuViewModel}">
             <views:MiniGamesMenuView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:PauseMenuViewModel}">
+            <views:PauseMenuView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:GameOverViewModel}">
+            <views:GameOverView/>
         </DataTemplate>
     </Application.Resources>
 </Application>

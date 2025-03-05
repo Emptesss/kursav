@@ -23,6 +23,8 @@ namespace CatGame.Views
         public MiniGame1View()
         {
             InitializeComponent();
+            Loaded += (s, e) => GameCanvas.Focus();
+
         }
     }
 }

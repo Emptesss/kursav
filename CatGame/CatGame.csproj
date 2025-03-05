@@ -9,7 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resoursces\roblox-death-sound-effect.mp3" />
     <None Remove="Views\fonmenu.png" />
+    <None Remove="Views\minecraft.ttf" />
+    <None Remove="Views\music.mp3" />
+    <None Remove="Views\roblox-death-sound-effect.mp3" />
     <None Remove="Views\игры.png" />
     <None Remove="Views\кнопкавыход.png" />
     <None Remove="Views\кнопказаново.png" />
@@ -24,7 +28,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resoursces\" />
+    <Content Include="Views\music.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\roblox-death-sound-effect.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -32,7 +41,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resoursces\roblox-death-sound-effect.mp3" />
     <Resource Include="Views\fonmenu.png" />
+    <Resource Include="Views\minecraft.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Views\игры.png" />
     <Resource Include="Views\кнопкавыход.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

@@ -75,12 +75,48 @@
             <Image Height="500" Width="500" RenderTransformOrigin="0.5,0.5" Source="/CatGame;component/Views/котправо.png">
                 <Image.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform X="-509" Y="26"/>
+                        <TranslateTransform x:Name="CatTranslate" X="-509" Y="26"/>
+                        <ScaleTransform x:Name="CatScale" ScaleX="1" ScaleY="1"/>
                     </TransformGroup>
                 </Image.RenderTransform>
+                <Image.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard>
+                            <Storyboard RepeatBehavior="Forever" Duration="0:0:3.0">
+
+                                <!-- 1. Подготовка (сжатие) -->
+                                <DoubleAnimationUsingKeyFrames
+                        Storyboard.TargetName="CatScale"
+                        Storyboard.TargetProperty="ScaleY">
+                                    <EasingDoubleKeyFrame Value="0.90" KeyTime="0:0:0.5" EasingFunction="{StaticResource SineEaseOut}"/>
+                                    <EasingDoubleKeyFrame Value="0.85" KeyTime="0:0:0.8" EasingFunction="{StaticResource BackEaseOut}"/>
+                                </DoubleAnimationUsingKeyFrames>
+
+                                <!-- 2. Прыжок -->
+                                <ParallelTimeline BeginTime="0:0:0.8">
+                                    <!-- Вертикальное движение -->
+                                    <DoubleAnimationUsingKeyFrames
+                            Storyboard.TargetName="CatTranslate"
+                            Storyboard.TargetProperty="Y">
+                                        <EasingDoubleKeyFrame Value="-60" KeyTime="0:0:0.4" EasingFunction="{StaticResource QuadraticEaseOut}"/>
+                                        <EasingDoubleKeyFrame Value="26" KeyTime="0:0:1.6" EasingFunction="{StaticResource CubicEaseInOut}"/>
+                                    </DoubleAnimationUsingKeyFrames>
+
+                                    <!-- Деформация тела -->
+                                    <DoubleAnimationUsingKeyFrames
+                            Storyboard.TargetName="CatScale"
+                            Storyboard.TargetProperty="ScaleY">
+                                        <EasingDoubleKeyFrame Value="1.10" KeyTime="0:0:0.2" EasingFunction="{StaticResource SineEaseIn}"/>
+                                        <EasingDoubleKeyFrame Value="1.05" KeyTime="0:0:0.8"/>
+                                        <EasingDoubleKeyFrame Value="0.97" KeyTime="0:0:1.2"/>
+                                        <EasingDoubleKeyFrame Value="1.00" KeyTime="0:0:1.6" EasingFunction="{StaticResource ElasticEaseOut}"/>
+                                    </DoubleAnimationUsingKeyFrames>
+                                </ParallelTimeline>
+
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Image.Triggers>
             </Image>
             <Image Height="100" Width="100"/>
         </StackPanel>

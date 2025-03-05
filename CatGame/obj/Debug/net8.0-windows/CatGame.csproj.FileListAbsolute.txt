@@ -74,3 +74,8 @@ C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\
 C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\Views\PauseMenuView.g.cs
 C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\Views\PauseMenuView.baml
 C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\CatGame.csproj.Up2Date
+C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\Views\GameOverView.g.cs
+C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\Views\GameOverView.baml
+C:\Users\vkali\kursav\CatGame\bin\Debug\net8.0-windows\Views\roblox-death-sound-effect.mp3
+C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\CatGame_Content.g.cs
+C:\Users\vkali\kursav\CatGame\bin\Debug\net8.0-windows\Views\music.mp3

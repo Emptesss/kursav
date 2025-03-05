@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CatGame.Models
 {
     public class GameData : INotifyPropertyChanged
     {
         private int _balance;
+        private int _currentGameBalance;
 
         public int Balance
         {
@@ -19,6 +16,17 @@ namespace CatGame.Models
             {
                 _balance = value;
                 OnPropertyChanged();
+            }
+        }
+
+        public int CurrentGameBalance
+        {
+            get => _currentGameBalance;
+            set
+            {
+                _currentGameBalance = value;
+                OnPropertyChanged();
+                Debug.WriteLine($"CurrentGameBalance изменен: {_currentGameBalance}");
             }
         }
 

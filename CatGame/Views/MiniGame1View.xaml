@@ -5,61 +5,164 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CatGame.Views"
              xmlns:helpers="clr-namespace:CatGame.Helpers"
-             xmlns:i="http://schemas.microsoft.com/xaml/behaviors" 
+             xmlns:viewModels="clr-namespace:CatGame.ViewModels"
+             xmlns:views="clr-namespace:CatGame.Views"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920"
-             Background="#FFFFBFD2">
+             Background="#FFFFBFD2"
+             FocusManager.FocusedElement="{Binding ElementName=GameCanvas}">
     <Grid>
-        <Canvas x:Name="GameCanvas">
-            <i:Interaction.Behaviors>
-                <helpers:MousePositionBehavior MousePosition="{Binding MousePosition, Mode=OneWayToSource}"/>
-            </i:Interaction.Behaviors>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-            <Canvas.InputBindings>
-                <MouseBinding 
-            MouseAction="LeftClick" 
-            Command="{Binding ShootCommand}"
-            CommandParameter="{Binding MousePosition}"/>
-            </Canvas.InputBindings>
-            <ItemsControl ItemsSource="{Binding Bubbles}">
+        <!-- Верхняя панель -->
+        <Grid Grid.Row="0" Background="#AAFFFFFF">
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <Image Source="/CatGame;component/Views/монета.png" 
+                       Width="60" 
+                       Height="60"/>
+                <TextBlock Text="{Binding GameData.CurrentGameBalance}" 
+                           FontSize="28"
+                           Margin="10,0"
+                           Foreground="Black"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <Button Command="{Binding PauseCommand}" 
+                    HorizontalAlignment="Right"
+                    Style="{StaticResource InvisibleButtonStyle}"
+                    Margin="20">
+                <Image Source="/CatGame;component/Views/кнопкапауза.png" 
+                       Width="60" 
+                       Height="60"/>
+            </Button>
+        </Grid>
+
+        <!-- Игровое поле -->
+        <Canvas x:Name="GameCanvas" Grid.Row="1" Focusable="True" FocusManager.FocusedElement="{Binding RelativeSource={RelativeSource Self}}">
+            <!-- Кот -->
+            <Image Source="/CatGame;component/Views/котправо.png" 
+       Width="{x:Static viewModels:MiniGame1ViewModel.CatWidth}"
+       Height="{x:Static viewModels:MiniGame1ViewModel.CatHeight}"
+       Canvas.Left="{Binding CatPosition.X}"
+       Canvas.Top="{Binding CatPosition.Y}"
+       RenderTransformOrigin="0.5, 0.5">
+                <Image.Effect>
+                    <DropShadowEffect BlurRadius="10" 
+                          Opacity="0.5" 
+                          Direction="270" 
+                          ShadowDepth="5"/>
+                </Image.Effect>
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform x:Name="Scale" ScaleX="1"/>
+                        <SkewTransform x:Name="Skew" AngleX="0"/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+                <Image.Style>
+                    <Style TargetType="Image">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsFacingRight}" Value="False">
+                                <DataTrigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <!-- Анимация "псевдо-поворота" -->
+                                            <DoubleAnimation
+                                    Storyboard.TargetProperty="RenderTransform.Children[0].ScaleX"
+                                    To="-1"
+                                    Duration="0:0:0.3"
+                                    EasingFunction="{StaticResource ElasticEase}"/>
+
+                                            <!-- Анимация перспективы -->
+                                            <DoubleAnimation
+                                    Storyboard.TargetProperty="RenderTransform.Children[1].AngleX"
+                                    From="0" To="20" 
+                                    AutoReverse="True"
+                                    Duration="0:0:0.15"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </DataTrigger.EnterActions>
+                                <DataTrigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                    Storyboard.TargetProperty="RenderTransform.Children[0].ScaleX"
+                                    To="1"
+                                    Duration="0:0:0.3"
+                                    EasingFunction="{StaticResource ElasticEase}"/>
+
+                                            <DoubleAnimation
+                                    Storyboard.TargetProperty="RenderTransform.Children[1].AngleX"
+                                    From="0" To="-20"
+                                    AutoReverse="True"
+                                    Duration="0:0:0.15"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </DataTrigger.ExitActions>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
+            <!-- Еда -->
+            <ItemsControl ItemsSource="{Binding Foods}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <Canvas/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemContainerStyle>
+                    <Style>
+                        <Setter Property="Canvas.Left" Value="{Binding Position.X}"/>
+                        <Setter Property="Canvas.Top" Value="{Binding Position.Y}"/>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Ellipse 
-                Width="40" 
-                Height="40" 
-                Fill="{Binding CurrentColor}"
-                Canvas.Left="100"
-                Canvas.Top="900"/>
+                        <Ellipse Width="50" Height="50" Fill="#FF4CAF50"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
+
+            <!-- Плохая еда -->
+            <ItemsControl ItemsSource="{Binding BadFoods}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemContainerStyle>
+                    <Style>
+                        <Setter Property="Canvas.Left" Value="{Binding Position.X}"/>
+                        <Setter Property="Canvas.Top" Value="{Binding Position.Y}"/>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Ellipse Width="50" Height="50" Fill="#FF0000"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <Canvas.InputBindings>
+                <KeyBinding Key="Left" Command="{Binding MoveCommand}" CommandParameter="Left"/>
+                <KeyBinding Key="Right" Command="{Binding MoveCommand}" CommandParameter="Right"/>
+            </Canvas.InputBindings>
         </Canvas>
 
-        <StackPanel Orientation="Horizontal" Margin="20">
-            <Border Background="#AAFFFFFF" CornerRadius="10" Padding="10">
-                <TextBlock Text="{Binding Score, StringFormat='Очки: {0}'}"
-                           FontSize="24"
-                           Foreground="Black"/>
-            </Border>
-            <Border Background="#AAFFFFFF" CornerRadius="10" Padding="10" Margin="10,0">
-                <Ellipse Width="40" Height="40" Fill="{Binding CurrentColor}"/>
-            </Border>
-        </StackPanel>
+        <!-- Меню паузы -->
+        <Grid Grid.RowSpan="2" Panel.ZIndex="1"
+              Visibility="{Binding IsPaused, Converter={StaticResource BoolToVisibility}}">
+            <views:PauseMenuView DataContext="{Binding PauseViewModel}"/>
+        </Grid>
 
-        <Button Command="{Binding PauseCommand}" 
-                HorizontalAlignment="Right" 
-                VerticalAlignment="Top"
-                Margin="20"
-                Style="{StaticResource InvisibleButtonStyle}">
-            <Image Source="/Views/кнопкапауза.png" Width="100" Height="100"/>
-        </Button>
-
-        <ContentControl Content="{Binding PauseViewModel}"
-                Visibility="{Binding IsPaused, Converter={StaticResource BoolToVisibility}}"/>
+        <!-- Меню проигрыша -->
+        <Grid Grid.RowSpan="2" Panel.ZIndex="2"
+              Visibility="{Binding IsGameOver, Converter={StaticResource BoolToVisibility}}">
+            <ContentControl Content="{Binding GameOverViewModel}"/>
+        </Grid>
     </Grid>
 </UserControl>

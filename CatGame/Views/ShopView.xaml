@@ -50,12 +50,11 @@
         <!-- Заголовок "Магазин" -->
         <TextBlock Text="Магазин" 
                    FontSize="72"
-                   HorizontalAlignment="Center"
-                   Margin="0,52,0,32"
+                   HorizontalAlignment="Left"
+                   Margin="774,42,0,42"
                    Grid.Row="0" 
-                   FontFamily="Montserrat ExtraBold" 
                    Foreground="#FFF5649E" 
-                   Width="351"/>
+                   Width="380"/>
 
         <!-- Основной контент -->
         <Grid Grid.Row="1">
@@ -76,7 +75,6 @@
                    HorizontalAlignment="Center"
                    Margin="0,30,0,962"
                    Grid.Row="2" 
-                   FontFamily="Montserrat Medium" 
                    Foreground="#FFF5649E" 
                    Width="180" RenderTransformOrigin="0.52,0.54"/>
         <Image HorizontalAlignment="Left" 

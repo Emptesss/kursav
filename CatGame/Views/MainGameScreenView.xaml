@@ -132,13 +132,64 @@
                     </Image.Style>
                 </Image>
             </Button>
+            <!-- Тень кота -->
+            <!-- Тень кота -->
+            <Ellipse x:Name="CatShadow"
+         Width="200" 
+         Height="50"
+         HorizontalAlignment="Center"
+         VerticalAlignment="Top"
+         Margin="0,-470,0,0"
+         Opacity="0.3">
+                <Ellipse.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#80000000" Offset="0"/>
+                        <GradientStop Color="#00000000" Offset="1"/>
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+                <Ellipse.Effect>
+                    <BlurEffect Radius="15"/>
+                </Ellipse.Effect>
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform x:Name="ShadowScale"/>
+                        <TranslateTransform x:Name="ShadowTranslate" Y="0"/>
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+                <Ellipse.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard>
+                            <Storyboard RepeatBehavior="Forever">
+                                <!-- Анимация размера тени -->
+                                <DoubleAnimation
+                        Storyboard.TargetName="ShadowScale"
+                        Storyboard.TargetProperty="ScaleX"
+                        From="0.8" To="1.2"
+                        Duration="0:0:3"
+                        AutoReverse="True"
+                        EasingFunction="{StaticResource SineEaseInOut}"/>
+
+                                <!-- Анимация прозрачности тени -->
+                                <DoubleAnimation
+                        Storyboard.TargetName="CatShadow"
+                        Storyboard.TargetProperty="Opacity"
+                        From="0.4" To="0.2"
+                        Duration="0:0:3"
+                        AutoReverse="True"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Ellipse.Triggers>
+            </Ellipse>
+
+            <!-- Сам кот -->
             <Image Source="/CatGame;component/Views/котправо.png" 
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Top"
-                   Width="650" 
-                   Height="650"
-                   Stretch="Uniform" 
-                   Margin="0,-542,0,0"/>
+       HorizontalAlignment="Center"
+       VerticalAlignment="Top"
+       Width="650" 
+       Height="650"
+       Stretch="Uniform" 
+       Margin="0,-542,0,0"/>
         </Grid>
     </Grid>
 </UserControl>
