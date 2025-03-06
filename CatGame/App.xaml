@@ -10,6 +10,10 @@
 
     <Application.Resources>
         <FontFamily x:Key="MinecraftFont">pack://application:,,,/CatGame;component/Views/#Minecraft Rus</FontFamily>
+        <helpers:BoolToBuyConverter x:Key="BoolToBuyConverter"/>
+        <helpers:InverseBoolConverter x:Key="InverseBoolConverter"/>
+        <helpers:IsSelectedConverter x:Key="IsSelectedConverter"/>
+        <helpers:SelectedToTextConverter x:Key="SelectedToTextConverter"/>
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="{StaticResource MinecraftFont}"/>
             <Setter Property="Foreground" Value="#FF2D2D2D"/>

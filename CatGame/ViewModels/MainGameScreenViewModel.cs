@@ -20,12 +20,22 @@ namespace CatGame.ViewModels
             _gameData = gameData;
             _navigationService = navigationService;
 
+            _gameData.PropertyChanged += (s, e) =>
+            {
+                if (e.PropertyName == nameof(_gameData.SelectedSkin))
+                {
+                    OnPropertyChanged(nameof(CurrentCatImage));
+                }
+            };
             // Инициализация команд
             NavigateToMiniGame1Command = new RelayCommand(NavigateToMiniGame1);
             OpenMiniGamesMenuCommand = new RelayCommand(OpenMiniGamesMenu);
             NavigateToShopCommand = new RelayCommand(NavigateToShop);
             ExitCommand = new RelayCommand(ExitGame);
+
         }
+
+        public string CurrentCatImage => _gameData.SelectedSkin?.ImagePath;
 
         public int Balance => _gameData.Balance;
 

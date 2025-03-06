@@ -183,13 +183,14 @@
             </Ellipse>
 
             <!-- Сам кот -->
-            <Image Source="/CatGame;component/Views/котправо.png" 
-       HorizontalAlignment="Center"
-       VerticalAlignment="Top"
-       Width="650" 
-       Height="650"
-       Stretch="Uniform" 
-       Margin="0,-542,0,0"/>
+            <!-- Сам кот -->
+            <Image Source="{Binding CurrentCatImage}" 
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top"
+               Width="650" 
+               Height="650"
+               Stretch="Uniform" 
+               Margin="0,-542,0,0"/>
         </Grid>
     </Grid>
 </UserControl>

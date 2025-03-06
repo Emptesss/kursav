@@ -4,8 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CatGame.Views"
+             xmlns:helpers="clr-namespace:CatGame.Helpers"
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920">
+
     <Grid Background="#FFF9BFCD">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" MinHeight="146"/>
@@ -13,7 +15,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Верхняя панель с балансом и кнопкой выхода -->
+        <!-- Верхняя панель -->
         <Grid Grid.Row="0" Margin="20">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -21,20 +23,17 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Иконка монеты -->
             <Image Source="/CatGame;component/Views/монета.png" 
                    Width="100" 
                    Height="100"
                    Grid.Column="0"/>
 
-            <!-- Баланс -->
             <TextBlock Text="{Binding Balance, StringFormat='Баланс: {0}'}" 
                        FontSize="24" 
                        Margin="10,0,0,0"
                        VerticalAlignment="Center"
                        Grid.Column="1"/>
 
-            <!-- Кнопка выхода -->
             <Button Command="{Binding ReturnCommand}" 
                     Grid.Column="2"
                     HorizontalAlignment="Right"
@@ -47,42 +46,57 @@
             </Button>
         </Grid>
 
-        <!-- Заголовок "Магазин" -->
-        <TextBlock Text="Магазин" 
-                   FontSize="72"
-                   HorizontalAlignment="Left"
-                   Margin="774,42,0,42"
-                   Grid.Row="0" 
-                   Foreground="#FFF5649E" 
-                   Width="380"/>
+        <!-- Основной контент со скинами -->
+        <Grid Grid.Row="1" Margin="20">
+            <ItemsControl ItemsSource="{Binding Skins}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
 
-        <!-- Основной контент -->
-        <Grid Grid.Row="1">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Text="{Binding Balance, StringFormat='Баланс: {0}'}" 
-                           FontSize="20" 
-                           Margin="0,0,0,20"/>
-                <Button Content="Купить предмет (10 монет)" 
-                        Command="{Binding BuyItemCommand}" 
-                        Width="200" 
-                        Height="30"/>
-            </StackPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="20" Width="300">
+                            <Image Source="{Binding ImagePath}" 
+                                    Width="200" 
+                                     Height="200"
+                                    Stretch="Uniform"/>
+
+                            <!-- Цена и кнопка покупки -->
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10">
+                                <TextBlock Text="{Binding Price}" FontSize="24" Margin="0 0 10 0"/>
+                                <Image Source="/CatGame;component/Views/монета.png" Width="30" Height="30"/>
+                            </StackPanel>
+
+                            <!-- Кнопка покупки -->
+                            <Button Content="{Binding IsPurchased, Converter={StaticResource BoolToBuyConverter}}" 
+        Command="{Binding DataContext.BuyItemCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+        CommandParameter="{Binding}"
+        IsEnabled="{Binding IsPurchased, Converter={StaticResource InverseBoolConverter}}"
+        Style="{StaticResource MainButtonStyle}"
+        Margin="0 10"/>
+
+
+                            <!-- Кнопка выбора скина -->
+                            <Button Command="{Binding DataContext.ToggleSkinCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+        CommandParameter="{Binding}"
+        IsEnabled="{Binding IsPurchased}"
+        Visibility="{Binding IsPurchased, Converter={StaticResource BoolToVisibility}}"
+        Style="{StaticResource MainButtonStyle}"
+        Margin="0 10">
+                                <Button.Content>
+                                    <MultiBinding Converter="{StaticResource SelectedToTextConverter}">
+                                        <Binding Path="DataContext.GameData.SelectedSkin" RelativeSource="{RelativeSource AncestorType=UserControl}"/>
+                                        <Binding Path="."/>
+                                    </MultiBinding>
+                                </Button.Content>
+                            </Button>
+
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </Grid>
-
-        <!-- Нижняя панель с текстом "Скины" и изображением -->
-        <TextBlock Text="Скины" 
-                   FontSize="48"
-                   HorizontalAlignment="Center"
-                   Margin="0,30,0,962"
-                   Grid.Row="2" 
-                   Foreground="#FFF5649E" 
-                   Width="180" RenderTransformOrigin="0.52,0.54"/>
-        <Image HorizontalAlignment="Left" 
-               Height="300" 
-               Margin="65,118,0,0" 
-               Grid.Row="2" 
-               VerticalAlignment="Top" 
-               Width="300" 
-               Source="/CatGame;component/Views/котчерника.png"/>
     </Grid>
 </UserControl>

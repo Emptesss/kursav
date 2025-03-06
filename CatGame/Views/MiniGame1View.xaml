@@ -44,13 +44,15 @@
         <!-- Игровое поле -->
         <Canvas x:Name="GameCanvas" Grid.Row="1" Focusable="True" FocusManager.FocusedElement="{Binding RelativeSource={RelativeSource Self}}">
             <!-- Кот -->
-            <Image Source="/CatGame;component/Views/котправо.png" 
+            <Image Source="{Binding GameData.SelectedSkin.ImagePath, TargetNullValue=/CatGame;component/Views/котправо.png}" 
        Width="{x:Static viewModels:MiniGame1ViewModel.CatWidth}"
        Height="{x:Static viewModels:MiniGame1ViewModel.CatHeight}"
        Canvas.Left="{Binding CatPosition.X}"
        Canvas.Top="{Binding CatPosition.Y}"
        RenderTransformOrigin="0.5, 0.5">
-                <Image.Effect>
+                <!-- ... остальная разметка изображения ... -->
+            
+            <Image.Effect>
                     <DropShadowEffect BlurRadius="10" 
                           Opacity="0.5" 
                           Direction="270" 
