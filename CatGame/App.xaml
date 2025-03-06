@@ -5,27 +5,31 @@
              xmlns:viewModels="clr-namespace:CatGame.ViewModels"
              xmlns:views="clr-namespace:CatGame.Views"
              xmlns:helpers="clr-namespace:CatGame.Helpers"
+             xmlns:behaviors="clr-namespace:CatGame.Behaviors"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors">
+    
     
 
     <Application.Resources>
         <FontFamily x:Key="MinecraftFont">pack://application:,,,/CatGame;component/Views/#Minecraft Rus</FontFamily>
+        <helpers:PurchaseStatusConverter x:Key="PurchaseStatusConverter"/>
         <helpers:BoolToBuyConverter x:Key="BoolToBuyConverter"/>
         <helpers:InverseBoolConverter x:Key="InverseBoolConverter"/>
         <helpers:IsSelectedConverter x:Key="IsSelectedConverter"/>
+        <helpers:VisibilityToOpacityConverter x:Key="VisibilityToOpacityConverter"/>
         <helpers:SelectedToTextConverter x:Key="SelectedToTextConverter"/>
+        <helpers:ImageScaleConverter x:Key="ImageScaleConverter"/>
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="{StaticResource MinecraftFont}"/>
             <Setter Property="Foreground" Value="#FF2D2D2D"/>
             <!-- Общий цвет текста -->
         </Style>
 
-        <Style TargetType="Button">
+        <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="behaviors:SoundBehaviorAttacher.EnableSound" Value="True"/>
             <Setter Property="FontFamily" Value="{StaticResource MinecraftFont}"/>
             <Setter Property="FontSize" Value="24"/>
-            <Setter Property="Background" Value="#FFF9BFCD"/>
         </Style>
-
         <!-- Стиль для всех заголовков -->
         <Style x:Key="HeaderText" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
             <Setter Property="FontSize" Value="72"/>
@@ -84,7 +88,15 @@
             <Setter Property="Width" Value="200"/>
             <Setter Property="Height" Value="200"/>
         </Style>
-        <Style x:Key="MainButtonStyle" TargetType="Button">
+        <Style x:Key="SkinImageStyle" TargetType="Image">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="200"/>
+            <Setter Property="Stretch" Value="UniformToFill"/>
+            <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="MainButtonStyle" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
             <Setter Property="Width" Value="300"/>
             <Setter Property="Height" Value="80"/>
             <Setter Property="Margin" Value="10"/>
@@ -94,7 +106,7 @@
             <Setter Property="BorderThickness" Value="2"/>
         </Style>
 
-        <Style x:Key="InvisibleButtonStyle" TargetType="Button">
+        <Style x:Key="InvisibleButtonStyle" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>

@@ -10,5 +10,6 @@
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("views/music.mp3")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("views/roblox-death-sound-effect.mp3")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("views/zvukknopki.mp3")]
 
 

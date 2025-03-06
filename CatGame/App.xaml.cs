@@ -8,6 +8,7 @@ namespace CatGame
     public partial class App : Application
     {
         public static MusicPlayer MusicPlayer { get; } = new MusicPlayer();
+        public static SoundService SoundService { get; } = new SoundService();
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
@@ -17,6 +18,7 @@ namespace CatGame
            "Views/music.mp3");
 
             MusicPlayer.Play(musicPath);
+
 
             // Создаем общие данные игры
             var gameData = new GameData { Balance = 100 };

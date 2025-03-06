@@ -24,11 +24,12 @@ namespace CatGame.ViewModels
         private double _foodSpawnInterval = InitialFoodSpawnInterval;
         private double _foodSpeed = InitialFoodSpeed;
         private int _maxFoodCount = InitialMaxFoodCount;
-        private int _missedFoodCount = 0;
+        private int _missedFoodCount;
         private double _foodSpawnTimer = 0;
         private double _gameTime = 0;
         private bool _isFacingRight = true;
         private double _lastTime;
+
 
         public static readonly double CatWidth = 260.0;
         public static readonly double CatHeight = 260.0;
@@ -105,7 +106,17 @@ namespace CatGame.ViewModels
             get => _isFacingRight;
             set => SetProperty(ref _isFacingRight, value);
         }
-
+        public int MissedFoodCount
+        {
+            get => _missedFoodCount;
+            set
+            {
+                if (SetProperty(ref _missedFoodCount, value))
+                {
+                    OnPropertyChanged(nameof(HeartVisibilities));
+                }
+            }
+        }
         public void InitializeGame()
         {
             Foods.Clear();
@@ -115,7 +126,8 @@ namespace CatGame.ViewModels
             _foodSpawnInterval = InitialFoodSpawnInterval;
             _foodSpeed = InitialFoodSpeed;
             _maxFoodCount = InitialMaxFoodCount;
-            _missedFoodCount = 0;
+            MissedFoodCount = 0;
+            OnPropertyChanged(nameof(HeartVisibilities));
             IsGameOver = false;
         }
 
@@ -173,9 +185,9 @@ namespace CatGame.ViewModels
                 else if (food.Position.Y > 1080)
                 {
                     Foods.Remove(food);
-                    _missedFoodCount++;
+                    MissedFoodCount++;
                     PlaySound("Views/roblox-death-sound-effect.mp3");
-                    if (_missedFoodCount >= MaxMissedFood)
+                    if (MissedFoodCount >= MaxMissedFood)
                     {
                         Debug.WriteLine($"Игра окончена! Текущий баланс: {_gameData.CurrentGameBalance}");
                         GameOver();
@@ -188,10 +200,11 @@ namespace CatGame.ViewModels
 
                 if (CheckCollision(badFood))
                 {
-                    _missedFoodCount += badFood.Penalty;
+                    MissedFoodCount += badFood.Penalty;
+                    OnPropertyChanged(nameof(HeartVisibilities));
                     PlaySound("Views/roblox-death-sound-effect.mp3");// Отнимаем жизнь
                     BadFoods.Remove(badFood);
-                    if (_missedFoodCount >= MaxMissedFood)
+                    if (MissedFoodCount >= MaxMissedFood)
                     {
                         GameOver();
                     }
@@ -228,14 +241,17 @@ namespace CatGame.ViewModels
 
         private void AddNewFood()
         {
-            if (_rnd.NextDouble() < 0.2) // 20% вероятность создания плохой еды
+            if (_rnd.NextDouble() < 0.15) // 15% вероятность создания плохой еды
             {
                 var badFood = new BadFood
                 {
                     Position = new Point(_rnd.Next(500, 1420 - (int)FoodSize), -FoodSize),
                     Speed = _foodSpeed * (0.8 + _rnd.NextDouble() * 0.4), // Скорость от 80% до 120% от базовой
                     Reward = 0, // Плохая еда не дает награды
-                    Penalty = 1 // Штраф за сбор
+                    Penalty = 1, // Штраф за сбор
+                    ImagePath = _rnd.Next(2) == 0
+                ? "/CatGame;component/Views/рыбьякость.png"
+                : "/CatGame;component/Views/яблокоогрызок.png"
                 };
                 BadFoods.Add(badFood);
             }
@@ -245,7 +261,10 @@ namespace CatGame.ViewModels
                 {
                     Position = new Point(_rnd.Next(500, 1420 - (int)FoodSize), -FoodSize),
                     Speed = _foodSpeed * (0.8 + _rnd.NextDouble() * 0.4), // Скорость от 80% до 120% от базовой
-                    Reward = 1
+                    Reward = 1,
+                    ImagePath = _rnd.Next(2) == 0
+                ? "/CatGame;component/Views/рыба.png"
+                : "/CatGame;component/Views/мясо.png"
                 };
                 Foods.Add(food);
             }
@@ -269,6 +288,24 @@ namespace CatGame.ViewModels
 
             newX = Math.Clamp(newX, 0, 1920 - CatWidth);
             CatPosition = new Point(newX, CatPosition.Y);
+        }
+        public int Lives
+        {
+            get => MaxMissedFood - _missedFoodCount;
+        }
+        public bool[] HeartVisibilities
+        {
+            get
+            {
+                var result = new[]
+                {
+            MissedFoodCount < 1,
+        MissedFoodCount < 2,
+        MissedFoodCount < 3
+        };
+                Debug.WriteLine($"Hearts: {result[0]} | {result[1]} | {result[2]}");
+                return result;
+            }
         }
 
         public bool IsGameOver

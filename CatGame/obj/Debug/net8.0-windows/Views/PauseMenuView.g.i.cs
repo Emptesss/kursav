@@ -52,7 +52,7 @@ namespace CatGame.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CatGame;component/views/pausemenuview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CatGame;V1.0.0.0;component/views/pausemenuview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\PauseMenuView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

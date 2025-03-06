@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Data;
+using CatGame.Models;
 
 namespace CatGame.Helpers
 {
@@ -8,7 +9,11 @@ namespace CatGame.Helpers
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (bool)value ? "Куплено" : "Купить";
+            if (value is bool isPurchased)
+            {
+                return isPurchased ? "Куплено" : $"Купить ({parameter})";
+            }
+            return "Купить";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

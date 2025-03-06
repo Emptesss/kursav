@@ -4,6 +4,7 @@ using CatGame.Services;
 using CatGame.Helpers;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
+using System.Windows.Data;
 
 namespace CatGame.ViewModels
 {
@@ -38,16 +39,10 @@ namespace CatGame.ViewModels
                 if (_gameData.Balance >= skin.Price && !skin.IsPurchased)
                 {
                     _gameData.Balance -= skin.Price;
+                    // В ShopViewModel после покупки скина:
                     skin.IsPurchased = true;
-                    MessageBox.Show($"Скин '{skin.Name}' куплен!");
-                }
-                else if (skin.IsPurchased)
-                {
-                    MessageBox.Show("Этот скин уже куплен!");
-                }
-                else
-                {
-                    MessageBox.Show("Недостаточно монет!");
+                    var skinsView = (CollectionViewSource)Application.Current.MainWindow.Resources["PurchasableSkins"];
+                    skinsView?.View.Refresh();
                 }
             }
         }

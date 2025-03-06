@@ -9,9 +9,9 @@ namespace CatGame.Helpers
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            if (values[0] is Skin selectedSkin && values[1] is Skin currentSkin)
+            if (values[0] is Skin selected && values[1] is Skin current)
             {
-                return selectedSkin == currentSkin ? "Выключить" : "Включить";
+                return selected == current ? "Выключить" : "Включить";
             }
             return "Включить";
         }

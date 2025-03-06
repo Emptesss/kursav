@@ -14,17 +14,26 @@
     <None Remove="Views\minecraft.ttf" />
     <None Remove="Views\music.mp3" />
     <None Remove="Views\roblox-death-sound-effect.mp3" />
+    <None Remove="Views\zvukknopki.mp3" />
     <None Remove="Views\игры.png" />
     <None Remove="Views\кнопкавыход.png" />
     <None Remove="Views\кнопказаново.png" />
     <None Remove="Views\кнопкапауза.png" />
     <None Remove="Views\кнопкапродолжить.png" />
+    <None Remove="Views\котбели.png" />
     <None Remove="Views\котправо.png" />
+    <None Remove="Views\котсиам.png" />
+    <None Remove="Views\котчерни.png" />
     <None Remove="Views\котчерника.png" />
     <None Remove="Views\монета.png" />
+    <None Remove="Views\мясо.png" />
+    <None Remove="Views\рыба.png" />
+    <None Remove="Views\рыбьякость.png" />
+    <None Remove="Views\сердце.png" />
     <None Remove="Views\фон главное.jpg" />
     <None Remove="Views\фон главное.png" />
     <None Remove="Views\шкафчик.png" />
+    <None Remove="Views\яблокоогрызок.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +41,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\roblox-death-sound-effect.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\zvukknopki.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -53,12 +65,30 @@
     <Resource Include="Views\кнопказаново.png" />
     <Resource Include="Views\кнопкапауза.png" />
     <Resource Include="Views\кнопкапродолжить.png" />
-    <Resource Include="Views\котправо.png" />
-    <Resource Include="Views\котчерника.png" />
+    <Resource Include="Views\котбели.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\котправо.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\котсиам.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\котчерни.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\котчерника.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Views\монета.png" />
+    <Resource Include="Views\мясо.png" />
+    <Resource Include="Views\рыба.png" />
+    <Resource Include="Views\рыбьякость.png" />
+    <Resource Include="Views\сердце.png" />
     <Resource Include="Views\фон главное.jpg" />
     <Resource Include="Views\фон главное.png" />
     <Resource Include="Views\шкафчик.png" />
+    <Resource Include="Views\яблокоогрызок.png" />
   </ItemGroup>
 
 </Project>

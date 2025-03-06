@@ -18,9 +18,17 @@ namespace CatGame.Models
             {
                 if (_selectedSkin != value)
                 {
+                    // Сбрасываем активность предыдущего скина
+                    if (_selectedSkin != null)
+                        _selectedSkin.IsActive = false;
+
                     _selectedSkin = value;
+
+                    // Устанавливаем активность нового скина
+                    if (_selectedSkin != null)
+                        _selectedSkin.IsActive = true;
+
                     OnPropertyChanged();
-                    OnPropertyChanged(nameof(CurrentCatImage));
                 }
             }
         }
@@ -29,23 +37,40 @@ namespace CatGame.Models
         public GameData()
         {
             Skins = new ObservableCollection<Skin>
+    {
+        new Skin
         {
-            new Skin
-            {
-                Name = "Базовый кот",
-                ImagePath = "/CatGame;component/Views/котправо.png",
-                Price = 0,
-                IsPurchased = true // Базовый скин уже куплен
-            },
-            new Skin
-            {
-                Name = "Черничный кот",
-                ImagePath = "/CatGame;component/Views/котчерника.png",
-                Price = 20
-            },
-            // ... другие скины
-        };
-            SelectedSkin = Skins.First(); // Установить базовый скин по умолчанию
+            Name = "Базовый кот",
+            ImagePath = "/CatGame;component/Views/котправо.png",
+            Price = 0,
+            IsPurchased = true
+        },
+        new Skin
+        {
+            Name = "Черничный кот",
+            ImagePath = "/CatGame;component/Views/котчерника.png",
+            Price = 20
+        },
+        new Skin
+        {
+            Name = "Белый кот",
+            ImagePath = "/CatGame;component/Views/котбели.png",
+            Price = 20
+        },
+        new Skin
+        {
+            Name = "Сиамский кот",
+            ImagePath = "/CatGame;component/Views/котсиам.png",
+            Price = 20
+        },
+        new Skin
+        {
+            Name = "Черный кот",
+            ImagePath = "/CatGame;component/Views/котчерни.png",
+            Price = 20
+        }
+    };
+            SelectedSkin = Skins.First();
         }
 
         public int Balance

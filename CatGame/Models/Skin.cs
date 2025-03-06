@@ -15,8 +15,11 @@ namespace CatGame.Models
             get => _isActive;
             set
             {
-                _isActive = value;
-                OnPropertyChanged();
+                if (_isActive != value)
+                {
+                    _isActive = value;
+                    OnPropertyChanged();
+                }
             }
         }
 

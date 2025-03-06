@@ -1,6 +1,8 @@
-﻿using CatGame.ViewModels;
+﻿using CatGame.Models;
+using CatGame.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,12 +23,26 @@ namespace CatGame.Views
     /// </summary>
     public partial class ShopView : UserControl
     {
-        
-            public ShopView()
+        public ShopView()
+        {
+            InitializeComponent();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (Resources["PurchasableSkins"] is CollectionViewSource skinsView)
             {
-                InitializeComponent();
-                 
+                skinsView.Filter += (s, args) =>
+                {
+                    if (args.Item is Skin skin)
+                    {
+                        Debug.WriteLine($"Skin: {skin.Name}, Price: {skin.Price}, Purchased: {skin.IsPurchased}");
+                        args.Accepted = skin.Price > 0;
+                    }
+                };
+                skinsView.View.Refresh();
             }
         }
     }
+}
 

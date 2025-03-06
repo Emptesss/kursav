@@ -7,6 +7,7 @@ namespace CatGame.Models
     public class Food : INotifyPropertyChanged
     {
         private Point _position;
+        public string ImagePath { get; set; }
         public Point Position
         {
             get => _position;

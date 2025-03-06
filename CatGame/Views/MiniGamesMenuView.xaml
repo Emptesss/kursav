@@ -23,6 +23,7 @@
         <Button Command="{Binding ReturnCommand}" 
         Style="{StaticResource InvisibleButtonStyle}"
         Margin="1780,22,40,2">
+            
             <Image Source="/CatGame;component/Views/кнопкавыход.png" RenderTransformOrigin="1.793,0.506"/>
         </Button>
 
@@ -55,6 +56,7 @@
                         <GradientStop Color="#FFEF97B7"/>
                     </LinearGradientBrush>
                 </Button.Background>
+                
             </Button>
             <Button Content="Играть 2" 
         Command="{Binding SelectMiniGame1Command}"

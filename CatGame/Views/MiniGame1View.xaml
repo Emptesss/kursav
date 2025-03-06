@@ -19,26 +19,59 @@
         </Grid.RowDefinitions>
 
         <!-- Верхняя панель -->
+        <!-- Верхняя панель -->
         <Grid Grid.Row="0" Background="#AAFFFFFF">
-            <StackPanel Orientation="Horizontal" Margin="20">
-                <Image Source="/CatGame;component/Views/монета.png" 
-                       Width="60" 
-                       Height="60"/>
-                <TextBlock Text="{Binding GameData.CurrentGameBalance}" 
-                           FontSize="28"
-                           Margin="10,0"
-                           Foreground="Black"
-                           VerticalAlignment="Center"/>
-            </StackPanel>
+            <Grid Margin="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- Для монетки и баланса -->
+                    <ColumnDefinition Width="*"/>
+                    <!-- Пустое пространство -->
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- Для сердечек и паузы -->
+                </Grid.ColumnDefinitions>
 
-            <Button Command="{Binding PauseCommand}" 
-                    HorizontalAlignment="Right"
-                    Style="{StaticResource InvisibleButtonStyle}"
-                    Margin="20">
-                <Image Source="/CatGame;component/Views/кнопкапауза.png" 
+                <!-- Левая часть: монетка и баланс -->
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <Image Source="/CatGame;component/Views/монета.png" 
+                   Width="60" 
+                   Height="60"/>
+                    <TextBlock Text="{Binding GameData.CurrentGameBalance}" 
+                       FontSize="28"
+                       Margin="10,0"
+                       Foreground="Black"
+                       VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <!-- Правая часть: сердечки и пауза -->
+                <StackPanel Orientation="Horizontal" 
+                    Grid.Column="2"
+                    HorizontalAlignment="Right">
+                    <!-- Сердечки -->
+                    <StackPanel Orientation="Horizontal" Margin="0 0 20 0">
+                        <Image Source="/CatGame;component/Views/сердце.png" 
+                       Width="50" 
+                       Height="50"
+                       Opacity="{Binding HeartVisibilities[0], Converter={StaticResource VisibilityToOpacityConverter}}"/>
+                        <Image Source="/CatGame;component/Views/сердце.png" 
+                       Width="50" 
+                       Height="50"
+                       Opacity="{Binding HeartVisibilities[1], Converter={StaticResource VisibilityToOpacityConverter}}"/>
+                        <Image Source="/CatGame;component/Views/сердце.png" 
+                       Width="50" 
+                       Height="50"
+                       Opacity="{Binding HeartVisibilities[2], Converter={StaticResource VisibilityToOpacityConverter}}"/>
+                    </StackPanel>
+
+                    <!-- Кнопка паузы -->
+                    <Button Command="{Binding PauseCommand}" 
+                    Style="{StaticResource InvisibleButtonStyle}">
+                        <Image Source="/CatGame;component/Views/кнопкапауза.png" 
                        Width="60" 
                        Height="60"/>
-            </Button>
+                    </Button>
+                </StackPanel>
+            </Grid>
         </Grid>
 
         <!-- Игровое поле -->
@@ -124,7 +157,33 @@
                 </ItemsControl.ItemContainerStyle>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Ellipse Width="50" Height="50" Fill="#FF4CAF50"/>
+                        <Image Width="100" 
+                   Height="100"
+                   Source="{Binding ImagePath}"
+                   RenderTransformOrigin="0.5,0.5">
+                            <Image.RenderTransform>
+                                <RotateTransform Angle="0"/>
+                            </Image.RenderTransform>
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Setter Property="Stretch" Value="Uniform"/>
+                                    <Style.Triggers>
+                                        <EventTrigger RoutedEvent="Loaded">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <!-- Анимация вращения -->
+                                                    <DoubleAnimation
+                                            Storyboard.TargetProperty="(Image.RenderTransform).(RotateTransform.Angle)"
+                                            From="0" To="360" 
+                                            Duration="0:0:2"
+                                            RepeatBehavior="Forever"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
@@ -144,7 +203,45 @@
                 </ItemsControl.ItemContainerStyle>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Ellipse Width="50" Height="50" Fill="#FF0000"/>
+                        <Image Width="100" 
+               Height="100"
+               Source="{Binding ImagePath}"
+               RenderTransformOrigin="0.5,0.5"
+               Stretch="Uniform">
+                            <Image.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="0"/>
+                                    <TranslateTransform X="0" Y="0"/>
+                                </TransformGroup>
+                            </Image.RenderTransform>
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Style.Triggers>
+                                        <EventTrigger RoutedEvent="Loaded">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <!-- Анимация вращения -->
+                                                    <DoubleAnimation
+                                        Storyboard.TargetProperty="(Image.RenderTransform).Children[0].(RotateTransform.Angle)"
+                                        From="-15" To="15" 
+                                        Duration="0:0:0.3"
+                                        AutoReverse="True"
+                                        RepeatBehavior="Forever"/>
+
+                                                    <!-- Анимация дрожания -->
+                                                    <DoubleAnimation
+                                        Storyboard.TargetProperty="(Image.RenderTransform).Children[1].(TranslateTransform.X)"
+                                        From="-3" To="3" 
+                                        Duration="0:0:0.1"
+                                        AutoReverse="True"
+                                        RepeatBehavior="Forever"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
