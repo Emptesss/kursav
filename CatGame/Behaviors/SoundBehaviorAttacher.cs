@@ -5,7 +5,6 @@ using System.Windows.Controls;
 
 namespace CatGame.Behaviors
 {
-    // SoundBehaviorAttacher.cs
     public static class SoundBehaviorAttacher
     {
         public static bool GetEnableSound(DependencyObject obj) =>

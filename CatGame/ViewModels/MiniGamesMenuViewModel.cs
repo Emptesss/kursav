@@ -1,5 +1,4 @@
-﻿// MiniGamesMenuViewModel.cs
-using CatGame.Helpers;
+﻿using CatGame.Helpers;
 using CatGame.Models;
 using CatGame.Services;
 using System.Windows.Input;
@@ -18,9 +17,12 @@ namespace CatGame.ViewModels
 
             // Добавьте команды для других мини-игр по аналогии
             SelectMiniGame1Command = new RelayCommand(SelectMiniGame1);
+            SelectMiniGame2Command = new RelayCommand(_ =>
+            _navigationService.NavigateTo(new MiniGame2ViewModel(_gameData, _navigationService)));
         }
 
         public ICommand SelectMiniGame1Command { get; }
+        public ICommand SelectMiniGame2Command { get; }
 
         private void SelectMiniGame1(object parameter)
         {

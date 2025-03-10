@@ -11,6 +11,7 @@ namespace CatGame.Models
         private int _currentGameBalance;
         private ObservableCollection<Skin> _skins;
         private Skin _selectedSkin;
+
         public Skin SelectedSkin
         {
             get => _selectedSkin;

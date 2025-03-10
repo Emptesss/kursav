@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CatGame.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,22 @@ namespace CatGame.Views
         public MainMenuView()
         {
             InitializeComponent();
+        }
+        private void Canvas_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (DataContext is MiniGame2ViewModel viewModel)
+            {
+                Point mousePos = e.GetPosition((Canvas)sender);
+                viewModel.UpdateAimDirection(mousePos);
+            }
+        }
+
+        private void Canvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (DataContext is MiniGame2ViewModel viewModel)
+            {
+                viewModel.MouseShoot();
+            }
         }
     }
 }

@@ -59,7 +59,7 @@
                 
             </Button>
             <Button Content="Играть 2" 
-        Command="{Binding SelectMiniGame1Command}"
+        Command="{Binding SelectMiniGame2Command}"
         Style="{StaticResource MainButtonStyle}" RenderTransformOrigin="0.5,0.5" Height="150" Width="450" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium" FontSize="72" Foreground="#FFF5649E" >
                 <Button.RenderTransform>
                     <TransformGroup>

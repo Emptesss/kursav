@@ -1,14 +1,11 @@
 ﻿using CatGame.Helpers;
 using CatGame.Models;
-using CatGame.Models.CatGame.Models;
 using CatGame.Services;
-using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 
 namespace CatGame.ViewModels
 {
@@ -38,7 +35,6 @@ namespace CatGame.ViewModels
         private readonly NavigationService _navigation;
         private GameOverViewModel _gameOverViewModel;
         public GameOverViewModel GameOverViewModel => _gameOverViewModel ??= new GameOverViewModel(_gameData, _navigation);
-        private DateTime _lastUpdate = DateTime.Now;
         private bool _isPaused;
         private Random _rnd = new Random();
         private Point _catPosition = new Point(900, 720);
@@ -317,7 +313,7 @@ namespace CatGame.ViewModels
         {
             IsPaused = true;
             IsGameOver = true;
-            _gameOverViewModel = new GameOverViewModel(_gameData, _navigation); // Передаем текущий баланс
+            _gameOverViewModel = new GameOverViewModel(_gameData, _navigation, "MiniGame1");
             Debug.WriteLine($"Создано меню проигрыша. Текущий баланс: {_gameData.CurrentGameBalance}");
         }
         public void ShowGameOverMenu()

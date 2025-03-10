@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\vkali\kursav\CatGame\App.xaml
-8-264070177
+939199427
 3569307622
-441917196922
+491770663633
 199946631701
-MainWindow.xaml;Views\GameOverView.xaml;Views\MainGameScreenView.xaml;Views\MainMenuView.xaml;Views\MiniGame1View.xaml;Views\MiniGamesMenuView.xaml;Views\PauseMenuView.xaml;Views\ShopView.xaml;
+MainWindow.xaml;Views\GameOverView.xaml;Views\MainGameScreenView.xaml;Views\MainMenuView.xaml;Views\MiniGame1View.xaml;Views\MiniGame2View.xaml;Views\MiniGamesMenuView.xaml;Views\PauseMenuView.xaml;Views\ShopView.xaml;
 
-False
+True
 

@@ -84,8 +84,8 @@
        Canvas.Top="{Binding CatPosition.Y}"
        RenderTransformOrigin="0.5, 0.5">
                 <!-- ... остальная разметка изображения ... -->
-            
-            <Image.Effect>
+
+                <Image.Effect>
                     <DropShadowEffect BlurRadius="10" 
                           Opacity="0.5" 
                           Direction="270" 

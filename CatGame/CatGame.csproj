@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Helpers\BoolToAngleConverter.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resoursces\roblox-death-sound-effect.mp3" />
     <None Remove="Views\fonmenu.png" />
     <None Remove="Views\minecraft.ttf" />

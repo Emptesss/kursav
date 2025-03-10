@@ -13,12 +13,17 @@
     <Application.Resources>
         <FontFamily x:Key="MinecraftFont">pack://application:,,,/CatGame;component/Views/#Minecraft Rus</FontFamily>
         <helpers:PurchaseStatusConverter x:Key="PurchaseStatusConverter"/>
-        <helpers:BoolToBuyConverter x:Key="BoolToBuyConverter"/>
         <helpers:InverseBoolConverter x:Key="InverseBoolConverter"/>
-        <helpers:IsSelectedConverter x:Key="IsSelectedConverter"/>
         <helpers:VisibilityToOpacityConverter x:Key="VisibilityToOpacityConverter"/>
-        <helpers:SelectedToTextConverter x:Key="SelectedToTextConverter"/>
         <helpers:ImageScaleConverter x:Key="ImageScaleConverter"/>
+        <helpers:ColorIndexToBrushConverter x:Key="ColorIndexToBrushConverter"/>
+        <helpers:DirectionConverter x:Key="DirectionConverter"/>
+        <helpers:CenterConverter x:Key="CenterConverter"/>
+        <helpers:BoolToBlurConverter x:Key="BoolToBlurConverter"/>
+        <helpers:HalfSizeConverter x:Key="HalfSizeConverter"/>
+        <helpers:ArrowAngleConverter x:Key="ArrowAngleConverter"/>
+       
+
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="{StaticResource MinecraftFont}"/>
             <Setter Property="Foreground" Value="#FF2D2D2D"/>
@@ -36,8 +41,6 @@
             <Setter Property="Foreground" Value="#FFF5649E"/>
         </Style>
         <helpers:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
-        <helpers:BoolToScaleConverter x:Key="BoolToScaleConverter"/>
-        <helpers:BoolToAngleConverter x:Key="BoolToAngleConverter"/>
         <ElasticEase x:Key="ElasticEase" 
                 EasingMode="EaseOut" 
                 Oscillations="1" 
@@ -173,6 +176,9 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModels:GameOverViewModel}">
             <views:GameOverView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:MiniGame2ViewModel}">
+            <views:MiniGame2View/>
         </DataTemplate>
     </Application.Resources>
 </Application>
