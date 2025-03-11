@@ -19,10 +19,10 @@ namespace CatGame.ViewModels
     {
         private const int Columns = 17;
         private const int Rows = 6;
-        public static double BubbleSize => 60;
+        public static double BubbleSize => 80;
         public const double FieldWidth = 1920;
         public const double FieldHeight = 1080;
-        private const double CatYPosition = 850;
+        private const double CatYPosition = 690;
         private const double CenterOffset = 100;
         private const double BubbleYOffset = 950;
         private const int ColorsCount = 6;
@@ -31,6 +31,7 @@ namespace CatGame.ViewModels
         private const double HexOffset = 0.866;
         private const double VerticalSpacing = 0.75;
         private const int MaxMoves = 6;
+        private const double DeathLineYPosition = 610;
 
         private const double BubbleCollisionOffset = 0.5;
         private int _missCount;
@@ -443,19 +444,29 @@ namespace CatGame.ViewModels
         private (int row, int col) CalculateGridPosition(Point pos)
         {
             double verticalSpacing = BubbleSize * VerticalSpacing;
+
+            // Получаем актуальное количество рядов
+            int maxRow = Bubbles.Any() ? Bubbles.Max(b => b.Row) + 1 : Rows;
+
+            // Вычисляем строку
             int row = (int)Math.Round(pos.Y / verticalSpacing);
-            row = Math.Max(0, Math.Min(row, Rows + 2)); // Изменить с Rows + 5 на Rows + 2
+            // Ограничиваем строку диапазоном от 0 до максимальной строки
+            row = Math.Max(0, Math.Min(row, maxRow));
 
             double hexWidth = BubbleSize * HexOffset;
             bool isEvenRow = row % 2 == 0;
             int cols = isEvenRow ? Columns : Columns - 1;
 
+            // Вычисляем смещение для текущей строки
             double startX = (FieldWidth - cols * hexWidth) / 2;
             double relX = pos.X - startX - (isEvenRow ? 0 : hexWidth / 2);
 
-            int col = Math.Clamp((int)Math.Floor(relX / hexWidth + 0.5), 0, cols - 1);
+            // Вычисляем и ограничиваем колонку
+            int col = (int)Math.Floor(relX / hexWidth + 0.5);
+            col = Math.Clamp(col, 0, cols - 1);
 
-            Debug.WriteLine($"🔹 Calculated position: ({pos.X:F1}, {pos.Y:F1}) -> [{row}, {col}]");
+            Debug.WriteLine($"🔹 Calculated grid position: ({pos.X:F1}, {pos.Y:F1}) -> [{row}, {col}]");
+            Debug.WriteLine($"🔹 Max row: {maxRow}, Is even row: {isEvenRow}, Columns in row: {cols}");
 
             return (row, col);
         }
@@ -753,14 +764,12 @@ namespace CatGame.ViewModels
         {
             if (MovesLeft > 0) return;
 
-            // Сбрасываем количество ходов до начального значения
-            MovesLeft = 3; // Используем свойство вместо поля
+            MovesLeft = 3;
             AddNewRow();
             await ApplyBubbleGravity();
 
-            // Проверяем, достигли ли шарики уровня игрока
             var lowestBubble = Bubbles.MaxBy(b => b.Position.Y);
-            if (lowestBubble != null && lowestBubble.Position.Y >= BubbleYOffset)
+            if (lowestBubble != null && lowestBubble.Position.Y >= DeathLineYPosition)
             {
                 GameOver();
             }
