@@ -9,12 +9,12 @@ namespace CatGame.Helpers
     {
         // Переименуем массив, чтобы избежать конфликта имён
         private static readonly Brush[] ColorBrushes = {
-    Brushes.Red,
-    Brushes.Blue,
-    Brushes.Green,
-    Brushes.Yellow,
-    Brushes.Purple,
-    Brushes.Orange // 6-й цвет
+    new SolidColorBrush(Color.FromRgb(163,51,78)),    
+        new SolidColorBrush(Color.FromRgb(247,136,163)),     
+        new SolidColorBrush(Color.FromRgb(208,133,151)),     
+        new SolidColorBrush(Color.FromRgb(100,59,69)),     
+        new SolidColorBrush(Color.FromRgb(155,81,99)),    
+        new SolidColorBrush(Color.FromRgb(249,92,130)) 
 };
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

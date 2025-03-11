@@ -30,11 +30,13 @@ namespace CatGame.ViewModels
         private const int MaxBottomHits = 3;
         private const double HexOffset = 0.866;
         private const double VerticalSpacing = 0.75;
+        private const int MaxMoves = 6;
 
         private const double BubbleCollisionOffset = 0.5;
         private int _missCount;
         private int _allowedMisses = 3;
         private int _movesLeft = 3;
+        private int _nextColor;
 
         private readonly Random _rnd = new Random();
         private readonly NavigationService _navigation;
@@ -67,6 +69,18 @@ namespace CatGame.ViewModels
             {
                 GameData.CurrentGameBalance = value;
                 OnPropertyChanged();
+            }
+        }
+        public int NextColor
+        {
+            get => _nextColor;
+            private set
+            {
+                if (_nextColor != value)
+                {
+                    _nextColor = value;
+                    OnPropertyChanged();
+                }
             }
         }
         public object CurrentView
@@ -140,6 +154,8 @@ namespace CatGame.ViewModels
             ShootCommand = new RelayCommand(Shoot, _ => !_isShooting);
             PauseCommand = new RelayCommand(_ => ShowPauseMenu());
             _particleEffect = new ParticleEffectService();
+            MovesLeft = 3;
+            NextColor = _rnd.Next(ColorsCount);
 
             _catPosition = new Point(
                 (FieldWidth / 2) + CenterOffset,
@@ -147,6 +163,8 @@ namespace CatGame.ViewModels
             );
             InitializeField();
             ResetCurrentBubble();
+            UpdateMoveIndicators();
+
             Debug.WriteLine($"Окно {FieldWidth}x{FieldHeight}");
             Debug.WriteLine($"Координаты кота: {CatPosition.X}, {CatPosition.Y}");
             Debug.WriteLine($"Прицел: {AimDirection.X}, {AimDirection.Y}");
@@ -292,16 +310,16 @@ namespace CatGame.ViewModels
                 removed = await CheckAndRemoveMatches(newBubble);
                 if (removed > 0)
                 {
-                    _movesLeft++;
+                    MovesLeft = Math.Min(MovesLeft + 1, MaxMoves);
                 }
                 else
                 {
-                    _movesLeft--;
+                    MovesLeft--;
                 }
             }
             else
             {
-                _movesLeft--;
+                MovesLeft--;
             }
 
             await HandleMoveAndCheckRows();
@@ -497,24 +515,22 @@ namespace CatGame.ViewModels
                         bubble.Position.Y + BubbleSize / 2 - 70
                     );
 
-                    // Теперь метод асинхронный
                     await _particleEffect.CreateBubblePopEffect(effectPosition, bubbleColor, BubbleSize);
-
                     Bubbles.Remove(bubble);
                 }
 
-                // Даем небольшой промежуток перед удалением "висячих" пузырей
                 await Task.Delay(50);
 
-                // Проверяем и удаляем "висячие" пузыри
                 var floatingBubbles = await RemoveFloatingBubbles();
 
-                // Начисляем монеты и за упавшие шарики
                 if (floatingBubbles > 0)
                 {
                     Score += floatingBubbles;
                     Debug.WriteLine($"Added {floatingBubbles} coins for floating bubbles. Current balance: {Score}");
                 }
+
+                // Добавляем ход, но проверяем ограничение
+                Debug.WriteLine($"Moves left after match: {_movesLeft}");
 
                 return group.Count + floatingBubbles;
             }
@@ -526,12 +542,12 @@ namespace CatGame.ViewModels
         {
             return colorIndex switch
             {
-                0 => Colors.Red,
-                1 => Colors.Blue,
-                2 => Colors.Green,
-                3 => Colors.Yellow,
-                4 => Colors.Purple,
-                5 => Colors.Orange,
+                0 => Color.FromRgb(163, 51, 78),
+                1 => Color.FromRgb(247, 136, 163),
+                2 => Color.FromRgb(208, 133, 151),
+                3 => Color.FromRgb(100, 59, 69),
+                4 => Color.FromRgb(155, 81, 99),
+                5 => Color.FromRgb(249, 92, 130),
                 _ => Colors.White
             };
         }
@@ -541,38 +557,44 @@ namespace CatGame.ViewModels
             var connectedBubbles = new HashSet<Bubble>();
             var queue = new Queue<Bubble>();
 
-            Debug.WriteLine("🔎 Checking for floating bubbles...");
-
+            // Сначала добавляем все шарики из верхнего ряда
             foreach (var bubble in Bubbles.Where(b => b.Row == 0))
             {
                 queue.Enqueue(bubble);
                 connectedBubbles.Add(bubble);
-                Debug.WriteLine($"🔹 Bubble at [{bubble.Row}, {bubble.Column}] is attached to the top");
             }
 
+            // Проходим по всем связанным шарикам
             while (queue.Count > 0)
             {
                 var current = queue.Dequeue();
+
+                // Получаем всех возможных соседей
                 foreach (var neighbor in GetAllPossibleNeighbors(current))
                 {
+                    // Если этот шарик еще не проверяли
                     if (!connectedBubbles.Contains(neighbor))
                     {
                         queue.Enqueue(neighbor);
                         connectedBubbles.Add(neighbor);
-                        Debug.WriteLine($"✅ Bubble [{neighbor.Row}, {neighbor.Column}] is connected to the top");
                     }
                 }
             }
 
+            // Находим все "висящие" шарики
             var floatingBubbles = Bubbles.Where(b => !connectedBubbles.Contains(b)).ToList();
 
             if (floatingBubbles.Any())
             {
-                Debug.WriteLine($"⚠️ Removing {floatingBubbles.Count} floating bubbles");
-
                 foreach (var bubble in floatingBubbles)
                 {
-                    Debug.WriteLine($"❌ Removing bubble [{bubble.Row}, {bubble.Column}]");
+                    Color bubbleColor = GetBubbleColor(bubble.ColorIndex);
+                    var effectPosition = new Point(
+                        bubble.Position.X + BubbleSize / 2,
+                        bubble.Position.Y + BubbleSize / 2 - 70
+                    );
+
+                    await _particleEffect.CreateBubblePopEffect(effectPosition, bubbleColor, BubbleSize);
                     Bubbles.Remove(bubble);
                 }
 
@@ -584,29 +606,29 @@ namespace CatGame.ViewModels
             return 0;
         }
         private IEnumerable<Bubble> GetAllPossibleNeighbors(Bubble bubble)
-{
+        {
             bool isEvenRow = bubble.Row % 2 == 0;
 
-            // Определяем все возможные смещения для соседей
+            // Обновляем смещения для более точного определения соседей
             var offsets = isEvenRow
                 ? new[] {
-            (-1, -1), (-1, 0), (-1, 1),  // Верхний ряд
-            (0, -1), (0, 1),             // Текущий ряд
-            (1, -1), (1, 0), (1, 1)      // Нижний ряд
-                  }
+            (-1, -1), (-1, 0),   // Верхние соседи
+            (0, -1), (0, 1),     // Боковые соседи
+            (1, -1), (1, 0)      // Нижние соседи
+                }
                 : new[] {
-            (-1, -1), (-1, 0), (-1, 1),  // Верхний ряд
-            (0, -1), (0, 1),             // Текущий ряд
-            (1, -1), (1, 0), (1, 1)      // Нижний ряд
-                  };
+            (-1, 0), (-1, 1),    // Верхние соседи
+            (0, -1), (0, 1),     // Боковые соседи
+            (1, 0), (1, 1)       // Нижние соседи
+                };
 
             foreach (var (dr, dc) in offsets)
             {
                 int newRow = bubble.Row + dr;
                 int newCol = bubble.Column + dc;
 
-                // Добавляем ограничение на максимальную строку
-                if (newRow >= 0 && newRow <= Rows + 2 && newCol >= 0 && newCol < Columns)
+                // Важно: проверяем только наличие соседей сверху для определения "висящих" шариков
+                if (newRow >= 0 && newCol >= 0 && newCol < Columns)
                 {
                     var neighbor = Bubbles.FirstOrDefault(b =>
                         b.Row == newRow &&
@@ -717,10 +739,11 @@ namespace CatGame.ViewModels
 
         private void ResetCurrentBubble()
         {
-            CurrentColor = _rnd.Next(ColorsCount);
+            CurrentColor = _nextColor; // Используем сохраненный следующий цвет
+            NextColor = _rnd.Next(ColorsCount); // Генерируем новый следующий цвет
             CurrentBubblePos = new Point(
                 FieldWidth / 2,    // По центру по горизонтали
-                BubbleYOffset      // Используем новую константу для позиции по вертикали
+                BubbleYOffset      // Используем константу для позиции по вертикали
             );
             OnPropertyChanged(nameof(CurrentBubblePos));
         }
@@ -728,9 +751,10 @@ namespace CatGame.ViewModels
 
         private async Task HandleMoveAndCheckRows()
         {
-            if (_movesLeft > 0) return;
+            if (MovesLeft > 0) return;
 
-            _movesLeft = 3;
+            // Сбрасываем количество ходов до начального значения
+            MovesLeft = 3; // Используем свойство вместо поля
             AddNewRow();
             await ApplyBubbleGravity();
 
@@ -742,6 +766,19 @@ namespace CatGame.ViewModels
             }
 
             OnPropertyChanged(nameof(Bubbles));
+        }
+        public int MovesLeft
+        {
+            get => _movesLeft;
+            private set
+            {
+                if (_movesLeft != value)
+                {
+                    _movesLeft = Math.Min(value, MaxMoves);
+                    OnPropertyChanged(nameof(MovesLeft));
+                    UpdateMoveIndicators();
+                }
+            }
         }
 
 
@@ -768,13 +805,26 @@ namespace CatGame.ViewModels
             await Task.Delay(50);
             OnPropertyChanged(nameof(Bubbles));
         }
+        public ObservableCollection<int> MoveIndicators { get; } = new ObservableCollection<int>();
+
+        private void UpdateMoveIndicators()
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                MoveIndicators.Clear();
+                for (int i = 0; i < MovesLeft; i++) // Используем свойство вместо поля
+                {
+                    MoveIndicators.Add(i);
+                }
+            });
+        }
 
 
         public static ImageSource DefaultCatImage =>
     new BitmapImage(new Uri("pack://application:,,,/CatGame;component/Views/котправо.png"));
 
 
-        private void GameOver()
+        private void GameOver() 
         {
             IsGameOver = true;
             IsPaused = true;

@@ -22,6 +22,8 @@
         <helpers:BoolToBlurConverter x:Key="BoolToBlurConverter"/>
         <helpers:HalfSizeConverter x:Key="HalfSizeConverter"/>
         <helpers:ArrowAngleConverter x:Key="ArrowAngleConverter"/>
+        <helpers:MoveIndicatorPositionConverter x:Key="MoveIndicatorPositionConverter"/>
+        <helpers:ColorForMoveIndicatorConverter x:Key="ColorForMoveIndicatorConverter"/>
        
 
         <Style TargetType="TextBlock">

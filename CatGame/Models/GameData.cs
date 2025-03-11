@@ -50,25 +50,25 @@ namespace CatGame.Models
         {
             Name = "Черничный кот",
             ImagePath = "/CatGame;component/Views/котчерника.png",
-            Price = 20
+            Price = 400
         },
         new Skin
         {
             Name = "Белый кот",
             ImagePath = "/CatGame;component/Views/котбели.png",
-            Price = 20
+            Price = 100
         },
         new Skin
         {
             Name = "Сиамский кот",
             ImagePath = "/CatGame;component/Views/котсиам.png",
-            Price = 20
+            Price = 300
         },
         new Skin
         {
             Name = "Черный кот",
             ImagePath = "/CatGame;component/Views/котчерни.png",
-            Price = 20
+            Price = 200
         }
     };
             SelectedSkin = Skins.First();

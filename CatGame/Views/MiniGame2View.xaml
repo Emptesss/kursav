@@ -21,6 +21,7 @@
         <helpers:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
         <helpers:HalfSizeConverter x:Key="HalfSizeConverter"/>
         <helpers:ArrowAngleConverter x:Key="ArrowAngleConverter"/>
+        <helpers:MoveIndicatorPositionConverter x:Key="MoveIndicatorPositionConverter"/>
     </UserControl.Resources>
 
     <Grid>
@@ -120,21 +121,63 @@
                         </Path.RenderTransform>
                     </Path>
                 </Canvas>
+                <!-- Индикаторы оставшихся ходов -->
+                <!-- Индикаторы оставшихся ходов -->
+                <ItemsControl ItemsSource="{Binding MoveIndicators, UpdateSourceTrigger=PropertyChanged}"
+              Panel.ZIndex="999">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Canvas/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.ItemContainerStyle>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="Canvas.Left" Value="{Binding ., Converter={StaticResource MoveIndicatorPositionConverter}}"/>
+                            <Setter Property="Canvas.Top" Value="950">
+                               
+                            </Setter>
+                        </Style>
+                    </ItemsControl.ItemContainerStyle>
+
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Ellipse Width="{x:Static viewModels:MiniGame2ViewModel.BubbleSize}"
+                 Height="{x:Static viewModels:MiniGame2ViewModel.BubbleSize}"
+                 Stroke="Black"
+                 StrokeThickness="2"
+                 Opacity="0.7">
+                                <Ellipse.Fill>
+                                    <SolidColorBrush>
+                                        <!-- Используем MultiTrigger для определения первого индикатора -->
+                                        <SolidColorBrush.Color>
+                                            <MultiBinding Converter="{StaticResource ColorForMoveIndicatorConverter}">
+                                                <Binding Path="." />
+                                                <Binding Path="DataContext.NextColor" 
+                                     RelativeSource="{RelativeSource AncestorType=ItemsControl}" />
+                                            </MultiBinding>
+                                        </SolidColorBrush.Color>
+                                    </SolidColorBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
 
                 <!-- Текущий шарик -->
                 <Ellipse Width="{x:Static viewModels:MiniGame2ViewModel.BubbleSize}"
-                         Height="{x:Static viewModels:MiniGame2ViewModel.BubbleSize}"
-                         Stroke="Black" 
-                         StrokeThickness="2"
-                         Panel.ZIndex="999">
+         Height="{x:Static viewModels:MiniGame2ViewModel.BubbleSize}"
+         Stroke="Black" 
+         StrokeThickness="2"
+         Panel.ZIndex="999">
                     <Ellipse.RenderTransform>
                         <TranslateTransform 
-                            X="{Binding CurrentBubblePos.X, Converter={StaticResource CenterConverter}}"
-                            Y="{Binding CurrentBubblePos.Y, Converter={StaticResource CenterConverter}}"/>
+            X="{Binding CurrentBubblePos.X, Converter={StaticResource CenterConverter}}"
+            Y="{Binding CurrentBubblePos.Y, Converter={StaticResource CenterConverter}}"/>
                     </Ellipse.RenderTransform>
                     <Ellipse.Fill>
                         <Binding Path="CurrentColor" 
-                                 Converter="{StaticResource ColorIndexToBrushConverter}"/>
+                 Converter="{StaticResource ColorIndexToBrushConverter}"/>
                     </Ellipse.Fill>
                 </Ellipse>
 
