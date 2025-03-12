@@ -13,7 +13,18 @@
              Background="#FFFFBFD2"
              FocusManager.FocusedElement="{Binding ElementName=GameCanvas}">
     <Grid>
-        <Grid.RowDefinitions>
+        <Grid x:Name="GameContent">
+            <Grid.Effect>
+                <BlurEffect>
+                    <BlurEffect.Radius>
+                        <MultiBinding Converter="{StaticResource MultipleBooleansToBlurConverter}">
+                            <Binding Path="IsPaused"/>
+                            <Binding Path="IsGameOver"/>
+                        </MultiBinding>
+                    </BlurEffect.Radius>
+                </BlurEffect>
+            </Grid.Effect>
+            <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -251,11 +262,13 @@
                 <KeyBinding Key="Right" Command="{Binding MoveCommand}" CommandParameter="Right"/>
             </Canvas.InputBindings>
         </Canvas>
-
+</Grid>
         <!-- Меню паузы -->
-        <Grid Grid.RowSpan="2" Panel.ZIndex="1"
-              Visibility="{Binding IsPaused, Converter={StaticResource BoolToVisibility}}">
-            <views:PauseMenuView DataContext="{Binding PauseViewModel}"/>
+        <!-- Меню паузы -->
+       
+        <Grid Grid.RowSpan="2" Panel.ZIndex="2"
+      Visibility="{Binding IsPausedAndNotGameOver, Converter={StaticResource BoolToVisibility}}">
+            <ContentControl Content="{Binding PauseViewModel}"/>
         </Grid>
 
         <!-- Меню проигрыша -->

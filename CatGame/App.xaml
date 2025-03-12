@@ -24,12 +24,19 @@
         <helpers:ArrowAngleConverter x:Key="ArrowAngleConverter"/>
         <helpers:MoveIndicatorPositionConverter x:Key="MoveIndicatorPositionConverter"/>
         <helpers:ColorForMoveIndicatorConverter x:Key="ColorForMoveIndicatorConverter"/>
-       
+        <helpers:MultipleBooleansToBlurConverter x:Key="MultipleBooleansToBlurConverter"/>
 
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="{StaticResource MinecraftFont}"/>
             <Setter Property="Foreground" Value="#FF2D2D2D"/>
             <!-- Общий цвет текста -->
+        </Style>
+        <Style x:Key="TabButtonStyle" TargetType="Button">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="20,10"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="#FFE9A5B5"/>
         </Style>
 
         <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">

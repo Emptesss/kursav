@@ -31,6 +31,7 @@ namespace CatGame.ViewModels
         private const double HexOffset = 0.866;
         private const double VerticalSpacing = 0.75;
         private const int MaxMoves = 6;
+        private GameOverViewModel _gameOverViewModel;
         private const double DeathLineYPosition = 610;
 
         private const double BubbleCollisionOffset = 0.5;
@@ -55,7 +56,7 @@ namespace CatGame.ViewModels
 
 
         private Point _catPosition;
-
+        public GameOverViewModel GameOverViewModel => _gameOverViewModel ??= new GameOverViewModel(GameData, _navigation, "MiniGame2");
         public ObservableCollection<Bubble> Bubbles { get; } = new ObservableCollection<Bubble>();
         public GameData GameData { get; }
 
@@ -96,7 +97,13 @@ namespace CatGame.ViewModels
         public bool IsGameOver
         {
             get => _isGameOver;
-            set => SetProperty(ref _isGameOver, value);
+            set
+            {
+                if (SetProperty(ref _isGameOver, value))
+                {
+                    OnPropertyChanged(nameof(IsGameOver));
+                }
+            }
         }
         public bool IsPaused
         {
@@ -156,6 +163,7 @@ namespace CatGame.ViewModels
             PauseCommand = new RelayCommand(_ => ShowPauseMenu());
             _particleEffect = new ParticleEffectService();
             MovesLeft = 3;
+
             NextColor = _rnd.Next(ColorsCount);
 
             _catPosition = new Point(
@@ -241,67 +249,122 @@ namespace CatGame.ViewModels
             );
 
             var currentPos = CurrentBubblePos;
-            const double collisionCheckStep = 10.0; // Увеличиваем количество проверок
-            double collisionRadius = BubbleSize * 0.7; // Убрали const, так как это вычисляемое значение
-            Bubble newBubble = null; // Перемещаем объявление переменной в начало метода
+            const double collisionCheckStep = 2.0; // Уменьшаем шаг ещё больше
+            double collisionRadius = BubbleSize * 0.45;
+            Bubble newBubble = null;
+            Point finalPosition = currentPos;
+            bool shouldSnap = false;
+            double timeStep = 0.016;
 
             while (true)
             {
                 var nextPos = new Point(
-                    currentPos.X + velocity.X * 0.016,
-                    currentPos.Y + velocity.Y * 0.016
+                    currentPos.X + velocity.X * timeStep,
+                    currentPos.Y + velocity.Y * timeStep
                 );
 
-                // Проверяем путь между текущей и следующей позицией
-                var stepX = (nextPos.X - currentPos.X) / collisionCheckStep;
-                var stepY = (nextPos.Y - currentPos.Y) / collisionCheckStep;
-
-                bool collision = false;
+                // Предварительная проверка следующей позиции
+                bool foundCollision = false;
+                double minDistance = double.MaxValue;
                 Point collisionPoint = nextPos;
-                Bubble collidedBubble = null;
+                Bubble closestBubble = null;
 
-                // Проверяем каждую точку на пути движения
+                // Проверяем путь до следующей позиции
                 for (int i = 0; i < collisionCheckStep; i++)
                 {
                     var checkPos = new Point(
-                        currentPos.X + stepX * i,
-                        currentPos.Y + stepY * i
+                        currentPos.X + (nextPos.X - currentPos.X) * i / collisionCheckStep,
+                        currentPos.Y + (nextPos.Y - currentPos.Y) * i / collisionCheckStep
                     );
+                    var collisionBox = new Rect(
+        checkPos.X - collisionRadius,
+        checkPos.Y - collisionRadius,
+        collisionRadius * 2,
+        collisionRadius * 2
+    );
 
-                    // Проверяем все пузырьки на возможную коллизию
                     foreach (var bubble in Bubbles)
                     {
-                        if (DistanceBetween(bubble.Position, checkPos) < collisionRadius)
+                        // Проверяем не только расстояние, но и положение относительно траектории
+                        double distance = DistanceBetween(bubble.Position, checkPos);
+                        if (distance < collisionRadius)
                         {
-                            collision = true;
-                            collisionPoint = checkPos;
-                            collidedBubble = bubble;
-                            break;
+                            // Проверяем, находится ли пузырь на пути движения
+                            Vector movement = new Vector(velocity.X, velocity.Y);
+                            Vector toBubble = new Vector(
+                                bubble.Position.X - currentPos.X,
+                                bubble.Position.Y - currentPos.Y
+                            );
+
+                            // Нормализуем векторы
+                            movement.Normalize();
+                            toBubble.Normalize();
+
+                            // Вычисляем угол между направлением движения и направлением к пузырю
+                            double angle = Vector.AngleBetween(movement, toBubble);
+
+                            // Если угол меньше 45 градусов, считаем это прямым столкновением
+                            if (Math.Abs(angle) < 45)
+                            {
+                                foundCollision = true;
+                                minDistance = distance;
+                                collisionPoint = checkPos;
+                                closestBubble = bubble;
+                                break;
+                            }
+                            // Если пузырь находится сбоку и очень близко, тоже считаем это столкновением
+                            else if (distance < collisionRadius * 0.7)
+                            {
+                                foundCollision = true;
+                                minDistance = distance;
+                                collisionPoint = checkPos;
+                                closestBubble = bubble;
+                                break;
+                            }
                         }
                     }
 
-                    if (collision) break;
+                    if (foundCollision) // Исправлено с willCollide на foundCollision
+                    {
+                        finalPosition = collisionPoint; // Исправлено с possibleCollisionPoint на collisionPoint
+                        shouldSnap = true;
+                        break;
+                    }
                 }
 
-                // Обработка столкновения со стенами
+                // Проверка столкновения со стенами
                 if (nextPos.X < 0 || nextPos.X > FieldWidth)
                 {
                     velocity = new Point(-velocity.X, velocity.Y);
                     continue;
                 }
 
-                // Обработка столкновения с верхней границей или другими пузырьками
-                if (nextPos.Y < 0 || collision)
+                // Проверка столкновения с верхней границей
+                if (nextPos.Y < 0)
                 {
-                    Debug.WriteLine($"Collision detected at ({collisionPoint.X:F1}, {collisionPoint.Y:F1})");
-                    newBubble = collision ? SnapBubble(collisionPoint) : null;
+                    finalPosition = new Point(nextPos.X, 0);
+                    shouldSnap = true;
                     break;
                 }
 
+                if (foundCollision) // Исправлено с willCollide на foundCollision
+                {
+                    break;
+                }
+
+                // Обновляем текущую позицию только если нет коллизии
                 currentPos = nextPos;
                 CurrentBubblePos = currentPos;
                 OnPropertyChanged(nameof(CurrentBubblePos));
                 await Task.Delay(16);
+            }
+
+            // Если нужно прикрепить пузырь
+            if (shouldSnap)
+            {
+                CurrentBubblePos = finalPosition;
+                OnPropertyChanged(nameof(CurrentBubblePos));
+                newBubble = SnapBubble(finalPosition);
             }
 
             int removed = 0;
@@ -326,6 +389,91 @@ namespace CatGame.ViewModels
             await HandleMoveAndCheckRows();
             ResetCurrentBubble();
             _isShooting = false;
+        }
+        private double DistanceToLine(Point point, Point lineStart, Point lineEnd)
+        {
+            double numerator = Math.Abs(
+                (lineEnd.X - lineStart.X) * (lineStart.Y - point.Y) -
+                (lineStart.X - point.X) * (lineEnd.Y - lineStart.Y)
+            );
+            double denominator = Math.Sqrt(
+                Math.Pow(lineEnd.X - lineStart.X, 2) +
+                Math.Pow(lineEnd.Y - lineStart.Y, 2)
+            );
+            return numerator / denominator;
+        }
+        private bool CanPassBetween(Bubble bubble1, Bubble bubble2, Point position, Point velocity)
+        {
+            // Проверяем, есть ли достаточно места между двумя пузырями
+            var center1 = bubble1.Position;
+            var center2 = bubble2.Position;
+
+            // Вычисляем центральную точку между пузырями
+            var midPoint = new Point(
+                (center1.X + center2.X) / 2,
+                (center1.Y + center2.Y) / 2
+            );
+
+            // Проверяем расстояние от позиции до линии между пузырями
+            double distance = DistanceToLine(position, center1, center2);
+
+            // Проверяем, движемся ли мы в направлении прохода
+            Vector movement = new Vector(velocity.X, velocity.Y);
+            Vector gap = new Vector(center2.X - center1.X, center2.Y - center1.Y);
+            double angle = Vector.AngleBetween(movement, gap);
+
+            // Если угол близок к 90 градусам и расстояние достаточное, считаем что можно пройти
+            return Math.Abs(angle) > 45 && Math.Abs(angle) < 135 && distance > BubbleSize * 0.6;
+        }
+        private IEnumerable<Point> GetTrajectoryPoints(Point start, Point end, double steps)
+        {
+            for (double i = 0; i <= steps; i++)
+            {
+                double t = i / steps;
+                yield return new Point(
+                    start.X + (end.X - start.X) * t,
+                    start.Y + (end.Y - start.Y) * t
+                );
+            }
+        }
+        private bool CheckForGap(Point position, Point velocity)
+        {
+            const double gapCheckRadius = 40.0; // Радиус проверки наличия прохода
+            double minGapWidth = BubbleSize * 0.8; // Теперь это обычная переменная, а не константа
+
+            // Проверяем перпендикулярное направление к движению
+            double perpX = -velocity.Y;
+            double perpY = velocity.X;
+            double length = Math.Sqrt(perpX * perpX + perpY * perpY);
+            perpX /= length;
+            perpY /= length;
+
+            // Проверяем точки слева и справа от траектории
+            for (double offset = -gapCheckRadius; offset <= gapCheckRadius; offset += 5)
+            {
+                Point checkPoint = new Point(
+                    position.X + perpX * offset,
+                    position.Y + perpY * offset
+                );
+
+                // Подсчитываем количество близких пузырей
+                int nearbyBubbles = 0;
+                foreach (var bubble in Bubbles)
+                {
+                    if (DistanceBetween(bubble.Position, checkPoint) < minGapWidth)
+                    {
+                        nearbyBubbles++;
+                    }
+                }
+
+                // Если нашли точку без близких пузырей, значит есть проход
+                if (nearbyBubbles == 0)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
         // В метод SnapBubble добавьте проверку
         private Bubble SnapBubble(Point pos)
@@ -833,12 +981,11 @@ namespace CatGame.ViewModels
     new BitmapImage(new Uri("pack://application:,,,/CatGame;component/Views/котправо.png"));
 
 
-        private void GameOver() 
+        private void GameOver()
         {
             IsGameOver = true;
-            IsPaused = true;
+            _gameOverViewModel = new GameOverViewModel(GameData, _navigation, "MiniGame2");
             Debug.WriteLine($"Game Over! Final score: {Score}");
-            _navigation.NavigateTo(new GameOverViewModel(GameData, _navigation, "MiniGame2"));
         }
     }
 }

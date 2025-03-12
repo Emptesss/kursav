@@ -21,6 +21,11 @@ namespace CatGame.ViewModels
                 {
                     OnPropertyChanged(nameof(CurrentCatImage));
                 }
+                // Добавляем обработку изменения обоев
+                if (e.PropertyName == nameof(_gameData.SelectedWallpaper))
+                {
+                    OnPropertyChanged(nameof(SelectedWallpaperPath));
+                }
             };
             // Инициализация команд
             NavigateToMiniGame1Command = new RelayCommand(NavigateToMiniGame1);
@@ -29,7 +34,7 @@ namespace CatGame.ViewModels
             ExitCommand = new RelayCommand(ExitGame);
 
         }
-
+        public string SelectedWallpaperPath => _gameData.SelectedWallpaper?.ImagePath ?? "/Views/fonmenu.png";
         public string CurrentCatImage => _gameData.SelectedSkin?.ImagePath;
 
         public int Balance => _gameData.Balance;

@@ -11,7 +11,26 @@ namespace CatGame.ViewModels
     public class ShopViewModel : ViewModelBase
     {
         private readonly GameData _gameData;
+        private bool _isSkinsTabSelected = true;
         private readonly NavigationService _navigationService;
+        public bool IsSkinsTabSelected
+        {
+            get => _isSkinsTabSelected;
+            set
+            {
+                if (SetProperty(ref _isSkinsTabSelected, value))
+                {
+                    OnPropertyChanged(nameof(IsWallpapersTabSelected));
+                    OnPropertyChanged(nameof(Wallpapers)); // Добавьте это
+                    OnPropertyChanged(nameof(Skins)); // И это
+                }
+            }
+        }
+
+        public bool IsWallpapersTabSelected
+        {
+            get => !_isSkinsTabSelected;
+        }
 
         public ShopViewModel(GameData gameData, NavigationService navigationService)
         {
@@ -22,15 +41,63 @@ namespace CatGame.ViewModels
             ReturnCommand = new RelayCommand(ReturnToMain);
             ExitCommand = new RelayCommand(OnExit);
             ToggleSkinCommand = new RelayCommand(ToggleSkin);
+            SwitchToSkinsCommand = new RelayCommand(_ => IsSkinsTabSelected = true);
+            SwitchToWallpapersCommand = new RelayCommand(_ => IsSkinsTabSelected = false);
+            BuyWallpaperCommand = new RelayCommand(BuyWallpaper);
+            ToggleWallpaperCommand = new RelayCommand(ToggleWallpaper);
+
         }
 
-        public ICommand ExitCommand { get; }
         public ICommand BuyItemCommand { get; }
         public ICommand ReturnCommand { get; }
+        public ICommand ExitCommand { get; }
         public ICommand ToggleSkinCommand { get; }
 
-        public int Balance => _gameData.Balance;
+        // Новые команды
+        public ICommand SwitchToSkinsCommand { get; }
+        public ICommand SwitchToWallpapersCommand { get; }
+        public ICommand BuyWallpaperCommand { get; }
+        public ICommand ToggleWallpaperCommand { get; }
+
+        public ObservableCollection<Wallpaper> Wallpapers => _gameData.Wallpapers;
         public ObservableCollection<Skin> Skins => _gameData.Skins;
+        public int Balance => _gameData.Balance;
+        private void BuyWallpaper(object parameter)
+        {
+            if (parameter is Wallpaper wallpaper)
+            {
+                // Проверяем, не являются ли это базовые обои (первый элемент коллекции)
+                if (wallpaper == _gameData.Wallpapers.First())
+                    return;
+
+                if (_gameData.Balance >= wallpaper.Price && !wallpaper.IsPurchased)
+                {
+                    _gameData.Balance -= wallpaper.Price;
+                    wallpaper.IsPurchased = true;
+                    var wallpapersView = (CollectionViewSource)Application.Current.MainWindow.Resources["PurchasableWallpapers"];
+                    wallpapersView?.View.Refresh();
+                }
+            }
+        }
+        private void ToggleWallpaper(object parameter)
+        {
+            if (parameter is Wallpaper wallpaper)
+            {
+                // Проверяем, не являются ли это базовые обои
+                if (wallpaper == _gameData.Wallpapers.First())
+                    return;
+
+                if (_gameData.SelectedWallpaper == wallpaper)
+                {
+                    _gameData.SelectedWallpaper = _gameData.Wallpapers.First();
+                }
+                else
+                {
+                    _gameData.SelectedWallpaper = wallpaper;
+                }
+            }
+        }
+
 
         private void BuyItem(object parameter)
         {

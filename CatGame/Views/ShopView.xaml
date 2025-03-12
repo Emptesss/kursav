@@ -10,13 +10,20 @@
              Loaded="UserControl_Loaded">
     <UserControl.Resources>
         <CollectionViewSource x:Key="PurchasableSkins" Source="{Binding Skins}"/>
+        <CollectionViewSource x:Key="PurchasableWallpapers" Source="{Binding Wallpapers}"/>
+        <helpers:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <helpers:ImageScaleConverter x:Key="ImageScaleConverter"/>
+        <helpers:InverseBoolConverter x:Key="InverseBoolConverter"/>
+        <helpers:PurchaseStatusConverter x:Key="PurchaseStatusConverter"/>
+        <helpers:PriceToVisibilityConverter x:Key="PriceToVisibilityConverter"/>
+
     </UserControl.Resources>
 
     <Grid Background="#FFF9BFCD">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" MinHeight="146"/>
-            <RowDefinition/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!-- Верхняя панель -->
@@ -37,6 +44,12 @@
                        Margin="10,0,0,0"
                        VerticalAlignment="Center"
                        Grid.Column="1"/>
+            <TextBlock Text="Магазин" 
+                       Grid.Column="1"
+                       FontSize="48"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontWeight="Bold"/>
 
             <Button Command="{Binding ReturnCommand}" 
                     Grid.Column="2"
@@ -50,78 +63,189 @@
             </Button>
         </Grid>
 
-        <!-- Основной контент со скинами -->
-        <Grid Grid.Row="1" Margin="20">
-            <ItemsControl ItemsSource="{Binding Source={StaticResource PurchasableSkins}}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
+        <!-- Кнопки переключения -->
+        <StackPanel Grid.Row="1" 
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Left"
+                    Margin="736,10,0,0">
+            <Button Command="{Binding SwitchToSkinsCommand}"
+                    Width="200"
+                    Height="50"
+                    Margin="0,0,10,0"
+                    Content="Скины">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource MainButtonStyle}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsSkinsTabSelected}" Value="True">
+                                <Setter Property="Background" Value="#FFE9A5B5"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
 
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Margin="20" Width="300">
-                            <Image Width="300" 
-               Height="300"
-               Source="{Binding ImagePath, Converter={StaticResource ImageScaleConverter}}"/>
+            <Button Command="{Binding SwitchToWallpapersCommand}"
+                    Width="200"
+                    Height="50"
+                    Content="Обои">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource MainButtonStyle}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsWallpapersTabSelected}" Value="True">
+                                <Setter Property="Background" Value="#FFE9A5B5"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
 
-                            <!-- Цена -->
-                            <StackPanel Orientation="Horizontal" 
-                                        HorizontalAlignment="Center" 
-                                        Margin="0 10">
-                                <TextBlock Text="{Binding Price}" 
-                                           FontSize="24" 
-                                           Margin="0 0 10 0"/>
-                                <Image Source="/CatGame;component/Views/монета.png" 
-                                       Width="30" 
-                                       Height="30"/>
+        <!-- Контент -->
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <!-- Скины -->
+                <ItemsControl ItemsSource="{Binding Source={StaticResource PurchasableSkins}}"
+                            Visibility="{Binding IsSkinsTabSelected, Converter={StaticResource BoolToVisibilityConverter}}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel HorizontalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="20" Width="300">
+                                <Image Width="300" 
+                                       Height="300"
+                                       Source="{Binding ImagePath, Converter={StaticResource ImageScaleConverter}}"/>
+
+                                <StackPanel Orientation="Horizontal" 
+                                          HorizontalAlignment="Center" 
+                                          Margin="0,10">
+                                    <TextBlock Text="{Binding Price}" 
+                                             FontSize="24" 
+                                             Margin="0,0,10,0"/>
+                                    <Image Source="/CatGame;component/Views/монета.png" 
+                                         Width="30" 
+                                         Height="30"/>
+                                </StackPanel>
+
+                                <Button Command="{Binding DataContext.BuyItemCommand, 
+                                              RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                        CommandParameter="{Binding}"
+                                        IsEnabled="{Binding IsPurchased, 
+                                                  Converter={StaticResource InverseBoolConverter}}"
+                                        Style="{StaticResource MainButtonStyle}"
+                                        Margin="0,10">
+                                    <Button.Content>
+                                        <MultiBinding Converter="{StaticResource PurchaseStatusConverter}">
+                                            <Binding Path="IsPurchased"/>
+                                            <Binding Path="Price"/>
+                                        </MultiBinding>
+                                    </Button.Content>
+                                </Button>
+
+                                <Button Command="{Binding DataContext.ToggleSkinCommand, 
+                                              RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                        CommandParameter="{Binding}"
+                                        Margin="0,10">
+                                    <Button.Style>
+                                        <Style TargetType="Button" 
+                                             BasedOn="{StaticResource MainButtonStyle}">
+                                            <Setter Property="Content" Value="Включить"/>
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsPurchased}" 
+                                                           Value="True">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding IsActive}" 
+                                                           Value="True">
+                                                    <Setter Property="Content" Value="Выключить"/>
+                                                    <Setter Property="Background" Value="#FFE9A5B5"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
                             </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
 
-                            <!-- Кнопка покупки -->
-                            <Button Command="{Binding DataContext.BuyItemCommand, 
-                                            RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                    CommandParameter="{Binding}"
-                                    IsEnabled="{Binding IsPurchased, 
-                                                Converter={StaticResource InverseBoolConverter}}"
-                                    Style="{StaticResource MainButtonStyle}"
-                                    Margin="0 10">
-                                <Button.Content>
-                                    <MultiBinding Converter="{StaticResource PurchaseStatusConverter}">
-                                        <Binding Path="IsPurchased"/>
-                                        <Binding Path="Price"/>
-                                    </MultiBinding>
-                                </Button.Content>
-                            </Button>
+                <!-- Обои -->
+                <!-- Обои -->
+                <ItemsControl ItemsSource="{Binding Source={StaticResource PurchasableWallpapers}}"
+              Visibility="{Binding IsWallpapersTabSelected, Converter={StaticResource BoolToVisibilityConverter}}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel HorizontalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
 
-                            <!-- Кнопка активации скина -->
-                            <Button Command="{Binding DataContext.ToggleSkinCommand, 
-                                            RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                    CommandParameter="{Binding}"
-                                    Margin="0 10">
-                                <Button.Style>
-                                    <Style TargetType="Button" 
-                                           BasedOn="{StaticResource MainButtonStyle}">
-                                        <Setter Property="Content" Value="Включить"/>
-                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding IsPurchased}" 
-                                                         Value="True">
-                                                <Setter Property="Visibility" Value="Visible"/>
-                                            </DataTrigger>
-                                            <DataTrigger Binding="{Binding IsActive}" 
-                                                         Value="True">
-                                                <Setter Property="Content" Value="Выключить"/>
-                                                <Setter Property="Background" Value="#FFE9A5B5"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Button.Style>
-                            </Button>
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </Grid>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="20" Width="300">
+                                <Image Width="300" 
+                       Height="300"
+                       Source="{Binding ImagePath, Converter={StaticResource ImageScaleConverter}}"/>
+
+                                <StackPanel Orientation="Horizontal" 
+                          HorizontalAlignment="Center" 
+                          Margin="0,10">
+                                    <TextBlock Text="{Binding Price}" 
+                             FontSize="24" 
+                             Margin="0,0,10,0"/>
+                                    <Image Source="/CatGame;component/Views/монета.png" 
+                         Width="30" 
+                         Height="30"/>
+                                </StackPanel>
+
+                                <Button Command="{Binding DataContext.BuyWallpaperCommand, 
+                                  RelativeSource={RelativeSource AncestorType=UserControl}}"
+                        CommandParameter="{Binding}"
+                        IsEnabled="{Binding IsPurchased, 
+                                  Converter={StaticResource InverseBoolConverter}}"
+                        Style="{StaticResource MainButtonStyle}"
+                        Margin="0,10"
+                       >
+                                    <Button.Content>
+                                        <MultiBinding Converter="{StaticResource PurchaseStatusConverter}">
+                                            <Binding Path="IsPurchased"/>
+                                            <Binding Path="Price"/>
+                                        </MultiBinding>
+                                    </Button.Content>
+                                </Button>
+
+                                <Button Command="{Binding DataContext.ToggleWallpaperCommand, 
+                                  RelativeSource={RelativeSource AncestorType=UserControl}}"
+                        CommandParameter="{Binding}"
+                        Margin="0,10"
+                        >
+                                    <Button.Style>
+                                        <Style TargetType="Button" 
+                               BasedOn="{StaticResource MainButtonStyle}">
+                                            <Setter Property="Content" Value="Включить"/>
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsPurchased}" 
+                                           Value="True">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding IsActive}" 
+                                           Value="True">
+                                                    <Setter Property="Content" Value="Выключить"/>
+                                                    <Setter Property="Background" Value="#FFE9A5B5"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </UserControl>

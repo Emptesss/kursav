@@ -20,6 +20,7 @@
     <None Remove="Views\roblox-death-sound-effect.mp3" />
     <None Remove="Views\zvukknopki.mp3" />
     <None Remove="Views\игры.png" />
+    <None Remove="Views\клубнички.jpg" />
     <None Remove="Views\кнопкавыход.png" />
     <None Remove="Views\кнопказаново.png" />
     <None Remove="Views\кнопкапауза.png" />
@@ -34,8 +35,10 @@
     <None Remove="Views\рыба.png" />
     <None Remove="Views\рыбьякость.png" />
     <None Remove="Views\сердце.png" />
+    <None Remove="Views\фигурыкруглые.jpg" />
     <None Remove="Views\фон главное.jpg" />
     <None Remove="Views\фон главное.png" />
+    <None Remove="Views\цветыбольшие.jpg" />
     <None Remove="Views\шкафчик.png" />
     <None Remove="Views\яблокоогрызок.png" />
   </ItemGroup>
@@ -63,6 +66,7 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Views\игры.png" />
+    <Resource Include="Views\клубнички.jpg" />
     <Resource Include="Views\кнопкавыход.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -89,8 +93,10 @@
     <Resource Include="Views\рыба.png" />
     <Resource Include="Views\рыбьякость.png" />
     <Resource Include="Views\сердце.png" />
+    <Resource Include="Views\фигурыкруглые.jpg" />
     <Resource Include="Views\фон главное.jpg" />
     <Resource Include="Views\фон главное.png" />
+    <Resource Include="Views\цветыбольшие.jpg" />
     <Resource Include="Views\шкафчик.png" />
     <Resource Include="Views\яблокоогрызок.png" />
   </ItemGroup>

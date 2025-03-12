@@ -22,6 +22,7 @@
         <helpers:HalfSizeConverter x:Key="HalfSizeConverter"/>
         <helpers:ArrowAngleConverter x:Key="ArrowAngleConverter"/>
         <helpers:MoveIndicatorPositionConverter x:Key="MoveIndicatorPositionConverter"/>
+        <helpers:MultipleBooleansToBlurConverter x:Key="MultipleBooleansToBlurConverter"/>
     </UserControl.Resources>
 
     <Grid>
@@ -29,7 +30,14 @@
         <!-- Основной контент игры -->
         <Grid x:Name="GameContent">
             <Grid.Effect>
-                <BlurEffect Radius="{Binding IsPaused, Converter={StaticResource BoolToBlurConverter}}"/>
+                <BlurEffect>
+                    <BlurEffect.Radius>
+                        <MultiBinding Converter="{StaticResource MultipleBooleansToBlurConverter}">
+                            <Binding Path="IsPaused"/>
+                            <Binding Path="IsGameOver"/>
+                        </MultiBinding>
+                    </BlurEffect.Radius>
+                </BlurEffect>
             </Grid.Effect>
             <!-- Верхняя панель -->
             <Grid Margin="20" VerticalAlignment="Top">
@@ -287,10 +295,19 @@
         </Grid>
         <!-- После всех других элементов, но перед меню паузы -->
         <!-- Меню паузы -->
-        <ContentControl Content="{Binding CurrentView}"
-                        Panel.ZIndex="1000"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Visibility="{Binding IsPaused, Converter={StaticResource BoolToVisibilityConverter}}"/>
+        <Grid Panel.ZIndex="1000"
+      Visibility="{Binding IsPaused, Converter={StaticResource BoolToVisibilityConverter}}">
+            <ContentControl Content="{Binding CurrentView}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+        </Grid>
+
+        <!-- Меню проигрыша -->
+        <Grid Panel.ZIndex="2000"
+      Visibility="{Binding IsGameOver, Converter={StaticResource BoolToVisibilityConverter}}">
+            <ContentControl Content="{Binding GameOverViewModel}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+        </Grid>
     </Grid>
 </UserControl>

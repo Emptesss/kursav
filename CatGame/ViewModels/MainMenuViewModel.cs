@@ -10,15 +10,35 @@ namespace CatGame.ViewModels
     {
         private readonly NavigationService _navigationService;
         private readonly GameData _gameData;
+        private object _currentView;
+        private bool _hasOpenRules;
+        public bool HasOpenRules
+        {
+            get => _hasOpenRules;
+            set
+            {
+                _hasOpenRules = value;
+                OnPropertyChanged();
+            }
+        }
+        public object CurrentView
+        {
+            get => _currentView;
+            set
+            {
+                _currentView = value;
+                HasOpenRules = value != null;
+                OnPropertyChanged();
+            }
+        }
 
         public MainMenuViewModel(NavigationService navigationService, GameData gameData)
         {
             _navigationService = navigationService;
             _gameData = gameData;
 
-            // Инициализация команд
             PlayCommand = new RelayCommand(Play);
-            RulesCommand = new RelayCommand(Rules);
+            RulesCommand = new RelayCommand(ShowRules);
             ExitCommand = new RelayCommand(Exit);
         }
 
@@ -28,19 +48,18 @@ namespace CatGame.ViewModels
 
         private void Play(object parameter)
         {
-            // Переход к игровому экрану с передачей gameData и navigationService
             _navigationService.NavigateTo(new MainGameScreenViewModel(_gameData, _navigationService));
         }
 
-        private void Rules(object parameter)
+        private void ShowRules(object parameter)
         {
-            // Логика для отображения правил
-            MessageBox.Show("Правила игры: ...");
+            var rulesView = new RulesView();
+            rulesView.DataContext = new RulesViewModel(() => CurrentView = null);
+            CurrentView = rulesView;
         }
 
         private void Exit(object parameter)
         {
-            // Закрытие приложения
             Application.Current.Shutdown();
         }
     }

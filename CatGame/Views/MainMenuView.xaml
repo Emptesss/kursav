@@ -6,11 +6,27 @@
              xmlns:local="clr-namespace:CatGame.Views"
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920">
-    <UserControl.Background>
-        <ImageBrush ImageSource="/Views/фон главное.png" Stretch="UniformToFill"/>
-    </UserControl.Background>
     <Grid>
-        <StackPanel>
+        <Grid x:Name="MainContent">
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding HasOpenRules}" Value="True">
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <BlurEffect Radius="10"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+
+            <Grid.Background>
+                <ImageBrush ImageSource="/Views/фон главное.png" Stretch="UniformToFill"/>
+            </Grid.Background>
+
+            <StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="764" Height="481" RenderTransformOrigin="0.5,0.5">
                 <StackPanel.RenderTransform>
                     <TransformGroup>
@@ -118,7 +134,10 @@
                     </EventTrigger>
                 </Image.Triggers>
             </Image>
+            
             <Image Height="100" Width="100"/>
         </StackPanel>
+        </Grid>
+        <ContentControl Content="{Binding CurrentView}" Panel.ZIndex="1"/>
     </Grid>
 </UserControl>

@@ -1,115 +1,179 @@
-﻿using System.Collections.ObjectModel;
+﻿using CatGame.Models;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
-namespace CatGame.Models
+public class GameData : INotifyPropertyChanged
 {
-    public class GameData : INotifyPropertyChanged
+    private int _balance;
+    private int _currentGameBalance;
+    private ObservableCollection<Skin> _skins;
+    private Skin _selectedSkin;
+    private ObservableCollection<Wallpaper> _wallpapers; // Новое поле
+    private Wallpaper _selectedWallpaper; // Новое поле
+
+    public Wallpaper SelectedWallpaper // Новое свойство
     {
-        private int _balance;
-        private int _currentGameBalance;
-        private ObservableCollection<Skin> _skins;
-        private Skin _selectedSkin;
-
-        public Skin SelectedSkin
+        get => _selectedWallpaper;
+        set
         {
-            get => _selectedSkin;
-            set
+            if (_selectedWallpaper != value)
             {
-                if (_selectedSkin != value)
-                {
-                    // Сбрасываем активность предыдущего скина
-                    if (_selectedSkin != null)
-                        _selectedSkin.IsActive = false;
+                if (_selectedWallpaper != null)
+                    _selectedWallpaper.IsActive = false;
 
-                    _selectedSkin = value;
+                _selectedWallpaper = value;
 
-                    // Устанавливаем активность нового скина
-                    if (_selectedSkin != null)
-                        _selectedSkin.IsActive = true;
+                if (_selectedWallpaper != null)
+                    _selectedWallpaper.IsActive = true;
 
-                    OnPropertyChanged();
-                }
+                OnPropertyChanged();
             }
         }
-        public string CurrentCatImage => SelectedSkin?.ImagePath;
+    }
 
-        public GameData()
-        {
-            Skins = new ObservableCollection<Skin>
+    public ObservableCollection<Wallpaper> Wallpapers // Новое свойство
     {
-        new Skin
+        get => _wallpapers;
+        set
         {
-            Name = "Базовый кот",
-            ImagePath = "/CatGame;component/Views/котправо.png",
-            Price = 0,
-            IsPurchased = true
-        },
-        new Skin
-        {
-            Name = "Черничный кот",
-            ImagePath = "/CatGame;component/Views/котчерника.png",
-            Price = 400
-        },
-        new Skin
-        {
-            Name = "Белый кот",
-            ImagePath = "/CatGame;component/Views/котбели.png",
-            Price = 100
-        },
-        new Skin
-        {
-            Name = "Сиамский кот",
-            ImagePath = "/CatGame;component/Views/котсиам.png",
-            Price = 300
-        },
-        new Skin
-        {
-            Name = "Черный кот",
-            ImagePath = "/CatGame;component/Views/котчерни.png",
-            Price = 200
+            _wallpapers = value;
+            OnPropertyChanged();
         }
-    };
-            SelectedSkin = Skins.First();
-        }
+    }
 
-        public int Balance
+    public Skin SelectedSkin
+    {
+        get => _selectedSkin;
+        set
         {
-            get => _balance;
-            set
+            if (_selectedSkin != value)
             {
-                _balance = value;
+                if (_selectedSkin != null)
+                    _selectedSkin.IsActive = false;
+
+                _selectedSkin = value;
+
+                if (_selectedSkin != null)
+                    _selectedSkin.IsActive = true;
+
                 OnPropertyChanged();
             }
         }
+    }
 
-        public int CurrentGameBalance
+    public GameData()
+    {
+        // Инициализация скинов
+        Skins = new ObservableCollection<Skin>
         {
-            get => _currentGameBalance;
-            set
+            new Skin
             {
-                _currentGameBalance = value;
-                OnPropertyChanged();
-                Debug.WriteLine($"CurrentGameBalance изменен: {_currentGameBalance}");
-            }
-        }
-
-        public ObservableCollection<Skin> Skins
-        {
-            get => _skins;
-            set
+                Name = "Базовый кот",
+                ImagePath = "/CatGame;component/Views/котправо.png",
+                Price = 0,
+                IsPurchased = true
+            },
+            new Skin
             {
-                _skins = value;
-                OnPropertyChanged();
+                Name = "Черничный кот",
+                ImagePath = "/CatGame;component/Views/котчерника.png",
+                Price = 400
+            },
+            new Skin
+            {
+                Name = "Белый кот",
+                ImagePath = "/CatGame;component/Views/котбели.png",
+                Price = 100
+            },
+            new Skin
+            {
+                Name = "Сиамский кот",
+                ImagePath = "/CatGame;component/Views/котсиам.png",
+                Price = 300
+            },
+            new Skin
+            {
+                Name = "Черный кот",
+                ImagePath = "/CatGame;component/Views/котчерни.png",
+                Price = 200
             }
-        }
+        };
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        // Инициализация обоев
+        Wallpapers = new ObservableCollection<Wallpaper>
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            new Wallpaper
+            {
+                Name = "Базовые обои",
+                ImagePath = "/CatGame;component/Views/fonmenu.png",
+                Price = 0,
+                IsPurchased = true
+              
+            },
+            new Wallpaper
+            {
+                Name = "Фигуры круглые",
+                ImagePath = "/CatGame;component/Views/фигурыкруглые.jpg",
+                Price = 2
+            },
+            new Wallpaper
+            {
+                Name = "Цветы большие",
+                ImagePath = "/CatGame;component/Views/цветыбольшие.jpg",
+                Price = 2
+            },
+            new Wallpaper
+            {
+                Name = "Клубнички",
+                ImagePath = "/CatGame;component/Views/клубнички.jpg",
+                Price = 2
+            }
+           
+        };
+
+        // Установка начальных значений
+        SelectedSkin = Skins.First();
+        SelectedWallpaper = Wallpapers.First();
+    }
+
+    // Остальные свойства остаются без изменений
+    public int Balance
+    {
+        get => _balance;
+        set
+        {
+            _balance = value;
+            OnPropertyChanged();
         }
+    }
+
+    public int CurrentGameBalance
+    {
+        get => _currentGameBalance;
+        set
+        {
+            _currentGameBalance = value;
+            OnPropertyChanged();
+            Debug.WriteLine($"CurrentGameBalance изменен: {_currentGameBalance}");
+        }
+    }
+
+    public ObservableCollection<Skin> Skins
+    {
+        get => _skins;
+        set
+        {
+            _skins = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

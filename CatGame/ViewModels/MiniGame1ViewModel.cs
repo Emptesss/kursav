@@ -26,7 +26,7 @@ namespace CatGame.ViewModels
         private double _gameTime = 0;
         private bool _isFacingRight = true;
         private double _lastTime;
-
+        private bool _isGamePaused;
 
         public static readonly double CatWidth = 260.0;
         public static readonly double CatHeight = 260.0;
@@ -76,7 +76,13 @@ namespace CatGame.ViewModels
         public bool IsPaused
         {
             get => _isPaused;
-            set => SetProperty(ref _isPaused, value);
+            set
+            {
+                if (SetProperty(ref _isPaused, value))
+                {
+                    OnPropertyChanged(nameof(IsPausedAndNotGameOver));
+                }
+            }
         }
 
         public GameData GameData => _gameData;
@@ -116,20 +122,24 @@ namespace CatGame.ViewModels
         public void InitializeGame()
         {
             Foods.Clear();
-            _gameData.CurrentGameBalance = 0; // Сбрасываем только текущий баланс игры
+            BadFoods.Clear(); // Добавляем очистку плохой еды
+            _gameData.CurrentGameBalance = 0;
             _foodSpawnTimer = 0;
             _gameTime = 0;
             _foodSpawnInterval = InitialFoodSpawnInterval;
             _foodSpeed = InitialFoodSpeed;
             _maxFoodCount = InitialMaxFoodCount;
             MissedFoodCount = 0;
-            OnPropertyChanged(nameof(HeartVisibilities));
+            _isGamePaused = false; // Сбрасываем флаг паузы
             IsGameOver = false;
+            OnPropertyChanged(nameof(HeartVisibilities));
         }
 
         private void GameLoop(object sender, EventArgs e)
         {
-            if (IsPaused || !(e is RenderingEventArgs args)) return;
+            // Проверяем и паузу, и окончание игры
+            if (_isGamePaused || IsPaused || IsGameOver || !(e is RenderingEventArgs args))
+                return;
 
             double currentTime = args.RenderingTime.TotalSeconds;
             double delta = currentTime - _lastTime;
@@ -257,7 +267,7 @@ namespace CatGame.ViewModels
                 {
                     Position = new Point(_rnd.Next(500, 1420 - (int)FoodSize), -FoodSize),
                     Speed = _foodSpeed * (0.8 + _rnd.NextDouble() * 0.4), // Скорость от 80% до 120% от базовой
-                    Reward = 1,
+                    Reward = 2,
                     ImagePath = _rnd.Next(2) == 0
                 ? "/CatGame;component/Views/рыба.png"
                 : "/CatGame;component/Views/мясо.png"
@@ -268,7 +278,8 @@ namespace CatGame.ViewModels
 
         public void MoveCat(Key key)
         {
-            if (IsPaused) return;
+            if (IsPaused || IsGameOver || _isGamePaused)
+                return;
 
             double newX = CatPosition.X;
             if (key == Key.Left)
@@ -307,18 +318,24 @@ namespace CatGame.ViewModels
         public bool IsGameOver
         {
             get => _isGameOver;
-            set => SetProperty(ref _isGameOver, value);
+            set
+            {
+                if (SetProperty(ref _isGameOver, value))
+                {
+                    OnPropertyChanged(nameof(IsPausedAndNotGameOver));
+                }
+            }
+        }
+        public bool IsPausedAndNotGameOver
+        {
+            get => IsPaused && !IsGameOver;
         }
         private void GameOver()
         {
-            IsPaused = true;
+            _isGamePaused = true; // Останавливаем игровой цикл
             IsGameOver = true;
             _gameOverViewModel = new GameOverViewModel(_gameData, _navigation, "MiniGame1");
             Debug.WriteLine($"Создано меню проигрыша. Текущий баланс: {_gameData.CurrentGameBalance}");
-        }
-        public void ShowGameOverMenu()
-        {
-            _navigation.NavigateTo(new GameOverViewModel(_gameData, _navigation));
         }
     }
 }

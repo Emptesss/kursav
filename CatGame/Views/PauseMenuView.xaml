@@ -4,6 +4,7 @@
       Width="500" Height="200">
 
     <Grid Background="#80000000">
+        
         <Border Background="#FFE9A5B5" 
                 CornerRadius="10"
                 Width="500" 

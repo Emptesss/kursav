@@ -42,6 +42,18 @@ namespace CatGame.Views
                 };
                 skinsView.View.Refresh();
             }
+            if (Resources["PurchasableWallpapers"] is CollectionViewSource wallpapersView)
+            {
+                wallpapersView.Filter += (s, args) =>
+                {
+                    if (args.Item is Wallpaper wallpaper)
+                    {
+                        Debug.WriteLine($"Wallpaper: {wallpaper.Name}, Price: {wallpaper.Price}, Purchased: {wallpaper.IsPurchased}");
+                        args.Accepted = wallpaper.Price > 0;
+                    }   
+                };
+                wallpapersView.View.Refresh();
+            }
         }
     }
 }

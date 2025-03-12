@@ -82,3 +82,5 @@ C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\refint\CatGame.dll
 C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\CatGame.pdb
 C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\CatGame.genruntimeconfig.cache
 C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\ref\CatGame.dll
+C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\Views\RulesView.baml
+C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\Views\RulesView.g.cs

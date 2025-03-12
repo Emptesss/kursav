@@ -8,7 +8,7 @@
              d:DesignHeight="1080" 
              d:DesignWidth="1980">
     <UserControl.Background>
-        <ImageBrush ImageSource="/Views/fonmenu.png" Stretch="UniformToFill"/>
+        <ImageBrush ImageSource="{Binding SelectedWallpaperPath}" Stretch="UniformToFill"/>
     </UserControl.Background>
     <Grid>
         <Grid.RowDefinitions>
@@ -57,81 +57,109 @@
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"/>
-            <Button Command="{Binding OpenMiniGamesMenuCommand}" 
-                    Margin="-222,-646,1130,42"
-                    Style="{StaticResource InvisibleButtonStyle}">
-                <Image Source="/Views/игры.png" 
-                       RenderTransformOrigin="0.5,0.5"
-                       Stretch="Uniform"
-                       Opacity="1">
-                    <Image.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform ScaleX="-1"/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Image.RenderTransform>
-                    <Image.Style>
-                        <Style TargetType="Image">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Effect">
-                                        <Setter.Value>
-                                            <DropShadowEffect BlurRadius="20" 
-                                                             Color="White"
-                                                             Opacity="0.7"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
-                                    <Setter Property="RenderTransform">
-                                        <Setter.Value>
-                                            <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Image.Style>
-                </Image>
-            </Button>
-            <Button Command="{Binding NavigateToShopCommand}" 
-                    Margin="1447,-568,10,75"
-                    Style="{StaticResource InvisibleButtonStyle}">
-                <Image Source="/Views/шкафчик.png" 
-                       Stretch="Fill"
-                       RenderTransformOrigin="0.5,0.5" 
-                       Margin="10,0,0,0">
-                    <Image.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </Image.RenderTransform>
-                    <Image.Style>
-                        <Style TargetType="Image">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Effect">
-                                        <Setter.Value>
-                                            <DropShadowEffect BlurRadius="20" 
-                                                             Color="White"
-                                                             Opacity="0.7"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                    <Setter Property="RenderTransform">
-                                        <Setter.Value>
-                                            <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Image.Style>
-                </Image>
-            </Button>
+            <Grid Margin="-222,-646,1130,42">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Игры"
+               FontSize="36"
+               HorizontalAlignment="Center"
+               Margin="0,0,0,10"
+               Foreground="#FF1E1E1E"/>
+                <Button Grid.Row="1"
+            Command="{Binding OpenMiniGamesMenuCommand}" 
+            Style="{StaticResource InvisibleButtonStyle}"
+            Width="700"
+            Height="700">
+                    <Image Source="/Views/игры.png" 
+               RenderTransformOrigin="0.5,0.5"
+               Stretch="Uniform"
+               Opacity="1">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                        <Image.Style>
+                            <Style TargetType="Image">
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Effect">
+                                            <Setter.Value>
+                                                <DropShadowEffect BlurRadius="20" 
+                                                     Color="White"
+                                                     Opacity="0.7"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                                        <Setter Property="RenderTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
+                </Button>
+            </Grid>
+            <Grid Margin="1447,-568,10,75">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Магазин"
+               Grid.Row="0"
+               FontSize="36"
+               HorizontalAlignment="Center"
+               Margin="0,0,0,10"
+               Foreground="#FF1E1E1E"/>
+
+                <Button Grid.Row="1"
+            Command="{Binding NavigateToShopCommand}" 
+            Style="{StaticResource InvisibleButtonStyle}"
+            Width="500"
+            Height="600">
+                    <Image Source="/Views/шкафчик.png" 
+               Stretch="Uniform"
+               RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                        <Image.Style>
+                            <Style TargetType="Image">
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Effect">
+                                            <Setter.Value>
+                                                <DropShadowEffect BlurRadius="20" 
+                                                     Color="White"
+                                                     Opacity="0.7"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="RenderTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Image.Style>
+                    </Image>
+                </Button>
+            </Grid>
             <!-- Тень кота -->
             <!-- Тень кота -->
             <Ellipse x:Name="CatShadow"
