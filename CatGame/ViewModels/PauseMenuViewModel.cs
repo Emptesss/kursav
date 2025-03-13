@@ -33,14 +33,26 @@ namespace CatGame.ViewModels
             });
 
             ExitCommand = new RelayCommand(_ =>
-                _navigation.NavigateTo(new MainGameScreenViewModel(_gameData, _navigation)));
+            {
+                SaveBalance();
+                _navigation.NavigateTo(new MainGameScreenViewModel(_gameData, _navigation));
+            });
         }
 
         private void InitializeCommands()
         {
             ResumeCommand = new RelayCommand(_ => _resumeAction());
             ExitCommand = new RelayCommand(_ =>
-                _navigation.NavigateTo(new MainGameScreenViewModel(_gameData, _navigation)));
+            {
+                SaveBalance();
+                _navigation.NavigateTo(new MainGameScreenViewModel(_gameData, _navigation));
+            });
+        }
+
+        private void SaveBalance()
+        {
+            _gameData.Balance += _gameData.CurrentGameBalance;
+            _gameData.CurrentGameBalance = 0;
         }
 
         public ICommand ResumeCommand { get; private set; }

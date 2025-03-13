@@ -100,14 +100,13 @@
                                         <Setter Property="Effect">
                                             <Setter.Value>
                                                 <DropShadowEffect BlurRadius="20" 
-                                                     Color="White"
-                                                     Opacity="0.7"/>
+            Color="White"
+            Opacity="0.7"/>
                                             </Setter.Value>
                                         </Setter>
-                                        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
                                         <Setter Property="RenderTransform">
                                             <Setter.Value>
-                                                <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                                <ScaleTransform ScaleX="2" ScaleY="2"/>
                                             </Setter.Value>
                                         </Setter>
                                     </Trigger>
@@ -140,35 +139,45 @@
                 </TextBlock>
 
                 <Button Grid.Row="1"
-            Command="{Binding NavigateToShopCommand}" 
-            Style="{StaticResource InvisibleButtonStyle}" Margin="10,10,45,68" Click="Button_Click">
-                    <Image Source="/Views/шкафчик.png" 
-               Stretch="Uniform"
-               RenderTransformOrigin="0.5,0.5" Margin="71,60,152,138" Height="558">
-                        <Image.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Image.RenderTransform>
+        Command="{Binding NavigateToShopCommand}" 
+        Style="{StaticResource InvisibleButtonStyle}" 
+        Margin="10,10,45,68">
+                    <Image Source="{Binding SelectedLockerPath}" 
+           Stretch="Uniform"
+           RenderTransformOrigin="0.5,0.5">
                         <Image.Style>
                             <Style TargetType="Image">
+                                <!-- Базовые настройки -->
+                                <Setter Property="Margin" Value="71,60,152,138"/>
+                                <Setter Property="Height" Value="558"/>
+
+                                <!-- Триггеры для разных шкафчиков -->
                                 <Style.Triggers>
+                                    <DataTrigger Binding="{Binding SelectedLockerName}" Value="Базовый шкафчик">
+                                        <Setter Property="Height" Value="400"/>
+                                        <Setter Property="Margin" Value="50,250,160,48"/>
+                                        <!-- Увеличили отступ сверху -->
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding SelectedLockerName}" Value="Милый шкафчик">
+                                        <Setter Property="Height" Value="500"/>
+                                        <Setter Property="Margin" Value="40,160 ,180,130"/>
+                                        <!-- Увеличили отступ сверху -->
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding SelectedLockerName}" Value="С лампой">
+                                        <Setter Property="Height" Value="558"/>
+                                        <Setter Property="Margin" Value="71,60,152,138"/>
+                                    </DataTrigger>
+
+                                    <!-- Триггер для эффекта при наведении -->
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter Property="Effect">
                                             <Setter.Value>
                                                 <DropShadowEffect BlurRadius="20" 
-                                                     Color="White"
-                                                     Opacity="0.7"/>
+                                                Color="White"
+                                                Opacity="0.7"/>
                                             </Setter.Value>
                                         </Setter>
-                                        <Setter Property="RenderTransform">
-                                            <Setter.Value>
-                                                <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
-                                            </Setter.Value>
-                                        </Setter>
+                                      
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>

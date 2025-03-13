@@ -23,6 +23,7 @@
         <helpers:ArrowAngleConverter x:Key="ArrowAngleConverter"/>
         <helpers:MoveIndicatorPositionConverter x:Key="MoveIndicatorPositionConverter"/>
         <helpers:MultipleBooleansToBlurConverter x:Key="MultipleBooleansToBlurConverter"/>
+        
     </UserControl.Resources>
 
     <Grid>
@@ -75,13 +76,17 @@
                     MouseLeftButtonDown="Canvas_MouseLeftButtonDown"
                     Background="Transparent">
                 <!-- Кот -->
+                <!-- Кот -->
                 <Image Source="{Binding GameData.SelectedSkin.ImagePath, 
-                           TargetNullValue={x:Static viewModels:MiniGame2ViewModel.DefaultCatImage}}" 
-                       Width="320" 
-                       Height="320"
-                       Canvas.Left="{Binding CatPosition.X}"
-                       Canvas.Top="{Binding CatPosition.Y}"
-                       RenderTransformOrigin="0.5,0.5">
+                TargetNullValue={x:Static viewModels:MiniGame2ViewModel.DefaultCatImage}}" 
+       Width="320" 
+       Height="320"
+       Canvas.Left="{Binding CatPosition.X}"
+       Canvas.Top="{Binding CatPosition.Y}"
+       RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <ScaleTransform ScaleX="-1"/>
+                    </Image.RenderTransform>
                 </Image>
 
                 <!-- Стрелка -->

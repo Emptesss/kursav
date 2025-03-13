@@ -9,7 +9,8 @@ namespace CatGame.ViewModels
     {
         private readonly GameData _gameData;
         private readonly NavigationService _navigationService;
-
+        public string SelectedLockerName => _gameData.SelectedLocker?.Name;
+        public string SelectedLockerPath => _gameData.SelectedLocker?.ImagePath;
         public MainGameScreenViewModel(GameData gameData, NavigationService navigationService)
         {
             _gameData = gameData;
@@ -25,6 +26,11 @@ namespace CatGame.ViewModels
                 if (e.PropertyName == nameof(_gameData.SelectedWallpaper))
                 {
                     OnPropertyChanged(nameof(SelectedWallpaperPath));
+                }
+                if (e.PropertyName == nameof(GameData.SelectedLocker))
+                {
+                    OnPropertyChanged(nameof(SelectedLockerPath));
+                    OnPropertyChanged(nameof(SelectedLockerName));
                 }
             };
             // Инициализация команд

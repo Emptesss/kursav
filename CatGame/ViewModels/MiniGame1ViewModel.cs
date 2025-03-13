@@ -6,17 +6,25 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Threading;
 
 namespace CatGame.ViewModels
 {
     public class MiniGame1ViewModel : ViewModelBase
     {
-        private const double CatSpeed = 30;
+        private const double CatSpeed = 20;
         private const double FoodSize = 50.0;
         private const double InitialFoodSpawnInterval = 1.5;
         private const double InitialFoodSpeed = 250;
         private const int InitialMaxFoodCount = 5;
         private const int MaxMissedFood = 3;
+        private const double MinDistanceBetweenFood = 200.0;
+        private Dictionary<Key, bool> _pressedKeys = new Dictionary<Key, bool>();
+        private DispatcherTimer _moveTimer;
+        private double _currentSpeed = 0;
+        private const double MaxSpeed = 20;
+        private const double Acceleration = 2.0;
+        private const double Deceleration = 1.5;
 
         private double _foodSpawnInterval = InitialFoodSpawnInterval;
         private double _foodSpeed = InitialFoodSpeed;
@@ -103,6 +111,7 @@ namespace CatGame.ViewModels
                 }
             });
         }
+
         public bool IsFacingRight
         {
             get => _isFacingRight;
@@ -166,7 +175,30 @@ namespace CatGame.ViewModels
                 Debug.WriteLine($"Ошибка при воспроизведении звука: {ex.Message}");
             }
         }
+        private bool IsTooCloseToOtherFood(Point position)
+        {
+            // Проверяем расстояние до хорошей еды
+            foreach (var food in Foods)
+            {
+                double distance = Math.Sqrt(
+                    Math.Pow(food.Position.X - position.X, 2) +
+                    Math.Pow(food.Position.Y - position.Y, 2));
+                if (distance < MinDistanceBetweenFood)
+                    return true;
+            }
 
+            // Проверяем расстояние до плохой еды
+            foreach (var badFood in BadFoods)
+            {
+                double distance = Math.Sqrt(
+                    Math.Pow(badFood.Position.X - position.X, 2) +
+                    Math.Pow(badFood.Position.Y - position.Y, 2));
+                if (distance < MinDistanceBetweenFood)
+                    return true;
+            }
+
+            return false;
+        }
         private void IncreaseDifficulty(double time)
         {
             _foodSpawnInterval = Math.Max(0.5, InitialFoodSpawnInterval - time / 35);
@@ -178,13 +210,31 @@ namespace CatGame.ViewModels
 
         private void UpdateFoodPositions(double delta)
         {
+            // Обновляем позиции хорошей еды
             foreach (var food in Foods.ToArray())
             {
-                food.Position = new Point(food.Position.X, food.Position.Y + food.Speed * delta);
+                var newPosition = new Point(food.Position.X, food.Position.Y + food.Speed * delta);
+
+                // Проверяем, не слишком ли близко к плохой еде
+                bool isTooClose = BadFoods.Any(badFood =>
+                {
+                    double distance = Math.Sqrt(
+                        Math.Pow(badFood.Position.X - newPosition.X, 2) +
+                        Math.Pow(badFood.Position.Y - newPosition.Y, 2));
+                    return distance < MinDistanceBetweenFood;
+                });
+
+                // Если еда слишком близко к плохой, немного корректируем скорость
+                if (isTooClose)
+                {
+                    food.Speed *= 0.8; // Замедляем еду
+                }
+
+                food.Position = newPosition;
 
                 if (CheckCollision(food))
                 {
-                    _gameData.CurrentGameBalance += food.Reward; // Обновляем CurrentGameBalance
+                    _gameData.CurrentGameBalance += food.Reward;
                     Debug.WriteLine($"Монетка собрана! Текущий баланс: {_gameData.CurrentGameBalance}");
                     Foods.Remove(food);
                 }
@@ -200,15 +250,34 @@ namespace CatGame.ViewModels
                     }
                 }
             }
+
+            // Обновляем позиции плохой еды
             foreach (var badFood in BadFoods.ToArray())
             {
-                badFood.Position = new Point(badFood.Position.X, badFood.Position.Y + badFood.Speed * delta);
+                var newPosition = new Point(badFood.Position.X, badFood.Position.Y + badFood.Speed * delta);
+
+                // Проверяем, не слишком ли близко к хорошей еде
+                bool isTooClose = Foods.Any(food =>
+                {
+                    double distance = Math.Sqrt(
+                        Math.Pow(food.Position.X - newPosition.X, 2) +
+                        Math.Pow(food.Position.Y - newPosition.Y, 2));
+                    return distance < MinDistanceBetweenFood;
+                });
+
+                // Если плохая еда слишком близко к хорошей, ускоряем её
+                if (isTooClose)
+                {
+                    badFood.Speed *= 1.2; // Ускоряем плохую еду
+                }
+
+                badFood.Position = newPosition;
 
                 if (CheckCollision(badFood))
                 {
                     MissedFoodCount += badFood.Penalty;
                     OnPropertyChanged(nameof(HeartVisibilities));
-                    PlaySound("Views/roblox-death-sound-effect.mp3");// Отнимаем жизнь
+                    PlaySound("Views/roblox-death-sound-effect.mp3");
                     BadFoods.Remove(badFood);
                     if (MissedFoodCount >= MaxMissedFood)
                     {
@@ -247,17 +316,35 @@ namespace CatGame.ViewModels
 
         private void AddNewFood()
         {
+            const int maxAttempts = 10; // Максимальное количество попыток найти подходящую позицию
+            int attempts = 0;
+            Point position;
+
+            // Пытаемся найти подходящую позицию
+            do
+            {
+                position = new Point(_rnd.Next(500, 1420 - (int)FoodSize), -FoodSize);
+                attempts++;
+
+                // Если не удалось найти подходящую позицию после maxAttempts попыток,
+                // пропускаем создание еды
+                if (attempts >= maxAttempts)
+                    return;
+            }
+            while (IsTooCloseToOtherFood(position));
+
+            // Теперь создаем еду только если нашли подходящую позицию
             if (_rnd.NextDouble() < 0.15) // 15% вероятность создания плохой еды
             {
                 var badFood = new BadFood
                 {
-                    Position = new Point(_rnd.Next(500, 1420 - (int)FoodSize), -FoodSize),
-                    Speed = _foodSpeed * (0.8 + _rnd.NextDouble() * 0.4), // Скорость от 80% до 120% от базовой
-                    Reward = 0, // Плохая еда не дает награды
-                    Penalty = 1, // Штраф за сбор
+                    Position = position,
+                    Speed = _foodSpeed * (0.8 + _rnd.NextDouble() * 0.4),
+                    Reward = 0,
+                    Penalty = 1,
                     ImagePath = _rnd.Next(2) == 0
-                ? "/CatGame;component/Views/рыбьякость.png"
-                : "/CatGame;component/Views/яблокоогрызок.png"
+                        ? "/CatGame;component/Views/рыбьякость.png"
+                        : "/CatGame;component/Views/яблокоогрызок.png"
                 };
                 BadFoods.Add(badFood);
             }
@@ -265,31 +352,32 @@ namespace CatGame.ViewModels
             {
                 var food = new Food
                 {
-                    Position = new Point(_rnd.Next(500, 1420 - (int)FoodSize), -FoodSize),
-                    Speed = _foodSpeed * (0.8 + _rnd.NextDouble() * 0.4), // Скорость от 80% до 120% от базовой
+                    Position = position,
+                    Speed = _foodSpeed * (0.8 + _rnd.NextDouble() * 0.4),
                     Reward = 2,
                     ImagePath = _rnd.Next(2) == 0
-                ? "/CatGame;component/Views/рыба.png"
-                : "/CatGame;component/Views/мясо.png"
+                        ? "/CatGame;component/Views/рыба.png"
+                        : "/CatGame;component/Views/мясо.png"
                 };
                 Foods.Add(food);
             }
         }
 
-        public void MoveCat(Key key)
+        public void MoveCat(Key key, double speed = 30.0)
         {
             if (IsPaused || IsGameOver || _isGamePaused)
                 return;
 
             double newX = CatPosition.X;
+
             if (key == Key.Left)
             {
-                newX -= CatSpeed;
+                newX -= speed;
                 IsFacingRight = false;
             }
             else if (key == Key.Right)
             {
-                newX += CatSpeed;
+                newX += speed;
                 IsFacingRight = true;
             }
 

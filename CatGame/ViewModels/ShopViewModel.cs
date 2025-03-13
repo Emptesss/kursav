@@ -13,6 +13,8 @@ namespace CatGame.ViewModels
         private readonly GameData _gameData;
         private bool _isSkinsTabSelected = true;
         private readonly NavigationService _navigationService;
+        private bool _isLockersTabSelected = false;
+        private bool _isWallpapersTabSelected = false;
         public bool IsSkinsTabSelected
         {
             get => _isSkinsTabSelected;
@@ -20,18 +22,60 @@ namespace CatGame.ViewModels
             {
                 if (SetProperty(ref _isSkinsTabSelected, value))
                 {
+                    if (value)
+                    {
+                        _isWallpapersTabSelected = false;
+                        _isLockersTabSelected = false;
+                    }
                     OnPropertyChanged(nameof(IsWallpapersTabSelected));
-                    OnPropertyChanged(nameof(Wallpapers)); // Добавьте это
-                    OnPropertyChanged(nameof(Skins)); // И это
+                    OnPropertyChanged(nameof(IsLockersTabSelected));
+                    OnPropertyChanged(nameof(Wallpapers));
+                    OnPropertyChanged(nameof(Skins));
+                    OnPropertyChanged(nameof(Lockers));
                 }
             }
         }
 
         public bool IsWallpapersTabSelected
         {
-            get => !_isSkinsTabSelected;
+            get => _isWallpapersTabSelected;
+            set
+            {
+                if (SetProperty(ref _isWallpapersTabSelected, value))
+                {
+                    if (value)
+                    {
+                        _isSkinsTabSelected = false;
+                        _isLockersTabSelected = false;
+                    }
+                    OnPropertyChanged(nameof(IsSkinsTabSelected));
+                    OnPropertyChanged(nameof(IsLockersTabSelected));
+                    OnPropertyChanged(nameof(Wallpapers));
+                    OnPropertyChanged(nameof(Skins));
+                    OnPropertyChanged(nameof(Lockers));
+                }
+            }
         }
-
+        public bool IsLockersTabSelected
+        {
+            get => _isLockersTabSelected;
+            set
+            {
+                if (SetProperty(ref _isLockersTabSelected, value))
+                {
+                    if (value)
+                    {
+                        _isSkinsTabSelected = false;
+                        _isWallpapersTabSelected = false;
+                    }
+                    OnPropertyChanged(nameof(IsSkinsTabSelected));
+                    OnPropertyChanged(nameof(IsWallpapersTabSelected));
+                    OnPropertyChanged(nameof(Wallpapers));
+                    OnPropertyChanged(nameof(Skins));
+                    OnPropertyChanged(nameof(Lockers));
+                }
+            }
+        }
         public ShopViewModel(GameData gameData, NavigationService navigationService)
         {
             _gameData = gameData;
@@ -42,9 +86,13 @@ namespace CatGame.ViewModels
             ExitCommand = new RelayCommand(OnExit);
             ToggleSkinCommand = new RelayCommand(ToggleSkin);
             SwitchToSkinsCommand = new RelayCommand(_ => IsSkinsTabSelected = true);
-            SwitchToWallpapersCommand = new RelayCommand(_ => IsSkinsTabSelected = false);
+            SwitchToWallpapersCommand = new RelayCommand(_ => IsWallpapersTabSelected = true); // Было IsSkinsTabSelected = false
             BuyWallpaperCommand = new RelayCommand(BuyWallpaper);
             ToggleWallpaperCommand = new RelayCommand(ToggleWallpaper);
+            SwitchToLockersCommand = new RelayCommand(_ => IsLockersTabSelected = true);
+            BuyLockerCommand = new RelayCommand(BuyLocker);
+            ToggleLockerCommand = new RelayCommand(ToggleLocker);
+
 
         }
 
@@ -58,7 +106,10 @@ namespace CatGame.ViewModels
         public ICommand SwitchToWallpapersCommand { get; }
         public ICommand BuyWallpaperCommand { get; }
         public ICommand ToggleWallpaperCommand { get; }
-
+        public ObservableCollection<Locker> Lockers => _gameData.Lockers;
+        public ICommand SwitchToLockersCommand { get; }
+        public ICommand BuyLockerCommand { get; }
+        public ICommand ToggleLockerCommand { get; }
         public ObservableCollection<Wallpaper> Wallpapers => _gameData.Wallpapers;
         public ObservableCollection<Skin> Skins => _gameData.Skins;
         public int Balance => _gameData.Balance;
@@ -76,6 +127,39 @@ namespace CatGame.ViewModels
                     wallpaper.IsPurchased = true;
                     var wallpapersView = (CollectionViewSource)Application.Current.MainWindow.Resources["PurchasableWallpapers"];
                     wallpapersView?.View.Refresh();
+                }
+            }
+        }
+        private void BuyLocker(object parameter)
+        {
+            if (parameter is Locker locker)
+            {
+                if (locker == _gameData.Lockers.First())
+                    return;
+
+                if (_gameData.Balance >= locker.Price && !locker.IsPurchased)
+                {
+                    _gameData.Balance -= locker.Price;
+                    locker.IsPurchased = true;
+                    var lockersView = (CollectionViewSource)Application.Current.MainWindow.Resources["PurchasableLockers"];
+                    lockersView?.View.Refresh();
+                }
+            }
+        }
+        private void ToggleLocker(object parameter)
+        {
+            if (parameter is Locker locker)
+            {
+                if (locker == _gameData.Lockers.First())
+                    return;
+
+                if (_gameData.SelectedLocker == locker)
+                {
+                    _gameData.SelectedLocker = _gameData.Lockers.First();
+                }
+                else
+                {
+                    _gameData.SelectedLocker = locker;
                 }
             }
         }

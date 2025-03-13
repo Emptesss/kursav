@@ -2,6 +2,7 @@
 using CatGame.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -53,6 +54,23 @@ namespace CatGame.Views
                     }   
                 };
                 wallpapersView.View.Refresh();
+            }
+            if (Resources["PurchasableLockers"] is CollectionViewSource lockersView)
+            {
+                lockersView.Filter += (s, args) =>
+                {
+                    if (args.Item is Locker locker)
+                    {
+                        Debug.WriteLine($"Locker: {locker.Name}, Price: {locker.Price}, Purchased: {locker.IsPurchased}");
+                        args.Accepted = locker.Price > 0;
+                    }
+                };
+
+                // Добавляем сортировку
+                lockersView.SortDescriptions.Add(
+                    new SortDescription("Size", ListSortDirection.Ascending));
+
+                lockersView.View.Refresh();
             }
         }
     }

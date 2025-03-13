@@ -9,19 +9,20 @@ namespace CatGame
     {
         public static MusicPlayer MusicPlayer { get; } = new MusicPlayer();
         public static SoundService SoundService { get; } = new SoundService();
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
             string musicPath = System.IO.Path.Combine(
-           AppDomain.CurrentDomain.BaseDirectory,
-           "Views/music.mp3");
+                AppDomain.CurrentDomain.BaseDirectory,
+                "Views/music.mp3"
+            );
 
             MusicPlayer.Play(musicPath);
 
-
-            // Создаем общие данные игры
-            var gameData = new GameData { Balance = 100 };
+            // Создаем общие данные игры без установки начального баланса
+            var gameData = new GameData(); // Убрали установку баланса здесь
 
             // Инициализация сервиса навигации
             var navigationService = NavigationService.Instance;

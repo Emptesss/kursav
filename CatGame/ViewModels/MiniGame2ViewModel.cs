@@ -144,13 +144,7 @@ namespace CatGame.ViewModels
          CurrentBubblePos.Y + _shootDirection.Y * 200
      );
         public Point CatPosition => _catPosition;
-        public Visibility[] HeartVisibilities => new[]
-        {
-            _bottomHits < 1 ? Visibility.Visible : Visibility.Collapsed,
-            _bottomHits < 2 ? Visibility.Visible : Visibility.Collapsed,
-            _bottomHits < 3 ? Visibility.Visible : Visibility.Collapsed
-        };
-
+ 
         public MiniGame2ViewModel(GameData gameData, NavigationService navigation)
         {
             GameData = gameData;
@@ -249,7 +243,7 @@ namespace CatGame.ViewModels
             );
 
             var currentPos = CurrentBubblePos;
-            const double collisionCheckStep = 2.0; // Уменьшаем шаг ещё больше
+            const double collisionCheckStep = 2.0;
             double collisionRadius = BubbleSize * 0.45;
             Bubble newBubble = null;
             Point finalPosition = currentPos;
@@ -263,11 +257,18 @@ namespace CatGame.ViewModels
                     currentPos.Y + velocity.Y * timeStep
                 );
 
-                // Предварительная проверка следующей позиции
                 bool foundCollision = false;
                 double minDistance = double.MaxValue;
                 Point collisionPoint = nextPos;
-                Bubble closestBubble = null;
+
+                // Специальная проверка для нижнего ряда
+                if (CheckCollisionWithBottomRow(nextPos, collisionRadius))
+                {
+                    foundCollision = true;
+                    finalPosition = FindBestSnapPosition(nextPos);
+                    shouldSnap = true;
+                    break;
+                }
 
                 // Проверяем путь до следующей позиции
                 for (int i = 0; i < collisionCheckStep; i++)
@@ -276,65 +277,87 @@ namespace CatGame.ViewModels
                         currentPos.X + (nextPos.X - currentPos.X) * i / collisionCheckStep,
                         currentPos.Y + (nextPos.Y - currentPos.Y) * i / collisionCheckStep
                     );
-                    var collisionBox = new Rect(
-        checkPos.X - collisionRadius,
-        checkPos.Y - collisionRadius,
-        collisionRadius * 2,
-        collisionRadius * 2
-    );
 
                     foreach (var bubble in Bubbles)
                     {
-                        // Проверяем не только расстояние, но и положение относительно траектории
                         double distance = DistanceBetween(bubble.Position, checkPos);
-                        if (distance < collisionRadius)
+                        bool isBottomRow = bubble.Row == Bubbles.Max(b => b.Row);
+                        double collisionThreshold = isBottomRow ? collisionRadius * 1.2 : collisionRadius;
+
+                        if (distance < collisionThreshold)
                         {
-                            // Проверяем, находится ли пузырь на пути движения
                             Vector movement = new Vector(velocity.X, velocity.Y);
                             Vector toBubble = new Vector(
                                 bubble.Position.X - currentPos.X,
                                 bubble.Position.Y - currentPos.Y
                             );
 
-                            // Нормализуем векторы
                             movement.Normalize();
                             toBubble.Normalize();
 
-                            // Вычисляем угол между направлением движения и направлением к пузырю
                             double angle = Vector.AngleBetween(movement, toBubble);
+                            double angleThreshold = isBottomRow ? 60 : 45;
 
-                            // Если угол меньше 45 градусов, считаем это прямым столкновением
-                            if (Math.Abs(angle) < 45)
+                            // Проверка на прямое столкновение
+                            if (Math.Abs(angle) < angleThreshold)
                             {
-                                foundCollision = true;
-                                minDistance = distance;
-                                collisionPoint = checkPos;
-                                closestBubble = bubble;
-                                break;
+                                if (distance < minDistance)
+                                {
+                                    foundCollision = true;
+                                    minDistance = distance;
+                                    collisionPoint = checkPos;
+                                }
                             }
-                            // Если пузырь находится сбоку и очень близко, тоже считаем это столкновением
-                            else if (distance < collisionRadius * 0.7)
+                            // Проверка на боковое столкновение
+                            else if (distance < collisionRadius * (isBottomRow ? 0.8 : 0.7))
                             {
-                                foundCollision = true;
-                                minDistance = distance;
-                                collisionPoint = checkPos;
-                                closestBubble = bubble;
-                                break;
+                                if (distance < minDistance)
+                                {
+                                    foundCollision = true;
+                                    minDistance = distance;
+                                    collisionPoint = checkPos;
+                                }
                             }
                         }
                     }
 
-                    if (foundCollision) // Исправлено с willCollide на foundCollision
+                    if (foundCollision)
                     {
-                        finalPosition = collisionPoint; // Исправлено с possibleCollisionPoint на collisionPoint
+                        finalPosition = FindBestSnapPosition(collisionPoint);
                         shouldSnap = true;
                         break;
                     }
                 }
 
                 // Проверка столкновения со стенами
-                if (nextPos.X < 0 || nextPos.X > FieldWidth)
+                // Проверка столкновения со стенами
+                if (nextPos.X < 0)
                 {
+                    currentPos = new Point(0, currentPos.Y);
+                    nextPos = new Point(0, nextPos.Y);
+                    // Проверяем коллизию сразу после отскока
+                    if (CheckCollisionWithBottomRow(nextPos, collisionRadius))
+                    {
+                        foundCollision = true;
+                        finalPosition = FindBestSnapPosition(nextPos);
+                        shouldSnap = true;
+                        break;
+                    }
+                    velocity = new Point(-velocity.X, velocity.Y);
+                    continue;
+                }
+                if (nextPos.X > FieldWidth)
+                {
+                    currentPos = new Point(FieldWidth, currentPos.Y);
+                    nextPos = new Point(FieldWidth, nextPos.Y);
+                    // Проверяем коллизию сразу после отскока
+                    if (CheckCollisionWithBottomRow(nextPos, collisionRadius))
+                    {
+                        foundCollision = true;
+                        finalPosition = FindBestSnapPosition(nextPos);
+                        shouldSnap = true;
+                        break;
+                    }
                     velocity = new Point(-velocity.X, velocity.Y);
                     continue;
                 }
@@ -342,12 +365,12 @@ namespace CatGame.ViewModels
                 // Проверка столкновения с верхней границей
                 if (nextPos.Y < 0)
                 {
-                    finalPosition = new Point(nextPos.X, 0);
+                    finalPosition = FindBestSnapPosition(new Point(nextPos.X, 0));
                     shouldSnap = true;
                     break;
                 }
 
-                if (foundCollision) // Исправлено с willCollide на foundCollision
+                if (foundCollision)
                 {
                     break;
                 }
@@ -362,9 +385,15 @@ namespace CatGame.ViewModels
             // Если нужно прикрепить пузырь
             if (shouldSnap)
             {
-                CurrentBubblePos = finalPosition;
-                OnPropertyChanged(nameof(CurrentBubblePos));
+                // Сразу создаем новый пузырь без промежуточного обновления позиции
                 newBubble = SnapBubble(finalPosition);
+
+                // После создания пузыря обновляем текущую позицию
+                if (newBubble != null)
+                {
+                    CurrentBubblePos = newBubble.Position;
+                    OnPropertyChanged(nameof(CurrentBubblePos));
+                }
             }
 
             int removed = 0;
@@ -390,91 +419,7 @@ namespace CatGame.ViewModels
             ResetCurrentBubble();
             _isShooting = false;
         }
-        private double DistanceToLine(Point point, Point lineStart, Point lineEnd)
-        {
-            double numerator = Math.Abs(
-                (lineEnd.X - lineStart.X) * (lineStart.Y - point.Y) -
-                (lineStart.X - point.X) * (lineEnd.Y - lineStart.Y)
-            );
-            double denominator = Math.Sqrt(
-                Math.Pow(lineEnd.X - lineStart.X, 2) +
-                Math.Pow(lineEnd.Y - lineStart.Y, 2)
-            );
-            return numerator / denominator;
-        }
-        private bool CanPassBetween(Bubble bubble1, Bubble bubble2, Point position, Point velocity)
-        {
-            // Проверяем, есть ли достаточно места между двумя пузырями
-            var center1 = bubble1.Position;
-            var center2 = bubble2.Position;
-
-            // Вычисляем центральную точку между пузырями
-            var midPoint = new Point(
-                (center1.X + center2.X) / 2,
-                (center1.Y + center2.Y) / 2
-            );
-
-            // Проверяем расстояние от позиции до линии между пузырями
-            double distance = DistanceToLine(position, center1, center2);
-
-            // Проверяем, движемся ли мы в направлении прохода
-            Vector movement = new Vector(velocity.X, velocity.Y);
-            Vector gap = new Vector(center2.X - center1.X, center2.Y - center1.Y);
-            double angle = Vector.AngleBetween(movement, gap);
-
-            // Если угол близок к 90 градусам и расстояние достаточное, считаем что можно пройти
-            return Math.Abs(angle) > 45 && Math.Abs(angle) < 135 && distance > BubbleSize * 0.6;
-        }
-        private IEnumerable<Point> GetTrajectoryPoints(Point start, Point end, double steps)
-        {
-            for (double i = 0; i <= steps; i++)
-            {
-                double t = i / steps;
-                yield return new Point(
-                    start.X + (end.X - start.X) * t,
-                    start.Y + (end.Y - start.Y) * t
-                );
-            }
-        }
-        private bool CheckForGap(Point position, Point velocity)
-        {
-            const double gapCheckRadius = 40.0; // Радиус проверки наличия прохода
-            double minGapWidth = BubbleSize * 0.8; // Теперь это обычная переменная, а не константа
-
-            // Проверяем перпендикулярное направление к движению
-            double perpX = -velocity.Y;
-            double perpY = velocity.X;
-            double length = Math.Sqrt(perpX * perpX + perpY * perpY);
-            perpX /= length;
-            perpY /= length;
-
-            // Проверяем точки слева и справа от траектории
-            for (double offset = -gapCheckRadius; offset <= gapCheckRadius; offset += 5)
-            {
-                Point checkPoint = new Point(
-                    position.X + perpX * offset,
-                    position.Y + perpY * offset
-                );
-
-                // Подсчитываем количество близких пузырей
-                int nearbyBubbles = 0;
-                foreach (var bubble in Bubbles)
-                {
-                    if (DistanceBetween(bubble.Position, checkPoint) < minGapWidth)
-                    {
-                        nearbyBubbles++;
-                    }
-                }
-
-                // Если нашли точку без близких пузырей, значит есть проход
-                if (nearbyBubbles == 0)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
+            
         // В метод SnapBubble добавьте проверку
         private Bubble SnapBubble(Point pos)
         {
@@ -483,23 +428,30 @@ namespace CatGame.ViewModels
                 Debug.WriteLine("❌ Invalid collision position");
                 return null;
             }
+
             var (row, col) = CalculateGridPosition(pos);
+
+            // Проверка валидности позиции
+            if (row < 0 || col < 0 || col >= Columns)
+            {
+                Debug.WriteLine("❌ Invalid grid position");
+                return null;
+            }
+
+            // Проверка на наличие соседей
+            var tempBubble = new Bubble { Row = row, Column = col };
+            if (!GetStrictNeighbors(tempBubble).Any() && row > 0)
+            {
+                Debug.WriteLine("❌ No neighbors found");
+                return null;
+            }
+
+            Point finalPosition = CalculateBubblePosition(row, col);
 
             if (Bubbles.Any(b => b.Row == row && b.Column == col))
             {
-                Debug.WriteLine($"⚠️ Position [{row},{col}] is occupied, searching for nearest free spot...");
-                var newBubble = FindNearestFreePosition(pos, row, col);
-
-                if (newBubble != null)
-                {
-                    Debug.WriteLine($"✅ Bubble placed at [{newBubble.Row}, {newBubble.Column}]");
-                    return newBubble;
-                }
-                else
-                {
-                    Debug.WriteLine("❌ No valid position found. Bubble lost.");
-                    return null; // Или можно удалить пузырь
-                }
+                Debug.WriteLine($"⚠️ Position [{row},{col}] is occupied");
+                return null;
             }
 
             var bubble = new Bubble
@@ -507,12 +459,11 @@ namespace CatGame.ViewModels
                 Row = row,
                 Column = col,
                 ColorIndex = CurrentColor,
-                Position = CalculateBubblePosition(row, col)
+                Position = finalPosition
             };
 
             Bubbles.Add(bubble);
             OnPropertyChanged(nameof(Bubbles));
-
             Debug.WriteLine($"✅ Bubble placed at [{row}, {col}]");
             return bubble;
         }
@@ -573,48 +524,109 @@ namespace CatGame.ViewModels
             Debug.WriteLine("❌ No free position found!");
             return null;
         }
-
-
-
-        private Bubble AddBubbleAtPosition(Point position)
+        private Point FindBestSnapPosition(Point collisionPoint)
         {
-            var (row, col) = CalculateGridPosition(position);
-            var bubble = new Bubble
+            // Нормализуем координаты с учетом размера пузыря
+            collisionPoint = new Point(
+                Math.Clamp(collisionPoint.X, BubbleSize / 2, FieldWidth - BubbleSize / 2),
+                Math.Max(0, collisionPoint.Y)
+            );
+
+            var gridPos = CalculateGridPosition(collisionPoint);
+            var idealPosition = CalculateBubblePosition(gridPos.row, gridPos.col);
+
+            // Если идеальная позиция свободна и валидна, используем её
+            if (gridPos.col >= 0 && gridPos.col < Columns &&
+                !Bubbles.Any(b => b.Row == gridPos.row && b.Column == gridPos.col))
             {
-                ColorIndex = CurrentColor,
-                Position = position,
-                Row = row,
-                Column = col
-            };
-            Bubbles.Add(bubble);
-            return bubble;
+                var tempBubble = new Bubble { Row = gridPos.row, Column = gridPos.col };
+                if (GetStrictNeighbors(tempBubble).Any() || gridPos.row == 0)
+                {
+                    return idealPosition;
+                }
+            }
+
+            // Поиск альтернативных позиций
+            var nearbyPositions = new List<(int Row, int Col, double Distance, Point Position)>();
+            bool isEvenRow = gridPos.row % 2 == 0;
+            var offsets = isEvenRow
+                ? new[] { (-1, -1), (-1, 0), (0, -1), (0, 1), (1, -1), (1, 0) }
+                : new[] { (-1, 0), (-1, 1), (0, -1), (0, 1), (1, 0), (1, 1) };
+
+            // Проверяем соседние позиции
+            foreach (var (dr, dc) in offsets)
+            {
+                int newRow = gridPos.row + dr;
+                int newCol = gridPos.col + dc;
+
+                if (newRow >= 0 && newCol >= 0 && newCol < Columns)
+                {
+                    if (!Bubbles.Any(b => b.Row == newRow && b.Column == newCol))
+                    {
+                        var pos = CalculateBubblePosition(newRow, newCol);
+                        // Проверяем расстояние от точки столкновения
+                        double distance = DistanceBetween(collisionPoint, pos);
+
+                        // Добавляем приоритет для позиций на той же высоте
+                        if (dr == 0) distance *= 0.8;
+
+                        var tempBubble = new Bubble { Row = newRow, Column = newCol };
+                        if (GetStrictNeighbors(tempBubble).Any() || newRow == 0)
+                        {
+                            nearbyPositions.Add((newRow, newCol, distance, pos));
+                        }
+                    }
+                }
+            }
+
+            // Выбираем наилучшую позицию
+            if (nearbyPositions.Any())
+            {
+                var bestPos = nearbyPositions
+                    .OrderBy(p => p.Distance)
+                    .ThenBy(p => Math.Abs(p.Row - gridPos.row)) // Предпочитаем позиции на том же уровне
+                    .First();
+
+                return bestPos.Position;
+            }
+
+            // Если не нашли подходящую позицию, возвращаемся к исходной
+            return idealPosition;
         }
+
         private (int row, int col) CalculateGridPosition(Point pos)
         {
             double verticalSpacing = BubbleSize * VerticalSpacing;
+            double hexWidth = BubbleSize * HexOffset;
 
             // Получаем актуальное количество рядов
             int maxRow = Bubbles.Any() ? Bubbles.Max(b => b.Row) + 1 : Rows;
 
-            // Вычисляем строку
-            int row = (int)Math.Round(pos.Y / verticalSpacing);
-            // Ограничиваем строку диапазоном от 0 до максимальной строки
+            // Более точное вычисление строки
+            double exactRow = pos.Y / verticalSpacing;
+            int row = (int)Math.Round(exactRow, MidpointRounding.AwayFromZero);
             row = Math.Max(0, Math.Min(row, maxRow));
 
-            double hexWidth = BubbleSize * HexOffset;
             bool isEvenRow = row % 2 == 0;
             int cols = isEvenRow ? Columns : Columns - 1;
 
             // Вычисляем смещение для текущей строки
             double startX = (FieldWidth - cols * hexWidth) / 2;
-            double relX = pos.X - startX - (isEvenRow ? 0 : hexWidth / 2);
 
-            // Вычисляем и ограничиваем колонку
-            int col = (int)Math.Floor(relX / hexWidth + 0.5);
+            // Учитываем смещение для нечетных рядов
+            double adjustedX = pos.X - startX;
+            if (!isEvenRow)
+            {
+                adjustedX -= hexWidth / 2;
+            }
+
+            // Более точное вычисление колонки
+            double exactCol = adjustedX / hexWidth;
+            int col = (int)Math.Round(exactCol, MidpointRounding.AwayFromZero);
             col = Math.Clamp(col, 0, cols - 1);
 
-            Debug.WriteLine($"🔹 Calculated grid position: ({pos.X:F1}, {pos.Y:F1}) -> [{row}, {col}]");
-            Debug.WriteLine($"🔹 Max row: {maxRow}, Is even row: {isEvenRow}, Columns in row: {cols}");
+            Debug.WriteLine($"Exact position: row={exactRow:F2}, col={exactCol:F2}");
+            Debug.WriteLine($"Rounded position: [{row}, {col}]");
 
             return (row, col);
         }
@@ -906,7 +918,59 @@ namespace CatGame.ViewModels
             );
             OnPropertyChanged(nameof(CurrentBubblePos));
         }
+        private bool CheckCollisionWithBottomRow(Point position, double collisionRadius)
+        {
+            var bottomRowBubbles = Bubbles.GroupBy(b => b.Row)
+                .OrderBy(g => g.Key)
+                .ToList(); // Получаем все ряды, чтобы проверять не только нижний
 
+            if (!bottomRowBubbles.Any()) return false;
+
+            // Нормализуем позицию
+            position = new Point(
+                Math.Clamp(position.X, 0, FieldWidth),
+                position.Y
+            );
+
+            // Проверяем несколько нижних рядов для лучшего определения коллизий
+            foreach (var rowGroup in bottomRowBubbles.TakeLast(3)) // Переименовали row в rowGroup
+            {
+                var nearbyBubbles = rowGroup.Where(b =>
+                    Math.Abs(b.Position.X - position.X) < BubbleSize * 1.5);
+
+                foreach (var bubble in nearbyBubbles)
+                {
+                    double distance = DistanceBetween(bubble.Position, position);
+                    // Для боковых шаров увеличиваем радиус коллизии
+                    double adjustedRadius = collisionRadius;
+
+                    if (Math.Abs(bubble.Position.X - position.X) > BubbleSize * 0.7)
+                    {
+                        adjustedRadius *= 1.3; // Увеличиваем радиус для боковых столкновений
+                    }
+
+                    if (distance < adjustedRadius)
+                    {
+                        var (gridRow, gridCol) = CalculateGridPosition(position); // Переименовали переменные
+
+                        // Проверяем наличие свободного места и его валидность
+                        if (gridRow >= 0 && gridCol >= 0 && gridCol < Columns &&
+                            !Bubbles.Any(b => b.Row == gridRow && b.Column == gridCol))
+                        {
+                            var tempBubble = new Bubble { Row = gridRow, Column = gridCol };
+                            // Проверяем наличие соседей для потенциальной позиции
+                            if (GetStrictNeighbors(tempBubble).Any() || gridRow == 0)
+                            {
+                                Debug.WriteLine($"Found valid collision at [{gridRow}, {gridCol}]");
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return false;
+        }
 
         private async Task HandleMoveAndCheckRows()
         {

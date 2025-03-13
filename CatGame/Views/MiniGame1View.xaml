@@ -86,8 +86,13 @@
         </Grid>
 
         <!-- Игровое поле -->
-        <Canvas x:Name="GameCanvas" Grid.Row="1" Focusable="True" FocusManager.FocusedElement="{Binding RelativeSource={RelativeSource Self}}">
-            <!-- Кот -->
+            <Canvas x:Name="GameCanvas" Grid.Row="1" Focusable="True" 
+        FocusManager.FocusedElement="{Binding RelativeSource={RelativeSource Self}}"
+        KeyDown="Canvas_KeyDown"
+        KeyUp="Canvas_KeyUp"
+        Loaded="GameCanvas_Loaded"
+        PreviewMouseDown="GameCanvas_PreviewMouseDown">
+                <!-- Кот -->
             <Image Source="{Binding GameData.SelectedSkin.ImagePath, TargetNullValue=/CatGame;component/Views/котправо.png}" 
        Width="{x:Static viewModels:MiniGame1ViewModel.CatWidth}"
        Height="{x:Static viewModels:MiniGame1ViewModel.CatHeight}"
@@ -257,10 +262,7 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
 
-            <Canvas.InputBindings>
-                <KeyBinding Key="Left" Command="{Binding MoveCommand}" CommandParameter="Left"/>
-                <KeyBinding Key="Right" Command="{Binding MoveCommand}" CommandParameter="Right"/>
-            </Canvas.InputBindings>
+            
         </Canvas>
 </Grid>
         <!-- Меню паузы -->

@@ -19,6 +19,8 @@
     <None Remove="Views\music.mp3" />
     <None Remove="Views\roblox-death-sound-effect.mp3" />
     <None Remove="Views\zvukknopki.mp3" />
+    <None Remove="Views\базовыйшкаф.png" />
+    <None Remove="Views\вгорошек.jpg" />
     <None Remove="Views\игры.png" />
     <None Remove="Views\клубнички.jpg" />
     <None Remove="Views\кнопкавыход.png" />
@@ -30,8 +32,11 @@
     <None Remove="Views\котсиам.png" />
     <None Remove="Views\котчерни.png" />
     <None Remove="Views\котчерника.png" />
+    <None Remove="Views\милыйшкаф.PNG" />
     <None Remove="Views\монета.png" />
     <None Remove="Views\мясо.png" />
+    <None Remove="Views\обоигея.jpg" />
+    <None Remove="Views\обоияички.png" />
     <None Remove="Views\рыба.png" />
     <None Remove="Views\рыбьякость.png" />
     <None Remove="Views\сердце.png" />
@@ -57,6 +62,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -65,6 +71,8 @@
     <Resource Include="Views\minecraft.ttf">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Views\базовыйшкаф.png" />
+    <Resource Include="Views\вгорошек.jpg" />
     <Resource Include="Views\игры.png" />
     <Resource Include="Views\клубнички.jpg" />
     <Resource Include="Views\кнопкавыход.png">
@@ -88,8 +96,11 @@
     <Resource Include="Views\котчерника.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Views\милыйшкаф.PNG" />
     <Resource Include="Views\монета.png" />
     <Resource Include="Views\мясо.png" />
+    <Resource Include="Views\обоигея.jpg" />
+    <Resource Include="Views\обоияички.png" />
     <Resource Include="Views\рыба.png" />
     <Resource Include="Views\рыбьякость.png" />
     <Resource Include="Views\сердце.png" />
