@@ -84,3 +84,13 @@ C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\CatGame.genruntimeconfig.
 C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\ref\CatGame.dll
 C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\Views\RulesView.baml
 C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\Views\RulesView.g.cs
+C:\Users\user\Desktop\курсовая\CatGame\CatGame\bin\Debug\net8.0-windows\Views\music.mp3
+C:\Users\user\Desktop\курсовая\CatGame\CatGame\bin\Debug\net8.0-windows\Views\roblox-death-sound-effect.mp3
+C:\Users\user\Desktop\курсовая\CatGame\CatGame\bin\Debug\net8.0-windows\Views\zvukknopki.mp3
+C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\Views\RulesView.baml
+C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\Views\GameOverView.g.cs
+C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\Views\MiniGame2View.g.cs
+C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\Views\RulesView.g.cs
+C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\CatGame_Content.g.cs
+C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\Views\GameOverView.baml
+C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\Views\MiniGame2View.baml

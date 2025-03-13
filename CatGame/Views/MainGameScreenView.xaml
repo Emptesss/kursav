@@ -57,16 +57,25 @@
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"/>
-            <Grid Margin="-222,-646,1130,42">
+            <Grid Margin="-228,-624,1136,20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="Игры"
                FontSize="36"
-               HorizontalAlignment="Center"
-               Margin="0,0,0,10"
-               Foreground="#FF1E1E1E"/>
+               HorizontalAlignment="Left"
+               Margin="522,690,0,-26"
+               Foreground="#FF86474F" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleX="-0.089" AngleY="-4.918"/>
+                            <RotateTransform Angle="-0.85"/>
+                            <TranslateTransform X="-0.036" Y="-4.84"/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
                 <Button Grid.Row="1"
             Command="{Binding OpenMiniGamesMenuCommand}" 
             Style="{StaticResource InvisibleButtonStyle}"
@@ -108,27 +117,34 @@
                     </Image>
                 </Button>
             </Grid>
-            <Grid Margin="1447,-568,10,75">
+            <Grid Margin="1341,-568,-208,-69">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <TextBlock Text="Магазин"
-               Grid.Row="0"
+               Grid.Row="1"
                FontSize="36"
                HorizontalAlignment="Center"
-               Margin="0,0,0,10"
-               Foreground="#FF1E1E1E"/>
+               Margin="0,654,0,124"
+               Foreground="#FF86474F" Width="413" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleY="3.386"/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="-15.426"/>
+                        </TransformGroup>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
 
                 <Button Grid.Row="1"
             Command="{Binding NavigateToShopCommand}" 
-            Style="{StaticResource InvisibleButtonStyle}"
-            Width="500"
-            Height="600">
+            Style="{StaticResource InvisibleButtonStyle}" Margin="10,10,45,68" Click="Button_Click">
                     <Image Source="/Views/шкафчик.png" 
                Stretch="Uniform"
-               RenderTransformOrigin="0.5,0.5">
+               RenderTransformOrigin="0.5,0.5" Margin="71,60,152,138" Height="558">
                         <Image.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -212,13 +228,41 @@
 
             <!-- Сам кот -->
             <!-- Сам кот -->
+            <!-- Сам кот -->
             <Image Source="{Binding CurrentCatImage}" 
-               HorizontalAlignment="Center"
-               VerticalAlignment="Top"
-               Width="650" 
-               Height="650"
-               Stretch="Uniform" 
-               Margin="0,-542,0,0"/>
+       HorizontalAlignment="Center"
+       VerticalAlignment="Top"
+       Width="650" 
+       Height="650"
+       Stretch="Uniform" 
+       Margin="0,-542,0,0">
+                <Image.RenderTransform>
+                    <ScaleTransform x:Name="CatScale" ScaleX="1" ScaleY="1"/>
+                </Image.RenderTransform>
+                <Image.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard>
+                            <Storyboard RepeatBehavior="Forever">
+                                <!-- Анимация сжатия и растяжения кота -->
+                                <DoubleAnimation
+                        Storyboard.TargetName="CatScale"
+                        Storyboard.TargetProperty="ScaleX"
+                        From="1" To="1.05"
+                        Duration="0:0:3"
+                        AutoReverse="True"
+                        EasingFunction="{StaticResource SineEaseInOut}"/>
+                                <DoubleAnimation
+                        Storyboard.TargetName="CatScale"
+                        Storyboard.TargetProperty="ScaleY"
+                        From="1" To="0.95"
+                        Duration="0:0:3"
+                        AutoReverse="True"
+                        EasingFunction="{StaticResource SineEaseInOut}"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Image.Triggers>
+            </Image>
         </Grid>
     </Grid>
 </UserControl>

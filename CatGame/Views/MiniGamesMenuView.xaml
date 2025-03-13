@@ -23,19 +23,19 @@
         <Button Command="{Binding ReturnCommand}" 
         Style="{StaticResource InvisibleButtonStyle}"
         Margin="1780,22,40,2">
-            
+
             <Image Source="/CatGame;component/Views/кнопкавыход.png" RenderTransformOrigin="1.793,0.506"/>
         </Button>
 
         <StackPanel Grid.Row="1" 
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="810" Margin="330,148,0,0" Width="505" Grid.RowSpan="2">
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="180" Margin="0,688,0,0" Width="1658">
             <StackPanel.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
                     <RotateTransform/>
-                    <TranslateTransform X="-210" Y="-99"/>
+                    <TranslateTransform X="0" Y="-7"/>
                 </TransformGroup>
             </StackPanel.RenderTransform>
             <Button Content="Играть 1" 
@@ -46,7 +46,7 @@
                         <ScaleTransform/>
                         <SkewTransform/>
                         <RotateTransform/>
-                        <TranslateTransform Y="44"/>
+                        <TranslateTransform Y="0" X="458"/>
                     </TransformGroup>
                 </Button.RenderTransform>
                 <Button.Background>
@@ -56,7 +56,7 @@
                         <GradientStop Color="#FFEF97B7"/>
                     </LinearGradientBrush>
                 </Button.Background>
-                
+
             </Button>
             <Button Content="Играть 2" 
         Command="{Binding SelectMiniGame2Command}"
@@ -66,7 +66,7 @@
                         <ScaleTransform/>
                         <SkewTransform/>
                         <RotateTransform/>
-                        <TranslateTransform Y="178"/>
+                        <TranslateTransform Y="-165" X="-453"/>
                     </TransformGroup>
                 </Button.RenderTransform>
                 <Button.Background>
@@ -78,5 +78,7 @@
                 </Button.Background>
             </Button>
         </StackPanel>
+        <Rectangle HorizontalAlignment="Left" Height="632" Margin="116,10,0,0" Grid.Row="1" Stroke="#FFF5649E"  StrokeThickness="10"  VerticalAlignment="Top" Width="782" Fill="#FFFFD6DE"/>
+        <Rectangle HorizontalAlignment="Left" Height="632" Margin="1023,10,0,0" Grid.Row="1" Stroke="#FFF5649E"  StrokeThickness="10"  VerticalAlignment="Top" Width="766" Fill="#FFFFD6DE"/>
     </Grid>
 </UserControl>
