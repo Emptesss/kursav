@@ -32,19 +32,20 @@ namespace CatGame.Services
                     CurrentGameBalance = gameData.CurrentGameBalance,
                     SelectedSkinName = gameData.SelectedSkin?.Name,
                     SelectedWallpaperName = gameData.SelectedWallpaper?.Name,
-                    SelectedLockerName = gameData.SelectedLocker?.Name, // Добавляем это
+                    SelectedLockerName = gameData.SelectedLocker?.Name,
                     PurchasedSkins = gameData.Skins
-            .Where(s => s.IsPurchased)
-            .Select(s => s.Name)
-            .ToList(),
+                        .Where(s => s.IsPurchased)
+                        .Select(s => s.Name)
+                        .ToList(),
                     PurchasedWallpapers = gameData.Wallpapers
-            .Where(w => w.IsPurchased)
-            .Select(w => w.Name)
-            .ToList(),
-                    PurchasedLockers = gameData.Lockers // Добавляем это
-            .Where(l => l.IsPurchased)
-            .Select(l => l.Name)
-            .ToList()
+                        .Where(w => w.IsPurchased)
+                        .Select(w => w.Name)
+                        .ToList(),
+                    PurchasedLockers = gameData.Lockers
+                        .Where(l => l.IsPurchased)
+                        .Select(l => l.Name)
+                        .ToList(),
+                    CatProfile = gameData.CatProfile  // Добавляем это
                 };
 
                 string jsonString = JsonSerializer.Serialize(saveData, new JsonSerializerOptions
@@ -97,6 +98,13 @@ namespace CatGame.Services
                             Debug.WriteLine($"Восстановлен купленный скин: {skinName}");
                         }
                     }
+
+                    if (saveData.CatProfile != null)
+                    {
+                        gameData.CatProfile = saveData.CatProfile;
+                        Debug.WriteLine($"Восстановлен профиль кота: {saveData.CatProfile.Name}");
+                    }
+
 
                     // Восстанавливаем купленные обои
                     foreach (var wallpaperName in saveData.PurchasedWallpapers)

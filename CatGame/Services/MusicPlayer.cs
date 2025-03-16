@@ -15,7 +15,7 @@ namespace CatGame.Services
         {
             _mediaPlayer.Open(new Uri(filePath, UriKind.RelativeOrAbsolute));
             _mediaPlayer.Play();
-            _mediaPlayer.Volume = 0.3; // Начальная громкость
+            _mediaPlayer.Volume = 0.2; // Начальная громкость
         }
 
         public void SetVolume(double volume)

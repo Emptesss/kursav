@@ -160,7 +160,12 @@
                                         </MultiBinding>
                                     </Button.Content>
                                 </Button>
-
+                                <TextBlock Text="Недостаточно монет!" 
+           Foreground="Red" 
+           FontSize="14"
+           HorizontalAlignment="Center"
+           Margin="0,5,0,0"
+           Visibility="{Binding ShowInsufficientFunds, Converter={StaticResource BoolToVisibilityConverter}}"/>
                                 <Button Command="{Binding DataContext.ToggleSkinCommand, 
                                               RelativeSource={RelativeSource AncestorType=UserControl}}"
                                         CommandParameter="{Binding}"
@@ -232,7 +237,12 @@
                                         </MultiBinding>
                                     </Button.Content>
                                 </Button>
-
+                                <TextBlock Text="Недостаточно монет!" 
+           Foreground="Red" 
+           FontSize="14"
+           HorizontalAlignment="Center"
+           Margin="0,5,0,0"
+           Visibility="{Binding ShowInsufficientFunds, Converter={StaticResource BoolToVisibilityConverter}}"/>
                                 <Button Command="{Binding DataContext.ToggleWallpaperCommand, 
                                   RelativeSource={RelativeSource AncestorType=UserControl}}"
                         CommandParameter="{Binding}"
@@ -301,6 +311,12 @@
                                         </MultiBinding>
                                     </Button.Content>
                                 </Button>
+                                <TextBlock Text="Недостаточно монет!" 
+           Foreground="Red" 
+           FontSize="14"
+           HorizontalAlignment="Center"
+           Margin="0,5,0,0"
+           Visibility="{Binding ShowInsufficientFunds, Converter={StaticResource BoolToVisibilityConverter}}"/>
 
                                 <Button Command="{Binding DataContext.ToggleLockerCommand, 
                                   RelativeSource={RelativeSource AncestorType=UserControl}}"

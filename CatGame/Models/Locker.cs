@@ -11,7 +11,16 @@ namespace CatGame.Models
         private bool _isPurchased;
         private bool _isActive;
         private int _size;
-
+        private bool _showInsufficientFunds;
+        public bool ShowInsufficientFunds
+        {
+            get => _showInsufficientFunds;
+            set
+            {
+                _showInsufficientFunds = value;
+                OnPropertyChanged(nameof(ShowInsufficientFunds));
+            }
+        }
         public string Name
         {
             get => _name;

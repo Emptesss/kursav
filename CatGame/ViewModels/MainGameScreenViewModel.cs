@@ -3,15 +3,21 @@ using System.Windows.Input;
 using CatGame.Helpers;
 using CatGame.Services;
 using System.Windows;
+using CatGame.Views;
 namespace CatGame.ViewModels
 {
     public class MainGameScreenViewModel : ViewModelBase
     {
         private readonly GameData _gameData;
         private readonly NavigationService _navigationService;
+        private object _currentView;
+        private bool _hasOpenProfile;
         public string SelectedLockerName => _gameData.SelectedLocker?.Name;
         public string SelectedLockerPath => _gameData.SelectedLocker?.ImagePath;
+
+        public string CatName => _gameData.CatProfile?.Name ?? "";
         public MainGameScreenViewModel(GameData gameData, NavigationService navigationService)
+
         {
             _gameData = gameData;
             _navigationService = navigationService;
@@ -22,7 +28,6 @@ namespace CatGame.ViewModels
                 {
                     OnPropertyChanged(nameof(CurrentCatImage));
                 }
-                // Добавляем обработку изменения обоев
                 if (e.PropertyName == nameof(_gameData.SelectedWallpaper))
                 {
                     OnPropertyChanged(nameof(SelectedWallpaperPath));
@@ -32,9 +37,15 @@ namespace CatGame.ViewModels
                     OnPropertyChanged(nameof(SelectedLockerPath));
                     OnPropertyChanged(nameof(SelectedLockerName));
                 }
+                // Добавляем обработку изменения профиля
+                if (e.PropertyName == nameof(_gameData.CatProfile))
+                {
+                    OnPropertyChanged(nameof(CatName));
+                }
             };
             // Инициализация команд
             NavigateToMiniGame1Command = new RelayCommand(NavigateToMiniGame1);
+            OpenProfileCommand = new RelayCommand(OpenProfile);
             OpenMiniGamesMenuCommand = new RelayCommand(OpenMiniGamesMenu);
             NavigateToShopCommand = new RelayCommand(NavigateToShop);
             ExitCommand = new RelayCommand(ExitGame);
@@ -47,6 +58,7 @@ namespace CatGame.ViewModels
 
         public ICommand NavigateToMiniGame1Command { get; }
         public ICommand NavigateToShopCommand { get; }
+        public ICommand OpenProfileCommand { get; }
 
         public ICommand OpenMiniGamesMenuCommand { get; }
         public ICommand ExitCommand { get; }
@@ -56,12 +68,32 @@ namespace CatGame.ViewModels
             // Переход к мини-игре 1
             _navigationService.NavigateTo(new MiniGame1ViewModel(_gameData, _navigationService));
         }
+        public bool HasOpenProfile
+        {
+            get => _hasOpenProfile;
+            set
+            {
+                _hasOpenProfile = value;
+                OnPropertyChanged();
+            }
 
+        }
+        public object CurrentView
+        {
+            get => _currentView;
+            set
+            {
+                _currentView = value;
+                HasOpenProfile = value != null;
+                OnPropertyChanged();
+            }
+        }
         private void NavigateToShop(object parameter)
         {
             // Переход к магазину
             _navigationService.NavigateTo(new ShopViewModel(_gameData, _navigationService));
         }
+       
         private void OpenMiniGamesMenu(object parameter)
         {
             _navigationService.NavigateTo(new MiniGamesMenuViewModel(_gameData, _navigationService));
@@ -69,6 +101,16 @@ namespace CatGame.ViewModels
         private void ExitGame(object parameter)
         {
             Application.Current.Shutdown();
+        }
+        private void OpenProfile(object parameter)
+        {
+            var profileView = new CatProfileView();
+            profileView.DataContext = new CatProfileViewModel(_gameData, () =>
+            {
+                CurrentView = null;
+                _navigationService.NavigateTo(this);
+            });
+            CurrentView = profileView;
         }
     }
 }

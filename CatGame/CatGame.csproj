@@ -19,6 +19,7 @@
     <None Remove="Views\music.mp3" />
     <None Remove="Views\roblox-death-sound-effect.mp3" />
     <None Remove="Views\zvukknopki.mp3" />
+    <None Remove="Views\анкета.png" />
     <None Remove="Views\бабл шутер.png" />
     <None Remove="Views\баблшутер.png" />
     <None Remove="Views\базовыйшкаф.png" />
@@ -74,6 +75,7 @@
     <Resource Include="Views\minecraft.ttf">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Views\анкета.png" />
     <Resource Include="Views\бабл шутер.png" />
     <Resource Include="Views\баблшутер.png" />
     <Resource Include="Views\базовыйшкаф.png" />

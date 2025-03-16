@@ -16,5 +16,6 @@ namespace CatGame.Models
         public List<string> PurchasedSkins { get; set; } = new List<string>();
         public List<string> PurchasedWallpapers { get; set; } = new List<string>();
         public List<string> PurchasedLockers { get; set; } = new List<string>(); // Добавляем это
+        public CatProfile CatProfile { get; set; }
     }
 }

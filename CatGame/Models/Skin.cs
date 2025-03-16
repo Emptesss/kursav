@@ -10,6 +10,7 @@ namespace CatGame.Models
         private int _price;
         private bool _isPurchased;
         private bool _isActive;
+        private bool _showInsufficientFunds;
         public bool IsActive
         {
             get => _isActive;
@@ -20,6 +21,15 @@ namespace CatGame.Models
                     _isActive = value;
                     OnPropertyChanged();
                 }
+            }
+        }
+        public bool ShowInsufficientFunds
+        {
+            get => _showInsufficientFunds;
+            set
+            {
+                _showInsufficientFunds = value;
+                OnPropertyChanged(nameof(ShowInsufficientFunds));
             }
         }
 

@@ -18,6 +18,7 @@ public class GameData : INotifyPropertyChanged
     private bool _isLoading = false;
     private ObservableCollection<Locker> _lockers;
     private Locker _selectedLocker;
+    private CatProfile _catProfile;
     public ObservableCollection<Locker> Lockers
     {
         get => _lockers;
@@ -47,6 +48,16 @@ public class GameData : INotifyPropertyChanged
             }
         }
     }
+    public CatProfile CatProfile
+    {
+        get => _catProfile;
+        set
+        {
+            _catProfile = value;
+            OnPropertyChanged();
+        }
+    }
+
 
     public Wallpaper SelectedWallpaper
     {
@@ -320,7 +331,7 @@ public class GameData : INotifyPropertyChanged
         }
     }
 
-
+    public string CatName => CatProfile?.Name;
     public void SaveGame()
     {
         if (_isLoading) return; // Не сохраняем во время загрузки

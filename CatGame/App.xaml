@@ -190,5 +190,8 @@
         <DataTemplate DataType="{x:Type viewModels:MiniGame2ViewModel}">
             <views:MiniGame2View/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:CatProfileViewModel}">
+            <views:CatProfileView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

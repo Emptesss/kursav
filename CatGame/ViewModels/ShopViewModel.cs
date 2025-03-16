@@ -6,6 +6,7 @@ using System.Windows.Input;
 using System.Collections.ObjectModel;
 using System.Windows.Data;
 using CatGame.Views;
+using System.Diagnostics;
 
 namespace CatGame.ViewModels
 {
@@ -16,6 +17,7 @@ namespace CatGame.ViewModels
         private readonly NavigationService _navigationService;
         private bool _isLockersTabSelected = false;
         private bool _isWallpapersTabSelected = false;
+        private bool _showInsufficientFunds;
         public bool IsSkinsTabSelected
         {
             get => _isSkinsTabSelected;
@@ -35,6 +37,25 @@ namespace CatGame.ViewModels
                     OnPropertyChanged(nameof(Lockers));
                 }
             }
+        }
+        public bool ShowInsufficientFunds
+        {
+            get => _showInsufficientFunds;
+            set
+            {
+                _showInsufficientFunds = value;
+                OnPropertyChanged(nameof(ShowInsufficientFunds));
+            }
+        }
+        private Dictionary<string, bool> _insufficientFundsMessages = new Dictionary<string, bool>();
+       
+        private async Task ShowInsufficientFundsMessage(string itemId)
+        {
+            _insufficientFundsMessages[itemId] = true;
+            OnPropertyChanged($"IsShowingInsufficientFunds_{itemId}");
+            await Task.Delay(2000);
+            _insufficientFundsMessages[itemId] = false;
+            OnPropertyChanged($"IsShowingInsufficientFunds_{itemId}");
         }
 
         public bool IsWallpapersTabSelected
@@ -114,11 +135,10 @@ namespace CatGame.ViewModels
         public ObservableCollection<Wallpaper> Wallpapers => _gameData.Wallpapers;
         public ObservableCollection<Skin> Skins => _gameData.Skins;
         public int Balance => _gameData.Balance;
-        private void BuyWallpaper(object parameter)
+        private async void BuyWallpaper(object parameter)
         {
             if (parameter is Wallpaper wallpaper)
             {
-                // Проверяем, не являются ли это базовые обои (первый элемент коллекции)
                 if (wallpaper == _gameData.Wallpapers.First())
                     return;
 
@@ -129,9 +149,15 @@ namespace CatGame.ViewModels
                     var wallpapersView = (CollectionViewSource)Application.Current.MainWindow.Resources["PurchasableWallpapers"];
                     wallpapersView?.View.Refresh();
                 }
+                else if (!wallpaper.IsPurchased)
+                {
+                    wallpaper.ShowInsufficientFunds = true;
+                    await Task.Delay(2000);
+                    wallpaper.ShowInsufficientFunds = false;
+                }
             }
         }
-        private void BuyLocker(object parameter)
+        private async void BuyLocker(object parameter)
         {
             if (parameter is Locker locker)
             {
@@ -144,6 +170,12 @@ namespace CatGame.ViewModels
                     locker.IsPurchased = true;
                     var lockersView = (CollectionViewSource)Application.Current.MainWindow.Resources["PurchasableLockers"];
                     lockersView?.View.Refresh();
+                }
+                else if (!locker.IsPurchased)
+                {
+                    locker.ShowInsufficientFunds = true;
+                    await Task.Delay(2000);
+                    locker.ShowInsufficientFunds = false;
                 }
             }
         }
@@ -184,20 +216,27 @@ namespace CatGame.ViewModels
         }
 
 
-        private void BuyItem(object parameter)
+        private async void BuyItem(object parameter)
         {
             if (parameter is Skin skin)
             {
                 if (_gameData.Balance >= skin.Price && !skin.IsPurchased)
                 {
                     _gameData.Balance -= skin.Price;
-                    // В ShopViewModel после покупки скина:
                     skin.IsPurchased = true;
                     var skinsView = (CollectionViewSource)Application.Current.MainWindow.Resources["PurchasableSkins"];
                     skinsView?.View.Refresh();
                 }
+                else if (!skin.IsPurchased)
+                {
+                    skin.ShowInsufficientFunds = true;
+                    await Task.Delay(2000);
+                    skin.ShowInsufficientFunds = false;
+                }
             }
         }
+
+
 
         private void ToggleSkin(object parameter)
         {
@@ -223,9 +262,6 @@ namespace CatGame.ViewModels
         {
             Application.Current.MainWindow.Close();
         }
-        private void ShowNotification(string message)
-        {
-            CustomMessageBox.Show(message);
-        }
+       
     }
 }
