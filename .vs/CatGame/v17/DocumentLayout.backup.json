@@ -7,60 +7,28 @@
       "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\maingamescreenview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\mainmenuview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\mainmenuview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\maingamescreenview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\maingamescreenview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\minigamesmenuview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\minigamesmenuview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\viewmodels\\maingamescreenviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\maingamescreenviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\viewmodels\\mainmenuviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\mainmenuviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\rulesview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\rulesview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\viewmodels\\minigame2viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\minigame2viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\viewmodels\\rulesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\rulesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\custommessagebox.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\custommessagebox.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\rulesview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\rulesview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\custommessagebox.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\custommessagebox.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\minigame1view.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\minigame1view.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\pausemenuview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\pausemenuview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\minigame2view.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\minigame2view.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\shopview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\shopview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\pausemenuview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\pausemenuview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\viewmodels\\shopviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -71,12 +39,112 @@
       "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\shopview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\shopview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\shopview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\minigame1view.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\minigame1view.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\models\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\models\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\models\\wallpaper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\models\\wallpaper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\viewmodels\\minigame1viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\minigame1viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\viewmodels\\minigamesmenuviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\minigamesmenuviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\minigame2view.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\minigame2view.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\minigame2view.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\minigame2view.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\helpers\\imagescaleconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\helpers\\imagescaleconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\viewmodels\\minigame2viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\minigame2viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\minigame1view.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\minigame1view.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\viewmodels\\maingamescreenviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\maingamescreenviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\viewmodels\\mainmenuviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\mainmenuviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\services\\gamedataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\services\\gamedataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\models\\gamesavedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\models\\gamesavedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\\u043C\u0438\u043B\u044B\u0439\u0448\u043A\u0430\u0444.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\\u043C\u0438\u043B\u044B\u0439\u0448\u043A\u0430\u0444.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\\u0436\u043E\u0440\u0438\u043A.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\\u0436\u043E\u0440\u0438\u043A.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\viewmodels\\pausemenuviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\pausemenuviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\viewmodels\\rulesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\rulesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\viewmodels\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\services\\navigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\services\\navigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\viewmodels\\gameoverviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\gameoverviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\mainmenuview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\mainmenuview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\maingamescreenview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\maingamescreenview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\rulesview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\rulesview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\rulesview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\rulesview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\models\\skin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -85,10 +153,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\helpers\\pricetovisibilityconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\helpers\\pricetovisibilityconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\helpers\\imagescaleconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\helpers\\imagescaleconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\vkali\\AppData\\Local\\Temp\\.vsdbgsrc\\ee34aec267e065140087abd7fd236fad482e6d3ee1f4162ad1b181c8d9923474\\XamlReader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -114,40 +178,12 @@
       "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\helpers\\multiplebooleanstoblurconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\viewmodels\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\pausemenuview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\pausemenuview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\helpers\\booltovisibilityconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\helpers\\booltovisibilityconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\gameoverview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\gameoverview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\minigame1view.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\minigame1view.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\minigame2view.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\minigame2view.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\viewmodels\\minigame1viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\minigame1viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\viewmodels\\gameoverviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\gameoverviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\viewmodels\\pausemenuviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\pausemenuviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\gameoverview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -178,10 +214,6 @@
       "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\helpers\\centerconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\models\\badfood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\models\\badfood.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\helpers\\inverseboolconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\helpers\\inverseboolconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -202,24 +234,12 @@
       "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\models\\bubbleparticle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\services\\navigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\services\\navigationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\services\\soundservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\services\\soundservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\services\\musicplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\services\\musicplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\models\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\models\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\pausemenuview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\pausemenuview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\views\\minigamesmenuview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -230,20 +250,12 @@
       "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\views\\mainmenuview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\viewmodels\\minigamesmenuviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\minigamesmenuviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\helpers\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\helpers\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\user\\desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\catgame\\catgame\\behaviors\\playsoundbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -340,56 +352,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 11,
               "Title": "GameData.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Models\\GameData.cs",
               "RelativeDocumentMoniker": "CatGame\\Models\\GameData.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Models\\GameData.cs",
               "RelativeToolTip": "CatGame\\Models\\GameData.cs",
-              "ViewState": "AQIAAKIAAAAAAAAAAAA2wLIAAAABAAAA",
+              "ViewState": "AgIAABEBAAAAAAAAAAAkwO0AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-17T18:40:28.807Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainMenuView.xaml",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MainMenuView.xaml",
-              "RelativeDocumentMoniker": "CatGame\\Views\\MainMenuView.xaml",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MainMenuView.xaml",
-              "RelativeToolTip": "CatGame\\Views\\MainMenuView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-03T11:55:07.817Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainGameScreenView.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MainGameScreenView.xaml.cs",
-              "RelativeDocumentMoniker": "CatGame\\Views\\MainGameScreenView.xaml.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MainGameScreenView.xaml.cs",
-              "RelativeToolTip": "CatGame\\Views\\MainGameScreenView.xaml.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAgwB0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-17T19:10:35.909Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MiniGamesMenuView.xaml",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MiniGamesMenuView.xaml",
-              "RelativeDocumentMoniker": "CatGame\\Views\\MiniGamesMenuView.xaml",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MiniGamesMenuView.xaml",
-              "RelativeToolTip": "CatGame\\Views\\MiniGamesMenuView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-28T17:24:30.039Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
@@ -406,68 +382,83 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MainGameScreenViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MainGameScreenViewModel.cs",
-              "RelativeDocumentMoniker": "CatGame\\ViewModels\\MainGameScreenViewModel.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MainGameScreenViewModel.cs",
-              "RelativeToolTip": "CatGame\\ViewModels\\MainGameScreenViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "ShopViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\ShopViewModel.cs",
+              "RelativeDocumentMoniker": "CatGame\\ViewModels\\ShopViewModel.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\ShopViewModel.cs",
+              "RelativeToolTip": "CatGame\\ViewModels\\ShopViewModel.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAAAOQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-17T18:43:26.253Z",
+              "WhenOpened": "2025-02-17T18:44:38.991Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PauseMenuView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\PauseMenuView.xaml.cs",
+              "RelativeDocumentMoniker": "CatGame\\Views\\PauseMenuView.xaml.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\PauseMenuView.xaml.cs",
+              "RelativeToolTip": "CatGame\\Views\\PauseMenuView.xaml.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAIAwwBgAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T19:37:08.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MiniGamesMenuView.xaml",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MiniGamesMenuView.xaml",
+              "RelativeDocumentMoniker": "CatGame\\Views\\MiniGamesMenuView.xaml",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MiniGamesMenuView.xaml",
+              "RelativeToolTip": "CatGame\\Views\\MiniGamesMenuView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-28T17:24:30.039Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PauseMenuView.xaml",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\PauseMenuView.xaml",
+              "RelativeDocumentMoniker": "CatGame\\Views\\PauseMenuView.xaml",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\PauseMenuView.xaml",
+              "RelativeToolTip": "CatGame\\Views\\PauseMenuView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-01T19:31:34.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ShopView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\ShopView.xaml.cs",
+              "RelativeDocumentMoniker": "CatGame\\Views\\ShopView.xaml.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\ShopView.xaml.cs",
+              "RelativeToolTip": "CatGame\\Views\\ShopView.xaml.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAAAEcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-17T19:10:32.187Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "MainWindowViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MainWindowViewModel.cs",
-              "RelativeDocumentMoniker": "CatGame\\ViewModels\\MainWindowViewModel.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MainWindowViewModel.cs",
-              "RelativeToolTip": "CatGame\\ViewModels\\MainWindowViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAXAAAAAAAAAA==",
+              "Title": "CustomMessageBox.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\CustomMessageBox.xaml.cs",
+              "RelativeDocumentMoniker": "CatGame\\Views\\CustomMessageBox.xaml.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\CustomMessageBox.xaml.cs",
+              "RelativeToolTip": "CatGame\\Views\\CustomMessageBox.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T11:15:38.885Z",
+              "WhenOpened": "2025-03-16T10:50:50.707Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ShopView.xaml",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\ShopView.xaml",
-              "RelativeDocumentMoniker": "CatGame\\Views\\ShopView.xaml",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\ShopView.xaml",
-              "RelativeToolTip": "CatGame\\Views\\ShopView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-17T18:46:46.534Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MainMenuViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MainMenuViewModel.cs",
-              "RelativeDocumentMoniker": "CatGame\\ViewModels\\MainMenuViewModel.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MainMenuViewModel.cs",
-              "RelativeToolTip": "CatGame\\ViewModels\\MainMenuViewModel.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAgwCAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-17T18:42:14.635Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "RulesView.xaml",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\RulesView.xaml",
-              "RelativeDocumentMoniker": "CatGame\\Views\\RulesView.xaml",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\RulesView.xaml",
-              "RelativeToolTip": "CatGame\\Views\\RulesView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-12T19:11:18.305Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 2,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\App.xaml",
               "RelativeDocumentMoniker": "CatGame\\App.xaml",
@@ -479,149 +470,94 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "MiniGame2ViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MiniGame2ViewModel.cs",
-              "RelativeDocumentMoniker": "CatGame\\ViewModels\\MiniGame2ViewModel.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MiniGame2ViewModel.cs",
-              "RelativeToolTip": "CatGame\\ViewModels\\MiniGame2ViewModel.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAgwD8AAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T18:48:15.656Z"
+              "DocumentIndex": 3,
+              "Title": "CustomMessageBox.xaml",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\CustomMessageBox.xaml",
+              "RelativeDocumentMoniker": "CatGame\\Views\\CustomMessageBox.xaml",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\CustomMessageBox.xaml",
+              "RelativeToolTip": "CatGame\\Views\\CustomMessageBox.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-16T10:49:29.089Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "RulesViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\RulesViewModel.cs",
-              "RelativeDocumentMoniker": "CatGame\\ViewModels\\RulesViewModel.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\RulesViewModel.cs",
-              "RelativeToolTip": "CatGame\\ViewModels\\RulesViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-12T19:12:02.585Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "RulesView.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\RulesView.xaml.cs",
-              "RelativeDocumentMoniker": "CatGame\\Views\\RulesView.xaml.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\RulesView.xaml.cs",
-              "RelativeToolTip": "CatGame\\Views\\RulesView.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-12T19:15:31.368Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
               "Title": "MiniGame1View.xaml",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MiniGame1View.xaml",
               "RelativeDocumentMoniker": "CatGame\\Views\\MiniGame1View.xaml",
               "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MiniGame1View.xaml",
               "RelativeToolTip": "CatGame\\Views\\MiniGame1View.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-17T18:46:24.873Z"
+              "WhenOpened": "2025-02-17T18:46:24.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MiniGame1ViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MiniGame1ViewModel.cs",
+              "RelativeDocumentMoniker": "CatGame\\ViewModels\\MiniGame1ViewModel.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MiniGame1ViewModel.cs",
+              "RelativeToolTip": "CatGame\\ViewModels\\MiniGame1ViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T20:16:42.189Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ShopView.xaml",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\ShopView.xaml",
+              "RelativeDocumentMoniker": "CatGame\\Views\\ShopView.xaml",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\ShopView.xaml",
+              "RelativeToolTip": "CatGame\\Views\\ShopView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-17T18:46:46.534Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
+              "Title": "MiniGamesMenuViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MiniGamesMenuViewModel.cs",
+              "RelativeDocumentMoniker": "CatGame\\ViewModels\\MiniGamesMenuViewModel.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MiniGamesMenuViewModel.cs",
+              "RelativeToolTip": "CatGame\\ViewModels\\MiniGamesMenuViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T17:12:54.765Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "MiniGame2View.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MiniGame2View.xaml.cs",
+              "RelativeDocumentMoniker": "CatGame\\Views\\MiniGame2View.xaml.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MiniGame2View.xaml.cs",
+              "RelativeToolTip": "CatGame\\Views\\MiniGame2View.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T20:44:34.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "MiniGame2View.xaml",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MiniGame2View.xaml",
               "RelativeDocumentMoniker": "CatGame\\Views\\MiniGame2View.xaml",
               "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MiniGame2View.xaml",
               "RelativeToolTip": "CatGame\\Views\\MiniGame2View.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-07T20:44:11.191Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ShopViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\ShopViewModel.cs",
-              "RelativeDocumentMoniker": "CatGame\\ViewModels\\ShopViewModel.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\ShopViewModel.cs",
-              "RelativeToolTip": "CatGame\\ViewModels\\ShopViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAIQAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-17T18:44:38.991Z"
+              "WhenOpened": "2025-03-07T20:44:11.191Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 16,
-              "Title": "ShopView.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\ShopView.xaml.cs",
-              "RelativeDocumentMoniker": "CatGame\\Views\\ShopView.xaml.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\ShopView.xaml.cs",
-              "RelativeToolTip": "CatGame\\Views\\ShopView.xaml.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAiwDQAAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-17T19:10:32.187Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Wallpaper.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Models\\Wallpaper.cs",
-              "RelativeDocumentMoniker": "CatGame\\Models\\Wallpaper.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Models\\Wallpaper.cs",
-              "RelativeToolTip": "CatGame\\Models\\Wallpaper.cs",
-              "ViewState": "AQIAADcAAAAAAAAAAAAUwFUAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-12T17:37:12.704Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Skin.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Models\\Skin.cs",
-              "RelativeDocumentMoniker": "CatGame\\Models\\Skin.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Models\\Skin.cs",
-              "RelativeToolTip": "CatGame\\Models\\Skin.cs",
-              "ViewState": "AQIAACsAAAAAAAAAAADwv0gAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T12:21:59.285Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "XamlReader.cs",
-              "DocumentMoniker": "C:\\Users\\vkali\\AppData\\Local\\Temp\\.vsdbgsrc\\ee34aec267e065140087abd7fd236fad482e6d3ee1f4162ad1b181c8d9923474\\XamlReader.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\vkali\\AppData\\Local\\Temp\\.vsdbgsrc\\ee34aec267e065140087abd7fd236fad482e6d3ee1f4162ad1b181c8d9923474\\XamlReader.cs",
-              "ToolTip": "C:\\Users\\vkali\\AppData\\Local\\Temp\\.vsdbgsrc\\ee34aec267e065140087abd7fd236fad482e6d3ee1f4162ad1b181c8d9923474\\XamlReader.cs",
-              "RelativeToolTip": "..\\..\\..\\..\\vkali\\AppData\\Local\\Temp\\.vsdbgsrc\\ee34aec267e065140087abd7fd236fad482e6d3ee1f4162ad1b181c8d9923474\\XamlReader.cs",
-              "ViewState": "AQIAAOwBAAAAAAAAAAApwP4BAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T17:48:53.029Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "MultipleBooleansToBlurConverter.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\MultipleBooleansToBlurConverter.cs",
-              "RelativeDocumentMoniker": "CatGame\\Helpers\\MultipleBooleansToBlurConverter.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\MultipleBooleansToBlurConverter.cs",
-              "RelativeToolTip": "CatGame\\Helpers\\MultipleBooleansToBlurConverter.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-12T16:56:34.987Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "PriceToVisibilityConverter.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\PriceToVisibilityConverter.cs",
-              "RelativeDocumentMoniker": "CatGame\\Helpers\\PriceToVisibilityConverter.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\PriceToVisibilityConverter.cs",
-              "RelativeToolTip": "CatGame\\Helpers\\PriceToVisibilityConverter.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABQAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-12T18:25:47.97Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
               "Title": "ImageScaleConverter.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\ImageScaleConverter.cs",
               "RelativeDocumentMoniker": "CatGame\\Helpers\\ImageScaleConverter.cs",
@@ -633,7 +569,279 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "MiniGame1View.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MiniGame1View.xaml.cs",
+              "RelativeDocumentMoniker": "CatGame\\Views\\MiniGame1View.xaml.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MiniGame1View.xaml.cs",
+              "RelativeToolTip": "CatGame\\Views\\MiniGame1View.xaml.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAACkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-17T19:10:22.662Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "MiniGame2ViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MiniGame2ViewModel.cs",
+              "RelativeDocumentMoniker": "CatGame\\ViewModels\\MiniGame2ViewModel.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MiniGame2ViewModel.cs",
+              "RelativeToolTip": "CatGame\\ViewModels\\MiniGame2ViewModel.cs",
+              "ViewState": "AQIAAEEBAAAAAAAAAAAIwFoBAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T18:48:15.656Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "MainMenuViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MainMenuViewModel.cs",
+              "RelativeDocumentMoniker": "CatGame\\ViewModels\\MainMenuViewModel.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MainMenuViewModel.cs",
+              "RelativeToolTip": "CatGame\\ViewModels\\MainMenuViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-17T18:42:14.635Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "MainWindowViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MainWindowViewModel.cs",
+              "RelativeDocumentMoniker": "CatGame\\ViewModels\\MainWindowViewModel.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MainWindowViewModel.cs",
+              "RelativeToolTip": "CatGame\\ViewModels\\MainWindowViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T11:15:38.885Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "MainGameScreenViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MainGameScreenViewModel.cs",
+              "RelativeDocumentMoniker": "CatGame\\ViewModels\\MainGameScreenViewModel.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MainGameScreenViewModel.cs",
+              "RelativeToolTip": "CatGame\\ViewModels\\MainGameScreenViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-17T18:43:26.253Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "GameSaveData.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Models\\GameSaveData.cs",
+              "RelativeDocumentMoniker": "CatGame\\Models\\GameSaveData.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Models\\GameSaveData.cs",
+              "RelativeToolTip": "CatGame\\Models\\GameSaveData.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABIAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T18:32:45.986Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "GameDataService.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Services\\GameDataService.cs",
+              "RelativeDocumentMoniker": "CatGame\\Services\\GameDataService.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Services\\GameDataService.cs",
+              "RelativeToolTip": "CatGame\\Services\\GameDataService.cs",
+              "ViewState": "AQIAAGUAAAAAAAAAAAAwwIgAAABLAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T18:32:21.408Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 24,
+              "Title": "\u043C\u0438\u043B\u044B\u0439\u0448\u043A\u0430\u0444.PNG",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\\u043C\u0438\u043B\u044B\u0439\u0448\u043A\u0430\u0444.PNG",
+              "RelativeDocumentMoniker": "CatGame\\Views\\\u043C\u0438\u043B\u044B\u0439\u0448\u043A\u0430\u0444.PNG",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\\u043C\u0438\u043B\u044B\u0439\u0448\u043A\u0430\u0444.PNG",
+              "RelativeToolTip": "CatGame\\Views\\\u043C\u0438\u043B\u044B\u0439\u0448\u043A\u0430\u0444.PNG",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-03-13T19:41:56.764Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "PauseMenuViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\PauseMenuViewModel.cs",
+              "RelativeDocumentMoniker": "CatGame\\ViewModels\\PauseMenuViewModel.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\PauseMenuViewModel.cs",
+              "RelativeToolTip": "CatGame\\ViewModels\\PauseMenuViewModel.cs",
+              "ViewState": "AQIAADUAAAAAAAAAAAAIwDwAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T19:42:53.227Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "RulesViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\RulesViewModel.cs",
+              "RelativeDocumentMoniker": "CatGame\\ViewModels\\RulesViewModel.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\RulesViewModel.cs",
+              "RelativeToolTip": "CatGame\\ViewModels\\RulesViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T19:12:02.585Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "\u0436\u043E\u0440\u0438\u043A.png",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\\u0436\u043E\u0440\u0438\u043A.png",
+              "RelativeDocumentMoniker": "CatGame\\Views\\\u0436\u043E\u0440\u0438\u043A.png",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\\u0436\u043E\u0440\u0438\u043A.png",
+              "RelativeToolTip": "CatGame\\Views\\\u0436\u043E\u0440\u0438\u043A.png",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-03-13T19:00:40.415Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\App.xaml.cs",
+              "RelativeDocumentMoniker": "CatGame\\App.xaml.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\App.xaml.cs",
+              "RelativeToolTip": "CatGame\\App.xaml.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAADwvxsAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-17T19:09:44.256Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "ViewModelBase.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\ViewModelBase.cs",
+              "RelativeDocumentMoniker": "CatGame\\ViewModels\\ViewModelBase.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\ViewModelBase.cs",
+              "RelativeToolTip": "CatGame\\ViewModels\\ViewModelBase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC0AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-17T18:41:46.08Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "NavigationService.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Services\\NavigationService.cs",
+              "RelativeDocumentMoniker": "CatGame\\Services\\NavigationService.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Services\\NavigationService.cs",
+              "RelativeToolTip": "CatGame\\Services\\NavigationService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-17T18:41:07.64Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "GameOverViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\GameOverViewModel.cs",
+              "RelativeDocumentMoniker": "CatGame\\ViewModels\\GameOverViewModel.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\GameOverViewModel.cs",
+              "RelativeToolTip": "CatGame\\ViewModels\\GameOverViewModel.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAswD4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T14:25:07.955Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "MainGameScreenView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MainGameScreenView.xaml.cs",
+              "RelativeDocumentMoniker": "CatGame\\Views\\MainGameScreenView.xaml.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MainGameScreenView.xaml.cs",
+              "RelativeToolTip": "CatGame\\Views\\MainGameScreenView.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-17T19:10:35.909Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "MainMenuView.xaml",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MainMenuView.xaml",
+              "RelativeDocumentMoniker": "CatGame\\Views\\MainMenuView.xaml",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MainMenuView.xaml",
+              "RelativeToolTip": "CatGame\\Views\\MainMenuView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-03T11:55:07.817Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "RulesView.xaml",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\RulesView.xaml",
+              "RelativeDocumentMoniker": "CatGame\\Views\\RulesView.xaml",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\RulesView.xaml",
+              "RelativeToolTip": "CatGame\\Views\\RulesView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-12T19:11:18.305Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "RulesView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\RulesView.xaml.cs",
+              "RelativeDocumentMoniker": "CatGame\\Views\\RulesView.xaml.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\RulesView.xaml.cs",
+              "RelativeToolTip": "CatGame\\Views\\RulesView.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T19:15:31.368Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Skin.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Models\\Skin.cs",
+              "RelativeDocumentMoniker": "CatGame\\Models\\Skin.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Models\\Skin.cs",
+              "RelativeToolTip": "CatGame\\Models\\Skin.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAADwv0gAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T12:21:59.285Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "XamlReader.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\AppData\\Local\\Temp\\.vsdbgsrc\\ee34aec267e065140087abd7fd236fad482e6d3ee1f4162ad1b181c8d9923474\\XamlReader.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\vkali\\AppData\\Local\\Temp\\.vsdbgsrc\\ee34aec267e065140087abd7fd236fad482e6d3ee1f4162ad1b181c8d9923474\\XamlReader.cs",
+              "ToolTip": "C:\\Users\\vkali\\AppData\\Local\\Temp\\.vsdbgsrc\\ee34aec267e065140087abd7fd236fad482e6d3ee1f4162ad1b181c8d9923474\\XamlReader.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\vkali\\AppData\\Local\\Temp\\.vsdbgsrc\\ee34aec267e065140087abd7fd236fad482e6d3ee1f4162ad1b181c8d9923474\\XamlReader.cs",
+              "ViewState": "AQIAAOwBAAAAAAAAAAApwP4BAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T17:48:53.029Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "MultipleBooleansToBlurConverter.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\MultipleBooleansToBlurConverter.cs",
+              "RelativeDocumentMoniker": "CatGame\\Helpers\\MultipleBooleansToBlurConverter.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\MultipleBooleansToBlurConverter.cs",
+              "RelativeToolTip": "CatGame\\Helpers\\MultipleBooleansToBlurConverter.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T16:56:34.987Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "PriceToVisibilityConverter.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\PriceToVisibilityConverter.cs",
+              "RelativeDocumentMoniker": "CatGame\\Helpers\\PriceToVisibilityConverter.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\PriceToVisibilityConverter.cs",
+              "RelativeToolTip": "CatGame\\Helpers\\PriceToVisibilityConverter.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAIBJwBQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T18:25:47.97Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
               "Title": "VisibilityToOpacityConverter.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\VisibilityToOpacityConverter.cs",
               "RelativeDocumentMoniker": "CatGame\\Helpers\\VisibilityToOpacityConverter.cs",
@@ -645,7 +853,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 41,
               "Title": "ColorIndexToBrushConverter.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\ColorIndexToBrushConverter.cs",
               "RelativeDocumentMoniker": "CatGame\\Helpers\\ColorIndexToBrushConverter.cs",
@@ -657,19 +865,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 42,
               "Title": "MoveIndicatorPositionConverter.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\MoveIndicatorPositionConverter.cs",
               "RelativeDocumentMoniker": "CatGame\\Helpers\\MoveIndicatorPositionConverter.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\MoveIndicatorPositionConverter.cs",
               "RelativeToolTip": "CatGame\\Helpers\\MoveIndicatorPositionConverter.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABkAAAAdAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAIBJwBkAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-11T17:58:16.075Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 39,
               "Title": "PurchaseStatusConverter.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\PurchaseStatusConverter.cs",
               "RelativeDocumentMoniker": "CatGame\\Helpers\\PurchaseStatusConverter.cs",
@@ -681,30 +889,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "ViewModelBase.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\ViewModelBase.cs",
-              "RelativeDocumentMoniker": "CatGame\\ViewModels\\ViewModelBase.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\ViewModelBase.cs",
-              "RelativeToolTip": "CatGame\\ViewModels\\ViewModelBase.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAuwC0AAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-17T18:41:46.08Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "PauseMenuView.xaml",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\PauseMenuView.xaml",
-              "RelativeDocumentMoniker": "CatGame\\Views\\PauseMenuView.xaml",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\PauseMenuView.xaml",
-              "RelativeToolTip": "CatGame\\Views\\PauseMenuView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-01T19:31:34.241Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 44,
               "Title": "BoolToVisibilityConverter.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\BoolToVisibilityConverter.cs",
               "RelativeDocumentMoniker": "CatGame\\Helpers\\BoolToVisibilityConverter.cs",
@@ -716,7 +901,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 45,
               "Title": "GameOverView.xaml",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\GameOverView.xaml",
               "RelativeDocumentMoniker": "CatGame\\Views\\GameOverView.xaml",
@@ -727,79 +912,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "MiniGame1View.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MiniGame1View.xaml.cs",
-              "RelativeDocumentMoniker": "CatGame\\Views\\MiniGame1View.xaml.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MiniGame1View.xaml.cs",
-              "RelativeToolTip": "CatGame\\Views\\MiniGame1View.xaml.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAApwBQAAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-17T19:10:22.662Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "PauseMenuViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\PauseMenuViewModel.cs",
-              "RelativeDocumentMoniker": "CatGame\\ViewModels\\PauseMenuViewModel.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\PauseMenuViewModel.cs",
-              "RelativeToolTip": "CatGame\\ViewModels\\PauseMenuViewModel.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAswDAAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-01T19:42:53.227Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "MiniGame2View.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MiniGame2View.xaml.cs",
-              "RelativeDocumentMoniker": "CatGame\\Views\\MiniGame2View.xaml.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MiniGame2View.xaml.cs",
-              "RelativeToolTip": "CatGame\\Views\\MiniGame2View.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T20:44:34.556Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "MiniGame1ViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MiniGame1ViewModel.cs",
-              "RelativeDocumentMoniker": "CatGame\\ViewModels\\MiniGame1ViewModel.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MiniGame1ViewModel.cs",
-              "RelativeToolTip": "CatGame\\ViewModels\\MiniGame1ViewModel.cs",
-              "ViewState": "AQIAAD0BAAAAAAAAAAA3wBEBAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T20:16:42.189Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "GameOverViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\GameOverViewModel.cs",
-              "RelativeDocumentMoniker": "CatGame\\ViewModels\\GameOverViewModel.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\GameOverViewModel.cs",
-              "RelativeToolTip": "CatGame\\ViewModels\\GameOverViewModel.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAqwD4AAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T14:25:07.955Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 51,
               "Title": "ArrowPointConverter.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\ArrowPointConverter.cs",
               "RelativeDocumentMoniker": "CatGame\\Helpers\\ArrowPointConverter.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\ArrowPointConverter.cs",
               "RelativeToolTip": "CatGame\\Helpers\\ArrowPointConverter.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAAADAAAAAAAAAA",
+              "ViewState": "AQIAAAgAAAAAAAAAAABQwDAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-10T21:52:07.997Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 50,
               "Title": "BoolToBlurConverter.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\BoolToBlurConverter.cs",
               "RelativeDocumentMoniker": "CatGame\\Helpers\\BoolToBlurConverter.cs",
@@ -811,7 +936,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 47,
               "Title": "Bubble.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Models\\Bubble.cs",
               "RelativeDocumentMoniker": "CatGame\\Models\\Bubble.cs",
@@ -823,7 +948,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 46,
               "Title": "GameOverView.xaml.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\GameOverView.xaml.cs",
               "RelativeDocumentMoniker": "CatGame\\Views\\GameOverView.xaml.cs",
@@ -835,7 +960,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 49,
               "Title": "ArrowAngleConverter.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\ArrowAngleConverter.cs",
               "RelativeDocumentMoniker": "CatGame\\Helpers\\ArrowAngleConverter.cs",
@@ -847,7 +972,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 48,
               "Title": "ColorForMoveIndicatorConverter.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\ColorForMoveIndicatorConverter.cs",
               "RelativeDocumentMoniker": "CatGame\\Helpers\\ColorForMoveIndicatorConverter.cs",
@@ -859,7 +984,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 52,
               "Title": "CenterConverter.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\CenterConverter.cs",
               "RelativeDocumentMoniker": "CatGame\\Helpers\\CenterConverter.cs",
@@ -871,7 +996,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 53,
               "Title": "InverseBoolConverter.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\InverseBoolConverter.cs",
               "RelativeDocumentMoniker": "CatGame\\Helpers\\InverseBoolConverter.cs",
@@ -883,19 +1008,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "BadFood.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Models\\BadFood.cs",
-              "RelativeDocumentMoniker": "CatGame\\Models\\BadFood.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Models\\BadFood.cs",
-              "RelativeToolTip": "CatGame\\Models\\BadFood.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T15:51:04.585Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 54,
               "Title": "DirectionConverter.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\DirectionConverter.cs",
               "RelativeDocumentMoniker": "CatGame\\Helpers\\DirectionConverter.cs",
@@ -907,7 +1020,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 55,
               "Title": "HalfSizeConverter.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\HalfSizeConverter.cs",
               "RelativeDocumentMoniker": "CatGame\\Helpers\\HalfSizeConverter.cs",
@@ -919,7 +1032,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 56,
               "Title": "ParticleEffectService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Services\\ParticleEffectService.cs",
               "RelativeDocumentMoniker": "CatGame\\Services\\ParticleEffectService.cs",
@@ -931,7 +1044,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 57,
               "Title": "BubbleParticle.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Models\\BubbleParticle.cs",
               "RelativeDocumentMoniker": "CatGame\\Models\\BubbleParticle.cs",
@@ -943,7 +1056,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 58,
               "Title": "SoundService.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Services\\SoundService.cs",
               "RelativeDocumentMoniker": "CatGame\\Services\\SoundService.cs",
@@ -955,7 +1068,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 59,
               "Title": "MusicPlayer.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Services\\MusicPlayer.cs",
               "RelativeDocumentMoniker": "CatGame\\Services\\MusicPlayer.cs",
@@ -967,31 +1080,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
-              "Title": "NavigationService.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Services\\NavigationService.cs",
-              "RelativeDocumentMoniker": "CatGame\\Services\\NavigationService.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Services\\NavigationService.cs",
-              "RelativeToolTip": "CatGame\\Services\\NavigationService.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAAwB4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-17T18:41:07.64Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 53,
-              "Title": "Food.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Models\\Food.cs",
-              "RelativeDocumentMoniker": "CatGame\\Models\\Food.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Models\\Food.cs",
-              "RelativeToolTip": "CatGame\\Models\\Food.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAdAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T17:27:02.152Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 60,
               "Title": "MiniGamesMenuView.xaml.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MiniGamesMenuView.xaml.cs",
               "RelativeDocumentMoniker": "CatGame\\Views\\MiniGamesMenuView.xaml.cs",
@@ -1003,19 +1092,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
-              "Title": "PauseMenuView.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\PauseMenuView.xaml.cs",
-              "RelativeDocumentMoniker": "CatGame\\Views\\PauseMenuView.xaml.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\PauseMenuView.xaml.cs",
-              "RelativeToolTip": "CatGame\\Views\\PauseMenuView.xaml.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAIAwwBgAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-01T19:37:08.474Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 61,
               "Title": "MainMenuView.xaml.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\MainMenuView.xaml.cs",
               "RelativeDocumentMoniker": "CatGame\\Views\\MainMenuView.xaml.cs",
@@ -1027,19 +1104,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
-              "Title": "MiniGamesMenuViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MiniGamesMenuViewModel.cs",
-              "RelativeDocumentMoniker": "CatGame\\ViewModels\\MiniGamesMenuViewModel.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\ViewModels\\MiniGamesMenuViewModel.cs",
-              "RelativeToolTip": "CatGame\\ViewModels\\MiniGamesMenuViewModel.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAjwBQAAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T17:12:54.765Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 62,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\MainWindow.xaml",
               "RelativeDocumentMoniker": "CatGame\\MainWindow.xaml",
@@ -1050,7 +1115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 63,
               "Title": "RelayCommand.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\RelayCommand.cs",
               "RelativeDocumentMoniker": "CatGame\\Helpers\\RelayCommand.cs",
@@ -1062,19 +1127,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\App.xaml.cs",
-              "RelativeDocumentMoniker": "CatGame\\App.xaml.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\App.xaml.cs",
-              "RelativeToolTip": "CatGame\\App.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-17T19:09:44.256Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 64,
               "Title": "PlaySoundBehavior.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Behaviors\\PlaySoundBehavior.cs",
               "RelativeDocumentMoniker": "CatGame\\Behaviors\\PlaySoundBehavior.cs",
@@ -1086,7 +1139,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 65,
               "Title": "SoundBehaviorAttacher.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Behaviors\\SoundBehaviorAttacher.cs",
               "RelativeDocumentMoniker": "CatGame\\Behaviors\\SoundBehaviorAttacher.cs",
@@ -1098,7 +1151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 66,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "CatGame\\MainWindow.xaml.cs",
@@ -1110,7 +1163,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 67,
               "Title": "AssemblyInfo.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\AssemblyInfo.cs",
               "RelativeDocumentMoniker": "CatGame\\AssemblyInfo.cs",
@@ -1122,7 +1175,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 82,
+              "DocumentIndex": 85,
               "Title": "BoolToAngleConverter.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Helpers\\BoolToAngleConverter.cs",
               "RelativeDocumentMoniker": "CatGame\\Helpers\\BoolToAngleConverter.cs",
@@ -1134,7 +1187,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 68,
               "Title": "minecraft.ttf",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\minecraft.ttf",
               "RelativeDocumentMoniker": "CatGame\\Views\\minecraft.ttf",
@@ -1145,7 +1198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 69,
               "Title": "\u0441\u0435\u0440\u0434\u0446\u0435.png",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\\u0441\u0435\u0440\u0434\u0446\u0435.png",
               "RelativeDocumentMoniker": "CatGame\\Views\\\u0441\u0435\u0440\u0434\u0446\u0435.png",
@@ -1156,7 +1209,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
+              "DocumentIndex": 73,
               "Title": "\u043A\u043E\u0442\u0447\u0435\u0440\u043D\u0438\u043A\u0430.png",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\\u043A\u043E\u0442\u0447\u0435\u0440\u043D\u0438\u043A\u0430.png",
               "RelativeDocumentMoniker": "CatGame\\Views\\\u043A\u043E\u0442\u0447\u0435\u0440\u043D\u0438\u043A\u0430.png",
@@ -1167,7 +1220,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 72,
               "Title": "\u043A\u043E\u0442\u0447\u0435\u0440\u043D\u0438.png",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\\u043A\u043E\u0442\u0447\u0435\u0440\u043D\u0438.png",
               "RelativeDocumentMoniker": "CatGame\\Views\\\u043A\u043E\u0442\u0447\u0435\u0440\u043D\u0438.png",
@@ -1178,20 +1231,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 70,
               "Title": "AnimationStorage.cs",
               "DocumentMoniker": "C:\\Users\\vkali\\AppData\\Local\\Temp\\.vsdbgsrc\\88410bee31ab091875574e54936cdbd4716f77b59916fbbc2b0262d15de2ce2a\\AnimationStorage.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\vkali\\AppData\\Local\\Temp\\.vsdbgsrc\\88410bee31ab091875574e54936cdbd4716f77b59916fbbc2b0262d15de2ce2a\\AnimationStorage.cs",
-              "ToolTip": "C:\\Users\\vkali\\AppData\\Local\\Temp\\.vsdbgsrc\\88410bee31ab091875574e54936cdbd4716f77b59916fbbc2b0262d15de2ce2a\\AnimationStorage.cs [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]",
-              "RelativeToolTip": "..\\..\\..\\..\\vkali\\AppData\\Local\\Temp\\.vsdbgsrc\\88410bee31ab091875574e54936cdbd4716f77b59916fbbc2b0262d15de2ce2a\\AnimationStorage.cs [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]",
+              "ToolTip": "C:\\Users\\vkali\\AppData\\Local\\Temp\\.vsdbgsrc\\88410bee31ab091875574e54936cdbd4716f77b59916fbbc2b0262d15de2ce2a\\AnimationStorage.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\vkali\\AppData\\Local\\Temp\\.vsdbgsrc\\88410bee31ab091875574e54936cdbd4716f77b59916fbbc2b0262d15de2ce2a\\AnimationStorage.cs",
               "ViewState": "AQIAAK4AAAAAAAAAAAAuwMAAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T19:42:53.344Z",
-              "EditorCaption": " [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]"
+              "WhenOpened": "2025-03-06T19:42:53.344Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 71,
               "Title": "\u043A\u043E\u0442\u0441\u0438\u0430\u043C.png",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\\u043A\u043E\u0442\u0441\u0438\u0430\u043C.png",
               "RelativeDocumentMoniker": "CatGame\\Views\\\u043A\u043E\u0442\u0441\u0438\u0430\u043C.png",
@@ -1202,7 +1254,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 74,
               "Title": "\u043A\u043E\u0442\u043F\u0440\u0430\u0432\u043E.png",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\\u043A\u043E\u0442\u043F\u0440\u0430\u0432\u043E.png",
               "RelativeDocumentMoniker": "CatGame\\Views\\\u043A\u043E\u0442\u043F\u0440\u0430\u0432\u043E.png",
@@ -1213,7 +1265,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 75,
               "Title": "\u043A\u043E\u0442\u0431\u0435\u043B\u0438.png",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\\u043A\u043E\u0442\u0431\u0435\u043B\u0438.png",
               "RelativeDocumentMoniker": "CatGame\\Views\\\u043A\u043E\u0442\u0431\u0435\u043B\u0438.png",
@@ -1224,7 +1276,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 73,
+              "DocumentIndex": 76,
               "Title": "\u043A\u043D\u043E\u043F\u043A\u0430\u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C.png",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\\u043A\u043D\u043E\u043F\u043A\u0430\u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C.png",
               "RelativeDocumentMoniker": "CatGame\\Views\\\u043A\u043D\u043E\u043F\u043A\u0430\u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C.png",
@@ -1235,19 +1287,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 74,
+              "DocumentIndex": 77,
               "Title": "CatGame.csproj",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\CatGame.csproj",
               "RelativeDocumentMoniker": "CatGame\\CatGame.csproj",
               "ToolTip": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\CatGame.csproj",
               "RelativeToolTip": "CatGame\\CatGame.csproj",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAADEAAAAAAAAA",
+              "ViewState": "AQIAAAoAAAAAAAAAAABhwDYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2025-02-17T18:25:33.138Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 75,
+              "DocumentIndex": 78,
               "Title": "CatGame",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\CatGame.csproj",
               "RelativeDocumentMoniker": "CatGame\\CatGame.csproj",
@@ -1258,7 +1310,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 76,
+              "DocumentIndex": 79,
               "Title": "music.mp3",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\music.mp3",
               "RelativeDocumentMoniker": "CatGame\\Views\\music.mp3",
@@ -1269,7 +1321,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 77,
+              "DocumentIndex": 80,
               "Title": "MiniGamesMenuView.g.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\obj\\Debug\\net8.0-windows\\Views\\MiniGamesMenuView.g.cs",
               "RelativeDocumentMoniker": "CatGame\\obj\\Debug\\net8.0-windows\\Views\\MiniGamesMenuView.g.cs",
@@ -1281,7 +1333,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 78,
+              "DocumentIndex": 81,
               "Title": "fong.jpg",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Resoursces\\fong.jpg",
               "RelativeDocumentMoniker": "CatGame\\Resoursces\\fong.jpg",
@@ -1292,7 +1344,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 79,
+              "DocumentIndex": 82,
               "Title": "\u043A\u043D\u043E\u043F\u043A\u0430\u0437\u0430\u043D\u043E\u0432\u043E.png",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\\u043A\u043D\u043E\u043F\u043A\u0430\u0437\u0430\u043D\u043E\u0432\u043E.png",
               "RelativeDocumentMoniker": "CatGame\\Views\\\u043A\u043D\u043E\u043F\u043A\u0430\u0437\u0430\u043D\u043E\u0432\u043E.png",
@@ -1303,7 +1355,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 80,
+              "DocumentIndex": 83,
               "Title": "\u043A\u043D\u043E\u043F\u043A\u0430\u0432\u044B\u0445\u043E\u0434.png",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Views\\\u043A\u043D\u043E\u043F\u043A\u0430\u0432\u044B\u0445\u043E\u0434.png",
               "RelativeDocumentMoniker": "CatGame\\Views\\\u043A\u043D\u043E\u043F\u043A\u0430\u0432\u044B\u0445\u043E\u0434.png",
@@ -1314,7 +1366,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 81,
+              "DocumentIndex": 84,
               "Title": "\u043E\u0431\u043E\u0438 (4).jpg",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\CatGame\\CatGame\\Resoursces\\\u043E\u0431\u043E\u0438 (4).jpg",
               "RelativeDocumentMoniker": "CatGame\\Resoursces\\\u043E\u0431\u043E\u0438 (4).jpg",

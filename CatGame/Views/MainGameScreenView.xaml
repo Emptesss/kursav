@@ -65,14 +65,14 @@
                 <TextBlock Text="Игры"
                FontSize="36"
                HorizontalAlignment="Left"
-               Margin="522,690,0,-26"
+               Margin="492,715,0,-51"
                Foreground="#FF86474F" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
                     <TextBlock.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
-                            <SkewTransform AngleX="-0.089" AngleY="-4.918"/>
+                            <SkewTransform AngleX="-0.089" AngleY="0.436"/>
                             <RotateTransform Angle="-0.85"/>
-                            <TranslateTransform X="-0.036" Y="-4.84"/>
+                            <TranslateTransform X="29" Y="-0.219"/>
                         </TransformGroup>
                     </TextBlock.RenderTransform>
                 </TextBlock>
@@ -125,15 +125,15 @@
                 <TextBlock Text="Магазин"
                Grid.Row="1"
                FontSize="36"
-               HorizontalAlignment="Center"
-               Margin="0,654,0,124"
-               Foreground="#FF86474F" Width="413" RenderTransformOrigin="0.5,0.5">
+               HorizontalAlignment="Left"
+               Margin="247,659,0,145"
+               Foreground="#FF86474F" Width="189" RenderTransformOrigin="0.5,0.5">
                     <TextBlock.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
-                            <SkewTransform AngleY="3.386"/>
-                            <RotateTransform/>
-                            <TranslateTransform Y="-15.426"/>
+                            <SkewTransform AngleY="0.012"/>
+                            <RotateTransform Angle="-0.058"/>
+                            <TranslateTransform Y="-0.927" X="-105"/>
                         </TransformGroup>
                     </TextBlock.RenderTransform>
                 </TextBlock>
@@ -177,7 +177,7 @@
                                                 Opacity="0.7"/>
                                             </Setter.Value>
                                         </Setter>
-                                      
+
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>

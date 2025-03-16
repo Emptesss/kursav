@@ -5,6 +5,7 @@ using CatGame.Helpers;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
 using System.Windows.Data;
+using CatGame.Views;
 
 namespace CatGame.ViewModels
 {
@@ -221,6 +222,10 @@ namespace CatGame.ViewModels
         private void OnExit(object parameter)
         {
             Application.Current.MainWindow.Close();
+        }
+        private void ShowNotification(string message)
+        {
+            CustomMessageBox.Show(message);
         }
     }
 }

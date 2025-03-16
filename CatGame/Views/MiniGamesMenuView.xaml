@@ -10,15 +10,15 @@
              d:DesignWidth="1920">
     <Grid Background="#FFF9BFCD">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" MinHeight="146"/>
+            <RowDefinition Height="Auto" MinHeight="156"/>
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <TextBlock Text="Мини-игры" 
                    FontSize="72"
-                   HorizontalAlignment="Center"
-                   Margin="0,52,0,32"
+                   HorizontalAlignment="Left"
+                   Margin="712,52,0,32"
                    Grid.Row="0" Foreground="#FFF5649E" Width="490"/>
         <Button Command="{Binding ReturnCommand}" 
         Style="{StaticResource InvisibleButtonStyle}"
@@ -29,7 +29,7 @@
 
         <StackPanel Grid.Row="1" 
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="180" Margin="0,688,0,0" Width="1658">
+                    VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="180" Margin="0,692,0,0" Width="1658">
             <StackPanel.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -38,15 +38,15 @@
                     <TranslateTransform X="0" Y="-7"/>
                 </TransformGroup>
             </StackPanel.RenderTransform>
-            <Button Content="Играть 1" 
+            <Button Content="Играть" 
                     Command="{Binding SelectMiniGame1Command}"
-                    Style="{StaticResource MainButtonStyle}"  RenderTransformOrigin="0.5,0.5" Height="150" Width="450" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium" FontSize="72" Foreground="#FFED3939" >
+                    Style="{StaticResource MainButtonStyle}"  RenderTransformOrigin="0.5,0.5" Height="120" Width="420" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium" FontSize="72" Foreground="#FFED3939" >
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
                         <SkewTransform/>
                         <RotateTransform/>
-                        <TranslateTransform Y="0" X="458"/>
+                        <TranslateTransform Y="20" X="459"/>
                     </TransformGroup>
                 </Button.RenderTransform>
                 <Button.Background>
@@ -58,15 +58,15 @@
                 </Button.Background>
 
             </Button>
-            <Button Content="Играть 2" 
+            <Button Content="Играть" 
         Command="{Binding SelectMiniGame2Command}"
-        Style="{StaticResource MainButtonStyle}" RenderTransformOrigin="0.5,0.5" Height="150" Width="450" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium" FontSize="72" Foreground="#FFF5649E" >
+        Style="{StaticResource MainButtonStyle}" RenderTransformOrigin="0.5,0.5" Height="120" Width="420" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium" FontSize="72" Foreground="#FFF5649E" >
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
                         <SkewTransform/>
                         <RotateTransform/>
-                        <TranslateTransform Y="-165" X="-453"/>
+                        <TranslateTransform Y="-118" X="-459"/>
                     </TransformGroup>
                 </Button.RenderTransform>
                 <Button.Background>
@@ -78,7 +78,9 @@
                 </Button.Background>
             </Button>
         </StackPanel>
-        <Rectangle HorizontalAlignment="Left" Height="632" Margin="116,10,0,0" Grid.Row="1" Stroke="#FFF5649E"  StrokeThickness="10"  VerticalAlignment="Top" Width="782" Fill="#FFFFD6DE"/>
-        <Rectangle HorizontalAlignment="Left" Height="632" Margin="1023,10,0,0" Grid.Row="1" Stroke="#FFF5649E"  StrokeThickness="10"  VerticalAlignment="Top" Width="766" Fill="#FFFFD6DE"/>
+        <Image HorizontalAlignment="Left" Height="468" Margin="1181,150,0,0" Grid.Row="1" VerticalAlignment="Top" Width="468" Source="/Views/кот пожиратель.png" Stretch="Fill"/>
+        <Label Content="Кот-пожиратель" HorizontalAlignment="Left" Margin="1200,56,0,0" Grid.Row="1" VerticalAlignment="Top" Height="60" Width="430" FontSize="40" Foreground="#FFF5649E"/>
+        <Image HorizontalAlignment="Left" Height="468" Margin="264,150,0,0" Grid.Row="1" VerticalAlignment="Top" Width="468" Source="/Views/баблшутер.png" Stretch="Fill"/>
+        <Label Content="Бабл шутер" HorizontalAlignment="Left" Margin="353,56,0,0" Grid.Row="1" VerticalAlignment="Top" Height="60" Width="290" FontSize="40" Foreground="#FFF5649E"/>
     </Grid>
 </UserControl>

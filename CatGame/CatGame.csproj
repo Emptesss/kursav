@@ -19,6 +19,8 @@
     <None Remove="Views\music.mp3" />
     <None Remove="Views\roblox-death-sound-effect.mp3" />
     <None Remove="Views\zvukknopki.mp3" />
+    <None Remove="Views\бабл шутер.png" />
+    <None Remove="Views\баблшутер.png" />
     <None Remove="Views\базовыйшкаф.png" />
     <None Remove="Views\вгорошек.jpg" />
     <None Remove="Views\игры.png" />
@@ -27,6 +29,7 @@
     <None Remove="Views\кнопказаново.png" />
     <None Remove="Views\кнопкапауза.png" />
     <None Remove="Views\кнопкапродолжить.png" />
+    <None Remove="Views\кот пожиратель.png" />
     <None Remove="Views\котбели.png" />
     <None Remove="Views\котправо.png" />
     <None Remove="Views\котсиам.png" />
@@ -71,6 +74,8 @@
     <Resource Include="Views\minecraft.ttf">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Views\бабл шутер.png" />
+    <Resource Include="Views\баблшутер.png" />
     <Resource Include="Views\базовыйшкаф.png" />
     <Resource Include="Views\вгорошек.jpg" />
     <Resource Include="Views\игры.png" />
@@ -81,6 +86,7 @@
     <Resource Include="Views\кнопказаново.png" />
     <Resource Include="Views\кнопкапауза.png" />
     <Resource Include="Views\кнопкапродолжить.png" />
+    <Resource Include="Views\кот пожиратель.png" />
     <Resource Include="Views\котбели.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

@@ -235,19 +235,19 @@ public class GameData : INotifyPropertyChanged
             },
             new Wallpaper
             {
-                Name = "В горшок",
+                Name = "В горошек",
                 ImagePath = "/CatGame;component/Views/вгорошек.jpg",
                 Price = 50
             },
             new Wallpaper
             {
-                Name = "Обои гея",
+                Name = "Обои радуга",
                 ImagePath = "/CatGame;component/Views/обоигея.jpg",
                 Price = 50
             },
             new Wallpaper
             {
-                Name = "Обои яички",
+                Name = "Обои яичница",
                 ImagePath = "/CatGame;component/Views/обоияички.png",
                 Price = 50
             }
