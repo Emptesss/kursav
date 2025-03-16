@@ -14,6 +14,12 @@
 
   <ItemGroup>
     <None Remove="Resoursces\roblox-death-sound-effect.mp3" />
+    <None Remove="Views\1.png" />
+    <None Remove="Views\2.png" />
+    <None Remove="Views\3.png" />
+    <None Remove="Views\4.png" />
+    <None Remove="Views\5.png" />
+    <None Remove="Views\6.png" />
     <None Remove="Views\fonmenu.png" />
     <None Remove="Views\minecraft.ttf" />
     <None Remove="Views\music.mp3" />
@@ -39,8 +45,9 @@
     <None Remove="Views\милыйшкаф.PNG" />
     <None Remove="Views\монета.png" />
     <None Remove="Views\мясо.png" />
-    <None Remove="Views\обоигея.jpg" />
+    <None Remove="Views\обоирадуга.jpg" />
     <None Remove="Views\обоияички.png" />
+    <None Remove="Views\рамка.png" />
     <None Remove="Views\рыба.png" />
     <None Remove="Views\рыбьякость.png" />
     <None Remove="Views\сердце.png" />
@@ -71,6 +78,12 @@
 
   <ItemGroup>
     <Resource Include="Resoursces\roblox-death-sound-effect.mp3" />
+    <Resource Include="Views\1.png" />
+    <Resource Include="Views\2.png" />
+    <Resource Include="Views\3.png" />
+    <Resource Include="Views\4.png" />
+    <Resource Include="Views\5.png" />
+    <Resource Include="Views\6.png" />
     <Resource Include="Views\fonmenu.png" />
     <Resource Include="Views\minecraft.ttf">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
@@ -107,8 +120,9 @@
     <Resource Include="Views\милыйшкаф.PNG" />
     <Resource Include="Views\монета.png" />
     <Resource Include="Views\мясо.png" />
-    <Resource Include="Views\обоигея.jpg" />
+    <Resource Include="Views\обоирадуга.jpg" />
     <Resource Include="Views\обоияички.png" />
+    <Resource Include="Views\рамка.png" />
     <Resource Include="Views\рыба.png" />
     <Resource Include="Views\рыбьякость.png" />
     <Resource Include="Views\сердце.png" />

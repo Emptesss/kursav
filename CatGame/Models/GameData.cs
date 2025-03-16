@@ -10,6 +10,7 @@ public class GameData : INotifyPropertyChanged
 {
     private readonly GameDataService _gameDataService;
     private int _balance;
+    private List<string> _avatarPaths;
     private int _currentGameBalance;
     private ObservableCollection<Skin> _skins;
     private Skin _selectedSkin;
@@ -18,6 +19,7 @@ public class GameData : INotifyPropertyChanged
     private bool _isLoading = false;
     private ObservableCollection<Locker> _lockers;
     private Locker _selectedLocker;
+    private string _catName;
     private CatProfile _catProfile;
     public ObservableCollection<Locker> Lockers
     {
@@ -25,6 +27,15 @@ public class GameData : INotifyPropertyChanged
         set
         {
             _lockers = value;
+            OnPropertyChanged();
+        }
+    }
+    public List<string> AvatarPaths
+    {
+        get => _avatarPaths;
+        set
+        {
+            _avatarPaths = value;
             OnPropertyChanged();
         }
     }
@@ -215,6 +226,15 @@ public class GameData : INotifyPropertyChanged
                 Price = 200
             }
         };
+        AvatarPaths = new List<string>
+    {
+        "/CatGame;component/Views/1.png",
+        "/CatGame;component/Views/2.png",
+        "/CatGame;component/Views/3.png",
+        "/CatGame;component/Views/4.png",
+        "/CatGame;component/Views/5.png",
+        "/CatGame;component/Views/6.png"
+    };
 
         // Инициализация обоев
         Wallpapers = new ObservableCollection<Wallpaper>
@@ -253,7 +273,7 @@ public class GameData : INotifyPropertyChanged
             new Wallpaper
             {
                 Name = "Обои радуга",
-                ImagePath = "/CatGame;component/Views/обоигея.jpg",
+                ImagePath = "/CatGame;component/Views/обоирадуга.jpg",
                 Price = 50
             },
             new Wallpaper
@@ -331,7 +351,16 @@ public class GameData : INotifyPropertyChanged
         }
     }
 
-    public string CatName => CatProfile?.Name;
+    public string CatName
+    {
+        get => _catName ?? CatProfile?.Name;
+        set
+        {
+            _catName = value;
+            OnPropertyChanged();
+            if (!_isLoading) SaveGame();
+        }
+    }
     public void SaveGame()
     {
         if (_isLoading) return; // Не сохраняем во время загрузки

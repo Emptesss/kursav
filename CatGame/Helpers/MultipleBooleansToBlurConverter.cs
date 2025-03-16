@@ -13,7 +13,6 @@ namespace CatGame.Helpers
 
             foreach (object value in values)
             {
-                // Проверяем значение на UnsetValue и null
                 if (value == DependencyProperty.UnsetValue || value == null)
                     continue;
 

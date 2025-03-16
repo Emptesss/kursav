@@ -19,15 +19,20 @@ namespace CatGame.ViewModels
         private readonly Action _closeAction;
         private int _currentAvatarIndex;
         private readonly List<string> _avatarPaths;
-
+        private DateTime _birthDate;
         public string CatName
         {
             get => _catName;
             set => SetProperty(ref _catName, value);
         }
+        public DateTime BirthDate
+        {
+            get => _birthDate;
+            set => SetProperty(ref _birthDate, value);
+        }
 
         public string CurrentAvatarImage => _avatarPaths[_currentAvatarIndex];
-        public DateTime BirthDate { get; }
+        
 
         public ICommand SaveCommand { get; }
         public ICommand CloseCommand { get; }
@@ -39,10 +44,11 @@ namespace CatGame.ViewModels
             _gameData = gameData;
             _closeAction = closeAction;
             _catName = gameData.CatProfile?.Name ?? "";
-            BirthDate = gameData.CatProfile?.BirthDate ?? DateTime.Now;
+            _birthDate = gameData.CatProfile?.BirthDate ?? DateTime.Now;
+            _avatarPaths = gameData.AvatarPaths;
 
-            // Загружаем все пути к аватарам
-            _avatarPaths = _gameData.Skins.Select(s => s.ImagePath).ToList();
+            // Используем пути к аватаркам вместо скинов
+            _avatarPaths = gameData.AvatarPaths;
 
             // Находим индекс текущего аватара
             if (_gameData.CatProfile?.AvatarPath != null)

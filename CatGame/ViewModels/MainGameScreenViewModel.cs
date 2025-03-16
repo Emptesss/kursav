@@ -11,17 +11,18 @@ namespace CatGame.ViewModels
         private readonly GameData _gameData;
         private readonly NavigationService _navigationService;
         private object _currentView;
+        private string _currentProfileAvatar;
         private bool _hasOpenProfile;
+        private string _catName;
         public string SelectedLockerName => _gameData.SelectedLocker?.Name;
         public string SelectedLockerPath => _gameData.SelectedLocker?.ImagePath;
-
         public string CatName => _gameData.CatProfile?.Name ?? "";
         public MainGameScreenViewModel(GameData gameData, NavigationService navigationService)
 
         {
             _gameData = gameData;
             _navigationService = navigationService;
-
+            _currentProfileAvatar = _gameData.CatProfile?.AvatarPath ?? _gameData.AvatarPaths[0];
             _gameData.PropertyChanged += (s, e) =>
             {
                 if (e.PropertyName == nameof(_gameData.SelectedSkin))
@@ -31,6 +32,11 @@ namespace CatGame.ViewModels
                 if (e.PropertyName == nameof(_gameData.SelectedWallpaper))
                 {
                     OnPropertyChanged(nameof(SelectedWallpaperPath));
+                }
+                if (e.PropertyName == nameof(_gameData.CatProfile))
+                {
+                    UpdateProfileData();
+                    OnPropertyChanged(nameof(CatName)); // Добавьте это
                 }
                 if (e.PropertyName == nameof(GameData.SelectedLocker))
                 {
@@ -42,6 +48,7 @@ namespace CatGame.ViewModels
                 {
                     OnPropertyChanged(nameof(CatName));
                 }
+
             };
             // Инициализация команд
             NavigateToMiniGame1Command = new RelayCommand(NavigateToMiniGame1);
@@ -53,7 +60,11 @@ namespace CatGame.ViewModels
         }
         public string SelectedWallpaperPath => _gameData.SelectedWallpaper?.ImagePath ?? "/Views/fonmenu.png";
         public string CurrentCatImage => _gameData.SelectedSkin?.ImagePath;
-
+        public string CurrentProfileAvatar
+        {
+            get => _currentProfileAvatar;
+            set => SetProperty(ref _currentProfileAvatar, value);
+        }
         public int Balance => _gameData.Balance;
 
         public ICommand NavigateToMiniGame1Command { get; }
@@ -88,6 +99,18 @@ namespace CatGame.ViewModels
                 OnPropertyChanged();
             }
         }
+        private void OnProfileClosed()
+        {
+            HasOpenProfile = false;
+            UpdateProfileData();
+        }
+        private void UpdateProfileData()
+        {
+            OnPropertyChanged(nameof(CatName));
+            CurrentProfileAvatar = _gameData.CatProfile?.AvatarPath ?? _gameData.AvatarPaths[0];
+            OnPropertyChanged(nameof(CurrentProfileAvatar));
+        }
+
         private void NavigateToShop(object parameter)
         {
             // Переход к магазину

@@ -1,5 +1,5 @@
 {
-  "Balance": 27,
+  "Balance": 14,
   "CurrentGameBalance": 0,
   "SelectedSkinName": "\u0411\u0435\u043B\u044B\u0439 \u043A\u043E\u0442",
   "SelectedWallpaperName": "\u041E\u0431\u043E\u0438 \u0440\u0430\u0434\u0443\u0433\u0430",
@@ -15,11 +15,12 @@
   ],
   "PurchasedLockers": [
     "\u0411\u0430\u0437\u043E\u0432\u044B\u0439 \u0448\u043A\u0430\u0444\u0447\u0438\u043A",
+    "\u0421 \u043B\u0430\u043C\u043F\u043E\u0439",
     "\u041C\u0438\u043B\u044B\u0439 \u0448\u043A\u0430\u0444\u0447\u0438\u043A"
   ],
   "CatProfile": {
-    "Name": "Gaiczik",
-    "AvatarPath": "/CatGame;component/Views/\u043A\u043E\u0442\u0447\u0435\u0440\u043D\u0438.png",
+    "Name": "Pipiska",
+    "AvatarPath": "/CatGame;component/Views/5.png",
     "BirthDate": "2025-03-16T18:29:35.317927+01:00"
   }
 }

@@ -82,12 +82,12 @@
         Height="300"
         CornerRadius="150"
         Background="White"
-        BorderBrush="#FF86474F"
+        
         BorderThickness="4">
                         <Border.Clip>
                             <EllipseGeometry Center="150,150" 
-                         RadiusX="150" 
-                         RadiusY="150"/>
+                         RadiusX="200" 
+                         RadiusY="200"/>
                         </Border.Clip>
                         <Image Source="{Binding CurrentAvatarImage}"
            Stretch="UniformToFill"

@@ -65,13 +65,14 @@
                                    Height="100"/>
                         </Button>
                     </StackPanel>
+                    
                 </Grid>
                 <Grid Grid.Row="1" Grid.RowSpan="2"/>
                 <Grid Grid.Row="3" Background="#FFE9A5B5" Height="150">
                     <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"/>
-                    <Grid Margin="-228,-624,1136,20">
+                    <Grid Margin="-246,-624,1136,20">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
@@ -79,7 +80,7 @@
                         <TextBlock Text="Игры"
                                FontSize="36"
                                HorizontalAlignment="Left"
-                               Margin="492,715,0,-51"
+                               Margin="460,715,0,-51"
                                Foreground="#FF86474F" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
                             <TextBlock.RenderTransform>
                                 <TransformGroup>
@@ -139,7 +140,7 @@
                                Grid.Row="1"
                                FontSize="36"
                                HorizontalAlignment="Left"
-                               Margin="247,659,0,145"
+                               Margin="320,659,0,145"
                                Foreground="#FF86474F" Width="189" RenderTransformOrigin="0.5,0.5">
                             <TextBlock.RenderTransform>
                                 <TransformGroup>
@@ -240,7 +241,7 @@
                         </Ellipse.Triggers>
                     </Ellipse>
                     <TextBlock Text="{Binding CatName}"
-           FontSize="24"
+           FontSize="34"
            FontWeight="Bold"
            HorizontalAlignment="Center"
            VerticalAlignment="Top"
@@ -292,6 +293,18 @@
                             </EventTrigger>
                         </Image.Triggers>
                     </Image>
+                    <Grid HorizontalAlignment="Right" 
+      VerticalAlignment="Top" 
+      Margin="0,-780,280,0">
+                        <Image Source="/Views/рамка.png" 
+           Width="400" 
+           Height="400"/>
+                        <Image Source="{Binding CurrentProfileAvatar}" 
+           Width="215" 
+           Height="218"
+           Margin="0,42,3,0"
+           Stretch="UniformToFill"/>
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>
