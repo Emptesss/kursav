@@ -47,6 +47,7 @@
     <None Remove="Views\мясо.png" />
     <None Remove="Views\обоирадуга.jpg" />
     <None Remove="Views\обоияички.png" />
+    <None Remove="Views\обоияичница.png" />
     <None Remove="Views\рамка.png" />
     <None Remove="Views\рыба.png" />
     <None Remove="Views\рыбьякость.png" />
@@ -122,6 +123,7 @@
     <Resource Include="Views\мясо.png" />
     <Resource Include="Views\обоирадуга.jpg" />
     <Resource Include="Views\обоияички.png" />
+    <Resource Include="Views\обоияичница.png" />
     <Resource Include="Views\рамка.png" />
     <Resource Include="Views\рыба.png" />
     <Resource Include="Views\рыбьякость.png" />

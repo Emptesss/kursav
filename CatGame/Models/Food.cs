@@ -17,7 +17,7 @@ namespace CatGame.Models
                 OnPropertyChanged();
             }
         }
-
+        public double BaseSpeed { get; set; }
         public double Speed { get; set; } = 200;
         public int Reward { get; set; } = 1;
 

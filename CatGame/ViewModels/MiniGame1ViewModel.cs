@@ -227,7 +227,12 @@ namespace CatGame.ViewModels
                 // Если еда слишком близко к плохой, немного корректируем скорость
                 if (isTooClose)
                 {
-                    food.Speed *= 0.8; // Замедляем еду
+                    food.Speed = Math.Max(food.BaseSpeed * 0.5, food.Speed * 0.8); // Ограничиваем минимальную скорость
+                }
+                else
+                {
+                    // Постепенно восстанавливаем нормальную скорость
+                    food.Speed = Math.Min(food.BaseSpeed, food.Speed * 1.2);
                 }
 
                 food.Position = newPosition;
@@ -268,7 +273,12 @@ namespace CatGame.ViewModels
                 // Если плохая еда слишком близко к хорошей, ускоряем её
                 if (isTooClose)
                 {
-                    badFood.Speed *= 1.2; // Ускоряем плохую еду
+                    badFood.Speed = Math.Min(badFood.BaseSpeed * 2.0, badFood.Speed * 1.2); // Ограничиваем максимальную скорость
+                }
+                else
+                {
+                    // Постепенно восстанавливаем нормальную скорость
+                    badFood.Speed = Math.Max(badFood.BaseSpeed, badFood.Speed * 0.9);
                 }
 
                 badFood.Position = newPosition;
@@ -336,10 +346,12 @@ namespace CatGame.ViewModels
             // Теперь создаем еду только если нашли подходящую позицию
             if (_rnd.NextDouble() < 0.15) // 15% вероятность создания плохой еды
             {
+                double baseSpeed = _foodSpeed * (0.8 + _rnd.NextDouble() * 0.4);
                 var badFood = new BadFood
                 {
                     Position = position,
-                    Speed = _foodSpeed * (0.8 + _rnd.NextDouble() * 0.4),
+                    Speed = baseSpeed,
+                    BaseSpeed = baseSpeed, // Сохраняем начальную скорость
                     Reward = 0,
                     Penalty = 1,
                     ImagePath = _rnd.Next(2) == 0
@@ -350,10 +362,12 @@ namespace CatGame.ViewModels
             }
             else
             {
+                double baseSpeed = _foodSpeed * (0.8 + _rnd.NextDouble() * 0.4);
                 var food = new Food
                 {
                     Position = position,
-                    Speed = _foodSpeed * (0.8 + _rnd.NextDouble() * 0.4),
+                    Speed = baseSpeed,
+                    BaseSpeed = baseSpeed, // Сохраняем начальную скорость
                     Reward = 2,
                     ImagePath = _rnd.Next(2) == 0
                         ? "/CatGame;component/Views/рыба.png"

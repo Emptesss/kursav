@@ -279,7 +279,7 @@ public class GameData : INotifyPropertyChanged
             new Wallpaper
             {
                 Name = "Обои яичница",
-                ImagePath = "/CatGame;component/Views/обоияички.png",
+                ImagePath = "/CatGame;component/Views/обоияичница.png",
                 Price = 100
             }
         };
