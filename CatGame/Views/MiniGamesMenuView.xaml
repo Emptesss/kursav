@@ -16,10 +16,10 @@
         </Grid.RowDefinitions>
 
         <TextBlock Text="Мини-игры" 
-                   FontSize="72"
-                   HorizontalAlignment="Left"
-                   Margin="712,52,0,32"
-                   Grid.Row="0" Foreground="#FFF5649E" Width="490"/>
+                   FontSize="48"
+                   HorizontalAlignment="Center"
+                   Margin="0,52,0,32"
+                   Grid.Row="0" Foreground="Black" Width="336"/>
         <Button Command="{Binding ReturnCommand}" 
         Style="{StaticResource InvisibleButtonStyle}"
         Margin="1780,22,40,2">
@@ -40,7 +40,7 @@
             </StackPanel.RenderTransform>
             <Button Content="Играть" 
                     Command="{Binding SelectMiniGame1Command}"
-                    Style="{StaticResource MainButtonStyle}"  RenderTransformOrigin="0.5,0.5" Height="120" Width="420" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium" FontSize="72" Foreground="#FFED3939" >
+                    Style="{StaticResource MainButtonStyle}"  RenderTransformOrigin="0.5,0.5" Height="120" Width="420" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium" FontSize="48" Foreground="#FFED3939" >
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -60,7 +60,7 @@
             </Button>
             <Button Content="Играть" 
         Command="{Binding SelectMiniGame2Command}"
-        Style="{StaticResource MainButtonStyle}" RenderTransformOrigin="0.5,0.5" Height="120" Width="420" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium" FontSize="72" Foreground="#FFF5649E" >
+        Style="{StaticResource MainButtonStyle}" RenderTransformOrigin="0.5,0.5" Height="120" Width="420" BorderBrush="#FFF19EBC" BorderThickness="2" FontFamily="Montserrat Medium" FontSize="48" Foreground="#FFF5649E" >
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -79,8 +79,8 @@
             </Button>
         </StackPanel>
         <Image HorizontalAlignment="Left" Height="468" Margin="1181,150,0,0" Grid.Row="1" VerticalAlignment="Top" Width="468" Source="/Views/кот пожиратель.png" Stretch="Fill"/>
-        <Label Content="Кот-пожиратель" HorizontalAlignment="Left" Margin="1200,56,0,0" Grid.Row="1" VerticalAlignment="Top" Height="60" Width="430" FontSize="40" Foreground="#FFF5649E"/>
+        <Label Content="Кот-обжора" HorizontalAlignment="Left" Margin="1220,56,0,0" Grid.Row="1" VerticalAlignment="Top" Height="60" Width="390" FontSize="48" Foreground="{x:Null}" Background="{x:Null}"/>
         <Image HorizontalAlignment="Left" Height="468" Margin="264,150,0,0" Grid.Row="1" VerticalAlignment="Top" Width="468" Source="/Views/баблшутер.png" Stretch="Fill"/>
-        <Label Content="Бабл шутер" HorizontalAlignment="Left" Margin="353,56,0,0" Grid.Row="1" VerticalAlignment="Top" Height="60" Width="290" FontSize="40" Foreground="#FFF5649E"/>
+        <Label Content="Кото-бабл" HorizontalAlignment="Left" Margin="322,56,0,0" Grid.Row="1" VerticalAlignment="Top" Height="60" Width="352" FontSize="48" Foreground="#FFF5649E"/>
     </Grid>
 </UserControl>

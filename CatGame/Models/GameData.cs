@@ -256,31 +256,31 @@ public class GameData : INotifyPropertyChanged
             {
                 Name = "Цветы большие",
                 ImagePath = "/CatGame;component/Views/цветыбольшие.jpg",
-                Price = 50
+                Price = 70
             },
             new Wallpaper
             {
                 Name = "Клубнички",
                 ImagePath = "/CatGame;component/Views/клубнички.jpg",
-                Price = 50
+                Price = 80
             },
             new Wallpaper
             {
                 Name = "В горошек",
                 ImagePath = "/CatGame;component/Views/вгорошек.jpg",
-                Price = 50
+                Price = 60
             },
             new Wallpaper
             {
                 Name = "Обои радуга",
                 ImagePath = "/CatGame;component/Views/обоирадуга.jpg",
-                Price = 50
+                Price = 90
             },
             new Wallpaper
             {
                 Name = "Обои яичница",
                 ImagePath = "/CatGame;component/Views/обоияички.png",
-                Price = 50
+                Price = 100
             }
         };
         Lockers = new ObservableCollection<Locker>
@@ -297,14 +297,14 @@ public class GameData : INotifyPropertyChanged
         {
             Name = "С лампой",
             ImagePath = "/CatGame;component/Views/шкафчик.png",
-            Price = 50,
+            Price = 70,
             Size = 0
         },
         new Locker
         {
             Name = "Милый шкафчик",
             ImagePath = "/CatGame;component/Views/милыйшкаф.PNG",
-            Price = 50,
+            Price = 80,
             Size = 1
         }
         

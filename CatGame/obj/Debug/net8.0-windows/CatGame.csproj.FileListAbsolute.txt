@@ -96,7 +96,7 @@ C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\
 C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\Views\MiniGame2View.baml
 C:\Users\vkali\kursav\CatGame\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
 C:\Users\user\Desktop\курсовая\CatGame\CatGame\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
-C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\Views\CustomMessageBox.baml
-C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\Views\CustomMessageBox.g.cs
 C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\Views\CatProfileView.g.cs
 C:\Users\vkali\kursav\CatGame\obj\Debug\net8.0-windows\Views\CatProfileView.baml
+C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\Views\CatProfileView.g.cs
+C:\Users\user\Desktop\курсовая\CatGame\CatGame\obj\Debug\net8.0-windows\Views\CatProfileView.baml

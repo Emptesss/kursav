@@ -43,12 +43,28 @@
 
                 <!-- Текст правил -->
                 <ScrollViewer Grid.Row="1" 
-                            Margin="40,0,40,40"
-                            VerticalScrollBarVisibility="Auto">
-                    <TextBlock Text="ТЕКСТ ПРАВИЛ"
-                             FontSize="24"
-                             TextWrapping="Wrap"
-                             TextAlignment="Center"/>
+            Margin="40,0,40,40"
+            VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <TextBlock Text="Добро пожаловать в CatGame!"
+                 FontSize="24"
+                 TextWrapping="Wrap"
+                 TextAlignment="Center"
+                 Margin="0,0,0,10"/>
+                        <TextBlock Text="Стань другом для милого котика и играй в мини-игры, чтобы зарабатывать монетки. Меняй внешний вид котика,а также элементы интерьера, чтобы сделать его домик уютнее. Не забудь дать имя котику в кото-анкете!"
+                 FontSize="24"
+                 TextWrapping="Wrap"
+                 TextAlignment="Justify" Height="126" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform Y="0"/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </StackPanel>
                 </ScrollViewer>
             </Grid>
         </Border>
