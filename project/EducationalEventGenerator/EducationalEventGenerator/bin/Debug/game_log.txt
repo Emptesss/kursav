@@ -1,0 +1,1340 @@
+[01.06.2025 23:35:06] Created skill: Критическое мышление with level requirement: 3
+[01.06.2025 23:35:06] Created skill: Критическое мышление with level requirement: 3
+[01.06.2025 23:35:06] Created skill: Осознанность with level requirement: 4
+[01.06.2025 23:35:06] Created skill: Осознанность with level requirement: 4
+[01.06.2025 23:35:06] Created skill: Самомотивация with level requirement: 4
+[01.06.2025 23:35:06] Created skill: Самомотивация with level requirement: 4
+[01.06.2025 23:35:06] Created skill: Стрессоустойчивость with level requirement: 6
+[01.06.2025 23:35:06] Created skill: Стрессоустойчивость with level requirement: 6
+[01.06.2025 23:35:06] Created skill: Креативность with level requirement: 7
+[01.06.2025 23:35:06] Created skill: Креативность with level requirement: 7
+[01.06.2025 23:35:08] Applying effects: Knowledge=0, Awareness=5, Motivation=-5
+[01.06.2025 23:35:10] Applying effects: Knowledge=0, Awareness=0, Motivation=-5
+[01.06.2025 23:35:11] Applying effects: Knowledge=0, Awareness=5, Motivation=-5
+[01.06.2025 23:35:12] Applying effects: Knowledge=0, Awareness=5, Motivation=-5
+[01.06.2025 23:35:12] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:12] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:12] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:12] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:12] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:14] Skill acquired: Осознанность
+[01.06.2025 23:35:14] Applying effects: Knowledge=0, Awareness=-5, Motivation=0
+[01.06.2025 23:35:14] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:14] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:14] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:14] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:14] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:16] Applying effects: Knowledge=0, Awareness=5, Motivation=0
+[01.06.2025 23:35:16] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:16] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:16] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:16] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:16] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:17] Applying effects: Knowledge=-5, Awareness=-10, Motivation=-5
+[01.06.2025 23:35:17] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:17] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:17] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:17] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:17] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:18] Applying effects: Knowledge=-5, Awareness=10, Motivation=5
+[01.06.2025 23:35:18] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:18] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:18] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:18] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:18] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:19] Applying effects: Knowledge=0, Awareness=0, Motivation=0
+[01.06.2025 23:35:19] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:19] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:19] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:19] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:19] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:20] Applying effects: Knowledge=10, Awareness=25, Motivation=-10
+[01.06.2025 23:35:20] Current Resilience: 33
+[01.06.2025 23:35:20] Damage reduction from Resilience: 16,50%
+[01.06.2025 23:35:20] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:20] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:20] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:20] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:20] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:22] Applying effects: Knowledge=5, Awareness=10, Motivation=5
+[01.06.2025 23:35:22] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:22] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:22] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:22] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:22] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:23] Applying effects: Knowledge=5, Awareness=10, Motivation=5
+[01.06.2025 23:35:23] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:23] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:23] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:23] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:23] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:24] Applying effects: Knowledge=5, Awareness=10, Motivation=15
+[01.06.2025 23:35:24] Current Resilience: 43
+[01.06.2025 23:35:24] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:24] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:24] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:24] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:24] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:26] Applying effects: Knowledge=-5, Awareness=-5, Motivation=0
+[01.06.2025 23:35:26] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:26] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:26] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:26] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:26] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:27] Applying effects: Knowledge=0, Awareness=-5, Motivation=-5
+[01.06.2025 23:35:27] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:27] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:27] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:27] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:27] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:28] Applying effects: Knowledge=0, Awareness=-5, Motivation=0
+[01.06.2025 23:35:28] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:28] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:28] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:28] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:28] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:30] Applying effects: Knowledge=0, Awareness=0, Motivation=-5
+[01.06.2025 23:35:30] Current Resilience: 47
+[01.06.2025 23:35:30] Damage reduction from Resilience: 23,50%
+[01.06.2025 23:35:30] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:30] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:30] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:30] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:30] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:31] Applying effects: Knowledge=5, Awareness=5, Motivation=0
+[01.06.2025 23:35:31] Current Resilience: 47
+[01.06.2025 23:35:31] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:31] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:31] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:31] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:31] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:33] Applying effects: Knowledge=-10, Awareness=-15, Motivation=0
+[01.06.2025 23:35:33] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:33] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:33] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:33] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:33] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:34] Applying effects: Knowledge=5, Awareness=10, Motivation=10
+[01.06.2025 23:35:34] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:34] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:34] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:34] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:34] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:36] Applying effects: Knowledge=5, Awareness=10, Motivation=5
+[01.06.2025 23:35:36] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:36] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:36] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:36] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:36] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:37] Applying effects: Knowledge=-5, Awareness=-5, Motivation=-10
+[01.06.2025 23:35:37] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:37] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:37] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:37] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:37] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:38] Applying effects: Knowledge=-7, Awareness=-15, Motivation=-15
+[01.06.2025 23:35:38] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:38] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:38] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:38] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:38] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:39] Applying effects: Knowledge=5, Awareness=15, Motivation=20
+[01.06.2025 23:35:39] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:39] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:39] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:39] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:39] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:40] Applying effects: Knowledge=5, Awareness=10, Motivation=5
+[01.06.2025 23:35:40] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:40] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:40] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:40] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:40] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:41] Applying effects: Knowledge=0, Awareness=0, Motivation=0
+[01.06.2025 23:35:41] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:41] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:41] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:41] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:41] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:35:43] Applying effects: Knowledge=0, Awareness=-13, Motivation=-6
+[01.06.2025 23:35:43] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:35:43] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:35:43] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:35:43] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:35:43] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:42:42] Created skill: Критическое мышление with level requirement: 3
+[01.06.2025 23:42:42] Created skill: Критическое мышление with level requirement: 3
+[01.06.2025 23:42:42] Created skill: Осознанность with level requirement: 4
+[01.06.2025 23:42:42] Created skill: Осознанность with level requirement: 4
+[01.06.2025 23:42:42] Created skill: Самомотивация with level requirement: 4
+[01.06.2025 23:42:42] Created skill: Самомотивация with level requirement: 4
+[01.06.2025 23:42:42] Created skill: Стрессоустойчивость with level requirement: 6
+[01.06.2025 23:42:42] Created skill: Стрессоустойчивость with level requirement: 6
+[01.06.2025 23:42:42] Created skill: Креативность with level requirement: 7
+[01.06.2025 23:42:42] Created skill: Креативность with level requirement: 7
+[01.06.2025 23:42:49] Applying effects: Knowledge=5, Awareness=10, Motivation=5
+[01.06.2025 23:43:00] Applying effects: Knowledge=5, Awareness=10, Motivation=5
+[01.06.2025 23:43:03] Applying effects: Knowledge=5, Awareness=10, Motivation=5
+[01.06.2025 23:43:09] Applying effects: Knowledge=5, Awareness=10, Motivation=10
+[01.06.2025 23:43:09] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:43:09] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:43:09] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:43:09] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:43:09] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:43:13] Skill acquired: Критическое мышление
+[01.06.2025 23:43:14] Skill acquired: Осознанность
+[01.06.2025 23:43:14] Skill acquired: Самомотивация
+[01.06.2025 23:43:15] Applying effects: Knowledge=10, Awareness=15, Motivation=10
+[01.06.2025 23:43:15] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:43:15] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:43:15] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:43:15] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:43:15] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:43:21] Timer tick: 24 seconds remaining
+[01.06.2025 23:43:22] Timer tick: 23 seconds remaining
+[01.06.2025 23:43:27] Timer tick: 22 seconds remaining
+[01.06.2025 23:43:28] Timer tick: 21 seconds remaining
+[01.06.2025 23:43:33] Timer tick: 20 seconds remaining
+[01.06.2025 23:43:34] Timer tick: 19 seconds remaining
+[01.06.2025 23:43:36] Timer tick: 18 seconds remaining
+[01.06.2025 23:43:37] Timer tick: 17 seconds remaining
+[01.06.2025 23:43:41] Timer tick: 16 seconds remaining
+[01.06.2025 23:43:44] Timer tick: 15 seconds remaining
+[01.06.2025 23:43:45] Timer tick: 14 seconds remaining
+[01.06.2025 23:43:46] Timer tick: 13 seconds remaining
+[01.06.2025 23:43:46] Applying effects: Knowledge=15, Awareness=10, Motivation=-10
+[01.06.2025 23:43:46] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:43:46] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:43:46] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:43:46] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:43:46] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:43:47] Timer tick: 12 seconds remaining
+[01.06.2025 23:43:48] Timer tick: 11 seconds remaining
+[01.06.2025 23:43:50] Timer tick: 10 seconds remaining
+[01.06.2025 23:43:55] Applying effects: Knowledge=0, Awareness=-5, Motivation=0
+[01.06.2025 23:43:55] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:43:55] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:43:55] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:43:55] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:43:55] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:43:58] Applying effects: Knowledge=0, Awareness=0, Motivation=-5
+[01.06.2025 23:43:58] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:43:58] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:43:58] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:43:58] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:43:58] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:44:00] Applying effects: Knowledge=0, Awareness=5, Motivation=-5
+[01.06.2025 23:44:00] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:44:00] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:44:00] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:44:00] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:44:00] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:44:02] Timer tick: 29 seconds remaining
+[01.06.2025 23:50:45] Created skill: Критическое мышление with level requirement: 3
+[01.06.2025 23:50:45] Created skill: Критическое мышление with level requirement: 3
+[01.06.2025 23:50:45] Created skill: Осознанность with level requirement: 4
+[01.06.2025 23:50:45] Created skill: Осознанность with level requirement: 4
+[01.06.2025 23:50:45] Created skill: Самомотивация with level requirement: 4
+[01.06.2025 23:50:45] Created skill: Самомотивация with level requirement: 4
+[01.06.2025 23:50:45] Created skill: Стрессоустойчивость with level requirement: 6
+[01.06.2025 23:50:45] Created skill: Стрессоустойчивость with level requirement: 6
+[01.06.2025 23:50:45] Created skill: Креативность with level requirement: 7
+[01.06.2025 23:50:45] Created skill: Креативность with level requirement: 7
+[01.06.2025 23:50:47] Applying effects: Knowledge=0, Awareness=-5, Motivation=0
+[01.06.2025 23:50:48] Applying effects: Knowledge=10, Awareness=10, Motivation=5
+[01.06.2025 23:50:50] Timer tick: 9 seconds remaining
+[01.06.2025 23:50:53] Timer tick: 8 seconds remaining
+[01.06.2025 23:50:55] Timer tick: 7 seconds remaining
+[01.06.2025 23:50:58] Timer tick: 6 seconds remaining
+[01.06.2025 23:51:01] Timer tick: 5 seconds remaining
+[01.06.2025 23:51:02] Timer tick: 4 seconds remaining
+[01.06.2025 23:51:06] Timer tick: 3 seconds remaining
+[01.06.2025 23:51:07] Timer tick: 2 seconds remaining
+[01.06.2025 23:51:09] Timer tick: 1 seconds remaining
+[01.06.2025 23:51:10] Timer tick: 0 seconds remaining
+[01.06.2025 23:51:10] Timer expired!
+[01.06.2025 23:51:10] Applying timeout effects for event: Срочный баг
+[01.06.2025 23:51:10] Applying effects: Knowledge=-15, Awareness=-10, Motivation=-10
+[01.06.2025 23:51:12] Applying effects: Knowledge=5, Awareness=0, Motivation=-5
+[01.06.2025 23:51:12] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:51:12] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:51:12] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:51:12] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:51:12] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:51:14] Timer tick: 4 seconds remaining
+[01.06.2025 23:51:15] Timer tick: 3 seconds remaining
+[01.06.2025 23:51:15] Applying effects: Knowledge=5, Awareness=5, Motivation=0
+[01.06.2025 23:51:15] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:51:15] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:51:15] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:51:15] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:51:15] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:51:17] Timer tick: 2 seconds remaining
+[01.06.2025 23:51:18] Applying effects: Knowledge=5, Awareness=10, Motivation=5
+[01.06.2025 23:51:18] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:51:18] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:51:18] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:51:18] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:51:18] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:51:20] Applying effects: Knowledge=5, Awareness=0, Motivation=-5
+[01.06.2025 23:51:20] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:51:20] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:51:20] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:51:20] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:51:20] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:51:21] Applying effects: Knowledge=0, Awareness=0, Motivation=-5
+[01.06.2025 23:51:21] Current Resilience: 32
+[01.06.2025 23:51:21] Damage reduction from Resilience: 16,00%
+[01.06.2025 23:51:21] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:51:21] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:51:21] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:51:21] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:51:21] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:51:22] Applying effects: Knowledge=-5, Awareness=-10, Motivation=-5
+[01.06.2025 23:51:22] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:51:22] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:51:22] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:51:22] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:51:22] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:51:24] Applying effects: Knowledge=0, Awareness=10, Motivation=-5
+[01.06.2025 23:51:24] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:51:24] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:51:24] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:51:24] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:51:24] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:51:26] Applying effects: Knowledge=10, Awareness=-5, Motivation=-5
+[01.06.2025 23:51:26] Current Resilience: 35
+[01.06.2025 23:51:26] Damage reduction from Resilience: 17,50%
+[01.06.2025 23:51:26] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[01.06.2025 23:51:26] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[01.06.2025 23:51:26] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[01.06.2025 23:51:26] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[01.06.2025 23:51:26] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[01.06.2025 23:51:27] Timer tick: 9 seconds remaining
+[01.06.2025 23:51:28] Timer tick: 8 seconds remaining
+[02.06.2025 0:19:55] Created skill: Критическое мышление with level requirement: 3
+[02.06.2025 0:19:55] Created skill: Критическое мышление with level requirement: 3
+[02.06.2025 0:19:55] Created skill: Осознанность with level requirement: 4
+[02.06.2025 0:19:55] Created skill: Осознанность with level requirement: 4
+[02.06.2025 0:19:55] Created skill: Самомотивация with level requirement: 4
+[02.06.2025 0:19:55] Created skill: Самомотивация with level requirement: 4
+[02.06.2025 0:19:55] Created skill: Стрессоустойчивость with level requirement: 6
+[02.06.2025 0:19:55] Created skill: Стрессоустойчивость with level requirement: 6
+[02.06.2025 0:19:55] Created skill: Креативность with level requirement: 7
+[02.06.2025 0:19:55] Created skill: Креативность with level requirement: 7
+[02.06.2025 0:20:01] Applying effects: Knowledge=10, Awareness=10, Motivation=10
+[02.06.2025 0:20:05] Applying effects: Knowledge=10, Awareness=10, Motivation=5
+[02.06.2025 0:20:06] Applying effects: Knowledge=0, Awareness=0, Motivation=-5
+[02.06.2025 0:20:10] Applying effects: Knowledge=0, Awareness=-5, Motivation=-5
+[02.06.2025 0:20:13] Applying effects: Knowledge=5, Awareness=10, Motivation=5
+[02.06.2025 0:27:07] Created skill: Критическое мышление with level requirement: 3
+[02.06.2025 0:27:07] Created skill: Критическое мышление with level requirement: 3
+[02.06.2025 0:27:07] Created skill: Осознанность with level requirement: 4
+[02.06.2025 0:27:07] Created skill: Осознанность with level requirement: 4
+[02.06.2025 0:27:07] Created skill: Самомотивация with level requirement: 4
+[02.06.2025 0:27:07] Created skill: Самомотивация with level requirement: 4
+[02.06.2025 0:27:07] Created skill: Стрессоустойчивость with level requirement: 6
+[02.06.2025 0:27:07] Created skill: Стрессоустойчивость with level requirement: 6
+[02.06.2025 0:27:07] Created skill: Креативность with level requirement: 7
+[02.06.2025 0:27:07] Created skill: Креативность with level requirement: 7
+[02.06.2025 0:27:49] Получено опыта: 19. Текущий опыт: 19/10
+[02.06.2025 0:27:49] Уровень повышен! Новый уровень: 2
+[02.06.2025 0:27:53] Получено опыта: 32. Текущий опыт: 41/20
+[02.06.2025 0:27:53] Уровень повышен! Новый уровень: 3
+[02.06.2025 0:28:04] Получено опыта: 19. Текущий опыт: 40/30
+[02.06.2025 0:28:04] Уровень повышен! Новый уровень: 4
+[02.06.2025 0:28:05] Получено опыта: 29. Текущий опыт: 39/40
+[02.06.2025 0:28:18] Timer expired!
+[02.06.2025 0:28:18] Получено опыта: 26. Текущий опыт: 65/40
+[02.06.2025 0:28:18] Уровень повышен! Новый уровень: 5
+[02.06.2025 0:28:21] Получено опыта: 11. Текущий опыт: 36/50
+[02.06.2025 0:28:21] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:28:21] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:28:21] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:28:21] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:28:21] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:28:27] Получено опыта: 29. Текущий опыт: 65/50
+[02.06.2025 0:28:27] Разблокирована характеристика Устойчивость с базовым значением: 20
+[02.06.2025 0:28:27] Уровень повышен! Новый уровень: 6
+[02.06.2025 0:28:27] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:28:27] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:28:27] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:28:27] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:28:27] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:28:30] Timer expired!
+[02.06.2025 0:28:30] Получено опыта: 29. Текущий опыт: 44/60
+[02.06.2025 0:28:32] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:28:35] Получено опыта: 24. Текущий опыт: 68/60
+[02.06.2025 0:28:35] Уровень повышен! Новый уровень: 7
+[02.06.2025 0:28:35] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:28:35] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:28:35] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:28:35] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:28:35] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:28:38] Получено опыта: 29. Текущий опыт: 37/70
+[02.06.2025 0:28:38] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:28:38] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:28:38] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:28:38] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:28:38] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:28:40] Получено опыта: 16. Текущий опыт: 53/70
+[02.06.2025 0:28:40] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:28:41] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:28:41] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:28:41] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:28:41] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:28:42] Получено опыта: 29. Текущий опыт: 82/70
+[02.06.2025 0:28:42] Уровень повышен! Новый уровень: 8
+[02.06.2025 0:28:42] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:28:42] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:28:42] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:28:42] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:28:42] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:28:44] Получено опыта: 11. Текущий опыт: 23/80
+[02.06.2025 0:28:44] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:28:44] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:28:44] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:28:44] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:28:44] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:28:46] Получено опыта: 26. Текущий опыт: 49/80
+[02.06.2025 0:28:46] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:28:46] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:28:46] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:28:46] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:28:46] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:28:48] Получено опыта: 16. Текущий опыт: 65/80
+[02.06.2025 0:28:48] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:28:48] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:28:48] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:28:48] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:28:48] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:28:49] Получено опыта: 14. Текущий опыт: 79/80
+[02.06.2025 0:28:49] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:28:49] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:28:49] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:28:49] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:28:49] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:28:51] Получено опыта: 7. Текущий опыт: 86/80
+[02.06.2025 0:28:51] Уровень повышен! Новый уровень: 9
+[02.06.2025 0:28:51] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:28:51] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:28:51] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:28:51] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:28:51] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:28:52] Получено опыта: 29. Текущий опыт: 35/90
+[02.06.2025 0:28:52] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:28:52] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:28:52] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:28:52] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:28:52] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:28:54] Получено опыта: 37. Текущий опыт: 72/90
+[02.06.2025 0:28:54] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:28:54] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:28:54] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:28:54] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:28:54] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:28:56] Получено опыта: 13. Текущий опыт: 85/90
+[02.06.2025 0:28:56] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:28:56] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:28:56] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:28:56] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:28:56] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:28:59] Created skill: Критическое мышление with level requirement: 3
+[02.06.2025 0:28:59] Created skill: Критическое мышление with level requirement: 3
+[02.06.2025 0:28:59] Created skill: Осознанность with level requirement: 4
+[02.06.2025 0:28:59] Created skill: Осознанность with level requirement: 4
+[02.06.2025 0:28:59] Created skill: Самомотивация with level requirement: 4
+[02.06.2025 0:28:59] Created skill: Самомотивация with level requirement: 4
+[02.06.2025 0:28:59] Created skill: Стрессоустойчивость with level requirement: 6
+[02.06.2025 0:28:59] Created skill: Стрессоустойчивость with level requirement: 6
+[02.06.2025 0:28:59] Created skill: Креативность with level requirement: 7
+[02.06.2025 0:28:59] Created skill: Креативность with level requirement: 7
+[02.06.2025 0:28:59] Created skill: Критическое мышление with level requirement: 3
+[02.06.2025 0:28:59] Created skill: Критическое мышление with level requirement: 3
+[02.06.2025 0:28:59] Created skill: Осознанность with level requirement: 4
+[02.06.2025 0:28:59] Created skill: Осознанность with level requirement: 4
+[02.06.2025 0:28:59] Created skill: Самомотивация with level requirement: 4
+[02.06.2025 0:28:59] Created skill: Самомотивация with level requirement: 4
+[02.06.2025 0:28:59] Created skill: Стрессоустойчивость with level requirement: 6
+[02.06.2025 0:28:59] Created skill: Стрессоустойчивость with level requirement: 6
+[02.06.2025 0:28:59] Created skill: Креативность with level requirement: 7
+[02.06.2025 0:28:59] Created skill: Креативность with level requirement: 7
+[02.06.2025 0:34:49] Created skill: Критическое мышление with level requirement: 3
+[02.06.2025 0:34:49] Created skill: Критическое мышление with level requirement: 3
+[02.06.2025 0:34:49] Created skill: Осознанность with level requirement: 4
+[02.06.2025 0:34:49] Created skill: Осознанность with level requirement: 4
+[02.06.2025 0:34:49] Created skill: Самомотивация with level requirement: 4
+[02.06.2025 0:34:49] Created skill: Самомотивация with level requirement: 4
+[02.06.2025 0:34:49] Created skill: Стрессоустойчивость with level requirement: 6
+[02.06.2025 0:34:49] Created skill: Стрессоустойчивость with level requirement: 6
+[02.06.2025 0:34:49] Created skill: Креативность with level requirement: 7
+[02.06.2025 0:34:49] Created skill: Креативность with level requirement: 7
+[02.06.2025 0:34:52] Получено опыта: 11. Текущий опыт: 11/10
+[02.06.2025 0:34:52] Уровень повышен! Новый уровень: 2
+[02.06.2025 0:34:56] Получено опыта: 16. Текущий опыт: 17/20
+[02.06.2025 0:34:59] Получено опыта: 31. Текущий опыт: 48/20
+[02.06.2025 0:34:59] Уровень повышен! Новый уровень: 3
+[02.06.2025 0:35:09] Получено опыта: 28. Текущий опыт: 56/30
+[02.06.2025 0:35:09] Уровень повышен! Новый уровень: 4
+[02.06.2025 0:35:11] Получено опыта: 13. Текущий опыт: 39/40
+[02.06.2025 0:35:13] Получено опыта: 15. Текущий опыт: 54/40
+[02.06.2025 0:35:13] Уровень повышен! Новый уровень: 5
+[02.06.2025 0:35:13] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:35:13] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:35:13] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:35:13] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:35:13] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:35:22] Skill acquired: Критическое мышление
+[02.06.2025 0:35:25] Получено опыта: 39. Текущий опыт: 53/50
+[02.06.2025 0:35:25] Разблокирована характеристика Устойчивость с базовым значением: 20
+[02.06.2025 0:35:25] Уровень повышен! Новый уровень: 6
+[02.06.2025 0:35:25] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:35:25] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:35:25] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:35:25] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:35:25] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:35:30] Skill acquired: Осознанность
+[02.06.2025 0:35:33] Получено опыта: 21. Текущий опыт: 24/60
+[02.06.2025 0:35:33] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:35:33] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:35:33] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:35:33] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:35:33] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:35:37] Получено опыта: 56. Текущий опыт: 80/60
+[02.06.2025 0:35:37] Уровень повышен! Новый уровень: 7
+[02.06.2025 0:35:37] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:35:37] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:35:37] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:35:37] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:35:37] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:35:39] Получено опыта: 33. Текущий опыт: 53/70
+[02.06.2025 0:35:39] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:35:39] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:35:39] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:35:39] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:35:39] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:35:40] Получено опыта: 13. Текущий опыт: 66/70
+[02.06.2025 0:35:40] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:35:40] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:35:40] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:35:40] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:35:40] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:35:41] Получено опыта: 39. Текущий опыт: 105/70
+[02.06.2025 0:35:41] Уровень повышен! Новый уровень: 8
+[02.06.2025 0:35:41] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:35:41] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:35:41] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:35:41] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:35:41] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:35:42] Получено опыта: 13. Текущий опыт: 48/80
+[02.06.2025 0:35:42] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:35:42] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:35:42] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:35:42] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:35:42] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:35:43] Получено опыта: 16. Текущий опыт: 64/80
+[02.06.2025 0:35:43] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:35:43] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:35:43] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:35:43] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:35:43] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:35:44] Получено опыта: 13. Текущий опыт: 77/80
+[02.06.2025 0:35:44] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:35:44] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:35:44] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:35:44] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:35:44] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:35:46] Получено опыта: 31. Текущий опыт: 108/80
+[02.06.2025 0:35:46] Уровень повышен! Новый уровень: 9
+[02.06.2025 0:35:46] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:35:46] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:35:46] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:35:46] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:35:46] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:35:47] Получено опыта: 49. Текущий опыт: 77/90
+[02.06.2025 0:35:47] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:35:47] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:35:47] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:35:47] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:35:47] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:35:58] Получено опыта: 54. Текущий опыт: 131/90
+[02.06.2025 0:35:58] Уровень повышен! Новый уровень: 10
+[02.06.2025 0:35:58] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:35:58] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:35:58] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:35:58] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:35:58] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:36:00] Получено опыта: 39. Текущий опыт: 80/100
+[02.06.2025 0:36:00] GetRequirementsText for Критическое мышление: Требования:
+Уровень: 3
+Knowledge: 60
+Awareness: 40
+[02.06.2025 0:36:00] GetRequirementsText for Осознанность: Требования:
+Уровень: 4
+Awareness: 65
+[02.06.2025 0:36:00] GetRequirementsText for Самомотивация: Требования:
+Уровень: 4
+Motivation: 70
+[02.06.2025 0:36:00] GetRequirementsText for Стрессоустойчивость: Требования:
+Уровень: 6
+Resilience: 30
+[02.06.2025 0:36:00] GetRequirementsText for Креативность: Требования:
+Уровень: 7
+Creativity: 25
+[02.06.2025 0:36:04] Created skill: Критическое мышление with level requirement: 3
+[02.06.2025 0:36:04] Created skill: Критическое мышление with level requirement: 3
+[02.06.2025 0:36:04] Created skill: Осознанность with level requirement: 4
+[02.06.2025 0:36:04] Created skill: Осознанность with level requirement: 4
+[02.06.2025 0:36:04] Created skill: Самомотивация with level requirement: 4
+[02.06.2025 0:36:04] Created skill: Самомотивация with level requirement: 4
+[02.06.2025 0:36:04] Created skill: Стрессоустойчивость with level requirement: 6
+[02.06.2025 0:36:04] Created skill: Стрессоустойчивость with level requirement: 6
+[02.06.2025 0:36:04] Created skill: Креативность with level requirement: 7
+[02.06.2025 0:36:04] Created skill: Креативность with level requirement: 7
+[02.06.2025 0:36:04] Created skill: Критическое мышление with level requirement: 3
+[02.06.2025 0:36:04] Created skill: Критическое мышление with level requirement: 3
+[02.06.2025 0:36:04] Created skill: Осознанность with level requirement: 4
+[02.06.2025 0:36:04] Created skill: Осознанность with level requirement: 4
+[02.06.2025 0:36:04] Created skill: Самомотивация with level requirement: 4
+[02.06.2025 0:36:04] Created skill: Самомотивация with level requirement: 4
+[02.06.2025 0:36:04] Created skill: Стрессоустойчивость with level requirement: 6
+[02.06.2025 0:36:04] Created skill: Стрессоустойчивость with level requirement: 6
+[02.06.2025 0:36:04] Created skill: Креативность with level requirement: 7
+[02.06.2025 0:36:04] Created skill: Креативность with level requirement: 7
+[02.06.2025 0:36:08] Created skill: Критическое мышление with level requirement: 3
+[02.06.2025 0:36:08] Created skill: Критическое мышление with level requirement: 3
+[02.06.2025 0:36:08] Created skill: Осознанность with level requirement: 4
+[02.06.2025 0:36:08] Created skill: Осознанность with level requirement: 4
+[02.06.2025 0:36:08] Created skill: Самомотивация with level requirement: 4
+[02.06.2025 0:36:08] Created skill: Самомотивация with level requirement: 4
+[02.06.2025 0:36:08] Created skill: Стрессоустойчивость with level requirement: 6
+[02.06.2025 0:36:08] Created skill: Стрессоустойчивость with level requirement: 6
+[02.06.2025 0:36:08] Created skill: Креативность with level requirement: 7
+[02.06.2025 0:36:08] Created skill: Креативность with level requirement: 7
+[02.06.2025 0:36:08] Created skill: Критическое мышление with level requirement: 3
+[02.06.2025 0:36:08] Created skill: Критическое мышление with level requirement: 3
+[02.06.2025 0:36:08] Created skill: Осознанность with level requirement: 4
+[02.06.2025 0:36:08] Created skill: Осознанность with level requirement: 4
+[02.06.2025 0:36:08] Created skill: Самомотивация with level requirement: 4
+[02.06.2025 0:36:08] Created skill: Самомотивация with level requirement: 4
+[02.06.2025 0:36:08] Created skill: Стрессоустойчивость with level requirement: 6
+[02.06.2025 0:36:08] Created skill: Стрессоустойчивость with level requirement: 6
+[02.06.2025 0:36:08] Created skill: Креативность with level requirement: 7
+[02.06.2025 0:36:08] Created skill: Креативность with level requirement: 7

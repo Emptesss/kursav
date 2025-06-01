@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\vkali\\kursav\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\vkali\\kursav\\catgame\\viewmodels\\minigame2viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\minigame2viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\vkali\\kursav\\catgame\\models\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\models\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\vkali\\kursav\\catgame\\viewmodels\\minigame1viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\minigame1viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\vkali\\kursav\\catgame\\viewmodels\\minigame2viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|solutionrelative:catgame\\viewmodels\\minigame2viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{858F91DA-F59D-4C82-AE38-B7D3CD51F6B9}|CatGame\\CatGame.csproj|c:\\users\\vkali\\kursav\\catgame\\models\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -364,11 +364,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "GameData.cs",
               "DocumentMoniker": "C:\\Users\\vkali\\kursav\\CatGame\\Models\\GameData.cs",
               "RelativeDocumentMoniker": "CatGame\\Models\\GameData.cs",
@@ -451,7 +451,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MiniGame1ViewModel.cs",
               "DocumentMoniker": "C:\\Users\\vkali\\kursav\\CatGame\\ViewModels\\MiniGame1ViewModel.cs",
               "RelativeDocumentMoniker": "CatGame\\ViewModels\\MiniGame1ViewModel.cs",
@@ -459,8 +459,7 @@
               "RelativeToolTip": "CatGame\\ViewModels\\MiniGame1ViewModel.cs",
               "ViewState": "AQIAAHIBAAAAAAAAAAAAAIUBAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T20:16:42.189Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-10T20:16:42.189Z"
             },
             {
               "$type": "Document",
@@ -472,18 +471,17 @@
               "RelativeToolTip": "CatGame\\Models\\Food.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T20:25:27.864Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-16T20:25:27.864Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "MiniGame2ViewModel.cs",
               "DocumentMoniker": "C:\\Users\\vkali\\kursav\\CatGame\\ViewModels\\MiniGame2ViewModel.cs",
               "RelativeDocumentMoniker": "CatGame\\ViewModels\\MiniGame2ViewModel.cs",
-              "ToolTip": "C:\\Users\\vkali\\kursav\\CatGame\\ViewModels\\MiniGame2ViewModel.cs",
-              "RelativeToolTip": "CatGame\\ViewModels\\MiniGame2ViewModel.cs",
-              "ViewState": "AQIAADwBAAAAAAAAAAAwwFEBAAAVAAAA",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\CatGame\\ViewModels\\MiniGame2ViewModel.cs*",
+              "RelativeToolTip": "CatGame\\ViewModels\\MiniGame2ViewModel.cs*",
+              "ViewState": "AQIAACMBAAAAAAAAAAAiwFEBAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-10T18:48:15.656Z",
               "EditorCaption": ""

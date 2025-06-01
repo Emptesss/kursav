@@ -1,40 +1,114 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace EducationalEventGenerator
 {
     public class SkillSystem
     {
-        public List<Skill> AvailableSkills { get; } = new List<Skill>();
+        private readonly List<Skill> _skills;
 
-        // Новый метод для получения навыков по уровню
-        public IEnumerable<Skill> GetAvailableSkills(int playerLevel)
+        public SkillSystem()
         {
-            return AvailableSkills.Where(skill => skill.RequiredLevel <= playerLevel);
+            _skills = new List<Skill>();
         }
 
         public void InitializeSkills()
         {
-            AvailableSkills.Clear();
+            _skills.Clear();
 
-            AvailableSkills.Add(new Skill(
-                "Критическое мышление",
-                "+20% к эффектам знаний",
-                3  // Указываем требуемый уровень
-            ));
+            AddSkill("Критическое мышление", "Улучшает эффективность обучения", 3,
+                new Dictionary<string, int> { { "Knowledge", 60 }, { "Awareness", 40 } });
 
-            AvailableSkills.Add(new Skill(
-                "Рефакторинг",
-                "Позволяет оптимизировать код без негативных последствий",
-                5  // Указываем требуемый уровень
-            ));
+            AddSkill("Осознанность", "Помогает лучше понимать ситуацию", 4,
+                new Dictionary<string, int> { { "Awareness", 65 } });
 
-            // Добавляем другие навыки с указанием требуемого уровня
+            AddSkill("Самомотивация", "Повышает эффективность действий", 4,
+                new Dictionary<string, int> { { "Motivation", 70 } });
+
+            AddSkill("Стрессоустойчивость", "Уменьшает негативные эффекты", 6,
+                new Dictionary<string, int> { { "Resilience", 30 } });
+
+            AddSkill("Креативность", "Открывает новые возможности", 7,
+                new Dictionary<string, int> { { "Creativity", 25 } });
+        }
+
+        private void AddSkill(string name, string description, int requiredLevel, Dictionary<string, int> requirements)
+        {
+            var skill = new Skill(name, description, requiredLevel, requirements);
+            _skills.Add(skill);
+            Logger.Log($"Created skill: {name} with level requirement: {requiredLevel}");
         }
 
         public bool HasSkill(string skillName)
         {
-            return AvailableSkills.Any(s => s.Name == skillName && s.IsAcquired);
+            return _skills.Any(s => s.Name == skillName && s.IsAcquired);
+        }
+
+        private int GetPlayerStatValue(string statName, PlayerStats playerStats)
+        {
+            switch (statName)
+            {
+                case "Knowledge":
+                    return playerStats.Knowledge;
+                case "Awareness":
+                    return playerStats.Awareness;
+                case "Motivation":
+                    return playerStats.Motivation;
+                case "Resilience":
+                    return playerStats.Resilience;
+                case "Creativity":
+                    return playerStats.Creativity;
+                default:
+                    return 0;
+            }
+        }
+
+        public bool TryAcquireSkill(string skillName, PlayerStats playerStats)
+        {
+            var skill = _skills.FirstOrDefault(s => s.Name == skillName);
+            if (skill == null) return false;
+
+            if (playerStats.Level < skill.RequiredLevel)
+                return false;
+
+            foreach (var requirement in skill.Requirements)
+            {
+                int playerValue = GetPlayerStatValue(requirement.Key, playerStats);
+                if (playerValue < requirement.Value)
+                    return false;
+            }
+
+            skill.IsAcquired = true;
+            Logger.Log($"Skill acquired: {skillName}");
+            return true;
+        }
+
+        public List<Skill> GetAvailableSkills(PlayerStats playerStats)
+        {
+            return _skills
+                .Select(skill =>
+                {
+                    if (!skill.IsAcquired)
+                    {
+                        bool canAcquire = playerStats.Level >= skill.RequiredLevel;
+                        if (canAcquire)
+                        {
+                            foreach (var requirement in skill.Requirements)
+                            {
+                                int playerValue = GetPlayerStatValue(requirement.Key, playerStats);
+                                if (playerValue < requirement.Value)
+                                {
+                                    canAcquire = false;
+                                    break;
+                                }
+                            }
+                        }
+                        skill.CanAcquire = canAcquire;
+                    }
+                    return skill;
+                })
+                .ToList();
         }
     }
 }

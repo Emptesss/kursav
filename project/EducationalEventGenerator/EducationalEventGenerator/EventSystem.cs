@@ -7,16 +7,27 @@ namespace EducationalEventGenerator
     public class EventSystem
     {
         private List<Event> baseEvents = new List<Event>();
+        private List<Event> timedEvents = new List<Event>(); // Новый список для таймер-событий
         private List<EventChain> eventChains = new List<EventChain>();
         private Random random = new Random();
         private List<int> usedEventIndices = new List<int>();
         private int lastEventIndex = -1;
 
+        public Event GetRandomTimedEvent(int playerLevel)
+        {
+            var availableTimedEvents = timedEvents.Where(e => e.MinLevel <= playerLevel).ToList();
+            if (!availableTimedEvents.Any())
+                return GenerateEvent(playerLevel); // Если нет доступных таймер-событий, возвращаем обычное
+
+            return availableTimedEvents[random.Next(availableTimedEvents.Count)];
+        }
         public void InitializeEvents()
         {
             baseEvents.Clear();
+            timedEvents.Clear(); // Очищаем таймер-события
             eventChains.Clear();
             AddBasicEvents();
+            AddTimedEvents();
             AddIntermediateEvents();
             AddAdvancedEvents();
             InitializeEventChains();
@@ -34,32 +45,114 @@ namespace EducationalEventGenerator
                                     !usedEventIndices.Contains(index) &&
                                     index != lastEventIndex)
                 .ToList();
+            if (random.NextDouble() < 0.35) // 35% шанс
+            {
+                var availableTimedEvents = timedEvents
+                    .Where(e => e.MinLevel <= playerLevel)
+                    .ToList();
 
+                if (availableTimedEvents.Any())
+                    return availableTimedEvents[random.Next(availableTimedEvents.Count)];
+            }
             // Если все использованы — сбрасываем
             if (!availableEvents.Any())
                 availableEvents = baseEvents.Where(e => e.MinLevel <= playerLevel).ToList();
 
             // Выбираем случайное
             var randomIndex = random.Next(availableEvents.Count);
-            lastEventIndex = baseEvents.IndexOf(availableEvents[randomIndex]);
+            var selectedEvent = availableEvents[randomIndex];
+            lastEventIndex = baseEvents.IndexOf(selectedEvent);
             usedEventIndices.Add(lastEventIndex);
 
-            return availableEvents[randomIndex];
+            // Создаем копию события с модифицированными эффектами
+            var modifiedOptions = selectedEvent.Options.Select(opt =>
+            {
+                // Увеличиваем сложность на основе уровня игрока
+                var difficulty = Math.Max(1.0, (playerLevel - selectedEvent.MinLevel) * 0.15); // 15% за каждый уровень выше минимального
+
+                // Создаем новый эффект с измененными значениями
+                var newEffect = new Effect(
+                    (int)(opt.Effects.KnowledgeEffect * (opt.Effects.KnowledgeEffect < 0 ? difficulty : 1)),
+                    (int)(opt.Effects.AwarenessEffect * (opt.Effects.AwarenessEffect < 0 ? difficulty : 1)),
+                    (int)(opt.Effects.MotivationEffect * (opt.Effects.MotivationEffect < 0 ? difficulty : 1))
+                )
+                {
+                    ResilienceEffect = opt.Effects.ResilienceEffect,
+                    CreativityEffect = opt.Effects.CreativityEffect,
+                    ExperienceGain = opt.Effects.ExperienceGain,
+                    RequiredSkill = opt.Effects.RequiredSkill,
+                    RequiredSkills = opt.Effects.RequiredSkills,
+                    RequiredCreativity = opt.Effects.RequiredCreativity,
+                    ChainId = opt.Effects.ChainId
+                };
+
+                // Добавляем временные эффекты, если они есть
+                if (opt.Effects.TemporaryEffects != null)
+                {
+                    newEffect.TemporaryEffects = opt.Effects.TemporaryEffects.Select(te =>
+                        new TemporaryEffect(
+                            te.Name,
+                            (int)(te.KnowledgeEffect * difficulty),
+                            (int)(te.AwarenessEffect * difficulty),
+                            (int)(te.MotivationEffect * difficulty),
+                            te.Duration
+                        )).ToList();
+                }
+
+                // Добавляем долгосрочный эффект, если он есть
+                if (opt.Effects.LongTermEffect != null)
+                {
+                    newEffect.LongTermEffect = new TemporaryEffect(
+                        opt.Effects.LongTermEffect.Name,
+                        (int)(opt.Effects.LongTermEffect.KnowledgeEffect * difficulty),
+                        (int)(opt.Effects.LongTermEffect.AwarenessEffect * difficulty),
+                        (int)(opt.Effects.LongTermEffect.MotivationEffect * difficulty),
+                        opt.Effects.LongTermEffect.Duration
+                    );
+                }
+
+                return new Option(opt.Text, newEffect);
+            }).ToList();
+
+            // Создаем новое событие с модифицированными опциями
+            return new Event(
+                selectedEvent.Category,
+                selectedEvent.Description,
+                modifiedOptions,
+                selectedEvent.Explanation,
+                selectedEvent.MinLevel,
+                selectedEvent.IsBossEvent
+            );
         }
 
         private void AddBasicEvents()
         {
             baseEvents.Add(new Event(
-                "Здоровье",
-                "Вы проспали завтрак. Что будете делать?",
-                new List<Option> {
-                    new Option("Пропустить завтрак", new Effect(-15, 0, -5)),
-                    new Option("Перекусить быстро", new Effect(5, 5, 0)),
-                    new Option("Приготовить полезный завтрак", new Effect(10, 10, 10))
-                },
-                "Пропуск завтрака снижает уровень энергии и концентрации. Полезный завтрак улучшает продуктивность.",
-                1
-            ));
+    "Здоровье",
+    "Вы проспали завтрак. Что будете делать?",
+    new List<Option> {
+        new Option("Пропустить завтрак",
+            new Effect(-15, 0, -5) {
+                TemporaryEffects = new List<TemporaryEffect> {
+                    new TemporaryEffect("Голод", -2, -2, -3, 3)
+                }
+            }),
+        new Option("Перекусить быстро",
+            new Effect(5, 5, 0) {
+                TemporaryEffects = new List<TemporaryEffect> {
+                    new TemporaryEffect("Легкий голод", -1, -1, -1, 2)
+                }
+            }),
+        new Option("Приготовить полезный завтрак",
+            new Effect(10, 10, 10) {
+                TemporaryEffects = new List<TemporaryEffect> {
+                    new TemporaryEffect("Энергичность", 2, 2, 2, 4)
+                }
+            })
+    },
+    "Пропуск завтрака снижает уровень энергии и концентрации. Полезный завтрак улучшает продуктивность.",
+    1
+));
 
             baseEvents.Add(new Event(
     "Саморазвитие",
@@ -76,12 +169,79 @@ namespace EducationalEventGenerator
     "Учёба",
     "Завтра экзамен, а вы почти не готовились. Что будете делать?",
     new List<Option> {
-        new Option("Быстро пробежаться по конспектам", new Effect(5, 0, -5)), // Нейтральный
-        new Option("Усердно готовиться всю ночь", new Effect(10, 5, -10)), // Лучший (но с усталостью)
-        new Option("Забить и надеяться на удачу", new Effect(-5, -10, 0)) // Худший
+        new Option("Быстро пробежаться по конспектам",
+            new Effect(5, 0, -5) {
+                TemporaryEffects = new List<TemporaryEffect> {
+                    new TemporaryEffect("Поверхностные знания", -2, 0, -1, 3)
+                }
+            }),
+        new Option("Усердно готовиться всю ночь",
+            new Effect(10, 5, -10) {
+                TemporaryEffects = new List<TemporaryEffect> {
+                    new TemporaryEffect("Сильная усталость", -5, -5, -5, 4)
+                }
+            }),
+        new Option("Забить и надеяться на удачу",
+            new Effect(-5, -10, 0) {
+                TemporaryEffects = new List<TemporaryEffect> {
+                    new TemporaryEffect("Тревога", -3, -3, -4, 3)
+                }
+            })
     },
     "Последняя ночь перед экзаменом — это стресс. Лучше готовиться заранее.",
     2
+));
+            baseEvents.Add(new Event(
+    "Стресс",
+    "Сложный проект вызывает постоянное напряжение. Как справиться?",
+    new List<Option> {
+        new Option("Игнорировать стресс",
+            new Effect(-10, -15, -10) {
+                TemporaryEffects = new List<TemporaryEffect> {
+                    new TemporaryEffect("Выгорание", -5, -5, -5, 5)
+                }
+            }),
+        new Option("Взять выходной",
+            new Effect(5, 10, 15) {
+                TemporaryEffects = new List<TemporaryEffect> {
+                    new TemporaryEffect("Отдых", 3, 3, 3, 2)
+                }
+            }),
+        new Option("Заняться спортом",
+            new Effect(10, 5, 10) {
+                TemporaryEffects = new List<TemporaryEffect> {
+                    new TemporaryEffect("Бодрость", 2, 2, 4, 3)
+                }
+            })
+    },
+    "Стресс нужно контролировать, иначе он начнет контролировать вас.",
+    4
+));
+            baseEvents.Add(new Event(
+    "Здоровье",
+    "Вы чувствуете первые признаки простуды. Как поступите?",
+    new List<Option> {
+        new Option("Продолжать работать",
+            new Effect(-10, -5, -5) {
+                TemporaryEffects = new List<TemporaryEffect> {
+                    new TemporaryEffect("Болезнь", -5, -5, -5, 5)
+                }
+            }),
+        new Option("Взять больничный",
+            new Effect(5, 5, -5) {
+                TemporaryEffects = new List<TemporaryEffect> {
+                    new TemporaryEffect("Выздоровление", 2, 2, 2, 3)
+                }
+            }),
+        new Option("Пить витамины и работать",
+            new Effect(0, 0, -5) {
+                TemporaryEffects = new List<TemporaryEffect> {
+                    new TemporaryEffect("Лёгкое недомогание", -2, -2, -2, 4)
+                }
+            })
+    },
+    "Здоровье важнее работы, но не все готовы это признать.",
+    3
 ));
 
             baseEvents.Add(new Event(
@@ -119,6 +279,31 @@ namespace EducationalEventGenerator
                 "Баланс между отдыхом и общением важен для здоровья.",
                 1
             ));
+            baseEvents.Add(new Event(
+    "Карьера",
+    "Вам предлагают сложный долгосрочный проект. Возьметесь?",
+    new List<Option> {
+        new Option("Взяться с энтузиазмом",
+            new Effect(10, 15, 10) {
+                TemporaryEffects = new List<TemporaryEffect> {
+                    new TemporaryEffect("Воодушевление", 3, 3, 3, 4)
+                },
+                LongTermEffect = new TemporaryEffect("Профессиональный рост", 1, 1, 1, 10)
+            }),
+        new Option("Отказаться",
+            new Effect(-5, -10, -5) {
+                LongTermEffect = new TemporaryEffect("Упущенные возможности", -1, -1, -1, 8)
+            }),
+        new Option("Взять и делегировать",
+            new Effect(5, 5, 0) {
+                TemporaryEffects = new List<TemporaryEffect> {
+                    new TemporaryEffect("Меньше контроля", -2, 0, -1, 5)
+                }
+            })
+    },
+    "Большие возможности часто прячутся за большими вызовами.",
+    5
+));
 
             baseEvents.Add(new Event(
                 "Отношения",
@@ -255,6 +440,96 @@ namespace EducationalEventGenerator
             ));
         }
 
+        private void AddTimedEvents()
+        {
+            timedEvents.Add(new TimedEvent(
+                "Срочный баг",
+                "Найдена критическая ошибка! 7 секунд на решение!",
+                new List<Option> {
+            new Option("Быстрый хотфикс",
+                new Effect(10, -5, -5) {
+                    TemporaryEffects = new List<TemporaryEffect> {
+                        new TemporaryEffect("Технический долг", -2, -2, -2, 3)
+                    }
+                }),
+            new Option("Тщательное исправление",
+                new Effect(15, 10, -10))
+                },
+                "В критической ситуации важно сохранять спокойствие",
+                7,
+                new Effect(-15, -10, -10),
+                3
+            ));
+
+            timedEvents.Add(new TimedEvent(
+                "Дедлайн горит",
+                "Клиент ждёт демонстрацию! 5 секунд!",
+                new List<Option> {
+            new Option("Показать текущую версию",
+                new Effect(0, -5, -5)),
+            new Option("Быстро доделать фичи",
+                new Effect(15, 10, -10) {
+                    RequiredSkill = "Критическое мышление",
+                    SkillDescription = "Нужно критическое мышление для быстрого анализа ситуации"
+                })
+                },
+                "Иногда лучше показать меньше, но качественнее",
+                5,
+                new Effect(-10, -15, -15),
+                4
+            ));
+
+            timedEvents.Add(new TimedEvent(
+                "Конфликт в команде",
+                "Срочно требуется решение! 6 секунд!",
+                new List<Option> {
+            new Option("Разделить задачи",
+                new Effect(5, 10, 5)),
+            new Option("Провести медиацию",
+                new Effect(15, 20, 10) {
+                    RequiredSkill = "Осознанность",
+                    SkillDescription = "Требуется осознанность для эффективного решения конфликта"
+                })
+                },
+                "Конфликты нужно решать быстро",
+                6,
+                new Effect(-10, -15, -20),
+                5
+            ));
+
+            timedEvents.Add(new TimedEvent(
+                "Сервер не отвечает",
+                "Критическая нагрузка! 8 секунд до отказа!",
+                new List<Option> {
+            new Option("Перезагрузить сервер",
+                new Effect(-10, 5, -5)),
+            new Option("Оптимизировать нагрузку",
+                new Effect(20, 15, -10))
+                },
+                "Действуйте быстро, но обдуманно",
+                8,
+                new Effect(-20, -20, -15),
+                6
+            ));
+
+            timedEvents.Add(new TimedEvent(
+                "Утечка данных",
+                "Обнаружена утечка! 7 секунд на реакцию!",
+                new List<Option> {
+            new Option("Отключить доступ всем",
+                new Effect(-15, 10, -10)),
+            new Option("Локализовать утечку",
+                new Effect(20, 20, -5) {
+                    RequiredSkill = "Стрессоустойчивость",
+                    SkillDescription = "Необходима стрессоустойчивость для хладнокровной работы"
+                })
+                },
+                "Безопасность данных - высший приоритет",
+                7,
+                new Effect(-25, -20, -15),
+                7
+            ));
+        }
         private void AddIntermediateEvents()
         {
             baseEvents.Add(new Event(

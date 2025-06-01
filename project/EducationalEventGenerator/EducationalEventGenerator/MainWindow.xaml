@@ -11,6 +11,34 @@
         Background="#FFF5F5F5">
 
     <Window.Resources>
+        <ToolTip x:Key="ResilienceTooltip">
+            <TextBlock>
+            Устойчивость снижает получаемый урон.<LineBreak/>
+            Каждые 10 единиц устойчивости снижают урон на 5%.<LineBreak/>
+            Появляется на 6 уровне и растёт при получении урона и повышении уровня.
+            </TextBlock>
+        </ToolTip>
+
+        <ToolTip x:Key="KnowledgeTooltip">
+            <TextBlock>
+            Знания определяют ваш опыт и компетентность.<LineBreak/>
+            Влияют на доступность некоторых решений.
+            </TextBlock>
+        </ToolTip>
+
+        <ToolTip x:Key="AwarenessTooltip">
+            <TextBlock>
+            Осознанность помогает принимать взвешенные решения.<LineBreak/>
+            Повышает эффективность действий.
+            </TextBlock>
+        </ToolTip>
+
+        <ToolTip x:Key="MotivationTooltip">
+            <TextBlock>
+            Мотивация определяет вашу энергию и стремление.<LineBreak/>
+            Влияет на успешность сложных действий.
+            </TextBlock>
+        </ToolTip>
         <Style TargetType="Button">
             <Setter Property="Background" Value="#FFE0E0E0"/>
             <Setter Property="Foreground" Value="#FF333333"/>
@@ -82,21 +110,35 @@
 
         <DataTemplate x:Key="SkillTemplate">
             <Border Background="#FFF0F0F0" BorderBrush="#FF0078D7" BorderThickness="1" 
-                    CornerRadius="4" Padding="10" Margin="6" Width="160" Height="100">
+            CornerRadius="4" Padding="10" Margin="6" Width="200" Height="150">
                 <Grid>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
                     <TextBlock Text="{Binding Name}" FontWeight="Bold" 
-                               Foreground="#FF333333" FontSize="14" 
-                               TextWrapping="Wrap" TextAlignment="Center"/>
+                      Foreground="#FF333333" FontSize="14" 
+                      TextWrapping="Wrap"/>
 
-                    <CheckBox Grid.Row="1" IsChecked="{Binding IsAcquired}" 
-                              IsEnabled="{Binding CanAcquire}" 
-                              Content="Изучено" Foreground="#FF333333" 
-                              HorizontalAlignment="Center" Margin="0,8,0,0"/>
+                    <TextBlock Grid.Row="1" Text="{Binding Description}" 
+                      Foreground="#FF666666" FontSize="12" 
+                      TextWrapping="Wrap" Margin="0,4"/>
+
+                    <TextBlock Grid.Row="2" Text="{Binding RequirementsText}"
+          Foreground="#FF999999" FontSize="11"
+          TextWrapping="Wrap"/>
+
+                    <CheckBox Grid.Row="3" 
+          IsChecked="{Binding IsAcquired}" 
+          IsEnabled="{Binding CanAcquire}"
+          Content="Изучить" 
+          Foreground="#FF333333"
+          HorizontalAlignment="Center" 
+          Margin="0,8,0,0"
+          Checked="SkillCheckBox_Changed"/>
                 </Grid>
             </Border>
         </DataTemplate>
@@ -141,6 +183,41 @@
                     <StackPanel>
                         <TextBlock x:Name="EventCategory" 
                                   Style="{StaticResource HeaderText}"/>
+                        <!-- Добавьте после TextBlock EventCategory -->
+                        <Grid x:Name="TimerPanel" Visibility="Collapsed" Margin="0,5,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <ProgressBar x:Name="TimeProgressBar" 
+                 Height="20" 
+                 Background="#FFE0E0E0"
+                 Foreground="#FF0078D7"
+                 BorderThickness="0">
+                                <ProgressBar.Template>
+                                    <ControlTemplate TargetType="ProgressBar">
+                                        <Border x:Name="PART_Track" 
+                        Background="{TemplateBinding Background}"
+                        BorderThickness="0"
+                        CornerRadius="4">
+                                            <Border x:Name="PART_Indicator" 
+                            Background="{TemplateBinding Foreground}"
+                            BorderThickness="0"
+                            CornerRadius="4"
+                            HorizontalAlignment="Left"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </ProgressBar.Template>
+                            </ProgressBar>
+
+                            <TextBlock x:Name="TimerText" 
+               Grid.Column="1"
+               Margin="10,0,0,0"
+               FontSize="16"
+               FontWeight="SemiBold"
+               VerticalAlignment="Center"/>
+                        </Grid>
 
                         <TextBlock x:Name="EventText" TextWrapping="Wrap" 
                                   FontSize="16" Foreground="#FF333333" Margin="0,0,0,20"
@@ -178,47 +255,101 @@
 
                             <StackPanel Margin="0,0,0,20">
                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                                    <TextBlock Text="Знания:" Foreground="#FF333333" FontWeight="SemiBold" FontSize="18"/>
+                                    <TextBlock Text="Знания:" 
+          Foreground="#FF333333" 
+          FontWeight="SemiBold" 
+          FontSize="18"
+          ToolTip="{StaticResource KnowledgeTooltip}"/>
                                     <TextBlock x:Name="KnowledgeText" Foreground="#FF2E7D32" 
-                                              HorizontalAlignment="Right" Margin="5,0,0,0"/>
+                      HorizontalAlignment="Right" Margin="5,0,0,0"/>
+                                    <TextBlock x:Name="KnowledgeChangeText" Foreground="#FF2E7D32" 
+                      Margin="5,0,0,0" FontSize="14"/>
                                 </StackPanel>
                                 <ProgressBar x:Name="KnowledgeProgress" Foreground="#FF4CAF50" Height="22"/>
                             </StackPanel>
 
                             <StackPanel Margin="0,0,0,20">
                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                                    <TextBlock Text="Осознанность:" Foreground="#FF333333" FontWeight="SemiBold" FontSize="18"/>
+                                    <TextBlock Text="Осознанность:" 
+          Foreground="#FF333333" 
+          FontWeight="SemiBold" 
+          FontSize="18"
+          ToolTip="{StaticResource AwarenessTooltip}"/>
                                     <TextBlock x:Name="AwarenessText" Foreground="#FF1565C0" 
-                                              HorizontalAlignment="Right" Margin="5,0,0,0"/>
+                      HorizontalAlignment="Right" Margin="5,0,0,0"/>
+                                    <TextBlock x:Name="AwarenessChangeText" Foreground="#FF1565C0" 
+                      Margin="5,0,0,0" FontSize="14"/>
                                 </StackPanel>
                                 <ProgressBar x:Name="AwarenessProgress" Foreground="#FF2196F3" Height="22"/>
                             </StackPanel>
 
                             <StackPanel Margin="0,0,0,20">
                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                                    <TextBlock Text="Мотивация:" Foreground="#FF333333" FontWeight="SemiBold" FontSize="18"/>
+                                    <TextBlock Text="Мотивация:" 
+          Foreground="#FF333333" 
+          FontWeight="SemiBold" 
+          FontSize="18"
+          ToolTip="{StaticResource MotivationTooltip}"/>
                                     <TextBlock x:Name="MotivationText" Foreground="#FF6A1B9A" 
-                                              HorizontalAlignment="Right" Margin="5,0,0,0"/>
+                      HorizontalAlignment="Right" Margin="5,0,0,0"/>
+                                    <TextBlock x:Name="MotivationChangeText" Foreground="#FF6A1B9A" 
+                      Margin="5,0,0,0" FontSize="14"/>
                                 </StackPanel>
-                                <ProgressBar x:Name="MotivationProgress" Foreground="#FF9C27B0" Height="23" ValueChanged="MotivationProgress_ValueChanged"/>
+                                <ProgressBar x:Name="MotivationProgress" Foreground="#FF9C27B0" Height="23" 
+                     ValueChanged="MotivationProgress_ValueChanged"/>
                             </StackPanel>
 
                             <StackPanel x:Name="AdvancedStatsPanel" Visibility="Collapsed" Margin="0,0,0,20">
+                                <!-- Существующая панель устойчивости -->
                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                                    <TextBlock Text="Устойчивость:" Foreground="#FF333333" FontWeight="SemiBold"/>
-                                    <TextBlock x:Name="ResilienceText" Foreground="#FF37474F" 
-                                              HorizontalAlignment="Right" Margin="5,0,0,0"/>
+                                    <TextBlock Text="Устойчивость:" 
+                  Foreground="#FF333333" 
+                  FontWeight="SemiBold"
+                  ToolTip="{StaticResource ResilienceTooltip}"/>
+                                    <TextBlock x:Name="ResilienceText" 
+                  Foreground="#FF37474F" 
+                  HorizontalAlignment="Right" 
+                  Margin="5,0,0,0"/>
+                                    <TextBlock x:Name="ResilienceChangeText" 
+                  Foreground="#FF37474F" 
+                  Margin="5,0,0,0" 
+                  FontSize="14"/>
                                 </StackPanel>
-                                <ProgressBar x:Name="ResilienceProgress" Foreground="#FF607D8B"/>
-                            </StackPanel>
+                                <ProgressBar x:Name="ResilienceProgress" 
+                 Foreground="#FF607D8B"/>
 
+                                <!-- Добавьте панель креативности -->
+                                <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
+                                    <TextBlock Text="Креативность:" 
+                  Foreground="#FF333333" 
+                  FontWeight="SemiBold"/>
+                                    <TextBlock x:Name="CreativityText" 
+                  Foreground="#FF37474F" 
+                  HorizontalAlignment="Right" 
+                  Margin="5,0,0,0"/>
+                                    <TextBlock x:Name="CreativityChangeText" 
+                  Foreground="#FF37474F" 
+                  Margin="5,0,0,0" 
+                  FontSize="14"/>
+                                </StackPanel>
+                                <ProgressBar x:Name="CreativityProgress" 
+                 Foreground="#FF607D8B"/>
+                            </StackPanel>
+                            <!-- Добавьте эту секцию прогресса уровня перед закрывающим тегом StackPanel в секции характеристик -->
                             <StackPanel Margin="0,25,0,15">
-                                <TextBlock Text="Прогресс уровня:" Foreground="#FF333333" 
-                                           FontWeight="SemiBold" Margin="0,0,0,5" FontSize="18"/>
-                                <ProgressBar x:Name="LevelProgress" Foreground="#FFFB8C00" Height="23"/>
-                                <TextBlock x:Name="LevelText" FontSize="14"
-                                          Foreground="#FFFB8C00" HorizontalAlignment="Center"
-                                          Margin="0,5,0,0"/>
+                                <TextBlock Text="Прогресс уровня:" 
+              Foreground="#FF333333" 
+              FontWeight="SemiBold" 
+              Margin="0,0,0,5" 
+              FontSize="18"/>
+                                <ProgressBar x:Name="LevelProgress" 
+                 Foreground="#FFFB8C00" 
+                 Height="23"/>
+                                <TextBlock x:Name="LevelText" 
+              FontSize="14"
+              Foreground="#FFFB8C00" 
+              HorizontalAlignment="Center"
+              Margin="0,5,0,0"/>
                             </StackPanel>
                         </StackPanel>
                     </ScrollViewer>
