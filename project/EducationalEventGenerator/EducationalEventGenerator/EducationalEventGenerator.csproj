@@ -59,6 +59,9 @@
     <Compile Include="EffectsDisplay.xaml.cs">
       <DependentUpon>EffectsDisplay.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InfoWindow.xaml.cs">
+      <DependentUpon>InfoWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LevelToVisibilityConverter.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="ProgressConverter.cs" />
@@ -67,6 +70,10 @@
     <Compile Include="TemporaryEffect.cs" />
     <Compile Include="TimedEvent.cs" />
     <Page Include="EffectsDisplay.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InfoWindow.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
@@ -113,6 +120,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="info2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

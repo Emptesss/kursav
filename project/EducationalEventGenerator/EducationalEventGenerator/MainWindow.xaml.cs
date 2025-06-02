@@ -38,14 +38,21 @@ namespace EducationalEventGenerator
         public MainWindow()
         {
             InitializeComponent();
-            InitializeTimer(); // Добавьте эту строку
+            InitializeTimer();
             InitializeSystems();
+
+            // Установка начальных значений
+            oldKnowledge = playerStats.Knowledge;
+            oldAwareness = playerStats.Awareness;
+            oldMotivation = playerStats.Motivation;
+            oldResilience = playerStats.Resilience;
+            oldCreativity = playerStats.Creativity;
+
+            // Делаем панель навыков и продвинутых характеристик скрытыми при старте
+            SkillsPanel.Visibility = Visibility.Collapsed;
+            AdvancedStatsPanel.Visibility = Visibility.Collapsed;
+
             UpdateUI();
-            oldKnowledge = 0;
-            oldAwareness = 0;
-            oldMotivation = 0;
-            oldResilience = 0;
-            oldCreativity = 0;
         }
 
         private void InitializeSystems()
@@ -290,6 +297,14 @@ namespace EducationalEventGenerator
 
             // Применяем эффекты ОДИН раз
             playerStats.ApplyEffects(selectedOption.Effects);
+
+            if (playerStats.Level >= 5)
+            {
+                SkillsPanel.Visibility = Visibility.Visible;
+                var availableSkills = skillSystem.GetAvailableSkills(playerStats);
+                SkillsList.ItemsSource = availableSkills;
+            }
+
             if (selectedOption.Effects.TemporaryEffects?.Any() == true)
             {
                 foreach (var tempEffect in selectedOption.Effects.TemporaryEffects)
@@ -370,7 +385,24 @@ namespace EducationalEventGenerator
                 DescribeEffect(report, "Мотивация", effects.MotivationEffect, damageReduction,
                     stats._skillSystem.HasSkill("Самомотивация"), 0.1, "Самомотивация");
         }
+        private void InfoButton_Click(object sender, RoutedEventArgs e)
+        {
+            var infoWindow = new InfoWindow();
+            infoWindow.Owner = this; // Делаем главное окно владельцем
 
+            // Применяем эффект размытия к главному окну
+            var blurEffect = new System.Windows.Media.Effects.BlurEffect
+            {
+                Radius = 5
+            };
+            this.Effect = blurEffect;
+
+            // Показываем окно и ждем его закрытия
+            infoWindow.ShowDialog();
+
+            // Убираем эффект размытия
+            this.Effect = null;
+        }
         private void DescribeEffect(StringBuilder report, string statName, int effect, double damageReduction,
             bool hasSkill, double skillBonus, string skillName)
         {
@@ -583,6 +615,7 @@ namespace EducationalEventGenerator
 
         private void UpdateUI()
         {
+            // Сначала обновляем базовые характеристики
             KnowledgeProgress.Value = playerStats.Knowledge;
             AwarenessProgress.Value = playerStats.Awareness;
             MotivationProgress.Value = playerStats.Motivation;
@@ -591,46 +624,41 @@ namespace EducationalEventGenerator
             AwarenessText.Text = $"{playerStats.Awareness}/100";
             MotivationText.Text = $"{playerStats.Motivation}/100";
 
+            // Сбрасываем тексты изменений
+            KnowledgeChangeText.Text = "";
+            AwarenessChangeText.Text = "";
+            MotivationChangeText.Text = "";
+
+            // Обновляем прогресс уровня
+            LevelProgress.Value = playerStats.Experience;
+            LevelProgress.Maximum = playerStats.ExperienceToNextLevel;
+            LevelText.Text = $"Уровень {playerStats.Level} ({playerStats.Experience}/{playerStats.ExperienceToNextLevel})";
+
+            // Проверяем уровень для показа панели навыков
+            if (playerStats.Level >= 5)
+            {
+                // Показываем панель навыков
+                SkillsPanel.Visibility = Visibility.Visible;
+                var availableSkills = skillSystem.GetAvailableSkills(playerStats);
+                SkillsList.ItemsSource = availableSkills;
+            }
+            else
+            {
+                SkillsPanel.Visibility = Visibility.Collapsed;
+            }
+
+            // Отдельно проверяем продвинутые характеристики
             if (playerStats.Level >= 6)
             {
                 AdvancedStatsPanel.Visibility = Visibility.Visible;
                 ResilienceProgress.Value = playerStats.Resilience;
                 ResilienceText.Text = $"{playerStats.Resilience}/100";
-
-                // Добавляем обновление креативности
                 CreativityProgress.Value = playerStats.Creativity;
                 CreativityText.Text = $"{playerStats.Creativity}/100";
             }
             else
             {
                 AdvancedStatsPanel.Visibility = Visibility.Collapsed;
-            }
-
-            KnowledgeChangeText.Text = "";
-            AwarenessChangeText.Text = "";
-            MotivationChangeText.Text = "";
-
-            // Обновление прогресса уровня
-            LevelProgress.Value = playerStats.Experience;
-            LevelProgress.Maximum = playerStats.ExperienceToNextLevel;
-            LevelText.Text = $"Уровень {playerStats.Level} ({playerStats.Experience}/{playerStats.ExperienceToNextLevel})";
-            if (playerStats.Level >= 5)
-            {
-                SkillsPanel.Visibility = Visibility.Visible;
-                var availableSkills = skillSystem.GetAvailableSkills(playerStats)
-                    .Select(s =>
-                    {
-                        s.CanAcquire = !s.IsAcquired &&
-                                       playerStats.Level >= s.RequiredLevel &&
-                                       s.Requirements.All(r =>
-                                           GetPlayerStatValue(r.Key, playerStats) >= r.Value);
-                        return s;
-                    }).ToList();
-                SkillsList.ItemsSource = availableSkills;
-            }
-            else
-            {
-                SkillsPanel.Visibility = Visibility.Collapsed;
             }
         }
 

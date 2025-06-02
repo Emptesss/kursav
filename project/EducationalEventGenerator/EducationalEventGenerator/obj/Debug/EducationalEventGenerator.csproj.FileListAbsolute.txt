@@ -34,3 +34,5 @@ C:\Users\vkali\kursav\project\EducationalEventGenerator\EducationalEventGenerato
 C:\Users\vkali\kursav\project\EducationalEventGenerator\EducationalEventGenerator\obj\Debug\EducationalEventGenerator.csproj.CoreCompileInputs.cache
 C:\Users\vkali\kursav\project\EducationalEventGenerator\EducationalEventGenerator\obj\Debug\EducationalEventGenerator.exe
 C:\Users\vkali\kursav\project\EducationalEventGenerator\EducationalEventGenerator\obj\Debug\EducationalEventGenerator.pdb
+C:\Users\vkali\kursav\project\EducationalEventGenerator\EducationalEventGenerator\obj\Debug\InfoWindow.baml
+C:\Users\vkali\kursav\project\EducationalEventGenerator\EducationalEventGenerator\obj\Debug\InfoWindow.g.cs

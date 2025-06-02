@@ -144,10 +144,22 @@
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Margin" Value="0,0,0,10"/>
         </Style>
+        <Style x:Key="SkillHeaderText" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#FF0078D7"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+        </Style>
 
         <DataTemplate x:Key="SkillTemplate">
-            <Border Background="#FFF0F0F0" BorderBrush="{Binding StatusColor}" BorderThickness="2" 
-            CornerRadius="6" Padding="10" Margin="6" Width="220" Height="160">
+            <Border Background="#FFF0F0F0" 
+            BorderBrush="{Binding StatusColor}" 
+            BorderThickness="2"
+            CornerRadius="6" 
+            Padding="15" 
+            Margin="8" 
+            Width="250" 
+            Height="180">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -156,25 +168,33 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Text="{Binding Name}" FontWeight="Bold" 
-                      Foreground="#FF333333" FontSize="14" 
+                    <TextBlock Text="{Binding Name}" 
+                      FontWeight="Bold"
+                      Foreground="#FF333333" 
+                      FontSize="16"
                       TextWrapping="Wrap"/>
 
-                    <TextBlock Grid.Row="1" Text="{Binding Description}" 
-                      Foreground="#FF666666" FontSize="12" 
-                      TextWrapping="Wrap" Margin="0,4"/>
+                    <TextBlock Grid.Row="1" 
+                      Text="{Binding Description}"
+                      Foreground="#FF666666" 
+                      FontSize="14"
+                      TextWrapping="Wrap" 
+                      Margin="0,8,0,0"/>
 
-                    <TextBlock Grid.Row="2" Text="{Binding RequirementsText}"
-                      Foreground="#FF777777" FontSize="11"
-                      TextWrapping="Wrap" Margin="0,4"/>
+                    <TextBlock Grid.Row="2" 
+                      Text="{Binding RequirementsText}"
+                      Foreground="#FF777777" 
+                      FontSize="12"
+                      TextWrapping="Wrap" 
+                      Margin="0,8,0,0"/>
 
-                    <CheckBox Grid.Row="3" 
-                      IsChecked="{Binding IsAcquired, Mode=TwoWay}" 
+                    <CheckBox Grid.Row="3"
+                      IsChecked="{Binding IsAcquired, Mode=TwoWay}"
                       IsEnabled="{Binding CanAcquire}"
                       Content="{Binding IsAcquired, Converter={StaticResource AcquiredConverter}}"
                       Foreground="#FF333333"
-                      HorizontalAlignment="Center" 
-                      Margin="0,8,0,0"
+                      HorizontalAlignment="Center"
+                      Margin="0,12,0,0"
                       Checked="SkillCheckBox_Changed"/>
                 </Grid>
             </Border>
@@ -205,6 +225,46 @@
                               Foreground="White" Margin="20,0,0,0"
                               FontSize="18" VerticalAlignment="Center"/>
                 </StackPanel>
+                <Button Grid.Column="1" 
+                x:Name="InfoButton"
+                Click="InfoButton_Click"
+                Width="50" 
+                Height="50"
+                Margin="0,0,10,0"
+                VerticalAlignment="Center">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="border" 
+                            CornerRadius="20"
+                            Background="Transparent">
+                                <Image 
+                               Width="50" 
+                               Height="50" Source="/info2.png"/>
+                                <Border.Effect>
+                                    <DropShadowEffect Color="White" 
+                                            ShadowDepth="0" 
+                                            BlurRadius="20" 
+                                            Opacity="0"/>
+                                </Border.Effect>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="border" 
+                                    Property="Border.Effect">
+                                        <Setter.Value>
+                                            <DropShadowEffect Color="White" 
+                                                    ShadowDepth="0" 
+                                                    BlurRadius="20" 
+                                                    Opacity="0.5"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+               
+                
             </Grid>
         </Border>
 
@@ -462,21 +522,31 @@
                 </Grid>
             </Border>
         </Grid>
-
-        <Border x:Name="SkillsPanel" Grid.Row="2" Background="White" Padding="10"
-                BorderBrush="#FFCCCCCC" BorderThickness="0,1,0,0"
-                Visibility="Collapsed">
-            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
-                <ItemsControl x:Name="SkillsList" ItemTemplate="{StaticResource SkillTemplate}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel Orientation="Horizontal" Margin="10,0"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
-            </ScrollViewer>
+        <Border x:Name="SkillsPanel" 
+        Grid.Row="2" 
+        Background="White" 
+        Padding="20"
+        BorderBrush="#FFCCCCCC" 
+        BorderThickness="0,1,0,0"
+        Visibility="Collapsed">
+            <StackPanel>
+                <TextBlock Text="ДОСТУПНЫЕ НАВЫКИ" 
+                  Style="{StaticResource HeaderText}" 
+                  Margin="0,0,0,15"/>
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" 
+                     VerticalScrollBarVisibility="Disabled"
+                     Margin="0,0,0,10">
+                    <ItemsControl x:Name="SkillsList" 
+                         ItemTemplate="{StaticResource SkillTemplate}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </ScrollViewer>
+            </StackPanel>
         </Border>
-
         <Border Grid.Row="3" Background="White" Padding="15"
                 BorderBrush="#FFCCCCCC" BorderThickness="0,1,0,0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">

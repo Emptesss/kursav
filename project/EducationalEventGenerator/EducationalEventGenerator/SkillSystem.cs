@@ -18,19 +18,19 @@ namespace EducationalEventGenerator
         {
             _skills.Clear();
 
-            AddSkill("Критическое мышление", "Улучшает эффективность обучения", 3,
-                new Dictionary<string, int> { { "Knowledge", 60 }, { "Awareness", 40 } });
+            AddSkill("Критическое мышление", "Улучшает эффективность обучения (+20% к получению знаний)", 5,
+                new Dictionary<string, int> { { "Knowledge", 60 } });
 
-            AddSkill("Осознанность", "Помогает лучше понимать ситуацию", 4,
-                new Dictionary<string, int> { { "Awareness", 65 } });
+            AddSkill("Осознанность", "Помогает лучше понимать ситуацию (+15% к получению осознанности)", 5,
+                new Dictionary<string, int> { { "Awareness", 60 } });
 
-            AddSkill("Самомотивация", "Повышает эффективность действий", 4,
-                new Dictionary<string, int> { { "Motivation", 70 } });
+            AddSkill("Самомотивация", "Повышает эффективность действий (+10% к получению мотивации)", 5,
+                new Dictionary<string, int> { { "Motivation", 60 } });
 
-            AddSkill("Стрессоустойчивость", "Уменьшает негативные эффекты", 6,
-                new Dictionary<string, int> { { "Resilience", 30 } });
+            AddSkill("Стрессоустойчивость", "Уменьшает негативные эффекты на 30%", 6,
+                new Dictionary<string, int> { { "Resilience", 40 } });
 
-            AddSkill("Креативность", "Открывает новые возможности", 7,
+            AddSkill("Креативность", "Открывает новые возможности и решения", 7,
                 new Dictionary<string, int> { { "Creativity", 25 } });
         }
 

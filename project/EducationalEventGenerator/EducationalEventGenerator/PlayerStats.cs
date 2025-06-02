@@ -19,6 +19,8 @@ namespace EducationalEventGenerator
         public int Experience { get; set; }
         public int ExperienceToNextLevel => Level * 10;
 
+        public event EventHandler<int> LevelChanged;
+
         public int Knowledge { get; set; } = 50;
         public int Awareness { get; set; } = 50;
         public int Motivation { get; set; } = 50;
@@ -55,7 +57,7 @@ namespace EducationalEventGenerator
                 Logger.Log("Нет активных временных эффектов");
             }
 
-            Experience += 5;
+            Experience += 100;
 
             int ModifyEffect(int effect, string skillName, double bonus)
             {
@@ -157,6 +159,7 @@ namespace EducationalEventGenerator
             while (Experience >= ExperienceToNextLevel)
             {
                 Experience -= ExperienceToNextLevel;
+                int oldLevel = Level;
                 Level++;
 
                 if (Level == 6)
@@ -166,6 +169,7 @@ namespace EducationalEventGenerator
                 }
 
                 Logger.Log($"Уровень повышен! Новый уровень: {Level}");
+                LevelChanged?.Invoke(this, Level);
             }
         }
     }
