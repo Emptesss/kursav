@@ -6,12 +6,14 @@ namespace EducationalEventGenerator
 {
     public class PlayerStats
     {
-        private readonly SkillSystem _skillSystem;
+        public readonly SkillSystem _skillSystem;
         public List<TemporaryEffect> ActiveEffects { get; } = new List<TemporaryEffect>();
+
         public PlayerStats(SkillSystem skillSystem)
         {
             _skillSystem = skillSystem;
         }
+
         private const int BASE_RESILIENCE = 20;
         public int Level { get; set; } = 1;
         public int Experience { get; set; }
@@ -25,102 +27,130 @@ namespace EducationalEventGenerator
 
         public void ApplyEffects(Effect effects)
         {
-            // Базовый опыт за любое действие
-            int experienceGain = 5;
+            int startKnowledge = Knowledge;
+            int startAwareness = Awareness;
+            int startMotivation = Motivation;
+            int startExp = Experience;
 
-            // Бонусный опыт за положительные эффекты
-            if (effects.KnowledgeEffect > 0) experienceGain += effects.KnowledgeEffect;
-            if (effects.AwarenessEffect > 0) experienceGain += effects.AwarenessEffect;
-            if (effects.MotivationEffect > 0) experienceGain += effects.MotivationEffect;
+            Logger.Log("\nНачало применения эффектов:");
 
-            // Бонусный опыт за сложные решения (отрицательные эффекты)
-            if (effects.KnowledgeEffect < 0) experienceGain += Math.Abs(effects.KnowledgeEffect) / 2;
-            if (effects.AwarenessEffect < 0) experienceGain += Math.Abs(effects.AwarenessEffect) / 2;
-            if (effects.MotivationEffect < 0) experienceGain += Math.Abs(effects.MotivationEffect) / 2;
+            double damageReduction = Math.Min(0.5, Resilience / 200.0);
+            Logger.Log($"Текущая устойчивость: {Resilience}, снижение урона: {damageReduction:P0}");
 
-            // Дополнительный опыт за временные эффекты
+            if (ActiveEffects.Any())
+            {
+                foreach (var effect in ActiveEffects)
+                {
+                    Logger.Log($"Активный эффект: {effect.Name} (осталось ходов: {effect.Duration})");
+                    if (effect.KnowledgeEffect != 0)
+                        Logger.Log($"  Знания: {(effect.KnowledgeEffect > 0 ? "+" : "")}{effect.KnowledgeEffect}");
+                    if (effect.AwarenessEffect != 0)
+                        Logger.Log($"  Осознанность: {(effect.AwarenessEffect > 0 ? "+" : "")}{effect.AwarenessEffect}");
+                    if (effect.MotivationEffect != 0)
+                        Logger.Log($"  Мотивация: {(effect.MotivationEffect > 0 ? "+" : "")}{effect.MotivationEffect}");
+                }
+            }
+            else
+            {
+                Logger.Log("Нет активных временных эффектов");
+            }
+
+            Experience += 5;
+
+            int ModifyEffect(int effect, string skillName, double bonus)
+            {
+                if (_skillSystem.HasSkill(skillName) && effect > 0)
+                {
+                    return (int)(effect * (1 + bonus));
+                }
+                return effect;
+            }
+
+            // Применяем базовые эффекты с учетом навыков
+            int finalKnowledgeEffect = ModifyEffect(effects.KnowledgeEffect, "Критическое мышление", 0.2);
+            int finalAwarenessEffect = ModifyEffect(effects.AwarenessEffect, "Осознанность", 0.15);
+            int finalMotivationEffect = ModifyEffect(effects.MotivationEffect, "Самомотивация", 0.1);
+
+            // Применяем стрессоустойчивость к негативным эффектам
+            if (_skillSystem.HasSkill("Стрессоустойчивость"))
+            {
+                double reduction = 0.3; // 30% снижение негативных эффектов
+                if (finalKnowledgeEffect < 0) finalKnowledgeEffect = (int)(finalKnowledgeEffect * (1 - reduction));
+                if (finalAwarenessEffect < 0) finalAwarenessEffect = (int)(finalAwarenessEffect * (1 - reduction));
+                if (finalMotivationEffect < 0) finalMotivationEffect = (int)(finalMotivationEffect * (1 - reduction));
+            }
+
+            Knowledge = ApplyStatEffect("Знания", Knowledge, finalKnowledgeEffect, damageReduction);
+            Awareness = ApplyStatEffect("Осознанность", Awareness, finalAwarenessEffect, damageReduction);
+            Motivation = ApplyStatEffect("Мотивация", Motivation, finalMotivationEffect, damageReduction);
+
+
             if (effects.TemporaryEffects?.Any() == true)
             {
-                experienceGain += 5 * effects.TemporaryEffects.Count;
+                int tempExp = effects.TemporaryEffects.Count * 5;
+                Experience += tempExp;
+                Logger.Log($"Получен дополнительный опыт за временные эффекты: +{tempExp}");
+
+                foreach (var tempEffect in effects.TemporaryEffects)
+                    ActiveEffects.Add(tempEffect.Clone());
             }
 
-            // Бонус за долгосрочный эффект
-            if (effects.LongTermEffect != null)
-            {
-                experienceGain += 10;
-            }
 
-            // Применяем модификаторы навыков
-            var knowledgeModifier = _skillSystem.HasSkill("Критическое мышление") ? 1.2 : 1.0;
-            var awarenessModifier = _skillSystem.HasSkill("Осознанность") ? 1.15 : 1.0;
-            var motivationModifier = _skillSystem.HasSkill("Самомотивация") ? 1.1 : 1.0;
-
-            // Применяем эффекты к характеристикам
-            Knowledge = Math.Max(0, Math.Min(100, Knowledge + (int)(effects.KnowledgeEffect * knowledgeModifier)));
-            Awareness = Math.Max(0, Math.Min(100, Awareness + (int)(effects.AwarenessEffect * awarenessModifier)));
-            Motivation = Math.Max(0, Math.Min(100, Motivation + (int)(effects.MotivationEffect * motivationModifier)));
-
-            // Дополнительные характеристики для высоких уровней
-            if (Level >= 6)
-            {
-                if (effects.ResilienceEffect.HasValue)
-                {
-                    var resilienceModifier = _skillSystem.HasSkill("Стрессоустойчивость") ? 1.2 : 1.0;
-                    Resilience = Math.Max(0, Math.Min(100, Resilience + (int)(effects.ResilienceEffect.Value * resilienceModifier)));
-                }
-                if (effects.CreativityEffect.HasValue)
-                {
-                    var creativityModifier = _skillSystem.HasSkill("Креативность") ? 1.15 : 1.0;
-                    Creativity = Math.Max(0, Math.Min(100, Creativity + (int)(effects.CreativityEffect.Value * creativityModifier)));
-                }
-
-                // Бонус опыта за использование продвинутых характеристик
-                if (effects.ResilienceEffect.HasValue || effects.CreativityEffect.HasValue)
-                {
-                    experienceGain += 5;
-                }
-            }
-
-            // Применяем временные эффекты
-            if (effects.TemporaryEffects != null)
-            {
-                foreach (var effect in effects.TemporaryEffects)
-                {
-                    ActiveEffects.Add(effect);
-                }
-            }
-
-            // Обновляем активные эффекты
             foreach (var effect in ActiveEffects.ToList())
             {
-                effect.Apply(this);
+                Knowledge = ApplyStatEffect($"[Временный] {effect.Name} → Знания", Knowledge, effect.KnowledgeEffect);
+                Awareness = ApplyStatEffect($"[Временный] {effect.Name} → Осознанность", Awareness, effect.AwarenessEffect);
+                Motivation = ApplyStatEffect($"[Временный] {effect.Name} → Мотивация", Motivation, effect.MotivationEffect);
+
                 effect.Duration--;
                 if (effect.Duration <= 0)
                 {
                     ActiveEffects.Remove(effect);
+                    Logger.Log($"Эффект '{effect.Name}' завершился");
+                }
+                else
+                {
+                    Logger.Log($"Эффект '{effect.Name}': осталось ходов {effect.Duration}");
                 }
             }
 
-            // Добавляем бонусный опыт за высокие характеристики
-            if (Knowledge >= 50) experienceGain += 2;
-            if (Awareness >= 50) experienceGain += 2;
-            if (Motivation >= 50) experienceGain += 2;
+            Logger.Log($"Текущий опыт: {Experience}/{ExperienceToNextLevel}");
 
-            // Добавляем опыт и проверяем повышение уровня
-            Experience += experienceGain;
-
-            // Логируем получение опыта
-            Logger.Log($"Получено опыта: {experienceGain}. Текущий опыт: {Experience}/{ExperienceToNextLevel}");
-
+            int preLevel = Level;
             CheckLevelUp();
-        }
-        private void ApplyTemporaryEffect(TemporaryEffect effect)
-        {
-            Knowledge = Math.Max(0, Math.Min(100, Knowledge + effect.KnowledgeEffect));
-            Awareness = Math.Max(0, Math.Min(100, Awareness + effect.AwarenessEffect));
-            Motivation = Math.Max(0, Math.Min(100, Motivation + effect.MotivationEffect));
+
+            int knowledgeChange = Knowledge - startKnowledge;
+            int awarenessChange = Awareness - startAwareness;
+            int motivationChange = Motivation - startMotivation;
+            int expChange = Experience - startExp;
+
+            if (Level > preLevel)
+            {
+                knowledgeChange -= 5;
+                awarenessChange -= 5;
+                motivationChange -= 5;
+            }
+
+            if (knowledgeChange != 0)
+                Logger.Log($"Итоговое изменение знаний: {knowledgeChange}");
+            if (awarenessChange != 0)
+                Logger.Log($"Итоговое изменение осознанности: {awarenessChange}");
+            if (motivationChange != 0)
+                Logger.Log($"Итоговое изменение мотивации: {motivationChange}");
+
+            Logger.Log($"Получено опыта: +{expChange}");
+
         }
 
+        private int ApplyStatEffect(string label, int current, int effect, double damageReduction = 0)
+        {
+            if (effect == 0) return current;
+
+            int final = effect < 0 ? (int)(effect * (1 - damageReduction)) : effect;
+            int newStat = Math.Max(0, Math.Min(100, current + final));
+            Logger.Log($"{label}: {current} -> {newStat} (дельта: {newStat - current})");
+            return newStat;
+        }
 
         private void CheckLevelUp()
         {
@@ -129,15 +159,9 @@ namespace EducationalEventGenerator
                 Experience -= ExperienceToNextLevel;
                 Level++;
 
-                // Бонусы при повышении уровня
-                Knowledge = Math.Min(100, Knowledge + 5);
-                Awareness = Math.Min(100, Awareness + 5);
-                Motivation = Math.Min(100, Motivation + 5);
-
-                // Разблокировка дополнительных характеристик
                 if (Level == 6)
                 {
-                    Resilience = 20;
+                    Resilience = BASE_RESILIENCE;
                     Logger.Log($"Разблокирована характеристика Устойчивость с базовым значением: {Resilience}");
                 }
 

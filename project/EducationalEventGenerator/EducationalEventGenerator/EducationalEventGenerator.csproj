@@ -55,11 +55,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AcquiredConverter.cs" />
     <Compile Include="EffectsDisplay.xaml.cs">
       <DependentUpon>EffectsDisplay.xaml</DependentUpon>
     </Compile>
     <Compile Include="LevelToVisibilityConverter.cs" />
     <Compile Include="Logger.cs" />
+    <Compile Include="ProgressConverter.cs" />
     <Compile Include="Skill.cs" />
     <Compile Include="SkillSystem.cs" />
     <Compile Include="TemporaryEffect.cs" />

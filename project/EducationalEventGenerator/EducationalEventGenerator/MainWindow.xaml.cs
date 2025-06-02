@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace EducationalEventGenerator
 {
@@ -25,12 +27,25 @@ namespace EducationalEventGenerator
         private EventChain currentChain = null;
         private int chainProgress = 0;
 
+        private int oldKnowledge;
+        private int oldAwareness;
+        private int oldMotivation;
+        private int oldResilience;
+        private int oldCreativity;
+        
+      
+
         public MainWindow()
         {
             InitializeComponent();
             InitializeTimer(); // Добавьте эту строку
             InitializeSystems();
             UpdateUI();
+            oldKnowledge = 0;
+            oldAwareness = 0;
+            oldMotivation = 0;
+            oldResilience = 0;
+            oldCreativity = 0;
         }
 
         private void InitializeSystems()
@@ -55,7 +70,7 @@ namespace EducationalEventGenerator
         private void InitializeTimer()
         {
             timer = new System.Windows.Threading.DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1); // Точно 1 секунда
+            timer.Interval = TimeSpan.FromMilliseconds(100); // Уменьшаем интервал для более плавной анимации
             timer.Tick += Timer_Tick;
             stopwatch = new Stopwatch();
         }
@@ -65,18 +80,34 @@ namespace EducationalEventGenerator
             if (currentEvent is TimedEvent timedEvent)
             {
                 double elapsedSeconds = stopwatch.ElapsedMilliseconds / 1000.0;
-                remainingTime = Math.Max(0, timedEvent.TimeLimit - (int)elapsedSeconds);
+                remainingTime = Math.Max(0, timedEvent.TimeLimit - (int)Math.Ceiling(elapsedSeconds));
 
-                TimeProgressBar.Value = remainingTime;
+                // Обновляем прогресс бар плавно
+                double progress = Math.Max(0, timedEvent.TimeLimit - elapsedSeconds);
+                TimeProgressBar.Value = progress;
                 TimeProgressBar.Maximum = timedEvent.TimeLimit;
                 TimerText.Text = $"Осталось: {remainingTime} сек";
 
+                // Изменение цвета в зависимости от оставшегося времени
+                if (remainingTime <= 3)
+                {
+                    TimeProgressBar.Foreground = new SolidColorBrush(Colors.Red);
+                    TimerText.Foreground = new SolidColorBrush(Colors.Red);
+                }
+                else if (remainingTime <= 5)
+                {
+                    TimeProgressBar.Foreground = new SolidColorBrush(Colors.Orange);
+                    TimerText.Foreground = new SolidColorBrush(Colors.Orange);
+                }
+
+                // Проверка окончания времени
                 if (remainingTime <= 0)
                 {
                     timer.Stop();
                     stopwatch.Stop();
                     TimerPanel.Visibility = Visibility.Collapsed;
 
+                    // Применяем штрафные эффекты
                     playerStats.ApplyEffects(timedEvent.TimeoutEffect);
                     MessageBox.Show("Время истекло! Применены штрафные эффекты.",
                                   "Время вышло!", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -89,18 +120,6 @@ namespace EducationalEventGenerator
                     }
 
                     ShowRandomEvent();
-                    return;
-                }
-
-                if (remainingTime <= 3)
-                {
-                    TimeProgressBar.Foreground = new SolidColorBrush(Colors.Red);
-                    TimerText.Foreground = new SolidColorBrush(Colors.Red);
-                }
-                else if (remainingTime <= 5)
-                {
-                    TimeProgressBar.Foreground = new SolidColorBrush(Colors.Orange);
-                    TimerText.Foreground = new SolidColorBrush(Colors.Orange);
                 }
             }
         }
@@ -149,7 +168,6 @@ namespace EducationalEventGenerator
         private void ShowRandomEvent()
         {
             if (CheckGameOver()) return;
-            if (CheckLevelUp()) return;
 
             if (currentChain != null && chainProgress < currentChain.Events.Count)
             {
@@ -183,11 +201,15 @@ namespace EducationalEventGenerator
             {
                 remainingTime = timedEvent.TimeLimit;
                 TimerPanel.Visibility = Visibility.Visible;
+
+                // Устанавливаем начальные значения
                 TimeProgressBar.Maximum = timedEvent.TimeLimit;
                 TimeProgressBar.Value = timedEvent.TimeLimit;
                 TimeProgressBar.Foreground = new SolidColorBrush(Colors.Green);
                 TimerText.Foreground = new SolidColorBrush(Colors.Green);
                 TimerText.Text = $"Осталось: {remainingTime} сек";
+
+                // Перезапускаем таймер
                 stopwatch.Reset();
                 stopwatch.Start();
                 timer.Start();
@@ -221,59 +243,108 @@ namespace EducationalEventGenerator
 
         private void ProcessChoice(Option selectedOption)
         {
-
             timer.Stop();
             stopwatch.Stop();
             TimerPanel.Visibility = Visibility.Collapsed;
-            // Вычисляем базовые изменения
-            int totalKnowledge = selectedOption.Effects.KnowledgeEffect;
-            int totalAwareness = selectedOption.Effects.AwarenessEffect;
-            int totalMotivation = selectedOption.Effects.MotivationEffect;
 
-            // Добавляем изменения от новых временных эффектов
-            if (selectedOption.Effects.TemporaryEffects != null)
+            // Сохраняем начальные значения ДО применения эффектов
+            oldKnowledge = playerStats.Knowledge;
+            oldAwareness = playerStats.Awareness;
+            oldMotivation = playerStats.Motivation;
+            oldResilience = playerStats.Resilience;
+            oldCreativity = playerStats.Creativity;
+            int oldExp = playerStats.Experience;
+
+            var report = new StringBuilder();
+            report.AppendLine("\nВыбранное действие:");
+            report.AppendLine(selectedOption.Text);
+
+            double damageReduction = Math.Min(0.5, playerStats.Resilience / 200.0);
+
+            // Описываем базовые эффекты
+            report.AppendLine("\n1. Базовые эффекты от выбора:");
+            Logger.Log($"Базовые эффекты выбора '{selectedOption.Text}':");
+
+            // Показываем базовые эффекты для всех характеристик до их применения
+            DescribeEffects(selectedOption.Effects, report, damageReduction, playerStats);
+
+            // Показываем текущую защиту от урона
+            if (damageReduction > 0 && HasNegativeEffects(selectedOption.Effects))
             {
-                foreach (var effect in selectedOption.Effects.TemporaryEffects)
+                report.AppendLine($"\nТекущая защита от урона:");
+                report.AppendLine($"Устойчивость: {playerStats.Resilience}");
+                report.AppendLine($"Снижение урона: {damageReduction:P0}");
+                Logger.Log($"Защита от урона: Устойчивость {playerStats.Resilience}, снижение {damageReduction:P0}");
+            }
+
+            // Показываем активные эффекты до применения новых
+            report.AppendLine("\n2. Активные временные эффекты:");
+            DescribeActiveEffects(activeEffects, report);
+
+            // Показываем новые временные эффекты
+            if (selectedOption.Effects.TemporaryEffects?.Any() == true)
+            {
+                report.AppendLine("\n3. Новые временные эффекты:");
+                DescribeTemporaryEffects(selectedOption.Effects.TemporaryEffects, report);
+            }
+
+            // Применяем эффекты ОДИН раз
+            playerStats.ApplyEffects(selectedOption.Effects);
+            if (selectedOption.Effects.TemporaryEffects?.Any() == true)
+            {
+                foreach (var tempEffect in selectedOption.Effects.TemporaryEffects)
                 {
-                    totalKnowledge += effect.KnowledgeEffect;
-                    totalAwareness += effect.AwarenessEffect;
-                    totalMotivation += effect.MotivationEffect;
+                    
                 }
             }
 
-            // Добавляем изменения от уже активных эффектов
-            foreach (var effect in activeEffects)
+
+            // Анимируем изменения
+            AnimateProgressBar(KnowledgeProgress, KnowledgeText, KnowledgeChangeText,
+                oldKnowledge, playerStats.Knowledge);
+            AnimateProgressBar(AwarenessProgress, AwarenessText, AwarenessChangeText,
+                oldAwareness, playerStats.Awareness);
+            AnimateProgressBar(MotivationProgress, MotivationText, MotivationChangeText,
+                oldMotivation, playerStats.Motivation);
+
+            if (playerStats.Level >= 6)
             {
-                totalKnowledge += effect.KnowledgeEffect;
-                totalAwareness += effect.AwarenessEffect;
-                totalMotivation += effect.MotivationEffect;
+                AdvancedStatsPanel.Visibility = Visibility.Visible;
+                AnimateProgressBar(ResilienceProgress, ResilienceText, ResilienceChangeText,
+                    oldResilience, playerStats.Resilience);
+                AnimateProgressBar(CreativityProgress, CreativityText, CreativityChangeText,
+                    oldCreativity, playerStats.Creativity);
             }
 
-            // Формируем краткий отчет только с итоговыми значениями
-            var report = new StringBuilder();
-            report.AppendLine("\nИтоговые изменения:");
-            if (totalKnowledge != 0) report.AppendLine($"Знания: {(totalKnowledge > 0 ? "+" : "")}{totalKnowledge}");
-            if (totalAwareness != 0) report.AppendLine($"Осознанность: {(totalAwareness > 0 ? "+" : "")}{totalAwareness}");
-            if (totalMotivation != 0) report.AppendLine($"Мотивация: {(totalMotivation > 0 ? "+" : "")}{totalMotivation}");
+            // Обновляем прогресс уровня
+            LevelProgress.Value = playerStats.Experience % playerStats.ExperienceToNextLevel;
+            LevelProgress.Maximum = playerStats.ExperienceToNextLevel;
+            LevelText.Text = $"Уровень {playerStats.Level} ({playerStats.Experience}/{playerStats.ExperienceToNextLevel})";
 
-            // Сначала применяем эффекты
-            int oldExp = playerStats.Experience;
-            playerStats.ApplyEffects(selectedOption.Effects);
-            int expGained = playerStats.Experience - oldExp;
-            if (expGained > 0)
-            {
-                report.AppendLine($"Опыт: +{expGained}");
-            }
+            // Показываем итоговые изменения
+            // Показываем итоговые изменения
+            report.AppendLine("\nИтоговые изменения характеристик:");
 
-            // Обновляем временные эффекты
-            if (selectedOption.Effects.TemporaryEffects != null)
-            {
-                activeEffects.AddRange(selectedOption.Effects.TemporaryEffects);
-                ActiveEffectsDisplay.ItemsSource = activeEffects.Where(e => e.Duration > 0);
-            }
+            // Просто показываем чистую разницу между конечным и начальным значением
+            int knowledgeChange = playerStats.Knowledge - oldKnowledge;
+            int awarenessChange = playerStats.Awareness - oldAwareness;
+            int motivationChange = playerStats.Motivation - oldMotivation;
+            int expChange = playerStats.Experience - oldExp;
 
-            // Показываем объяснение и итоговый отчет
-            ExplanationText.Text = currentEvent.Explanation + report.ToString();
+            if (knowledgeChange != 0)
+                report.AppendLine($"Знания: {(knowledgeChange > 0 ? "+" : "")}{knowledgeChange}");
+            if (awarenessChange != 0)
+                report.AppendLine($"Осознанность: {(awarenessChange > 0 ? "+" : "")}{awarenessChange}");
+            if (motivationChange != 0)
+                report.AppendLine($"Мотивация: {(motivationChange > 0 ? "+" : "")}{motivationChange}");
+
+            report.AppendLine($"\nПолучено опыта: {(expChange > 0 ? "+" : "")}{expChange}");
+
+            // Обновляем отображение активных эффектов
+            UpdateActiveEffectsDisplay();
+
+            // Показываем объяснение
+            ExplanationText.Text = currentEvent.Explanation + "\n" + report.ToString();
             ExplanationBox.Visibility = Visibility.Visible;
             NextButton.IsEnabled = true;
 
@@ -282,9 +353,156 @@ namespace EducationalEventGenerator
             {
                 if (child is Button btn) btn.IsEnabled = false;
             }
-
-            UpdateUI();
         }
+
+        // Вспомогательные методы
+        private void DescribeEffects(Effect effects, StringBuilder report, double damageReduction, PlayerStats stats)
+        {
+            if (effects.KnowledgeEffect != 0)
+                DescribeEffect(report, "Знания", effects.KnowledgeEffect, damageReduction,
+                    stats._skillSystem.HasSkill("Критическое мышление"), 0.2, "Критическое мышление");
+
+            if (effects.AwarenessEffect != 0)
+                DescribeEffect(report, "Осознанность", effects.AwarenessEffect, damageReduction,
+                    stats._skillSystem.HasSkill("Осознанность"), 0.15, "Осознанность");
+
+            if (effects.MotivationEffect != 0)
+                DescribeEffect(report, "Мотивация", effects.MotivationEffect, damageReduction,
+                    stats._skillSystem.HasSkill("Самомотивация"), 0.1, "Самомотивация");
+        }
+
+        private void DescribeEffect(StringBuilder report, string statName, int effect, double damageReduction,
+            bool hasSkill, double skillBonus, string skillName)
+        {
+            bool isPositive = effect > 0;
+            string baseEffect = $"{statName}: {(isPositive ? "+" : "")}{effect}";
+
+            if (isPositive && hasSkill)
+            {
+                baseEffect += $" (Навык '{skillName}' увеличивает на {skillBonus:P0})";
+                Logger.Log($"Базовый эффект {statName.ToLower()}: {baseEffect}");
+            }
+            else if (!isPositive && damageReduction > 0)
+            {
+                int reducedEffect = (int)(effect * (1 - damageReduction));
+                baseEffect += $" (Снижено устойчивостью до {reducedEffect})";
+                Logger.Log($"Базовый эффект {statName.ToLower()} с уменьшением урона: {baseEffect}");
+            }
+            report.AppendLine(baseEffect);
+        }
+
+        private bool HasNegativeEffects(Effect effects)
+        {
+            return effects.KnowledgeEffect < 0 || effects.AwarenessEffect < 0 || effects.MotivationEffect < 0;
+        }
+        private void DescribeActiveEffects(List<TemporaryEffect> effects, StringBuilder report)
+        {
+            if (effects.Any(e => e.Duration > 0))
+            {
+                foreach (var effect in effects.Where(e => e.Duration > 0))
+                {
+                    string effectInfo = $"- {effect.Name} (осталось ходов: {effect.Duration})";
+                    report.AppendLine(effectInfo);
+
+                    if (effect.KnowledgeEffect != 0)
+                        report.AppendLine($"  Знания {(effect.KnowledgeEffect > 0 ? "+" : "")}{effect.KnowledgeEffect}");
+                    if (effect.AwarenessEffect != 0)
+                        report.AppendLine($"  Осознанность {(effect.AwarenessEffect > 0 ? "+" : "")}{effect.AwarenessEffect}");
+                    if (effect.MotivationEffect != 0)
+                        report.AppendLine($"  Мотивация {(effect.MotivationEffect > 0 ? "+" : "")}{effect.MotivationEffect}");
+
+                    Logger.Log($"Активный эффект: {effectInfo}");
+                }
+            }
+            else
+            {
+                report.AppendLine("Нет активных эффектов");
+                Logger.Log("Нет активных временных эффектов");
+            }
+        }
+
+        private void DescribeTemporaryEffects(List<TemporaryEffect> effects, StringBuilder report)
+        {
+            foreach (var effect in effects)
+            {
+                string newEffect = $"- {effect.Name} ({effect.Duration} ходов)";
+                report.AppendLine(newEffect);
+
+                if (effect.KnowledgeEffect != 0)
+                    report.AppendLine($"  Знания {(effect.KnowledgeEffect > 0 ? "+" : "")}{effect.KnowledgeEffect}");
+                if (effect.AwarenessEffect != 0)
+                    report.AppendLine($"  Осознанность {(effect.AwarenessEffect > 0 ? "+" : "")}{effect.AwarenessEffect}");
+                if (effect.MotivationEffect != 0)
+                    report.AppendLine($"  Мотивация {(effect.MotivationEffect > 0 ? "+" : "")}{effect.MotivationEffect}");
+
+                Logger.Log($"Добавлен новый временный эффект: {newEffect}");
+            }
+        }
+
+        private void ShowFinalChanges(StringBuilder report, int oldKnowledge, int oldAwareness,
+            int oldMotivation, int oldResilience, int oldCreativity, int oldExp)
+        {
+            var changes = new[]
+            {
+        ("Знания", playerStats.Knowledge - oldKnowledge),
+        ("Осознанность", playerStats.Awareness - oldAwareness),
+        ("Мотивация", playerStats.Motivation - oldMotivation),
+        ("Устойчивость", playerStats.Resilience - oldResilience),
+        ("Креативность", playerStats.Creativity - oldCreativity)
+    };
+
+            bool hasChanges = false;
+            foreach (var (stat, change) in changes)
+            {
+                if (change != 0)
+                {
+                    report.AppendLine($"{stat}: {(change > 0 ? "+" : "")}{change}");
+                    Logger.Log($"Итоговое изменение {stat.ToLower()}: {change}");
+                    hasChanges = true;
+                }
+            }
+
+            if (!hasChanges)
+                report.AppendLine("Характеристики не изменились");
+
+            // Опыт
+            int expGained = playerStats.Experience - oldExp;
+            report.AppendLine($"\n5. Получено опыта: {(expGained > 0 ? "+" : "")}{expGained}");
+            Logger.Log($"Получено опыта: {expGained}");
+        }
+
+        private void UpdateActiveEffectsDisplay()
+        {
+            var effectsToDisplay = playerStats.ActiveEffects
+
+                 .Where(e => e.Duration > 0)
+                .Select(e => new
+                {
+                    Name = e.Name,
+                    RemainingTurns = $"Осталось ходов: {e.Duration}",
+                    Effects = new List<string>
+                    {
+                e.KnowledgeEffect != 0 ? $"Знания: {(e.KnowledgeEffect > 0 ? "+" : "")}{e.KnowledgeEffect}" : null,
+                e.AwarenessEffect != 0 ? $"Осознанность: {(e.AwarenessEffect > 0 ? "+" : "")}{e.AwarenessEffect}" : null,
+                e.MotivationEffect != 0 ? $"Мотивация: {(e.MotivationEffect > 0 ? "+" : "")}{e.MotivationEffect}" : null
+                    }.Where(s => s != null),
+                    TextColor = IsPositiveEffect(e) ? new SolidColorBrush(Colors.DarkGreen) : new SolidColorBrush(Colors.DarkRed),
+                    BackgroundColor = IsPositiveEffect(e) ? new SolidColorBrush(Color.FromRgb(220, 255, 220)) : new SolidColorBrush(Color.FromRgb(255, 220, 220)),
+                    BorderColor = IsPositiveEffect(e) ? new SolidColorBrush(Colors.Green) : new SolidColorBrush(Colors.Red)
+                })
+                .ToList();
+
+            ActiveEffectsDisplay.ItemsSource = effectsToDisplay;
+        }
+
+        private bool IsPositiveEffect(TemporaryEffect effect)
+        {
+            return effect.KnowledgeEffect >= 0 &&
+                   effect.AwarenessEffect >= 0 &&
+                   effect.MotivationEffect >= 0;
+        }
+
+
 
         private bool CheckGameOver()
         {
@@ -300,19 +518,7 @@ namespace EducationalEventGenerator
             return false;
         }
 
-        private bool CheckLevelUp()
-        {
-            if (playerStats.Level >= 15)
-            {
-                EventText.Text = "ПОБЕДА!\nВы достигли максимального уровня мастерства!";
-                EventCategory.Text = "Поздравляем!";
-                OptionsPanel.Children.Clear();
-                ExplanationBox.Visibility = Visibility.Collapsed;
-                NextButton.IsEnabled = false;
-                return true;
-            }
-            return false;
-        }
+        
         private void MotivationProgress_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             // Логика при необходимости (можно оставить пустым)
@@ -327,10 +533,51 @@ namespace EducationalEventGenerator
                     if (!skillSystem.TryAcquireSkill(skill.Name, playerStats))
                     {
                         checkBox.IsChecked = false;
-                        MessageBox.Show($"Не выполнены требования для изучения навыка {skill.Name}!\n{skill.GetRequirementsText()}",
-                                      "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                    else
+                    {
+                        // Обновляем UI после приобретения навыка
+                        UpdateUI();
+                        MessageBox.Show($"Вы изучили навык: {skill.Name}!", "Успех",
+                                       MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
+            }
+        }
+        private void AnimateProgressBar(ProgressBar progressBar, TextBlock valueText, TextBlock changeText,
+    int oldValue, int newValue, string format = "0")
+        {
+            var animation = new DoubleAnimation
+            {
+                From = oldValue,
+                To = newValue,
+                Duration = TimeSpan.FromSeconds(0.5)
+            };
+
+            progressBar.Value = newValue;
+            valueText.Text = newValue.ToString(format);
+
+            int change = newValue - oldValue;
+            if (change != 0)
+            {
+                changeText.Text = (change > 0 ? " +" : " ") + change.ToString();
+                changeText.Foreground = change > 0 ?
+                    new SolidColorBrush(Colors.Green) :
+                    new SolidColorBrush(Colors.Red);
+
+                // Анимация исчезновения текста изменения
+                var fadeOut = new DoubleAnimation
+                {
+                    From = 1,
+                    To = 0,
+                    Duration = TimeSpan.FromSeconds(2),
+                    BeginTime = TimeSpan.FromSeconds(1)
+                };
+                changeText.BeginAnimation(UIElement.OpacityProperty, fadeOut);
+            }
+            else
+            {
+                changeText.Text = "";
             }
         }
 
@@ -367,11 +614,36 @@ namespace EducationalEventGenerator
             LevelProgress.Value = playerStats.Experience;
             LevelProgress.Maximum = playerStats.ExperienceToNextLevel;
             LevelText.Text = $"Уровень {playerStats.Level} ({playerStats.Experience}/{playerStats.ExperienceToNextLevel})";
-
-            SkillsPanel.Visibility = playerStats.Level >= 5 ? Visibility.Visible : Visibility.Collapsed;
             if (playerStats.Level >= 5)
             {
-                SkillsList.ItemsSource = skillSystem.GetAvailableSkills(playerStats);
+                SkillsPanel.Visibility = Visibility.Visible;
+                var availableSkills = skillSystem.GetAvailableSkills(playerStats)
+                    .Select(s =>
+                    {
+                        s.CanAcquire = !s.IsAcquired &&
+                                       playerStats.Level >= s.RequiredLevel &&
+                                       s.Requirements.All(r =>
+                                           GetPlayerStatValue(r.Key, playerStats) >= r.Value);
+                        return s;
+                    }).ToList();
+                SkillsList.ItemsSource = availableSkills;
+            }
+            else
+            {
+                SkillsPanel.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private int GetPlayerStatValue(string statName, PlayerStats playerStats)
+        {
+            switch (statName)
+            {
+                case "Knowledge": return playerStats.Knowledge;
+                case "Awareness": return playerStats.Awareness;
+                case "Motivation": return playerStats.Motivation;
+                case "Resilience": return playerStats.Resilience;
+                case "Creativity": return playerStats.Creativity;
+                default: return 0;
             }
         }
     }

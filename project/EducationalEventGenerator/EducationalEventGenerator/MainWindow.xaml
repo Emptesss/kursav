@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EducationalEventGenerator"
         mc:Ignorable="d"
         Title="Life Skills Simulator" 
         Height="750" Width="1200"
@@ -11,6 +12,41 @@
         Background="#FFF5F5F5">
 
     <Window.Resources>
+        <local:AcquiredConverter x:Key="AcquiredConverter"/>
+        <local:ProgressConverter x:Key="ProgressConverter"/>
+        <Style x:Key="AnimatedProgressBar" TargetType="ProgressBar">
+            <Setter Property="Height" Value="16"/>
+            <Setter Property="Background" Value="#FFE0E0E0"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ProgressBar">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="4">
+                                <Border x:Name="PART_Indicator"
+                                Background="{TemplateBinding Foreground}"
+                                HorizontalAlignment="Left"
+                                CornerRadius="4">
+                                    <Border.Width>
+                                        <MultiBinding Converter="{StaticResource ProgressConverter}">
+                                            <Binding Path="Value" 
+                                             RelativeSource="{RelativeSource TemplatedParent}"/>
+                                            <Binding Path="Maximum" 
+                                             RelativeSource="{RelativeSource TemplatedParent}"/>
+                                            <Binding Path="ActualWidth" 
+                                             RelativeSource="{RelativeSource TemplatedParent}"/>
+                                        </MultiBinding>
+                                    </Border.Width>
+                                </Border>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <ToolTip x:Key="ResilienceTooltip">
             <TextBlock>
             Устойчивость снижает получаемый урон.<LineBreak/>
@@ -39,6 +75,7 @@
             Влияет на успешность сложных действий.
             </TextBlock>
         </ToolTip>
+       
         <Style TargetType="Button">
             <Setter Property="Background" Value="#FFE0E0E0"/>
             <Setter Property="Foreground" Value="#FF333333"/>
@@ -109,8 +146,8 @@
         </Style>
 
         <DataTemplate x:Key="SkillTemplate">
-            <Border Background="#FFF0F0F0" BorderBrush="#FF0078D7" BorderThickness="1" 
-            CornerRadius="4" Padding="10" Margin="6" Width="200" Height="150">
+            <Border Background="#FFF0F0F0" BorderBrush="{Binding StatusColor}" BorderThickness="2" 
+            CornerRadius="6" Padding="10" Margin="6" Width="220" Height="160">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -128,17 +165,17 @@
                       TextWrapping="Wrap" Margin="0,4"/>
 
                     <TextBlock Grid.Row="2" Text="{Binding RequirementsText}"
-          Foreground="#FF999999" FontSize="11"
-          TextWrapping="Wrap"/>
+                      Foreground="#FF777777" FontSize="11"
+                      TextWrapping="Wrap" Margin="0,4"/>
 
                     <CheckBox Grid.Row="3" 
-          IsChecked="{Binding IsAcquired}" 
-          IsEnabled="{Binding CanAcquire}"
-          Content="Изучить" 
-          Foreground="#FF333333"
-          HorizontalAlignment="Center" 
-          Margin="0,8,0,0"
-          Checked="SkillCheckBox_Changed"/>
+                      IsChecked="{Binding IsAcquired, Mode=TwoWay}" 
+                      IsEnabled="{Binding CanAcquire}"
+                      Content="{Binding IsAcquired, Converter={StaticResource AcquiredConverter}}"
+                      Foreground="#FF333333"
+                      HorizontalAlignment="Center" 
+                      Margin="0,8,0,0"
+                      Checked="SkillCheckBox_Changed"/>
                 </Grid>
             </Border>
         </DataTemplate>
@@ -265,7 +302,10 @@
                                     <TextBlock x:Name="KnowledgeChangeText" Foreground="#FF2E7D32" 
                       Margin="5,0,0,0" FontSize="14"/>
                                 </StackPanel>
-                                <ProgressBar x:Name="KnowledgeProgress" Foreground="#FF4CAF50" Height="22"/>
+                                <ProgressBar x:Name="KnowledgeProgress" 
+             Style="{StaticResource AnimatedProgressBar}"
+             Foreground="#FF4CAF50" 
+             Height="22"/>
                             </StackPanel>
 
                             <StackPanel Margin="0,0,0,20">
@@ -280,7 +320,10 @@
                                     <TextBlock x:Name="AwarenessChangeText" Foreground="#FF1565C0" 
                       Margin="5,0,0,0" FontSize="14"/>
                                 </StackPanel>
-                                <ProgressBar x:Name="AwarenessProgress" Foreground="#FF2196F3" Height="22"/>
+                                <ProgressBar x:Name="AwarenessProgress"
+             Style="{StaticResource AnimatedProgressBar}"
+             Foreground="#FF2196F3" 
+             Height="22"/>
                             </StackPanel>
 
                             <StackPanel Margin="0,0,0,20">
@@ -295,8 +338,11 @@
                                     <TextBlock x:Name="MotivationChangeText" Foreground="#FF6A1B9A" 
                       Margin="5,0,0,0" FontSize="14"/>
                                 </StackPanel>
-                                <ProgressBar x:Name="MotivationProgress" Foreground="#FF9C27B0" Height="23" 
-                     ValueChanged="MotivationProgress_ValueChanged"/>
+
+                                <ProgressBar x:Name="MotivationProgress"
+             Style="{StaticResource AnimatedProgressBar}"
+             Foreground="#FF9C27B0" 
+             Height="23"/>
                             </StackPanel>
 
                             <StackPanel x:Name="AdvancedStatsPanel" Visibility="Collapsed" Margin="0,0,0,20">
@@ -305,7 +351,7 @@
                                     <TextBlock Text="Устойчивость:" 
                   Foreground="#FF333333" 
                   FontWeight="SemiBold"
-                  ToolTip="{StaticResource ResilienceTooltip}"/>
+                  ToolTip="Каждые 10 единиц устойчивости снижают получаемый урон на 5% (максимум 50%)"/>
                                     <TextBlock x:Name="ResilienceText" 
                   Foreground="#FF37474F" 
                   HorizontalAlignment="Right" 
@@ -316,7 +362,8 @@
                   FontSize="14"/>
                                 </StackPanel>
                                 <ProgressBar x:Name="ResilienceProgress" 
-                 Foreground="#FF607D8B"/>
+             Style="{StaticResource AnimatedProgressBar}"
+             Foreground="#FF607D8B"/>
 
                                 <!-- Добавьте панель креативности -->
                                 <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
@@ -333,7 +380,8 @@
                   FontSize="14"/>
                                 </StackPanel>
                                 <ProgressBar x:Name="CreativityProgress" 
-                 Foreground="#FF607D8B"/>
+             Style="{StaticResource AnimatedProgressBar}"
+             Foreground="#FF607D8B"/>
                             </StackPanel>
                             <!-- Добавьте эту секцию прогресса уровня перед закрывающим тегом StackPanel в секции характеристик -->
                             <StackPanel Margin="0,25,0,15">
@@ -343,8 +391,9 @@
               Margin="0,0,0,5" 
               FontSize="18"/>
                                 <ProgressBar x:Name="LevelProgress" 
-                 Foreground="#FFFB8C00" 
-                 Height="23"/>
+             Style="{StaticResource AnimatedProgressBar}"
+             Foreground="#FFFB8C00" 
+             Height="23"/>
                                 <TextBlock x:Name="LevelText" 
               FontSize="14"
               Foreground="#FFFB8C00" 
@@ -360,27 +409,56 @@
                                   Foreground="#FF0078D7" Margin="0,0,0,5" FontSize="18"/>
                     </Border>
 
-                    <ItemsControl x:Name="ActiveEffectsDisplay" Grid.Row="1" 
-                                 Background="#FFF5F5F5" Padding="10,0,10,10"
-                                 BorderBrush="Transparent" BorderThickness="0"
-                                 VerticalAlignment="Bottom" MaxHeight="120">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Border Margin="2" Padding="5" Background="#FFE0E0E0" CornerRadius="3">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Ellipse Width="10" Height="10" Fill="{Binding Color}" 
-                                                VerticalAlignment="Center" Margin="0,0,5,0"/>
-                                        <TextBlock Text="{Binding Description}" Foreground="#FF333333"/>
-                                    </StackPanel>
-                                </Border>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel Orientation="Vertical"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                    </ItemsControl>
+                    <Grid Grid.Row="1" Background="#FFF5F5F5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="АКТИВНЫЕ ЭФФЕКТЫ" 
+              FontWeight="Bold" 
+              Foreground="#FF0078D7" 
+              Margin="10,10,10,5" 
+              FontSize="18"/>
+
+                        <ScrollViewer Grid.Row="1" 
+                  VerticalScrollBarVisibility="Auto" 
+                  Margin="0,0,0,10">
+                            <ItemsControl x:Name="ActiveEffectsDisplay">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Margin="10,5" 
+                            Padding="12,8" 
+                            BorderThickness="1"
+                            BorderBrush="{Binding BorderColor}"
+                            Background="{Binding BackgroundColor}" 
+                            CornerRadius="6">
+                                            <StackPanel>
+                                                <DockPanel LastChildFill="True">
+                                                    <TextBlock Text="{Binding RemainingTurns}" 
+                                         Foreground="{Binding TextColor}"
+                                         FontWeight="Bold"
+                                         DockPanel.Dock="Right"/>
+                                                    <TextBlock Text="{Binding Name}" 
+                                         Foreground="{Binding TextColor}"
+                                         FontWeight="Bold"/>
+                                                </DockPanel>
+                                                <ItemsControl ItemsSource="{Binding Effects}">
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <TextBlock Text="{Binding}"
+                                                 Foreground="{Binding TextColor}"
+                                                 Margin="0,2,0,0"/>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                            </StackPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </Grid>
                 </Grid>
             </Border>
         </Grid>

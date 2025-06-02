@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 
 namespace EducationalEventGenerator
 {
@@ -69,18 +70,25 @@ namespace EducationalEventGenerator
             var skill = _skills.FirstOrDefault(s => s.Name == skillName);
             if (skill == null) return false;
 
+            // Проверка уровня
             if (playerStats.Level < skill.RequiredLevel)
+            {
+                MessageBox.Show($"Требуется уровень {skill.RequiredLevel} для изучения этого навыка.");
                 return false;
+            }
 
+            // Проверка характеристик
             foreach (var requirement in skill.Requirements)
             {
                 int playerValue = GetPlayerStatValue(requirement.Key, playerStats);
                 if (playerValue < requirement.Value)
+                {
+                    MessageBox.Show($"Требуется {requirement.Key} {requirement.Value} для изучения этого навыка.");
                     return false;
+                }
             }
 
             skill.IsAcquired = true;
-            Logger.Log($"Skill acquired: {skillName}");
             return true;
         }
 
