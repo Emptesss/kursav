@@ -31,108 +31,115 @@ namespace EducationalEventGenerator
             AddBasicEvents();
             AddTimedEvents();
             AddIntermediateEvents();
+            AddBasicTrainingEvents();
+            AddCombinedSkillEvents();
             AddAdvancedEvents();
+                AddCreativityEvents(); // Добавляем креативные события
+            AddResilienceBossEvents(); 
             InitializeEventChains();
         }
-
-        public Event GenerateEvent(int playerLevel)
+        private bool CanAccessCreativeOption(Option option, int playerCreativity, int playerResilience)
         {
-            if (playerLevel >= 6 && random.NextDouble() < 0.25)
-            {
-                var advancedEvents = baseEvents.Where(e => e.MinLevel >= 6 && e.MinLevel <= playerLevel).ToList();
-                if (advancedEvents.Any())
-                    return advancedEvents[random.Next(advancedEvents.Count)];
-            }
+            if (option.Effects.RequiredCreativity > 0 && playerCreativity < option.Effects.RequiredCreativity)
+                return false;
 
-            if (playerLevel >= 10 && random.NextDouble() < 0.1)
-            {
-                var bossEvent = GetRandomBossEvent(playerLevel);
-                if (bossEvent != null)
-                    return bossEvent;
-            }
+            if (option.Effects.RequiredSkills?.Contains("Устойчивость") == true && playerResilience < 30)
+                return false;
+
+            return true;
+        }
+
+        public Event GenerateEvent(int playerLevel, int creativity = 0, int resilience = 0)
+        {
+            // Если у события есть опции требующие определенного уровня характеристик,
+            // нам нужно создать новое событие с только доступными опциями
 
             if (usedEventIndices.Count >= baseEvents.Count * 0.7)
                 usedEventIndices.Clear();
 
-            var availableEvents = baseEvents
-                .Where((e, index) => e.MinLevel <= playerLevel &&
-                                     !usedEventIndices.Contains(index) &&
-                                     index != lastEventIndex)
-                .ToList();
+            var availableEvents = new List<Event>();
 
-            if (random.NextDouble() < 0.35)
+            // Пробуем сгенерировать креативное событие
+            double creativeChance = Math.Min(0.4, 0.1 + (creativity / 100.0));
+            if (playerLevel >= 6 && random.NextDouble() < creativeChance)
             {
-                var availableTimedEvents = timedEvents
+                var creativeEvents = baseEvents
+                    .Where(e => e.Options.Any(o => o.Effects.CreativityEffect > 0))
                     .Where(e => e.MinLevel <= playerLevel)
                     .ToList();
 
-                if (availableTimedEvents.Any())
-                    return availableTimedEvents[random.Next(availableTimedEvents.Count)];
+                availableEvents.AddRange(creativeEvents);
+            }
+
+            // Пробуем добавить босс-события
+            double bossChance = Math.Min(0.3, 0.1 + (playerLevel - 6) * 0.02 + (creativity + resilience) / 400.0);
+            if (playerLevel >= 6 && random.NextDouble() < bossChance)
+            {
+                var bossEvents = baseEvents
+                    .Where(e => e.IsBossEvent && e.MinLevel <= playerLevel)
+                    .ToList();
+
+                availableEvents.AddRange(bossEvents);
+            }
+
+            // Добавляем продвинутые события
+            if (playerLevel >= 6 && random.NextDouble() < 0.25)
+            {
+                var advancedEvents = baseEvents
+                    .Where(e => e.MinLevel >= 6 && e.MinLevel <= playerLevel)
+                    .ToList();
+
+                availableEvents.AddRange(advancedEvents);
+            }
+
+            // Добавляем тайм-ивенты
+            if (random.NextDouble() < 0.20)
+            {
+                var timedEventsFiltered = timedEvents
+                    .Where(e => e.MinLevel <= playerLevel)
+                    .ToList();
+
+                if (timedEventsFiltered.Any())
+                    return timedEventsFiltered[random.Next(timedEventsFiltered.Count)];
+            }
+
+            // Добавляем обычные события если нет других
+            if (!availableEvents.Any())
+            {
+                availableEvents = baseEvents
+                    .Where(e => e.MinLevel <= playerLevel)
+                    .Where(e => !usedEventIndices.Contains(baseEvents.IndexOf(e)))
+                    .Where(e => baseEvents.IndexOf(e) != lastEventIndex)
+                    .ToList();
+            }
+
+            // Если все ещё нет событий, берем все доступные по уровню
+            if (!availableEvents.Any())
+            {
+                availableEvents = baseEvents
+                    .Where(e => e.MinLevel <= playerLevel)
+                    .ToList();
             }
 
             if (!availableEvents.Any())
-                availableEvents = baseEvents.Where(e => e.MinLevel <= playerLevel).ToList();
+                return null; // Если совсем нет событий
 
-            var randomIndex = random.Next(availableEvents.Count);
-            var selectedEvent = availableEvents[randomIndex];
+            // Выбираем случайное событие из доступных
+            var selectedEvent = availableEvents[random.Next(availableEvents.Count)];
             lastEventIndex = baseEvents.IndexOf(selectedEvent);
             usedEventIndices.Add(lastEventIndex);
 
-            var modifiedOptions = selectedEvent.Options.Select(opt =>
-            {
-                double difficulty = Math.Max(1.0, (playerLevel - selectedEvent.MinLevel) * 0.15);
+            // Фильтруем опции по доступности и модифицируем их
+            var modifiedOptions = selectedEvent.Options
+                .Where(opt => IsOptionAvailable(opt, creativity, resilience))
+                .Select(opt => ModifyOption(opt, playerLevel, selectedEvent.MinLevel, creativity, resilience))
+                .ToList();
 
-                var newEffect = new Effect(
-                    (int)(opt.Effects.KnowledgeEffect * (opt.Effects.KnowledgeEffect < 0 ? difficulty * 1.2 : 1)),
-                    (int)(opt.Effects.AwarenessEffect * (opt.Effects.AwarenessEffect < 0 ? difficulty * 1.2 : 1)),
-                    (int)(opt.Effects.MotivationEffect * (opt.Effects.MotivationEffect < 0 ? difficulty * 0.8 : 1))
-                )
-                {
-                    ResilienceEffect = opt.Effects.ResilienceEffect,
-                    CreativityEffect = opt.Effects.CreativityEffect,
-                    ExperienceGain = opt.Effects.ExperienceGain,
-                    RequiredSkill = opt.Effects.RequiredSkill,
-                    RequiredSkills = opt.Effects.RequiredSkills,
-                    RequiredCreativity = opt.Effects.RequiredCreativity,
-                    ChainId = opt.Effects.ChainId
-                };
+            // Если нет доступных опций, возвращаемся к генерации события
+            if (!modifiedOptions.Any())
+                return GenerateEvent(playerLevel, creativity, resilience);
 
-                if (opt.Effects.TemporaryEffects != null)
-                {
-                    newEffect.TemporaryEffects = opt.Effects.TemporaryEffects.Select(te =>
-                        new TemporaryEffect(
-                            te.Name,
-                            (int)(te.KnowledgeEffect * difficulty),
-                            (int)(te.AwarenessEffect * difficulty),
-                            (int)(te.MotivationEffect * difficulty),
-                            te.Duration
-                        )).ToList();
-                }
-
-                if (opt.Effects.LongTermEffect != null)
-                {
-                    newEffect.LongTermEffect = new TemporaryEffect(
-                        opt.Effects.LongTermEffect.Name,
-                        (int)(opt.Effects.LongTermEffect.KnowledgeEffect * difficulty),
-                        (int)(opt.Effects.LongTermEffect.AwarenessEffect * difficulty),
-                        (int)(opt.Effects.LongTermEffect.MotivationEffect * difficulty),
-                        opt.Effects.LongTermEffect.Duration
-                    );
-                }
-
-                if (opt.Effects.RequiredCreativity > 0)
-                {
-                    newEffect.CreativityEffect += 2;
-
-                    if (newEffect.TemporaryEffects == null)
-                        newEffect.TemporaryEffects = new List<TemporaryEffect>();
-
-                    newEffect.TemporaryEffects.Add(new TemporaryEffect("Вдохновение", 2, 2, 2, 3));
-                }
-
-                return new Option(opt.Text, newEffect);
-            }).ToList();
-
+            // Создаем новое событие с модифицированными опциями
             return new Event(
                 selectedEvent.Category,
                 selectedEvent.Description,
@@ -142,8 +149,174 @@ namespace EducationalEventGenerator
                 selectedEvent.IsBossEvent
             );
         }
+
+        private bool IsOptionAvailable(Option option, int creativity, int resilience)
+        {
+            if (option.Effects.RequiredCreativity > 0 && creativity < option.Effects.RequiredCreativity)
+                return false;
+
+            if (option.Effects.RequiredSkills?.Contains("Устойчивость") == true && resilience < 30)
+                return false;
+
+            return true;
+        }
+
+        private Option ModifyOption(Option opt, int playerLevel, int eventMinLevel, int creativity, int resilience)
+        {
+            double difficulty = Math.Max(1.0, (playerLevel - eventMinLevel) * 0.15);
+
+            // Создаем новый эффект с учетом характеристик игрока
+            var newEffect = new Effect(
+                (int)(opt.Effects.KnowledgeEffect * (opt.Effects.KnowledgeEffect < 0 ? difficulty * 1.2 : 1)),
+                (int)(opt.Effects.AwarenessEffect * (opt.Effects.AwarenessEffect < 0 ? difficulty * 1.2 : 1)),
+                (int)(opt.Effects.MotivationEffect * (opt.Effects.MotivationEffect < 0 ? difficulty * 0.8 : 1))
+            )
+            {
+                // Усиливаем эффекты в зависимости от характеристик
+                ResilienceEffect = (int)(opt.Effects.ResilienceEffect * (1 + resilience / 100.0)),
+                CreativityEffect = (int)(opt.Effects.CreativityEffect * (1 + creativity / 100.0)),
+                ExperienceGain = opt.Effects.ExperienceGain,
+                RequiredSkill = opt.Effects.RequiredSkill,
+                RequiredSkills = opt.Effects.RequiredSkills,
+                RequiredCreativity = opt.Effects.RequiredCreativity,
+                ChainId = opt.Effects.ChainId
+            };
+
+            // Обрабатываем временные эффекты
+            if (opt.Effects.TemporaryEffects != null)
+            {
+                newEffect.TemporaryEffects = opt.Effects.TemporaryEffects
+                    .Select(te => new TemporaryEffect(
+                        te.Name,
+                        (int)(te.KnowledgeEffect * difficulty * (1 + (creativity + resilience) / 200.0)),
+                        (int)(te.AwarenessEffect * difficulty * (1 + (creativity + resilience) / 200.0)),
+                        (int)(te.MotivationEffect * difficulty * (1 + (creativity + resilience) / 200.0)),
+                        te.Duration
+                    )).ToList();
+            }
+
+            // Обрабатываем долгосрочные эффекты
+            if (opt.Effects.LongTermEffect != null)
+            {
+                newEffect.LongTermEffect = new TemporaryEffect(
+                    opt.Effects.LongTermEffect.Name,
+                    (int)(opt.Effects.LongTermEffect.KnowledgeEffect * difficulty * (1 + (creativity + resilience) / 200.0)),
+                    (int)(opt.Effects.LongTermEffect.AwarenessEffect * difficulty * (1 + (creativity + resilience) / 200.0)),
+                    (int)(opt.Effects.LongTermEffect.MotivationEffect * difficulty * (1 + (creativity + resilience) / 200.0)),
+                    opt.Effects.LongTermEffect.Duration
+                );
+            }
+
+            // Добавляем бонус за креативность
+            if (opt.Effects.RequiredCreativity > 0)
+            {
+                newEffect.CreativityEffect += 2;
+
+                if (newEffect.TemporaryEffects == null)
+                    newEffect.TemporaryEffects = new List<TemporaryEffect>();
+
+                newEffect.TemporaryEffects.Add(new TemporaryEffect(
+                    "Вдохновение",
+                    2 + (int)(creativity / 50.0),
+                    2 + (int)(creativity / 50.0),
+                    2 + (int)(creativity / 50.0),
+                    3
+                ));
+            }
+
+            // Создаем новый вариант ответа с обновленными эффектами и описанием требований
+            string optionText = opt.Text;
+            if (opt.Effects.RequiredCreativity > 0 || opt.Effects.RequiredSkills?.Contains("Устойчивость") == true)
+            {
+                optionText += "\n[Требования:";
+                if (opt.Effects.RequiredCreativity > 0)
+                    optionText += $"\nКреативность: {opt.Effects.RequiredCreativity}";
+                if (opt.Effects.RequiredSkills?.Contains("Устойчивость") == true)
+                    optionText += "\nУстойчивость: 30";
+                optionText += "]";
+            }
+
+            return new Option(optionText, newEffect);
+        }
+        private void AddCombinedSkillEvents()
+        {
+            baseEvents.Add(new Event(
+                "Креативная устойчивость",
+                "Команда в стрессе, но нужно найти нестандартное решение. Как поступите?",
+                new List<Option> {
+            new Option("Использовать проверенные методы",
+                new Effect(5, 5, 0) {
+                    CreativityEffect = 5,
+                    ResilienceEffect = 5
+                }),
+            new Option("Организовать мозговой штурм в спокойной обстановке",
+                new Effect(15, 20, 10) {
+                    CreativityEffect = 20,
+                    ResilienceEffect = 15,
+                    RequiredCreativity = 30,
+                    RequiredSkills = new List<string> { "Устойчивость" }
+                }),
+            new Option("Придумать революционное решение под давлением",
+                new Effect(25, 30, -10) {
+                    CreativityEffect = 30,
+                    ResilienceEffect = 25,
+                    RequiredCreativity = 50,
+                    RequiredSkills = new List<string> { "Устойчивость" },
+                    TemporaryEffects = new List<TemporaryEffect> {
+                        new TemporaryEffect("Креативная устойчивость", 5, 5, 5, 4)
+                    }
+                })
+                },
+                "Сочетание креативности и устойчивости открывает новые возможности",
+                8,
+                true
+            ));
+        }
         private void AddBasicEvents()
         {
+            baseEvents.Add(new Event(
+       "Стрессовая ситуация",
+       "Вы столкнулись с серьезным вызовом. Как справитесь?",
+       new List<Option> {
+            new Option("Использовать техники релаксации",
+                new Effect(5, 5, 5) {
+                    ResilienceEffect = 10, // Увеличивает устойчивость
+                    TemporaryEffects = new List<TemporaryEffect> {
+                        new TemporaryEffect("Спокойствие", 2, 2, 2, 3)
+                    }
+                }),
+            new Option("Продолжить работу, игнорируя стресс",
+                new Effect(-5, -10, -15) {
+                    ResilienceEffect = -5 // Уменьшает устойчивость
+                }),
+            new Option("Обратиться за поддержкой к команде",
+                new Effect(10, 15, 10) {
+                    ResilienceEffect = 15 // Значительно увеличивает устойчивость
+                })
+       },
+       "Умение справляться со стрессом - важный навык",
+       4
+   ));
+
+            // Добавить событие с влиянием устойчивости на характеристики
+            baseEvents.Add(new Event(
+                "Сложный проект",
+                "Проект оказался сложнее, чем ожидалось. Что предпримете?",
+                new List<Option> {
+            new Option("Разбить на подзадачи",
+                new Effect(15, 10, 5) {
+                    ResilienceEffect = 8,
+                    RequiredSkill = "Устойчивость", // Требует определенный уровень устойчивости
+                    SkillDescription = "Высокая устойчивость поможет справиться с нагрузкой"
+                }),
+            new Option("Работать сверхурочно",
+                new Effect(-10, -15, -20) {
+                    ResilienceEffect = -10
+                })
+                },
+                "Правильное планирование помогает справиться с любыми трудностями",
+                5
+            ));
             // Добавим сбалансированные обычные (basic) вопросы в EventSystem.cs → AddBasicEvents()
             baseEvents.Add(new Event(
                 "Внимание",
@@ -517,7 +690,120 @@ namespace EducationalEventGenerator
                 1
             ));
         }
+        private void AddBasicTrainingEvents()
+        {
+            // Событие для начальной прокачки креативности
+            baseEvents.Add(new Event(
+                "Первые шаги в креативности",
+                "Вам поручили придумать название для нового проекта. Как подойдете к задаче?",
+                new List<Option> {
+            new Option("Взять первое пришедшее в голову название",
+                new Effect(0, 0, 0) {
+                    CreativityEffect = 5 // Небольшой бонус к креативности
+                }),
+            new Option("Записать несколько вариантов и выбрать лучший",
+                new Effect(5, 5, 0) {
+                    CreativityEffect = 10 // Средний бонус к креативности
+                }),
+            new Option("Провести мозговой штурм с коллегами",
+                new Effect(10, 10, 5) {
+                    CreativityEffect = 15 // Хороший бонус к креативности
+                })
+                },
+                "Креативность развивается через практику",
+                1 // Доступно с первого уровня
+            ));
 
+            // Событие для начальной прокачки устойчивости
+            baseEvents.Add(new Event(
+                "Учимся справляться со стрессом",
+                "День не задался с самого утра. Как справитесь с ситуацией?",
+                new List<Option> {
+            new Option("Продолжить работу как обычно",
+                new Effect(0, 0, 0) {
+                    ResilienceEffect = 5 // Небольшой бонус к устойчивости
+                }),
+            new Option("Сделать перерыв и подышать",
+                new Effect(5, 5, 5) {
+                    ResilienceEffect = 10, // Средний бонус к устойчивости
+                    TemporaryEffects = new List<TemporaryEffect> {
+                        new TemporaryEffect("Спокойствие", 1, 1, 1, 2)
+                    }
+                }),
+            new Option("Использовать технику управления стрессом",
+                new Effect(10, 10, 10) {
+                    ResilienceEffect = 15, // Хороший бонус к устойчивости
+                    TemporaryEffects = new List<TemporaryEffect> {
+                        new TemporaryEffect("Внутренний баланс", 2, 2, 2, 3)
+                    }
+                })
+                },
+                "Устойчивость к стрессу можно развивать",
+                1 // Доступно с первого уровня
+            ));
+
+            // Комбинированное событие для начального развития
+            baseEvents.Add(new Event(
+                "Новый вызов",
+                "Вам нужно освоить новую технологию в сжатые сроки. Как поступите?",
+                new List<Option> {
+            new Option("Изучать по учебнику",
+                new Effect(5, 5, 0) {
+                    CreativityEffect = 5,
+                    ResilienceEffect = 5
+                }),
+            new Option("Экспериментировать с кодом",
+                new Effect(10, 5, -5) {
+                    CreativityEffect = 15,
+                    ResilienceEffect = 5,
+                    TemporaryEffects = new List<TemporaryEffect> {
+                        new TemporaryEffect("Вдохновение", 2, 2, 2, 2)
+                    }
+                }),
+            new Option("Создать пробный проект",
+                new Effect(15, 10, -5) {
+                    CreativityEffect = 10,
+                    ResilienceEffect = 15,
+                    TemporaryEffects = new List<TemporaryEffect> {
+                        new TemporaryEffect("Уверенность", 2, 2, 2, 3)
+                    }
+                })
+                },
+                "Развитие навыков требует времени и усилий",
+                2
+            ));
+
+            // Событие для продвинутой прокачки (доступно раньше, чем события с требованиями)
+            baseEvents.Add(new Event(
+                "Сложная задача",
+                "Необходимо оптимизировать важный процесс. Как подойдете к решению?",
+                new List<Option> {
+            new Option("Использовать стандартные методы",
+                new Effect(5, 5, 5) {
+                    CreativityEffect = 10,
+                    ResilienceEffect = 10
+                }),
+            new Option("Придумать новый подход",
+                new Effect(15, 10, -5) {
+                    CreativityEffect = 25,
+                    ResilienceEffect = 15,
+                    TemporaryEffects = new List<TemporaryEffect> {
+                        new TemporaryEffect("Креативный подход", 3, 3, 3, 3)
+                    }
+                }),
+            new Option("Комбинировать несколько решений",
+                new Effect(20, 15, -10) {
+                    CreativityEffect = 20,
+                    ResilienceEffect = 20,
+                    TemporaryEffects = new List<TemporaryEffect> {
+                        new TemporaryEffect("Системное мышление", 4, 4, 4, 4)
+                    }
+                })
+                },
+                "Сложные задачи - это возможность для роста",
+                4
+            ));
+        }
         private void AddTimedEvents()
         {
             timedEvents.Add(new TimedEvent(
@@ -847,7 +1133,228 @@ baseEvents.Add(new Event(
             ));
         }
         }
+        private void AddResilienceBossEvents()
+        {
+            baseEvents.Add(new Event(
+                "Критический кризис",
+                "Проект на грани провала, команда выгорает. Как справитесь с ситуацией?",
+                new List<Option> {
+            new Option("Взять ответственность на себя",
+                new Effect(30, 25, -15) {
+                    ResilienceEffect = 40,
+                    RequiredSkills = new List<string> { "Устойчивость" },
+                    RequiredCreativity = 40,
+                    TemporaryEffects = new List<TemporaryEffect> {
+                        new TemporaryEffect("Лидерская стойкость", 8, 8, 8, 5)
+                    }
+                }),
+            new Option("Разделить нагрузку по команде",
+                new Effect(20, 15, 10) {
+                    ResilienceEffect = 20,
+                    RequiredSkills = new List<string> { "Устойчивость" }
+                }),
+            new Option("Запросить перенос сроков",
+                new Effect(-10, -20, -5) {
+                    ResilienceEffect = -15
+                })
+                },
+                "Настоящий лидер проявляется в кризисных ситуациях",
+                12,
+                true
+            ));
 
+            baseEvents.Add(new Event(
+                "Экстремальный вызов",
+                "Одновременно произошло несколько критических сбоев. Ваши действия?",
+                new List<Option> {
+            new Option("Сохранять хладнокровие и методично решать проблемы",
+                new Effect(35, 30, -10) {
+                    ResilienceEffect = 50,
+                    RequiredSkills = new List<string> { "Устойчивость" },
+                    CreativityEffect = 20,
+                    RequiredCreativity = 50,
+                    TemporaryEffects = new List<TemporaryEffect> {
+                        new TemporaryEffect("Антикризисный режим", 10, 10, 10, 6)
+                    }
+                }),
+            new Option("Привлечь внешних специалистов",
+                new Effect(15, 10, -5) {
+                    ResilienceEffect = 10
+                }),
+            new Option("Действовать по стандартным процедурам",
+                new Effect(-5, -10, 0) {
+                    ResilienceEffect = -10
+                })
+                },
+                "Экстремальные ситуации требуют исключительной устойчивости",
+                14,
+                true
+            ));
+        }
+        private void AddCreativityEvents()
+        {
+            baseEvents.Add(new Event(
+        "Креативное мышление",
+        "На совещании нужно предложить новый подход к проекту. Как поступите?",
+        new List<Option> {
+            new Option("Предложить стандартное решение",
+                new Effect(5, 5, 0) {
+                    CreativityEffect = 5
+                }),
+            new Option("Комбинировать существующие идеи",
+                new Effect(10, 10, -5) {
+                    CreativityEffect = 15
+                }),
+            new Option("Придумать что-то совершенно новое",
+                new Effect(15, 15, -10) {
+                    CreativityEffect = 25,
+                    RequiredCreativity = 20
+                })
+        },
+        "Креативность развивается через практику новых идей",
+        4
+    ));
+            baseEvents.Add(new Event(
+        "Творческий вызов",
+        "Нужно оптимизировать процесс разработки. Ваш подход?",
+        new List<Option> {
+            new Option("Использовать готовые методологии",
+                new Effect(10, 5, 0) {
+                    CreativityEffect = 10,
+                    ResilienceEffect = 5
+                }),
+            new Option("Создать гибридный подход",
+                new Effect(20, 15, -10) {
+                    CreativityEffect = 30,
+                    ResilienceEffect = 15,
+                    RequiredCreativity = 30
+                }),
+            new Option("Разработать свою методологию",
+                new Effect(30, 25, -15) {
+                    CreativityEffect = 40,
+                    ResilienceEffect = 20,
+                    RequiredCreativity = 40,
+                    RequiredSkills = new List<string> { "Устойчивость" }
+                })
+        },
+        "Инновации требуют баланса между креативностью и стабильностью",
+        7,
+        true
+    ));
+            baseEvents.Add(new Event(
+        "Инновационный прорыв",
+        "Появилась возможность полностью изменить архитектуру проекта",
+        new List<Option> {
+            new Option("Постепенные улучшения",
+                new Effect(15, 10, 5) {
+                    CreativityEffect = 20,
+                    ResilienceEffect = 10
+                }),
+            new Option("Экспериментальный подход",
+                new Effect(25, 20, -10) {
+                    CreativityEffect = 35,
+                    ResilienceEffect = 25,
+                    RequiredCreativity = 50,
+                    RequiredSkills = new List<string> { "Устойчивость" }
+                }),
+            new Option("Революционное решение",
+                new Effect(40, 35, -20) {
+                    CreativityEffect = 50,
+                    ResilienceEffect = 40,
+                    RequiredCreativity = 70,
+                    RequiredSkills = new List<string> { "Устойчивость" },
+                    TemporaryEffects = new List<TemporaryEffect> {
+                        new TemporaryEffect("Прорывное мышление", 10, 10, 10, 5)
+                    }
+                })
+        },
+        "Большие изменения требуют как креативности, так и устойчивости",
+        10,
+        true
+    ));
+            baseEvents.Add(new Event(
+                "Творческий подход",
+                "Вы столкнулись с нестандартной проблемой в проекте. Как поступите?",
+                new List<Option> {
+            new Option("Использовать проверенное решение",
+                new Effect(5, 0, 0) {
+                    CreativityEffect = 0
+                }),
+            new Option("Придумать новый подход",
+                new Effect(10, 5, -5) {
+                    CreativityEffect = 15,
+                    TemporaryEffects = new List<TemporaryEffect> {
+                        new TemporaryEffect("Вдохновение", 3, 3, 3, 3)
+                    }
+                }),
+            new Option("Комбинировать разные методы",
+                new Effect(15, 10, -10) {
+                    CreativityEffect = 20,
+                    RequiredSkill = "Креативность",
+                    SkillDescription = "Требуется базовый уровень креативности"
+                })
+                },
+                "Креативность растет, когда вы пробуете новые подходы",
+                3
+            ));
+
+            // Продвинутое событие на креативность
+            baseEvents.Add(new Event(
+                "Инновационное решение",
+                "Команда застряла на сложной архитектурной проблеме. Ваши действия?",
+                new List<Option> {
+            new Option("Провести мозговой штурм",
+                new Effect(20, 15, 10) {
+                    CreativityEffect = 25,
+                    RequiredCreativity = 30,
+                    TemporaryEffects = new List<TemporaryEffect> {
+                        new TemporaryEffect("Креативный поток", 5, 5, 5, 4)
+                    }
+                }),
+            new Option("Исследовать существующие решения",
+                new Effect(10, 5, 0) {
+                    CreativityEffect = 10
+                }),
+            new Option("Предложить революционный подход",
+                new Effect(30, 20, -15) {
+                    CreativityEffect = 40,
+                    RequiredCreativity = 50,
+                    ChainId = "Инновационный_прорыв"
+                })
+                },
+                "Иногда лучшее решение - это совершенно новый подход",
+                8
+            ));
+
+            // Босс-событие на креативность
+            baseEvents.Add(new Event(
+                "Креативный прорыв",
+                "Вы видите возможность полностью переосмыслить проект. Рискнете?",
+                new List<Option> {
+            new Option("Полностью переработать архитектуру",
+                new Effect(40, 30, -20) {
+                    CreativityEffect = 50,
+                    RequiredCreativity = 70,
+                    ResilienceEffect = 20,
+                    TemporaryEffects = new List<TemporaryEffect> {
+                        new TemporaryEffect("Творческий гений", 10, 10, 10, 5)
+                    }
+                }),
+            new Option("Внести частичные улучшения",
+                new Effect(20, 15, -10) {
+                    CreativityEffect = 25,
+                    RequiredCreativity = 40
+                }),
+            new Option("Остаться с текущим решением",
+                new Effect(-10, -15, 0) {
+                    CreativityEffect = -10
+                })
+                },
+                "Великие прорывы требуют смелости и креативности",
+                10,
+                true // это босс-событие
+            ));
+        }
         private void InitializeEventChains()
         {
             eventChains.Add(new EventChain(

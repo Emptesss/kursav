@@ -65,6 +65,7 @@
     <Compile Include="LevelToVisibilityConverter.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="ProgressConverter.cs" />
+    <Compile Include="RequirementInfo.cs" />
     <Compile Include="Skill.cs" />
     <Compile Include="SkillSystem.cs" />
     <Compile Include="TemporaryEffect.cs" />

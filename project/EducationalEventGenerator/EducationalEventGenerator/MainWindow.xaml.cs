@@ -247,7 +247,48 @@ namespace EducationalEventGenerator
                 OptionsPanel.Children.Add(button);
             }
         }
+        private Option ModifyOption(Option opt, int playerLevel, int eventMinLevel, int creativity, int resilience)
+        {
+            if (opt == null) return null;
+            if (opt.Effects == null) return opt; // Возвращаем оригинальный вариант если нет эффектов
 
+            double difficulty = Math.Max(1.0, (playerLevel - eventMinLevel) * 0.15);
+
+            // Используем новый метод CreateModified
+            var newEffect = opt.Effects.CreateModified(difficulty, creativity, resilience);
+
+            // Добавляем бонус за креативность
+            if (opt.Effects.RequiredCreativity > 0)
+            {
+                newEffect.CreativityEffect += 2;
+
+                if (newEffect.TemporaryEffects == null)
+                    newEffect.TemporaryEffects = new List<TemporaryEffect>();
+
+                newEffect.TemporaryEffects.Add(new TemporaryEffect(
+                    "Вдохновение",
+                    2 + (int)(creativity / 50.0),
+                    2 + (int)(creativity / 50.0),
+                    2 + (int)(creativity / 50.0),
+                    3
+                ));
+            }
+
+            // Создаем текст с требованиями
+            string optionText = opt.Text;
+            var requirements = new List<string>();
+
+            if (opt.Effects.RequiredCreativity > 0)
+                requirements.Add($"Требуется креативность: {opt.Effects.RequiredCreativity}");
+
+            if (opt.Effects.RequiredSkills?.Contains("Устойчивость") == true)
+                requirements.Add("Требуется устойчивость: 30");
+
+            if (requirements.Any())
+                optionText += $"\n[{string.Join(", ", requirements)}]";
+
+            return new Option(optionText, newEffect);
+        }
         private void ProcessChoice(Option selectedOption)
         {
             timer.Stop();

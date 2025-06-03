@@ -57,7 +57,7 @@ namespace EducationalEventGenerator
                 Logger.Log("Нет активных временных эффектов");
             }
 
-            Experience += 100;
+            Experience += 10;
 
             int ModifyEffect(int effect, string skillName, double bonus)
             {
@@ -73,6 +73,7 @@ namespace EducationalEventGenerator
             int finalAwarenessEffect = ModifyEffect(effects.AwarenessEffect, "Осознанность", 0.15);
             int finalMotivationEffect = ModifyEffect(effects.MotivationEffect, "Самомотивация", 0.1);
 
+
             // Применяем стрессоустойчивость к негативным эффектам
             if (_skillSystem.HasSkill("Стрессоустойчивость"))
             {
@@ -85,6 +86,9 @@ namespace EducationalEventGenerator
             Knowledge = ApplyStatEffect("Знания", Knowledge, finalKnowledgeEffect, damageReduction);
             Awareness = ApplyStatEffect("Осознанность", Awareness, finalAwarenessEffect, damageReduction);
             Motivation = ApplyStatEffect("Мотивация", Motivation, finalMotivationEffect, damageReduction);
+            Resilience = ApplyStatEffect("Устойчивость", Resilience, effects.ResilienceEffect);
+            Creativity = ApplyStatEffect("Креативность", Creativity, effects.CreativityEffect);
+
 
 
             if (effects.TemporaryEffects?.Any() == true)
@@ -103,6 +107,9 @@ namespace EducationalEventGenerator
                 Knowledge = ApplyStatEffect($"[Временный] {effect.Name} → Знания", Knowledge, effect.KnowledgeEffect);
                 Awareness = ApplyStatEffect($"[Временный] {effect.Name} → Осознанность", Awareness, effect.AwarenessEffect);
                 Motivation = ApplyStatEffect($"[Временный] {effect.Name} → Мотивация", Motivation, effect.MotivationEffect);
+                Resilience = ApplyStatEffect($"[Временный] {effect.Name} → Устойчивость", Resilience, effect.ResilienceEffect);
+                Creativity = ApplyStatEffect($"[Временный] {effect.Name} → Креативность", Creativity, effect.CreativityEffect);
+
 
                 effect.Duration--;
                 if (effect.Duration <= 0)
