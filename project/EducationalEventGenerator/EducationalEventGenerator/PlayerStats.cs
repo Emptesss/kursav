@@ -9,11 +9,6 @@ namespace EducationalEventGenerator
         public readonly SkillSystem _skillSystem;
         public List<TemporaryEffect> ActiveEffects { get; } = new List<TemporaryEffect>();
 
-        public PlayerStats(SkillSystem skillSystem)
-        {
-            _skillSystem = skillSystem;
-        }
-
         private const int BASE_RESILIENCE = 20;
         public int Level { get; set; } = 1;
         public int Experience { get; set; }
@@ -26,6 +21,29 @@ namespace EducationalEventGenerator
         public int Motivation { get; set; } = 50;
         public int Resilience { get; set; } = 0;
         public int Creativity { get; set; } = 0;
+
+        private int _highScore;
+        public int HighScore
+        {
+            get => _highScore;
+            private set
+            {
+                if (value > _highScore)
+                {
+                    _highScore = value;
+                    HighScoreManager.SaveHighScore(value);
+                    HighScoreChanged?.Invoke(this, EventArgs.Empty);
+                }
+            }
+        }
+
+        public event EventHandler HighScoreChanged;
+
+        public PlayerStats(SkillSystem skillSystem)
+        {
+            _skillSystem = skillSystem;
+            HighScore = HighScoreManager.LoadHighScore();
+        }
 
         public void ApplyEffects(Effect effects)
         {
@@ -73,7 +91,6 @@ namespace EducationalEventGenerator
             int finalAwarenessEffect = ModifyEffect(effects.AwarenessEffect, "Осознанность", 0.15);
             int finalMotivationEffect = ModifyEffect(effects.MotivationEffect, "Самомотивация", 0.1);
 
-
             // Применяем стрессоустойчивость к негативным эффектам
             if (_skillSystem.HasSkill("Стрессоустойчивость"))
             {
@@ -89,8 +106,6 @@ namespace EducationalEventGenerator
             Resilience = ApplyStatEffect("Устойчивость", Resilience, effects.ResilienceEffect);
             Creativity = ApplyStatEffect("Креативность", Creativity, effects.CreativityEffect);
 
-
-
             if (effects.TemporaryEffects?.Any() == true)
             {
                 int tempExp = effects.TemporaryEffects.Count * 5;
@@ -101,7 +116,6 @@ namespace EducationalEventGenerator
                     ActiveEffects.Add(tempEffect.Clone());
             }
 
-
             foreach (var effect in ActiveEffects.ToList())
             {
                 Knowledge = ApplyStatEffect($"[Временный] {effect.Name} → Знания", Knowledge, effect.KnowledgeEffect);
@@ -109,7 +123,6 @@ namespace EducationalEventGenerator
                 Motivation = ApplyStatEffect($"[Временный] {effect.Name} → Мотивация", Motivation, effect.MotivationEffect);
                 Resilience = ApplyStatEffect($"[Временный] {effect.Name} → Устойчивость", Resilience, effect.ResilienceEffect);
                 Creativity = ApplyStatEffect($"[Временный] {effect.Name} → Креативность", Creativity, effect.CreativityEffect);
-
 
                 effect.Duration--;
                 if (effect.Duration <= 0)
@@ -148,7 +161,6 @@ namespace EducationalEventGenerator
                 Logger.Log($"Итоговое изменение мотивации: {motivationChange}");
 
             Logger.Log($"Получено опыта: +{expChange}");
-
         }
 
         private int ApplyStatEffect(string label, int current, int effect, double damageReduction = 0)
@@ -175,9 +187,23 @@ namespace EducationalEventGenerator
                     Logger.Log($"Разблокирована характеристика Устойчивость с базовым значением: {Resilience}");
                 }
 
+                // Обновляем рекорд при достижении нового уровня
+                HighScore = Level;
+
                 Logger.Log($"Уровень повышен! Новый уровень: {Level}");
                 LevelChanged?.Invoke(this, Level);
             }
+        }
+        public void Reset()
+        {
+            Level = 1;
+            Experience = 0;
+            Knowledge = 50;
+            Awareness = 50;
+            Motivation = 50;
+            Resilience = 0;
+            Creativity = 0;
+            ActiveEffects.Clear();
         }
     }
 }

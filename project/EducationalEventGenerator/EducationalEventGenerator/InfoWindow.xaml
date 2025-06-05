@@ -11,7 +11,7 @@
 
     <Grid>
         <!-- Затемненный фон -->
-        <Rectangle Fill="#A0000000" MouseDown="CloseButton_Click"/>
+        
 
         <!-- Основное окно -->
         <Border Width="600" 
@@ -29,56 +29,78 @@
                 <!-- Заголовок -->
                 <Border Background="#FF0078D7" 
                         CornerRadius="10,10,0,0"
-                        Padding="20,15">
+                        Padding="20,1" Margin="0,0,0,10">
                     <Grid>
                         <TextBlock Text="Об игре" 
                                  Foreground="White"
                                  FontSize="20" 
-                                 FontWeight="Bold"/>
-                        <Button Content="×" 
-                                Click="CloseButton_Click"
-                                HorizontalAlignment="Right"
-                                Background="Transparent"
-                                Foreground="White"
-                                FontSize="24"
-                                Width="40" 
-                                Height="40"
-                                BorderThickness="0"/>
+                                 FontWeight="Bold" Margin="0,19,0,19" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0"/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                        <Button Content="×"
+        Click="CloseButton_Click"
+        HorizontalAlignment="Left"
+        Background="Transparent"
+        Foreground="White"
+        FontSize="36"
+        FontWeight="Bold"
+        Width="45"
+        Height="45"
+        Padding="0"
+        BorderThickness="0"
+        Margin="522,7,0,13"
+        VerticalContentAlignment="Center"
+        HorizontalContentAlignment="Center"/>
                     </Grid>
                 </Border>
 
                 <!-- Контент -->
                 <ScrollViewer Grid.Row="1" 
-                             Margin="20">
+                             Margin="10,0,0,20" HorizontalAlignment="Left" Width="578">
                     <StackPanel>
-                        <TextBlock Text="Life Skills Simulator"
-                                 FontSize="24" 
-                                 FontWeight="Bold"
-                                 Margin="0,0,0,15"/>
-
                         <TextBlock TextWrapping="Wrap" 
-                                 LineHeight="24"
-                                 FontSize="14">
-                            <Run Text="Версия: 1.0"/>
-                            <LineBreak/>
-                            <LineBreak/>
-                            <Run Text="Life Skills Simulator - это игра о развитии жизненных навыков и принятии решений. В игре вы развиваете различные характеристики:"/>
-                            <LineBreak/>
-                            <LineBreak/>
-                            <Run Text="• Знания - определяют ваш опыт и компетентность"/>
-                            <LineBreak/>
-                            <Run Text="• Осознанность - помогает принимать взвешенные решения"/>
-                            <LineBreak/>
-                            <Run Text="• Мотивация - определяет вашу энергию и стремление"/>
-                            <LineBreak/>
-                            <Run Text="• Устойчивость - снижает негативные эффекты (доступно с 6 уровня)"/>
-                            <LineBreak/>
-                            <Run Text="• Креативность - открывает новые возможности (доступно с 7 уровня)"/>
-                            <LineBreak/>
-                            <LineBreak/>
-                            <Run Text="Разработчик: vasylk21"/>
-                            <LineBreak/>
-                            <Run Text="Дата создания: 2025-06-02"/>
+               LineHeight="24"
+               FontSize="14" Height="193">
+        <Run Text="Life Skills Simulator" Foreground="#FF0078D7" FontWeight="Bold"/>
+        <Run Text=" - это игра о развитии жизненных навыков и принятии решений. В игре вы развиваете различные характеристики:"/>
+        <LineBreak/><LineBreak/>
+        
+        <!-- Строка с "Знания" -->
+        <Run Text="•   "/>
+        <Run Text="Знания" Foreground="Green" FontWeight="Bold"/>
+        <Run Text=" - определяют ваш опыт и компетентность"/>
+        <LineBreak/>
+        
+        <!-- Строка с "Осознанность" -->
+        <Run Text="•   "/>
+        <Run Text="Осознанность" Foreground="Blue" FontWeight="Bold"/>
+        <Run Text=" - помогает принимать взвешенные решения"/>
+        <LineBreak/>
+        
+        <!-- Строка с "Мотивация" -->
+        <Run Text="•   "/>
+        <Run Text="Мотивация" Foreground="Purple" FontWeight="Bold"/>
+        <Run Text=" - определяет вашу энергию и стремление"/>
+        <LineBreak/>
+        
+        <!-- Строка с "Устойчивость" -->
+        <Run Text="•   "/>
+        <Run Text="Устойчивость" Foreground="#FF585858" FontWeight="Bold"/>
+        <Run Text=" - снижает негативные эффекты (доступно с 6 уровня)"/>
+        <LineBreak/>
+        
+        <!-- Строка с "Креативность" -->
+        <Run Text="•   "/>
+        <Run Text="Креативность" Foreground="Red" FontWeight="Bold"/>
+        <Run Text=" - открывает новые возможности (доступно с 7 уровня)"/>
+        <LineBreak/>
                         </TextBlock>
                     </StackPanel>
                 </ScrollViewer>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:EducationalEventGenerator"
         mc:Ignorable="d"
         Title="Life Skills Simulator" 
-        Height="750" Width="1200"
+        Height="750" Width="1100"
         WindowStartupLocation="CenterScreen"
         FontFamily="Segoe UI"
         Background="#FFF5F5F5">
@@ -15,7 +15,7 @@
         <local:AcquiredConverter x:Key="AcquiredConverter"/>
         <local:ProgressConverter x:Key="ProgressConverter"/>
         <Style x:Key="AnimatedProgressBar" TargetType="ProgressBar">
-            <Setter Property="Height" Value="16"/>
+            <Setter Property="Height" Value="20"/>
             <Setter Property="Background" Value="#FFE0E0E0"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Template">
@@ -75,7 +75,7 @@
             Влияет на успешность сложных действий.
             </TextBlock>
         </ToolTip>
-       
+
         <Style TargetType="Button">
             <Setter Property="Background" Value="#FFE0E0E0"/>
             <Setter Property="Foreground" Value="#FF333333"/>
@@ -115,29 +115,6 @@
             </Setter>
         </Style>
 
-        <Style TargetType="ProgressBar">
-            <Setter Property="Height" Value="16"/>
-            <Setter Property="Foreground" Value="#FF0078D7"/>
-            <Setter Property="Background" Value="#FFE0E0E0"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ProgressBar">
-                        <Border x:Name="PART_Track" 
-                                Background="{TemplateBinding Background}"
-                                CornerRadius="4">
-                            <Grid x:Name="PART_Indicator" 
-                                  HorizontalAlignment="Left">
-                                <Rectangle x:Name="Indicator"
-                                           Fill="{TemplateBinding Foreground}"
-                                           RadiusX="4" RadiusY="4"/>
-                            </Grid>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
         <Style x:Key="HeaderText" TargetType="TextBlock">
             <Setter Property="Foreground" Value="#FF0078D7"/>
             <Setter Property="FontSize" Value="18"/>
@@ -153,13 +130,13 @@
 
         <DataTemplate x:Key="SkillTemplate">
             <Border Background="#FFF0F0F0" 
-            BorderBrush="{Binding StatusColor}" 
-            BorderThickness="2"
-            CornerRadius="6" 
-            Padding="15" 
-            Margin="8" 
-            Width="250" 
-            Height="180">
+                    BorderBrush="{Binding StatusColor}" 
+                    BorderThickness="2"
+                    CornerRadius="6" 
+                    Padding="15" 
+                    Margin="8" 
+                    Width="240" 
+                    Height="170">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -169,33 +146,33 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Text="{Binding Name}" 
-                      FontWeight="Bold"
-                      Foreground="#FF333333" 
-                      FontSize="16"
-                      TextWrapping="Wrap"/>
+                               FontWeight="Bold"
+                               Foreground="#FF333333" 
+                               FontSize="16"
+                               TextWrapping="Wrap"/>
 
                     <TextBlock Grid.Row="1" 
-                      Text="{Binding Description}"
-                      Foreground="#FF666666" 
-                      FontSize="14"
-                      TextWrapping="Wrap" 
-                      Margin="0,8,0,0"/>
+                               Text="{Binding Description}"
+                               Foreground="#FF666666" 
+                               FontSize="14"
+                               TextWrapping="Wrap" 
+                               Margin="0,8,0,0"/>
 
                     <TextBlock Grid.Row="2" 
-                      Text="{Binding RequirementsText}"
-                      Foreground="#FF777777" 
-                      FontSize="12"
-                      TextWrapping="Wrap" 
-                      Margin="0,8,0,0"/>
+                               Text="{Binding RequirementsText}"
+                               Foreground="#FF777777" 
+                               FontSize="12"
+                               TextWrapping="Wrap" 
+                               Margin="0,8,0,0"/>
 
                     <CheckBox Grid.Row="3"
-                      IsChecked="{Binding IsAcquired, Mode=TwoWay}"
-                      IsEnabled="{Binding CanAcquire}"
-                      Content="{Binding IsAcquired, Converter={StaticResource AcquiredConverter}}"
-                      Foreground="#FF333333"
-                      HorizontalAlignment="Center"
-                      Margin="0,12,0,0"
-                      Checked="SkillCheckBox_Changed"/>
+                              IsChecked="{Binding IsAcquired, Mode=TwoWay}"
+                              IsEnabled="{Binding CanAcquire}"
+                              Content="{Binding IsAcquired, Converter={StaticResource AcquiredConverter}}"
+                              Foreground="#FF333333"
+                              HorizontalAlignment="Center"
+                              Margin="0,12,0,0"
+                              Checked="SkillCheckBox_Changed"/>
                 </Grid>
             </Border>
         </DataTemplate>
@@ -213,49 +190,53 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
+                    <!-- Левая часть (название и уровень) -->
                     <ColumnDefinition Width="Auto"/>
+                    <!-- Центр (рекорд) -->
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- Правая часть (кнопка) -->
                 </Grid.ColumnDefinitions>
 
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <!-- Левая часть - название и уровень -->
+                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
                     <TextBlock Text="LIFE SKILLS SIMULATOR" 
-                              FontSize="24" FontWeight="Bold"
-                              Foreground="White"/>
-
+                       FontSize="24" FontWeight="Bold"
+                       Foreground="White"/>
                     <TextBlock Text="{Binding PlayerStats.Level, StringFormat='Уровень: {0}'}"
-                              Foreground="White" Margin="20,0,0,0"
-                              FontSize="18" VerticalAlignment="Center"/>
+                       Foreground="White" Margin="20,0,0,0"
+                       FontSize="18" VerticalAlignment="Center"/>
                 </StackPanel>
-                <Button Grid.Column="1" 
+
+                <!-- Центр - рекорд -->
+                <TextBlock x:Name="HighScoreText" 
+                   Grid.Column="1"
+                   Text="{Binding PlayerStats.HighScore, StringFormat='Рекордный уровень: {0} '}"
+                   Foreground="White" 
+                   FontSize="18"
+                   VerticalAlignment="Center"
+                   Margin="20,0,20,0"
+                   ToolTip="Максимальный достигнутый уровень"/>
+
+                <!-- Правая часть - кнопка -->
+                <Button Grid.Column="2" 
                 x:Name="InfoButton"
                 Click="InfoButton_Click"
-                Width="50" 
-                Height="50"
-                Margin="0,0,10,0"
+                Width="40" 
+                Height="40"
                 VerticalAlignment="Center">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
-                            <Border x:Name="border" 
-                            CornerRadius="20"
-                            Background="Transparent">
-                                <Image 
-                               Width="50" 
-                               Height="50" Source="/info2.png"/>
+                            <Border x:Name="border" CornerRadius="20" Background="Transparent">
+                                <Image Width="30" Height="30" Source="/info2.png"/>
                                 <Border.Effect>
-                                    <DropShadowEffect Color="White" 
-                                            ShadowDepth="0" 
-                                            BlurRadius="20" 
-                                            Opacity="0"/>
+                                    <DropShadowEffect Color="White" ShadowDepth="0" BlurRadius="20" Opacity="0"/>
                                 </Border.Effect>
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="border" 
-                                    Property="Border.Effect">
+                                    <Setter TargetName="border" Property="Border.Effect">
                                         <Setter.Value>
-                                            <DropShadowEffect Color="White" 
-                                                    ShadowDepth="0" 
-                                                    BlurRadius="20" 
-                                                    Opacity="0.5"/>
+                                            <DropShadowEffect Color="White" ShadowDepth="0" BlurRadius="20" Opacity="0.5"/>
                                         </Setter.Value>
                                     </Setter>
                                 </Trigger>
@@ -263,62 +244,61 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-               
-                
             </Grid>
         </Border>
 
+        <!-- Основное содержимое -->
         <Grid Grid.Row="1" Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="320"/>
+                <ColumnDefinition Width="350"/>
             </Grid.ColumnDefinitions>
 
+            <!-- Левая панель - события -->
             <Border Grid.Column="0" Background="White" CornerRadius="6"
-                    BorderBrush="#FFCCCCCC" BorderThickness="1" Padding="20">
+                    BorderBrush="#FFCCCCCC" BorderThickness="1" Padding="15">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <StackPanel>
-                        <TextBlock x:Name="EventCategory" 
-                                  Style="{StaticResource HeaderText}"/>
-                        <!-- Добавьте после TextBlock EventCategory -->
-                        <Grid x:Name="TimerPanel" Visibility="Collapsed" Margin="0,5,0,10">
+                        <TextBlock x:Name="EventCategory" Style="{StaticResource HeaderText}"/>
+
+                        <Grid x:Name="TimerPanel" Visibility="Collapsed" Margin="0,5,0,10" Height="30">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
 
                             <ProgressBar x:Name="TimeProgressBar" 
-                 Height="20" 
-                 Background="#FFE0E0E0"
-                 Foreground="#FF0078D7"
-                 BorderThickness="0">
+                                         Height="20" 
+                                         Background="#FFE0E0E0"
+                                         Foreground="#FF0078D7"
+                                         BorderThickness="0">
                                 <ProgressBar.Template>
                                     <ControlTemplate TargetType="ProgressBar">
                                         <Border x:Name="PART_Track" 
-                        Background="{TemplateBinding Background}"
-                        BorderThickness="0"
-                        CornerRadius="4">
+                                                Background="{TemplateBinding Background}"
+                                                BorderThickness="0"
+                                                CornerRadius="4">
                                             <Border x:Name="PART_Indicator" 
-                            Background="{TemplateBinding Foreground}"
-                            BorderThickness="0"
-                            CornerRadius="4"
-                            HorizontalAlignment="Left"/>
+                                                    Background="{TemplateBinding Foreground}"
+                                                    BorderThickness="0"
+                                                    CornerRadius="4"
+                                                    HorizontalAlignment="Left"/>
                                         </Border>
                                     </ControlTemplate>
                                 </ProgressBar.Template>
                             </ProgressBar>
 
                             <TextBlock x:Name="TimerText" 
-               Grid.Column="1"
-               Margin="10,0,0,0"
-               FontSize="16"
-               FontWeight="SemiBold"
-               VerticalAlignment="Center"/>
+                                       Grid.Column="1"
+                                       Margin="10,0,0,0"
+                                       FontSize="16"
+                                       FontWeight="SemiBold"
+                                       VerticalAlignment="Center"/>
                         </Grid>
 
                         <TextBlock x:Name="EventText" TextWrapping="Wrap" 
-                                  FontSize="16" Foreground="#FF333333" Margin="0,0,0,20"
-                                  LineHeight="24"/>
+                                   FontSize="16" Foreground="#FF333333" Margin="0,0,0,20"
+                                   LineHeight="24"/>
 
                         <StackPanel x:Name="OptionsPanel" Margin="0,10,0,25"/>
 
@@ -338,6 +318,7 @@
                 </ScrollViewer>
             </Border>
 
+            <!-- Правая панель - характеристики -->
             <Border Grid.Column="1" Margin="10,0,0,0" Background="White" 
                     CornerRadius="6" BorderBrush="#FFCCCCCC" BorderThickness="1">
                 <Grid>
@@ -350,194 +331,196 @@
                         <StackPanel Margin="15">
                             <TextBlock Text="ХАРАКТЕРИСТИКИ" Style="{StaticResource HeaderText}" FontSize="24"/>
 
-                            <StackPanel Margin="0,0,0,20">
+                            <StackPanel Margin="0,0,0,15">
                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                                     <TextBlock Text="Знания:" 
-          Foreground="#FF333333" 
-          FontWeight="SemiBold" 
-          FontSize="18"
-          ToolTip="{StaticResource KnowledgeTooltip}"/>
+                                               Foreground="#FF333333" 
+                                               FontWeight="SemiBold" 
+                                               FontSize="18"
+                                               ToolTip="{StaticResource KnowledgeTooltip}"/>
                                     <TextBlock x:Name="KnowledgeText" Foreground="#FF2E7D32" 
-                      HorizontalAlignment="Right" Margin="5,0,0,0"/>
+                                               HorizontalAlignment="Right" Margin="5,0,0,0"/>
                                     <TextBlock x:Name="KnowledgeChangeText" Foreground="#FF2E7D32" 
-                      Margin="5,0,0,0" FontSize="14"/>
+                                               Margin="5,0,0,0" FontSize="14"/>
                                 </StackPanel>
                                 <ProgressBar x:Name="KnowledgeProgress" 
-             Style="{StaticResource AnimatedProgressBar}"
-             Foreground="#FF4CAF50" 
-             Height="22"/>
+                                             Style="{StaticResource AnimatedProgressBar}"
+                                             Foreground="#FF4CAF50" 
+                                             Height="20"
+                                             Margin="0,5,0,0"/>
                             </StackPanel>
 
-                            <StackPanel Margin="0,0,0,20">
+                            <StackPanel Margin="0,0,0,15">
                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                                     <TextBlock Text="Осознанность:" 
-          Foreground="#FF333333" 
-          FontWeight="SemiBold" 
-          FontSize="18"
-          ToolTip="{StaticResource AwarenessTooltip}"/>
+                                               Foreground="#FF333333" 
+                                               FontWeight="SemiBold" 
+                                               FontSize="18"
+                                               ToolTip="{StaticResource AwarenessTooltip}"/>
                                     <TextBlock x:Name="AwarenessText" Foreground="#FF1565C0" 
-                      HorizontalAlignment="Right" Margin="5,0,0,0"/>
+                                               HorizontalAlignment="Right" Margin="5,0,0,0"/>
                                     <TextBlock x:Name="AwarenessChangeText" Foreground="#FF1565C0" 
-                      Margin="5,0,0,0" FontSize="14"/>
+                                               Margin="5,0,0,0" FontSize="14"/>
                                 </StackPanel>
                                 <ProgressBar x:Name="AwarenessProgress"
-             Style="{StaticResource AnimatedProgressBar}"
-             Foreground="#FF2196F3" 
-             Height="22"/>
+                                             Style="{StaticResource AnimatedProgressBar}"
+                                             Foreground="#FF2196F3" 
+                                             Height="20"
+                                             Margin="0,5,0,0"/>
                             </StackPanel>
 
-                            <StackPanel Margin="0,0,0,20">
+                            <StackPanel Margin="0,0,0,15">
                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                                     <TextBlock Text="Мотивация:" 
-          Foreground="#FF333333" 
-          FontWeight="SemiBold" 
-          FontSize="18"
-          ToolTip="{StaticResource MotivationTooltip}"/>
+                                               Foreground="#FF333333" 
+                                               FontWeight="SemiBold" 
+                                               FontSize="18"
+                                               ToolTip="{StaticResource MotivationTooltip}"/>
                                     <TextBlock x:Name="MotivationText" Foreground="#FF6A1B9A" 
-                      HorizontalAlignment="Right" Margin="5,0,0,0"/>
+                                               HorizontalAlignment="Right" Margin="5,0,0,0"/>
                                     <TextBlock x:Name="MotivationChangeText" Foreground="#FF6A1B9A" 
-                      Margin="5,0,0,0" FontSize="14"/>
+                                               Margin="5,0,0,0" FontSize="14"/>
                                 </StackPanel>
-
                                 <ProgressBar x:Name="MotivationProgress"
-             Style="{StaticResource AnimatedProgressBar}"
-             Foreground="#FF9C27B0" 
-             Height="23"/>
+                                             Style="{StaticResource AnimatedProgressBar}"
+                                             Foreground="#FF9C27B0" 
+                                             Height="20"
+                                             Margin="0,5,0,0"/>
                             </StackPanel>
 
-                            <StackPanel x:Name="AdvancedStatsPanel" Visibility="Collapsed" Margin="0,0,0,20">
-                                <!-- Существующая панель устойчивости -->
+                            <StackPanel x:Name="AdvancedStatsPanel" Visibility="Collapsed" Margin="0,0,0,15">
                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
                                     <TextBlock Text="Устойчивость:" 
-                  Foreground="#FF333333" 
-                  FontWeight="SemiBold"
-                  ToolTip="Каждые 10 единиц устойчивости снижают получаемый урон на 5% (максимум 50%)"/>
+                                               Foreground="#FF333333" 
+                                               FontWeight="SemiBold"
+                                               ToolTip="{StaticResource ResilienceTooltip}"/>
                                     <TextBlock x:Name="ResilienceText" 
-                  Foreground="#FF37474F" 
-                  HorizontalAlignment="Right" 
-                  Margin="5,0,0,0"/>
+                                               Foreground="#FF37474F" 
+                                               HorizontalAlignment="Right" 
+                                               Margin="5,0,0,0"/>
                                     <TextBlock x:Name="ResilienceChangeText" 
-                  Foreground="#FF37474F" 
-                  Margin="5,0,0,0" 
-                  FontSize="14"/>
+                                               Foreground="#FF37474F" 
+                                               Margin="5,0,0,0" 
+                                               FontSize="14"/>
                                 </StackPanel>
                                 <ProgressBar x:Name="ResilienceProgress" 
-             Style="{StaticResource AnimatedProgressBar}"
-             Foreground="#FF607D8B"/>
+                                             Style="{StaticResource AnimatedProgressBar}"
+                                             Foreground="#FF607D8B"
+                                             Height="20"
+                                             Margin="0,5,0,0"/>
 
-                                <!-- Добавьте панель креативности -->
                                 <StackPanel Orientation="Horizontal" Margin="0,10,0,5">
                                     <TextBlock Text="Креативность:" 
-                  Foreground="#FF333333" 
-                  FontWeight="SemiBold"/>
+                                               Foreground="#FF333333" 
+                                               FontWeight="SemiBold"/>
                                     <TextBlock x:Name="CreativityText" 
-                  Foreground="#FF37474F" 
-                  HorizontalAlignment="Right" 
-                  Margin="5,0,0,0"/>
+                                               Foreground="#FF37474F" 
+                                               HorizontalAlignment="Right" 
+                                               Margin="5,0,0,0"/>
                                     <TextBlock x:Name="CreativityChangeText" 
-                  Foreground="#FF37474F" 
-                  Margin="5,0,0,0" 
-                  FontSize="14"/>
+                                               Foreground="#FF37474F" 
+                                               Margin="5,0,0,0" 
+                                               FontSize="14"/>
                                 </StackPanel>
                                 <ProgressBar x:Name="CreativityProgress" 
-             Style="{StaticResource AnimatedProgressBar}"
-             Foreground="#FF607D8B"/>
+                                             Style="{StaticResource AnimatedProgressBar}"
+                                             Foreground="#FF607D8B"
+                                             Height="20"
+                                             Margin="0,5,0,0"/>
                             </StackPanel>
-                            <!-- Добавьте эту секцию прогресса уровня перед закрывающим тегом StackPanel в секции характеристик -->
-                            <StackPanel Margin="0,25,0,15">
+
+                            <StackPanel Margin="0,25,0,0">
                                 <TextBlock Text="Прогресс уровня:" 
-              Foreground="#FF333333" 
-              FontWeight="SemiBold" 
-              Margin="0,0,0,5" 
-              FontSize="18"/>
+                                           Foreground="#FF333333" 
+                                           FontWeight="SemiBold" 
+                                           Margin="0,0,0,5" 
+                                           FontSize="18"/>
                                 <ProgressBar x:Name="LevelProgress" 
-             Style="{StaticResource AnimatedProgressBar}"
-             Foreground="#FFFB8C00" 
-             Height="23"/>
+                                             Style="{StaticResource AnimatedProgressBar}"
+                                             Foreground="#FFFB8C00" 
+                                             Height="20"/>
                                 <TextBlock x:Name="LevelText" 
-              FontSize="14"
-              Foreground="#FFFB8C00" 
-              HorizontalAlignment="Center"
-              Margin="0,5,0,0"/>
+                                           FontSize="14"
+                                           Foreground="#FFFB8C00" 
+                                           HorizontalAlignment="Center"
+                                           Margin="0,5,0,0"/>
                             </StackPanel>
                         </StackPanel>
                     </ScrollViewer>
 
                     <Border Grid.Row="1" Background="#FFF5F5F5" BorderBrush="#FFCCCCCC" 
-                            BorderThickness="0,1,0,0" Padding="10">
-                        <TextBlock Text="АКТИВНЫЕ ЭФФЕКТЫ" FontWeight="Bold" 
-                                  Foreground="#FF0078D7" Margin="0,0,0,5" FontSize="18"/>
+                            BorderThickness="0,1,0,0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="АКТИВНЫЕ ЭФФЕКТЫ" 
+                                       FontWeight="Bold" 
+                                       Foreground="#FF0078D7" 
+                                       Margin="10,10,10,5" 
+                                       FontSize="18"/>
+
+                            <ScrollViewer Grid.Row="1" 
+                                          VerticalScrollBarVisibility="Auto" 
+                                          Margin="0,0,0,10">
+                                <ItemsControl x:Name="ActiveEffectsDisplay">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Margin="10,5" 
+                                                    Padding="12,8" 
+                                                    BorderThickness="1"
+                                                    BorderBrush="{Binding BorderColor}"
+                                                    Background="{Binding BackgroundColor}" 
+                                                    CornerRadius="6">
+                                                <StackPanel>
+                                                    <DockPanel LastChildFill="True">
+                                                        <TextBlock Text="{Binding RemainingTurns}" 
+                                                                   Foreground="{Binding TextColor}"
+                                                                   FontWeight="Bold"
+                                                                   DockPanel.Dock="Right"/>
+                                                        <TextBlock Text="{Binding Name}" 
+                                                                   Foreground="{Binding TextColor}"
+                                                                   FontWeight="Bold"/>
+                                                    </DockPanel>
+                                                    <ItemsControl ItemsSource="{Binding Effects}">
+                                                        <ItemsControl.ItemTemplate>
+                                                            <DataTemplate>
+                                                                <TextBlock Text="{Binding}"
+                                                                           Foreground="{Binding TextColor}"
+                                                                           Margin="0,2,0,0"/>
+                                                            </DataTemplate>
+                                                        </ItemsControl.ItemTemplate>
+                                                    </ItemsControl>
+                                                </StackPanel>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </ScrollViewer>
+                        </Grid>
                     </Border>
-
-                    <Grid Grid.Row="1" Background="#FFF5F5F5">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-
-                        <TextBlock Text="АКТИВНЫЕ ЭФФЕКТЫ" 
-              FontWeight="Bold" 
-              Foreground="#FF0078D7" 
-              Margin="10,10,10,5" 
-              FontSize="18"/>
-
-                        <ScrollViewer Grid.Row="1" 
-                  VerticalScrollBarVisibility="Auto" 
-                  Margin="0,0,0,10">
-                            <ItemsControl x:Name="ActiveEffectsDisplay">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <Border Margin="10,5" 
-                            Padding="12,8" 
-                            BorderThickness="1"
-                            BorderBrush="{Binding BorderColor}"
-                            Background="{Binding BackgroundColor}" 
-                            CornerRadius="6">
-                                            <StackPanel>
-                                                <DockPanel LastChildFill="True">
-                                                    <TextBlock Text="{Binding RemainingTurns}" 
-                                         Foreground="{Binding TextColor}"
-                                         FontWeight="Bold"
-                                         DockPanel.Dock="Right"/>
-                                                    <TextBlock Text="{Binding Name}" 
-                                         Foreground="{Binding TextColor}"
-                                         FontWeight="Bold"/>
-                                                </DockPanel>
-                                                <ItemsControl ItemsSource="{Binding Effects}">
-                                                    <ItemsControl.ItemTemplate>
-                                                        <DataTemplate>
-                                                            <TextBlock Text="{Binding}"
-                                                 Foreground="{Binding TextColor}"
-                                                 Margin="0,2,0,0"/>
-                                                        </DataTemplate>
-                                                    </ItemsControl.ItemTemplate>
-                                                </ItemsControl>
-                                            </StackPanel>
-                                        </Border>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </ScrollViewer>
-                    </Grid>
                 </Grid>
             </Border>
         </Grid>
+
+        <!-- Панель навыков -->
         <Border x:Name="SkillsPanel" 
-        Grid.Row="2" 
-        Background="White" 
-        Padding="20"
-        BorderBrush="#FFCCCCCC" 
-        BorderThickness="0,1,0,0"
-        Visibility="Collapsed">
+                Grid.Row="2" 
+                Background="White" 
+                Padding="15"
+                BorderBrush="#FFCCCCCC" 
+                BorderThickness="0,1,0,0"
+                Visibility="Collapsed">
             <StackPanel>
                 <TextBlock Text="ДОСТУПНЫЕ НАВЫКИ" 
-                  Style="{StaticResource HeaderText}" 
-                  Margin="0,0,0,15"/>
+                           Style="{StaticResource HeaderText}" 
+                           Margin="0,0,0,15"/>
                 <ScrollViewer HorizontalScrollBarVisibility="Auto" 
-                     VerticalScrollBarVisibility="Disabled"
-                     Margin="0,0,0,10">
+                              VerticalScrollBarVisibility="Disabled">
                     <ItemsControl x:Name="SkillsList" 
-                         ItemTemplate="{StaticResource SkillTemplate}">
+                                 ItemTemplate="{StaticResource SkillTemplate}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel Orientation="Horizontal"/>
@@ -547,17 +530,22 @@
                 </ScrollViewer>
             </StackPanel>
         </Border>
-        <Border Grid.Row="3" Background="White" Padding="15"
+
+        <!-- Панель управления -->
+        <Border Grid.Row="3" Background="White" Padding="10"
                 BorderBrush="#FFCCCCCC" BorderThickness="0,1,0,0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="StartButton" Content="Начать игру" Width="185" 
-                        Click="StartButton_Click" FontSize="16" Height="44"/>
-                <Button x:Name="NextButton" Content="Следующее событие" Width="180" 
+                <Button x:Name="StartButton" Content="Начать игру" 
+                        Width="160" Height="40" 
+                        Click="StartButton_Click" FontSize="16"/>
+                <Button x:Name="NextButton" Content="Следующее событие" 
+                        Width="160" Height="40"
                         Click="NextButton_Click" IsEnabled="False" Margin="15,0" 
-                        FontSize="16" Height="44"/>
-                <Button x:Name="RestartButton" Content="Начать заново" Width="180" 
+                        FontSize="16"/>
+                <Button x:Name="RestartButton" Content="Начать заново" 
+                        Width="160" Height="40"
                         Click="RestartButton_Click" IsEnabled="False" 
-                        FontSize="16" Height="44"/>
+                        FontSize="16"/>
             </StackPanel>
         </Border>
     </Grid>

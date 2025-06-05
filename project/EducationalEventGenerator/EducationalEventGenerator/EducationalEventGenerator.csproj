@@ -59,6 +59,7 @@
     <Compile Include="EffectsDisplay.xaml.cs">
       <DependentUpon>EffectsDisplay.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HighScoreManager.cs" />
     <Compile Include="InfoWindow.xaml.cs">
       <DependentUpon>InfoWindow.xaml</DependentUpon>
     </Compile>

@@ -32,14 +32,13 @@ namespace EducationalEventGenerator
         private int oldMotivation;
         private int oldResilience;
         private int oldCreativity;
-        
-      
 
         public MainWindow()
         {
             InitializeComponent();
             InitializeTimer();
             InitializeSystems();
+            InitializeGame();
 
             // Установка начальных значений
             oldKnowledge = playerStats.Knowledge;
@@ -53,6 +52,55 @@ namespace EducationalEventGenerator
             AdvancedStatsPanel.Visibility = Visibility.Collapsed;
 
             UpdateUI();
+        }
+
+        private void InitializeGame()
+        {
+            // Подписываемся на изменение рекорда
+            playerStats.HighScoreChanged += PlayerStats_HighScoreChanged;
+
+            // Первоначальное обновление отображения рекорда
+            UpdateHighScoreDisplay();
+        }
+
+        private void PlayerStats_HighScoreChanged(object sender, EventArgs e)
+        {
+            UpdateHighScoreDisplay();
+        }
+
+        private void UpdateHighScoreDisplay()
+        {
+            Dispatcher.Invoke(() =>
+            {
+                HighScoreText.Text = $"Рекорд: {playerStats.HighScore} ур.";
+
+                // Анимация при обновлении рекорда
+                if (playerStats.Level == playerStats.HighScore)
+                {
+                    HighScoreText.FontWeight = FontWeights.Bold;
+                    HighScoreText.Foreground = Brushes.Gold;
+
+                    // Анимация пульсации
+                    var animation = new DoubleAnimation
+                    {
+                        From = 1.0,
+                        To = 1.2,
+                        Duration = TimeSpan.FromMilliseconds(500),
+                        AutoReverse = true,
+                        RepeatBehavior = RepeatBehavior.Forever
+                    };
+
+                    HighScoreText.BeginAnimation(ScaleTransform.ScaleXProperty, animation);
+                    HighScoreText.BeginAnimation(ScaleTransform.ScaleYProperty, animation);
+                }
+                else
+                {
+                    HighScoreText.FontWeight = FontWeights.Normal;
+                    HighScoreText.Foreground = Brushes.White;
+                    HighScoreText.BeginAnimation(ScaleTransform.ScaleXProperty, null);
+                    HighScoreText.BeginAnimation(ScaleTransform.ScaleYProperty, null);
+                }
+            });
         }
 
         private void InitializeSystems()
@@ -74,6 +122,7 @@ namespace EducationalEventGenerator
             RestartButton.IsEnabled = true;
             ShowRandomEvent();
         }
+
         private void InitializeTimer()
         {
             timer = new System.Windows.Threading.DispatcherTimer();
@@ -247,6 +296,7 @@ namespace EducationalEventGenerator
                 OptionsPanel.Children.Add(button);
             }
         }
+
         private Option ModifyOption(Option opt, int playerLevel, int eventMinLevel, int creativity, int resilience)
         {
             if (opt == null) return null;
@@ -289,6 +339,7 @@ namespace EducationalEventGenerator
 
             return new Option(optionText, newEffect);
         }
+
         private void ProcessChoice(Option selectedOption)
         {
             timer.Stop();
@@ -350,10 +401,9 @@ namespace EducationalEventGenerator
             {
                 foreach (var tempEffect in selectedOption.Effects.TemporaryEffects)
                 {
-                    
+                    // Добавляем эффекты в список активных
                 }
             }
-
 
             // Анимируем изменения
             AnimateProgressBar(KnowledgeProgress, KnowledgeText, KnowledgeChangeText,
@@ -377,7 +427,6 @@ namespace EducationalEventGenerator
             LevelProgress.Maximum = playerStats.ExperienceToNextLevel;
             LevelText.Text = $"Уровень {playerStats.Level} ({playerStats.Experience}/{playerStats.ExperienceToNextLevel})";
 
-            // Показываем итоговые изменения
             // Показываем итоговые изменения
             report.AppendLine("\nИтоговые изменения характеристик:");
 
@@ -411,7 +460,6 @@ namespace EducationalEventGenerator
             }
         }
 
-        // Вспомогательные методы
         private void DescribeEffects(Effect effects, StringBuilder report, double damageReduction, PlayerStats stats)
         {
             if (effects.KnowledgeEffect != 0)
@@ -426,6 +474,7 @@ namespace EducationalEventGenerator
                 DescribeEffect(report, "Мотивация", effects.MotivationEffect, damageReduction,
                     stats._skillSystem.HasSkill("Самомотивация"), 0.1, "Самомотивация");
         }
+
         private void InfoButton_Click(object sender, RoutedEventArgs e)
         {
             var infoWindow = new InfoWindow();
@@ -444,6 +493,7 @@ namespace EducationalEventGenerator
             // Убираем эффект размытия
             this.Effect = null;
         }
+
         private void DescribeEffect(StringBuilder report, string statName, int effect, double damageReduction,
             bool hasSkill, double skillBonus, string skillName)
         {
@@ -468,6 +518,7 @@ namespace EducationalEventGenerator
         {
             return effects.KnowledgeEffect < 0 || effects.AwarenessEffect < 0 || effects.MotivationEffect < 0;
         }
+
         private void DescribeActiveEffects(List<TemporaryEffect> effects, StringBuilder report)
         {
             if (effects.Any(e => e.Duration > 0))
@@ -517,12 +568,12 @@ namespace EducationalEventGenerator
         {
             var changes = new[]
             {
-        ("Знания", playerStats.Knowledge - oldKnowledge),
-        ("Осознанность", playerStats.Awareness - oldAwareness),
-        ("Мотивация", playerStats.Motivation - oldMotivation),
-        ("Устойчивость", playerStats.Resilience - oldResilience),
-        ("Креативность", playerStats.Creativity - oldCreativity)
-    };
+                ("Знания", playerStats.Knowledge - oldKnowledge),
+                ("Осознанность", playerStats.Awareness - oldAwareness),
+                ("Мотивация", playerStats.Motivation - oldMotivation),
+                ("Устойчивость", playerStats.Resilience - oldResilience),
+                ("Креативность", playerStats.Creativity - oldCreativity)
+            };
 
             bool hasChanges = false;
             foreach (var (stat, change) in changes)
@@ -547,17 +598,16 @@ namespace EducationalEventGenerator
         private void UpdateActiveEffectsDisplay()
         {
             var effectsToDisplay = playerStats.ActiveEffects
-
-                 .Where(e => e.Duration > 0)
+                .Where(e => e.Duration > 0)
                 .Select(e => new
                 {
                     Name = e.Name,
                     RemainingTurns = $"Осталось ходов: {e.Duration}",
                     Effects = new List<string>
                     {
-                e.KnowledgeEffect != 0 ? $"Знания: {(e.KnowledgeEffect > 0 ? "+" : "")}{e.KnowledgeEffect}" : null,
-                e.AwarenessEffect != 0 ? $"Осознанность: {(e.AwarenessEffect > 0 ? "+" : "")}{e.AwarenessEffect}" : null,
-                e.MotivationEffect != 0 ? $"Мотивация: {(e.MotivationEffect > 0 ? "+" : "")}{e.MotivationEffect}" : null
+                        e.KnowledgeEffect != 0 ? $"Знания: {(e.KnowledgeEffect > 0 ? "+" : "")}{e.KnowledgeEffect}" : null,
+                        e.AwarenessEffect != 0 ? $"Осознанность: {(e.AwarenessEffect > 0 ? "+" : "")}{e.AwarenessEffect}" : null,
+                        e.MotivationEffect != 0 ? $"Мотивация: {(e.MotivationEffect > 0 ? "+" : "")}{e.MotivationEffect}" : null
                     }.Where(s => s != null),
                     TextColor = IsPositiveEffect(e) ? new SolidColorBrush(Colors.DarkGreen) : new SolidColorBrush(Colors.DarkRed),
                     BackgroundColor = IsPositiveEffect(e) ? new SolidColorBrush(Color.FromRgb(220, 255, 220)) : new SolidColorBrush(Color.FromRgb(255, 220, 220)),
@@ -575,8 +625,6 @@ namespace EducationalEventGenerator
                    effect.MotivationEffect >= 0;
         }
 
-
-
         private bool CheckGameOver()
         {
             if (playerStats.Knowledge <= 0 || playerStats.Awareness <= 0 || playerStats.Motivation <= 0)
@@ -591,7 +639,6 @@ namespace EducationalEventGenerator
             return false;
         }
 
-        
         private void MotivationProgress_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             // Логика при необходимости (можно оставить пустым)
@@ -617,8 +664,9 @@ namespace EducationalEventGenerator
                 }
             }
         }
+
         private void AnimateProgressBar(ProgressBar progressBar, TextBlock valueText, TextBlock changeText,
-    int oldValue, int newValue, string format = "0")
+            int oldValue, int newValue, string format = "0")
         {
             var animation = new DoubleAnimation
             {

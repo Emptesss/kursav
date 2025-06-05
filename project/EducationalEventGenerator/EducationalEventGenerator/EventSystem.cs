@@ -1,5 +1,4 @@
-﻿// EventSystem.cs — Enhanced & Balanced Version
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,16 +10,37 @@ namespace EducationalEventGenerator
         private List<Event> timedEvents = new List<Event>();
         private List<EventChain> eventChains = new List<EventChain>();
         private Random random = new Random();
-        private List<int> usedEventIndices = new List<int>();
-        private int lastEventIndex = -1;
+
+        // Трекер использованных событий
+        private HashSet<int> usedBaseEventIndices = new HashSet<int>();
+        private HashSet<int> usedTimedEventIndices = new HashSet<int>();
+        private int lastBaseEventIndex = -1;
+        private int lastTimedEventIndex = -1;
 
         public Event GetRandomTimedEvent(int playerLevel)
         {
-            var availableTimedEvents = timedEvents.Where(e => e.MinLevel <= playerLevel).ToList();
-            if (!availableTimedEvents.Any())
-                return GenerateEvent(playerLevel);
+            var availableTimedEvents = timedEvents
+                .Where((e, index) => !usedTimedEventIndices.Contains(index) && index != lastTimedEventIndex)
+                .Where(e => e.MinLevel <= playerLevel)
+                .ToList();
 
-            return availableTimedEvents[random.Next(availableTimedEvents.Count)];
+            if (!availableTimedEvents.Any())
+            {
+                // Если все события использованы, сбрасываем трекер
+                usedTimedEventIndices.Clear();
+                availableTimedEvents = timedEvents
+                    .Where(e => e.MinLevel <= playerLevel)
+                    .ToList();
+
+                if (!availableTimedEvents.Any())
+                    return GenerateEvent(playerLevel);
+            }
+
+            var selectedEvent = availableTimedEvents[random.Next(availableTimedEvents.Count)];
+            lastTimedEventIndex = timedEvents.IndexOf(selectedEvent);
+            usedTimedEventIndices.Add(lastTimedEventIndex);
+
+            return selectedEvent;
         }
 
         public void InitializeEvents()
@@ -28,106 +48,72 @@ namespace EducationalEventGenerator
             baseEvents.Clear();
             timedEvents.Clear();
             eventChains.Clear();
+            usedBaseEventIndices.Clear();
+            usedTimedEventIndices.Clear();
+            lastBaseEventIndex = -1;
+            lastTimedEventIndex = -1;
+
             AddBasicEvents();
             AddTimedEvents();
             AddIntermediateEvents();
             AddBasicTrainingEvents();
             AddCombinedSkillEvents();
             AddAdvancedEvents();
-                AddCreativityEvents(); // Добавляем креативные события
-            AddResilienceBossEvents(); 
+            AddCreativityEvents();
+            AddResilienceBossEvents();
             InitializeEventChains();
-        }
-        private bool CanAccessCreativeOption(Option option, int playerCreativity, int playerResilience)
-        {
-            if (option.Effects.RequiredCreativity > 0 && playerCreativity < option.Effects.RequiredCreativity)
-                return false;
-
-            if (option.Effects.RequiredSkills?.Contains("Устойчивость") == true && playerResilience < 30)
-                return false;
-
-            return true;
         }
 
         public Event GenerateEvent(int playerLevel, int creativity = 0, int resilience = 0)
         {
-            // Если у события есть опции требующие определенного уровня характеристик,
-            // нам нужно создать новое событие с только доступными опциями
-
-            if (usedEventIndices.Count >= baseEvents.Count * 0.7)
-                usedEventIndices.Clear();
-
-            var availableEvents = new List<Event>();
-
-            // Пробуем сгенерировать креативное событие
-            double creativeChance = Math.Min(0.4, 0.1 + (creativity / 100.0));
-            if (playerLevel >= 6 && random.NextDouble() < creativeChance)
+            // Сначала проверяем таймерные события (20% шанс)
+            if (random.NextDouble() < 0.20)
             {
-                var creativeEvents = baseEvents
-                    .Where(e => e.Options.Any(o => o.Effects.CreativityEffect > 0))
-                    .Where(e => e.MinLevel <= playerLevel)
-                    .ToList();
-
-                availableEvents.AddRange(creativeEvents);
+                var timedEvent = GetRandomTimedEvent(playerLevel);
+                if (timedEvent != null)
+                    return timedEvent;
             }
 
-            // Пробуем добавить босс-события
+            // Проверяем босс-события (10-30% шанс в зависимости от уровня)
             double bossChance = Math.Min(0.3, 0.1 + (playerLevel - 6) * 0.02 + (creativity + resilience) / 400.0);
             if (playerLevel >= 6 && random.NextDouble() < bossChance)
             {
-                var bossEvents = baseEvents
-                    .Where(e => e.IsBossEvent && e.MinLevel <= playerLevel)
-                    .ToList();
-
-                availableEvents.AddRange(bossEvents);
+                var bossEvent = GetRandomBossEvent(playerLevel);
+                if (bossEvent != null)
+                    return bossEvent;
             }
 
-            // Добавляем продвинутые события
-            if (playerLevel >= 6 && random.NextDouble() < 0.25)
+            // Проверяем креативные события (10-40% шанс)
+            double creativeChance = Math.Min(0.4, 0.1 + (creativity / 100.0));
+            if (playerLevel >= 6 && random.NextDouble() < creativeChance)
             {
-                var advancedEvents = baseEvents
-                    .Where(e => e.MinLevel >= 6 && e.MinLevel <= playerLevel)
-                    .ToList();
-
-                availableEvents.AddRange(advancedEvents);
+                var creativeEvent = GetRandomCreativeEvent(playerLevel);
+                if (creativeEvent != null)
+                    return creativeEvent;
             }
 
-            // Добавляем тайм-ивенты
-            if (random.NextDouble() < 0.20)
-            {
-                var timedEventsFiltered = timedEvents
-                    .Where(e => e.MinLevel <= playerLevel)
-                    .ToList();
+            // Основной пул событий
+            var availableEvents = baseEvents
+                .Where((e, index) => !usedBaseEventIndices.Contains(index) && index != lastBaseEventIndex)
+                .Where(e => e.MinLevel <= playerLevel)
+                .ToList();
 
-                if (timedEventsFiltered.Any())
-                    return timedEventsFiltered[random.Next(timedEventsFiltered.Count)];
-            }
-
-            // Добавляем обычные события если нет других
-            if (!availableEvents.Any())
+            // Если доступных событий мало, сбрасываем трекер
+            if (availableEvents.Count <= baseEvents.Count * 0.3)
             {
-                availableEvents = baseEvents
-                    .Where(e => e.MinLevel <= playerLevel)
-                    .Where(e => !usedEventIndices.Contains(baseEvents.IndexOf(e)))
-                    .Where(e => baseEvents.IndexOf(e) != lastEventIndex)
-                    .ToList();
-            }
-
-            // Если все ещё нет событий, берем все доступные по уровню
-            if (!availableEvents.Any())
-            {
+                usedBaseEventIndices.Clear();
                 availableEvents = baseEvents
                     .Where(e => e.MinLevel <= playerLevel)
                     .ToList();
             }
 
             if (!availableEvents.Any())
-                return null; // Если совсем нет событий
+                return null;
 
-            // Выбираем случайное событие из доступных
+            // Выбираем случайное событие
             var selectedEvent = availableEvents[random.Next(availableEvents.Count)];
-            lastEventIndex = baseEvents.IndexOf(selectedEvent);
-            usedEventIndices.Add(lastEventIndex);
+            lastBaseEventIndex = baseEvents.IndexOf(selectedEvent);
+            usedBaseEventIndices.Add(lastBaseEventIndex);
 
             // Фильтруем опции по доступности и модифицируем их
             var modifiedOptions = selectedEvent.Options
@@ -148,6 +134,41 @@ namespace EducationalEventGenerator
                 selectedEvent.MinLevel,
                 selectedEvent.IsBossEvent
             );
+        }
+
+        private Event GetRandomBossEvent(int playerLevel)
+        {
+            var bossEvents = baseEvents
+                .Where((e, index) => !usedBaseEventIndices.Contains(index) && index != lastBaseEventIndex)
+                .Where(e => e.IsBossEvent && e.MinLevel <= playerLevel)
+                .ToList();
+
+            if (!bossEvents.Any())
+                return null;
+
+            var selectedEvent = bossEvents[random.Next(bossEvents.Count)];
+            lastBaseEventIndex = baseEvents.IndexOf(selectedEvent);
+            usedBaseEventIndices.Add(lastBaseEventIndex);
+
+            return selectedEvent;
+        }
+
+        private Event GetRandomCreativeEvent(int playerLevel)
+        {
+            var creativeEvents = baseEvents
+                .Where((e, index) => !usedBaseEventIndices.Contains(index) && index != lastBaseEventIndex)
+                .Where(e => e.Options.Any(o => o.Effects.CreativityEffect > 0))
+                .Where(e => e.MinLevel <= playerLevel)
+                .ToList();
+
+            if (!creativeEvents.Any())
+                return null;
+
+            var selectedEvent = creativeEvents[random.Next(creativeEvents.Count)];
+            lastBaseEventIndex = baseEvents.IndexOf(selectedEvent);
+            usedBaseEventIndices.Add(lastBaseEventIndex);
+
+            return selectedEvent;
         }
 
         private bool IsOptionAvailable(Option option, int creativity, int resilience)
@@ -501,7 +522,7 @@ namespace EducationalEventGenerator
                 new List<Option> {
         new Option("Разобраться самому, даже если долго", new Effect(10, 10, 5)), // Лучший
         new Option("Спросить у коллег, но не вникать", new Effect(5, 0, 0)), // Нейтральный
-        new Option("Сделать кое-как", new Effect(-5, -5, 0)) // Худший
+        new Option("Сделать кое-как", new Effect(-5, -5, -5)) // Худший
                 },
                 "Лучше потратить время на обучение, чем делать некачественно.",
                 2
@@ -627,8 +648,6 @@ namespace EducationalEventGenerator
                 "Критика — это не всегда нападение, иногда это помощь.",
                 2
             ));
-
-            // Остальные 5 вопросов (с рандомным порядком лучших вариантов)
 
             baseEvents.Add(new Event(
                 "Сон",
@@ -1298,10 +1317,10 @@ baseEvents.Add(new Event(
                 3
             ));
 
-            // Продвинутое событие на креативность
+            
             baseEvents.Add(new Event(
                 "Инновационное решение",
-                "Команда застряла на сложной архитектурной проблеме. Ваши действия?",
+                "Команда застряла на сложной задаче. Ваши действия?",
                 new List<Option> {
             new Option("Провести мозговой штурм",
                 new Effect(20, 15, 10) {
@@ -1374,15 +1393,6 @@ baseEvents.Add(new Event(
                 11
             ));
         }
-
-        
-
-        private Event GetRandomBossEvent(int playerLevel)
-        {
-            var bossEvents = baseEvents.Where(e => e.IsBossEvent && e.MinLevel <= playerLevel).ToList();
-            return bossEvents.Count > 0 ? bossEvents[random.Next(bossEvents.Count)] : GenerateEvent(playerLevel);
-        }
-
         public EventChain GetEventChain(string chainId)
         {
             return eventChains.FirstOrDefault(c => c.Id == chainId);
