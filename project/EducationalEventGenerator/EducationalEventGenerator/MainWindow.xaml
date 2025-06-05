@@ -130,13 +130,13 @@
 
         <DataTemplate x:Key="SkillTemplate">
             <Border Background="#FFF0F0F0" 
-                    BorderBrush="{Binding StatusColor}" 
-                    BorderThickness="2"
-                    CornerRadius="6" 
-                    Padding="15" 
-                    Margin="8" 
-                    Width="240" 
-                    Height="170">
+            BorderBrush="{Binding StatusColor}" 
+            BorderThickness="2"
+            CornerRadius="6" 
+            Padding="12" 
+            Margin="6" 
+            Width="200" 
+            Height="160">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -146,33 +146,33 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Text="{Binding Name}" 
-                               FontWeight="Bold"
-                               Foreground="#FF333333" 
-                               FontSize="16"
-                               TextWrapping="Wrap"/>
+                       FontWeight="Bold"
+                       Foreground="#FF333333" 
+                       FontSize="14"
+                       TextWrapping="Wrap"/>
 
                     <TextBlock Grid.Row="1" 
-                               Text="{Binding Description}"
-                               Foreground="#FF666666" 
-                               FontSize="14"
-                               TextWrapping="Wrap" 
-                               Margin="0,8,0,0"/>
+                       Text="{Binding Description}"
+                       Foreground="#FF666666" 
+                       FontSize="12"
+                       TextWrapping="Wrap" 
+                       Margin="0,4,0,0"/>
 
                     <TextBlock Grid.Row="2" 
-                               Text="{Binding RequirementsText}"
-                               Foreground="#FF777777" 
-                               FontSize="12"
-                               TextWrapping="Wrap" 
-                               Margin="0,8,0,0"/>
+                       Text="{Binding RequirementsText}"
+                       Foreground="#FF777777" 
+                       FontSize="11"
+                       TextWrapping="Wrap" 
+                       Margin="0,8,0,0"/>
 
                     <CheckBox Grid.Row="3"
-                              IsChecked="{Binding IsAcquired, Mode=TwoWay}"
-                              IsEnabled="{Binding CanAcquire}"
-                              Content="{Binding IsAcquired, Converter={StaticResource AcquiredConverter}}"
-                              Foreground="#FF333333"
-                              HorizontalAlignment="Center"
-                              Margin="0,12,0,0"
-                              Checked="SkillCheckBox_Changed"/>
+                      IsChecked="{Binding IsAcquired, Mode=TwoWay}"
+                      IsEnabled="{Binding CanAcquire}"
+                      Content="{Binding IsAcquired, Converter={StaticResource AcquiredConverter}}"
+                      Foreground="#FF333333"
+                      HorizontalAlignment="Center"
+                      Margin="0,8,0,0"
+                      Checked="SkillCheckBox_Changed"/>
                 </Grid>
             </Border>
         </DataTemplate>
@@ -506,28 +506,63 @@
         </Grid>
 
         <!-- Панель навыков -->
+        <!-- Панель навыков -->
         <Border x:Name="SkillsPanel" 
-                Grid.Row="2" 
-                Background="White" 
-                Padding="15"
-                BorderBrush="#FFCCCCCC" 
-                BorderThickness="0,1,0,0"
-                Visibility="Collapsed">
+        Grid.Row="2" 
+        Background="White" 
+        BorderBrush="#FFCCCCCC" 
+        BorderThickness="0,1,0,0"
+        Visibility="Collapsed">
             <StackPanel>
-                <TextBlock Text="ДОСТУПНЫЕ НАВЫКИ" 
-                           Style="{StaticResource HeaderText}" 
-                           Margin="0,0,0,15"/>
-                <ScrollViewer HorizontalScrollBarVisibility="Auto" 
-                              VerticalScrollBarVisibility="Disabled">
-                    <ItemsControl x:Name="SkillsList" 
-                                 ItemTemplate="{StaticResource SkillTemplate}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                    </ItemsControl>
-                </ScrollViewer>
+                <Grid Margin="15,15,15,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="ДОСТУПНЫЕ НАВЫКИ" 
+                       Style="{StaticResource HeaderText}" 
+                       Margin="0"/>
+
+                    <ToggleButton x:Name="SkillsPanelToggle"
+                         Grid.Column="1"
+                         Width="24"
+                         Height="24"
+                         Click="SkillsPanelToggle_Click">
+                        <ToggleButton.Template>
+                            <ControlTemplate TargetType="ToggleButton">
+                                <Border Background="Transparent">
+                                    <Path x:Name="Arrow"
+                                  Data="M 0,0 L 8,8 L 16,0"
+                                  Stroke="#FF0078D7"
+                                  StrokeThickness="2"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsChecked" Value="True">
+                                        <Setter TargetName="Arrow" Property="Data" 
+                                        Value="M 0,8 L 8,0 L 16,8"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </ToggleButton.Template>
+                    </ToggleButton>
+                </Grid>
+
+                <Grid x:Name="SkillsContent" Margin="15,0,15,15">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" 
+                          VerticalScrollBarVisibility="Disabled">
+                        <ItemsControl x:Name="SkillsList" 
+                             ItemTemplate="{StaticResource SkillTemplate}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Grid>
             </StackPanel>
         </Border>
 

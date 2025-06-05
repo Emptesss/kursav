@@ -45,11 +45,31 @@ namespace EducationalEventGenerator
             var requirementTexts = new List<string>();
 
             if (RequiredLevel > 0)
-                requirementTexts.Add($"Требуется уровень: {RequiredLevel}");
+                requirementTexts.Add($"Требуемый уровень: {RequiredLevel}");
 
             foreach (var requirement in Requirements)
             {
-                requirementTexts.Add($"{requirement.Key}: {requirement.Value}");
+                switch (requirement.Key)
+                {
+                    case "Knowledge":
+                        requirementTexts.Add($"Требуемые знания: {requirement.Value}");
+                        break;
+                    case "Awareness":
+                        requirementTexts.Add($"Требуемая осознанность: {requirement.Value}");
+                        break;
+                    case "Motivation":
+                        requirementTexts.Add($"Требуемая мотивация: {requirement.Value}");
+                        break;
+                    case "Resilience":
+                        requirementTexts.Add($"Требуемая устойчивость: {requirement.Value}");
+                        break;
+                    case "Creativity":
+                        requirementTexts.Add($"Требуемая креативность: {requirement.Value}");
+                        break;
+                    default:
+                        requirementTexts.Add($"{requirement.Key}: {requirement.Value}");
+                        break;
+                }
             }
 
             return requirementTexts.Count > 0 ?

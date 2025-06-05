@@ -355,17 +355,14 @@ namespace EducationalEventGenerator
             int oldExp = playerStats.Experience;
 
             var report = new StringBuilder();
-            report.AppendLine("\nВыбранное действие:");
-            report.AppendLine(selectedOption.Text);
-
+          
             double damageReduction = Math.Min(0.5, playerStats.Resilience / 200.0);
 
             // Описываем базовые эффекты
-            report.AppendLine("\n1. Базовые эффекты от выбора:");
-            Logger.Log($"Базовые эффекты выбора '{selectedOption.Text}':");
+           
 
             // Показываем базовые эффекты для всех характеристик до их применения
-            DescribeEffects(selectedOption.Effects, report, damageReduction, playerStats);
+           
 
             // Показываем текущую защиту от урона
             if (damageReduction > 0 && HasNegativeEffects(selectedOption.Effects))
@@ -377,15 +374,10 @@ namespace EducationalEventGenerator
             }
 
             // Показываем активные эффекты до применения новых
-            report.AppendLine("\n2. Активные временные эффекты:");
-            DescribeActiveEffects(activeEffects, report);
+           
 
             // Показываем новые временные эффекты
-            if (selectedOption.Effects.TemporaryEffects?.Any() == true)
-            {
-                report.AppendLine("\n3. Новые временные эффекты:");
-                DescribeTemporaryEffects(selectedOption.Effects.TemporaryEffects, report);
-            }
+            
 
             // Применяем эффекты ОДИН раз
             playerStats.ApplyEffects(selectedOption.Effects);
@@ -701,6 +693,17 @@ namespace EducationalEventGenerator
                 changeText.Text = "";
             }
         }
+        private void SkillsPanelToggle_Click(object sender, RoutedEventArgs e)
+        {
+            if (SkillsPanelToggle.IsChecked == true)
+            {
+                SkillsContent.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                SkillsContent.Visibility = Visibility.Visible;
+            }
+        }
 
         private void UpdateUI()
         {
@@ -726,10 +729,12 @@ namespace EducationalEventGenerator
             // Проверяем уровень для показа панели навыков
             if (playerStats.Level >= 5)
             {
-                // Показываем панель навыков
                 SkillsPanel.Visibility = Visibility.Visible;
                 var availableSkills = skillSystem.GetAvailableSkills(playerStats);
                 SkillsList.ItemsSource = availableSkills;
+                // Показываем содержимое по умолчанию
+                SkillsContent.Visibility = Visibility.Visible;
+                SkillsPanelToggle.IsChecked = false;
             }
             else
             {
