@@ -13,6 +13,8 @@ namespace EducationalEventGenerator
         public int CreativityEffect { get; set; }
         public int ExperienceGain { get; set; }
         public string RequiredSkill { get; set; }
+
+        public bool IsBossEvent { get; set; }
         public List<string> RequiredSkills { get; set; }
         public string SkillDescription { get; set; }
         public int? RequiredCreativity { get; set; }
@@ -38,6 +40,7 @@ namespace EducationalEventGenerator
             KnowledgeEffect = knowledge;
             AwarenessEffect = awareness;
             MotivationEffect = motivation;
+            IsBossEvent = false;
         }
 
         // Метод для создания модифицированной копии эффекта

@@ -50,7 +50,9 @@ namespace EducationalEventGenerator
             int startKnowledge = Knowledge;
             int startAwareness = Awareness;
             int startMotivation = Motivation;
-            int startExp = Experience;
+
+            // Определяем базовый опыт сразу
+            int expGain = effects.IsBossEvent ? 20 : 10;
 
             Logger.Log("\nНачало применения эффектов:");
 
@@ -74,8 +76,6 @@ namespace EducationalEventGenerator
             {
                 Logger.Log("Нет активных временных эффектов");
             }
-
-            Experience += 10;
 
             int ModifyEffect(int effect, string skillName, double bonus)
             {
@@ -108,10 +108,6 @@ namespace EducationalEventGenerator
 
             if (effects.TemporaryEffects?.Any() == true)
             {
-                int tempExp = effects.TemporaryEffects.Count * 5;
-                Experience += tempExp;
-                Logger.Log($"Получен дополнительный опыт за временные эффекты: +{tempExp}");
-
                 foreach (var tempEffect in effects.TemporaryEffects)
                     ActiveEffects.Add(tempEffect.Clone());
             }
@@ -136,16 +132,19 @@ namespace EducationalEventGenerator
                 }
             }
 
+            // Начисляем опыт после всех эффектов
+            Experience += expGain;
             Logger.Log($"Текущий опыт: {Experience}/{ExperienceToNextLevel}");
 
             int preLevel = Level;
             CheckLevelUp();
 
+            // Вычисляем изменения характеристик
             int knowledgeChange = Knowledge - startKnowledge;
             int awarenessChange = Awareness - startAwareness;
             int motivationChange = Motivation - startMotivation;
-            int expChange = Experience - startExp;
 
+            // Если произошло повышение уровня, учитываем это в изменениях
             if (Level > preLevel)
             {
                 knowledgeChange -= 5;
@@ -153,14 +152,15 @@ namespace EducationalEventGenerator
                 motivationChange -= 5;
             }
 
+            // Выводим изменения с правильными знаками
             if (knowledgeChange != 0)
-                Logger.Log($"Итоговое изменение знаний: {knowledgeChange}");
+                Logger.Log($"Итоговое изменение знаний: {(knowledgeChange > 0 ? "+" : "")}{knowledgeChange}");
             if (awarenessChange != 0)
-                Logger.Log($"Итоговое изменение осознанности: {awarenessChange}");
+                Logger.Log($"Итоговое изменение осознанности: {(awarenessChange > 0 ? "+" : "")}{awarenessChange}");
             if (motivationChange != 0)
-                Logger.Log($"Итоговое изменение мотивации: {motivationChange}");
+                Logger.Log($"Итоговое изменение мотивации: {(motivationChange > 0 ? "+" : "")}{motivationChange}");
 
-            Logger.Log($"Получено опыта: +{expChange}");
+            Logger.Log($"Получено опыта: +{expGain}");
         }
 
         private int ApplyStatEffect(string label, int current, int effect, double damageReduction = 0)

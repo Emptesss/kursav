@@ -358,13 +358,7 @@ namespace EducationalEventGenerator
           
             double damageReduction = Math.Min(0.5, playerStats.Resilience / 200.0);
 
-            // Описываем базовые эффекты
-           
-
-            // Показываем базовые эффекты для всех характеристик до их применения
-           
-
-            // Показываем текущую защиту от урона
+                
             if (damageReduction > 0 && HasNegativeEffects(selectedOption.Effects))
             {
                 report.AppendLine($"\nТекущая защита от урона:");
@@ -426,7 +420,7 @@ namespace EducationalEventGenerator
             int knowledgeChange = playerStats.Knowledge - oldKnowledge;
             int awarenessChange = playerStats.Awareness - oldAwareness;
             int motivationChange = playerStats.Motivation - oldMotivation;
-            int expChange = playerStats.Experience - oldExp;
+            int expGain = selectedOption.Effects.IsBossEvent ? 20 : 10;
 
             if (knowledgeChange != 0)
                 report.AppendLine($"Знания: {(knowledgeChange > 0 ? "+" : "")}{knowledgeChange}");
@@ -435,7 +429,7 @@ namespace EducationalEventGenerator
             if (motivationChange != 0)
                 report.AppendLine($"Мотивация: {(motivationChange > 0 ? "+" : "")}{motivationChange}");
 
-            report.AppendLine($"\nПолучено опыта: {(expChange > 0 ? "+" : "")}{expChange}");
+            report.AppendLine($"\nПолучено опыта: +{expGain}");
 
             // Обновляем отображение активных эффектов
             UpdateActiveEffectsDisplay();
