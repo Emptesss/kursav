@@ -126,5 +126,10 @@
   <ItemGroup>
     <Resource Include="info2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="victory.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

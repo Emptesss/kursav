@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
 
 namespace EducationalEventGenerator
 {
@@ -39,7 +40,7 @@ namespace EducationalEventGenerator
             InitializeTimer();
             InitializeSystems();
             InitializeGame();
-
+            EndGameImage.Visibility = Visibility.Collapsed;
             // Установка начальных значений
             oldKnowledge = playerStats.Knowledge;
             oldAwareness = playerStats.Awareness;
@@ -219,6 +220,7 @@ namespace EducationalEventGenerator
             StartButton.IsEnabled = true;
             NextButton.IsEnabled = false;
             RestartButton.IsEnabled = false;
+            EndGameImage.Visibility = Visibility.Collapsed;
         }
 
         private void ShowRandomEvent()
@@ -613,6 +615,7 @@ namespace EducationalEventGenerator
 
         private bool CheckGameOver()
         {
+            // Проверка на поражение
             if (playerStats.Knowledge <= 0 || playerStats.Awareness <= 0 || playerStats.Motivation <= 0)
             {
                 EventText.Text = "ИГРА ОКОНЧЕНА\nВаши показатели упали слишком низко";
@@ -620,8 +623,89 @@ namespace EducationalEventGenerator
                 OptionsPanel.Children.Clear();
                 ExplanationBox.Visibility = Visibility.Collapsed;
                 NextButton.IsEnabled = false;
+                StartButton.IsEnabled = false;
                 return true;
             }
+
+            // Проверка на победу (достижение максимального уровня)
+            if (playerStats.IsMaxLevel)
+            {
+                var stats = new StringBuilder();
+                stats.AppendLine($"Знания: {playerStats.Knowledge}");
+                stats.AppendLine($"Осознанность: {playerStats.Awareness}");
+                stats.AppendLine($"Мотивация: {playerStats.Motivation}");
+                if (playerStats.Level >= 6)
+                {
+                    stats.AppendLine($"Устойчивость: {playerStats.Resilience}");
+                    stats.AppendLine($"Креативность: {playerStats.Creativity}");
+                }
+
+                var skillCount = skillSystem.GetAcquiredSkillsCount();
+
+                // Добавляем картинку
+                try
+                {
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    // Пробуем загрузить из текущей директории
+                    string imagePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "victory.png");
+                    Logger.Log($"Попытка загрузить картинку из: {imagePath}");
+                    bitmap.UriSource = new Uri(imagePath);
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.EndInit();
+
+                    // Создаем StackPanel для содержимого
+                    var victoryPanel = new StackPanel();
+                    OptionsPanel.Children.Clear();
+                    OptionsPanel.Children.Add(victoryPanel);
+
+                    // Добавляем текст
+                    var victoryText = new TextBlock
+                    {
+                        Text = $"Поздравляем!\nВы достигли максимального уровня {playerStats.MaxLevel}!\n\n" +
+                              $"Итоговые характеристики:\n{stats}\n" +
+                              $"Изучено навыков: {skillCount}\n\n",
+                        TextWrapping = TextWrapping.Wrap,
+                        FontSize = 16,
+                        Margin = new Thickness(0, 0, 0, 10)
+                    };
+                    victoryPanel.Children.Add(victoryText);
+
+                    // Добавляем картинку
+                    var image = new Image
+                    {
+                        Source = bitmap,
+                        Stretch = Stretch.Uniform,
+                        MaxHeight = 300,
+                        MaxWidth = 300,
+                        Margin = new Thickness(0, 10, 0, 10),
+                        HorizontalAlignment = HorizontalAlignment.Center
+                    };
+                    victoryPanel.Children.Add(image);
+
+                  
+
+                    Logger.Log("Картинка успешно загружена и добавлена");
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log($"Ошибка при загрузке картинки: {ex.Message}");
+                    MessageBox.Show($"Не удалось загрузить картинку победы: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+                    // Показываем содержимое без картинки
+                    EventText.Text = $"Поздравляем!\nВы достигли максимального уровня {playerStats.MaxLevel}!\n\n" +
+                                   $"Итоговые характеристики:\n{stats}\n" +
+                                   $"Изучено навыков: {skillCount}\n\n";
+                }
+
+                EventCategory.Text = "Победа";
+                ExplanationBox.Visibility = Visibility.Collapsed;
+                NextButton.IsEnabled = false;
+                StartButton.IsEnabled = false;
+
+                return true;
+            }
+
             return false;
         }
 

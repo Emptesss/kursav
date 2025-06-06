@@ -13,6 +13,10 @@ namespace EducationalEventGenerator
         {
             _skills = new List<Skill>();
         }
+        public int GetAcquiredSkillsCount()
+        {
+            return _skills.Count(s => s.IsAcquired);
+        }
 
         public void InitializeSkills()
         {

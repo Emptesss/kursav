@@ -12,6 +12,12 @@ namespace EducationalEventGenerator
         private const int BASE_RESILIENCE = 20;
         public int Level { get; set; } = 1;
         public int Experience { get; set; }
+
+        private const int MAX_LEVEL = 15;
+        public bool IsMaxLevel => Level >= MAX_LEVEL;
+
+    
+        public int MaxLevel => MAX_LEVEL;
         public int ExperienceToNextLevel => Level * 10;
 
         public event EventHandler<int> LevelChanged;
@@ -175,7 +181,7 @@ namespace EducationalEventGenerator
 
         private void CheckLevelUp()
         {
-            while (Experience >= ExperienceToNextLevel)
+            while (Experience >= ExperienceToNextLevel && Level < MAX_LEVEL) // Добавляем проверку максимального уровня
             {
                 Experience -= ExperienceToNextLevel;
                 int oldLevel = Level;
@@ -192,6 +198,14 @@ namespace EducationalEventGenerator
 
                 Logger.Log($"Уровень повышен! Новый уровень: {Level}");
                 LevelChanged?.Invoke(this, Level);
+
+                // Если достигнут максимальный уровень
+                if (Level >= MAX_LEVEL)
+                {
+                    Experience = 0; // Обнуляем опыт при достижении максимума
+                    Logger.Log("Достигнут максимальный уровень!");
+                    break;
+                }
             }
         }
         public void Reset()
