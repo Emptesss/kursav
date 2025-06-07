@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:EducationalEventGenerator"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <local:AchievementBackgroundConverter x:Key="AchievementBackgroundConverter"/>
+        <local:AchievementStatusConverter x:Key="AchievementStatusConverter"/>
+        <local:AchievementStatusColorConverter x:Key="AchievementStatusColorConverter"/>
     </Application.Resources>
 </Application>

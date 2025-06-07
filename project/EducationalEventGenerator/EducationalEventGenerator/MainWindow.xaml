@@ -189,61 +189,93 @@
         <Border Grid.Row="0" Background="#FF0078D7" Padding="15">
             <Grid>
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- Для названия и уровня -->
                     <ColumnDefinition Width="*"/>
-                    <!-- Левая часть (название и уровень) -->
+                    <!-- Для центрирования рекорда -->
                     <ColumnDefinition Width="Auto"/>
-                    <!-- Центр (рекорд) -->
-                    <ColumnDefinition Width="Auto"/>
-                    <!-- Правая часть (кнопка) -->
+                    <!-- Для кнопок справа -->
                 </Grid.ColumnDefinitions>
 
                 <!-- Левая часть - название и уровень -->
                 <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
                     <TextBlock Text="LIFE SKILLS SIMULATOR" 
-                       FontSize="24" FontWeight="Bold"
-                       Foreground="White"/>
+                      FontSize="24" FontWeight="Bold"
+                      Foreground="White"/>
                     <TextBlock Text="{Binding PlayerStats.Level, StringFormat='Уровень: {0}'}"
-                       Foreground="White" Margin="20,0,0,0"
-                       FontSize="18" VerticalAlignment="Center"/>
+                      Foreground="White" Margin="20,0,0,0"
+                      FontSize="18" VerticalAlignment="Center"/>
                 </StackPanel>
 
                 <!-- Центр - рекорд -->
                 <TextBlock x:Name="HighScoreText" 
                    Grid.Column="1"
-                   Text="{Binding PlayerStats.HighScore, StringFormat='Рекордный уровень: {0} '}"
+                   Text="{Binding PlayerStats.HighScore, StringFormat='Рекордный уровень: {0}'}"
                    Foreground="White" 
                    FontSize="18"
                    VerticalAlignment="Center"
-                   Margin="20,0,20,0"
+                   HorizontalAlignment="Center"
                    ToolTip="Максимальный достигнутый уровень"/>
 
-                <!-- Правая часть - кнопка -->
-                <Button Grid.Column="2" 
-                x:Name="InfoButton"
-                Click="InfoButton_Click"
-                Width="40" 
-                Height="40"
-                VerticalAlignment="Center">
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border x:Name="border" CornerRadius="20" Background="Transparent">
-                                <Image Width="30" Height="30" Source="/info2.png"/>
-                                <Border.Effect>
-                                    <DropShadowEffect Color="White" ShadowDepth="0" BlurRadius="20" Opacity="0"/>
-                                </Border.Effect>
-                            </Border>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="border" Property="Border.Effect">
-                                        <Setter.Value>
-                                            <DropShadowEffect Color="White" ShadowDepth="0" BlurRadius="20" Opacity="0.5"/>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
+                <!-- Правая часть - кнопки -->
+                <StackPanel Grid.Column="2" 
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Right">
+                    <!-- Кнопка достижений -->
+                    <Button x:Name="AchievementsButton"
+                    Click="AchievementsButton_Click"
+                    Width="50" 
+                    Height="50"
+                    Margin="0,0,10,0"
+                    VerticalAlignment="Center">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="border" CornerRadius="20" Background="Transparent">
+                                    <Image Width="50" Height="50" Source="/achivements.png"/>
+                                    <Border.Effect>
+                                        <DropShadowEffect Color="White" ShadowDepth="0" BlurRadius="20" Opacity="0"/>
+                                    </Border.Effect>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="border" Property="Border.Effect">
+                                            <Setter.Value>
+                                                <DropShadowEffect Color="White" ShadowDepth="0" BlurRadius="20" Opacity="0.5"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <!-- Кнопка информации -->
+                    <Button x:Name="InfoButton"
+                    Click="InfoButton_Click"
+                    Width="50" 
+                    Height="50"
+                    VerticalAlignment="Center">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="border" CornerRadius="20" Background="Transparent">
+                                    <Image Width="50" Height="50" Source="/info2.png"/>
+                                    <Border.Effect>
+                                        <DropShadowEffect Color="White" ShadowDepth="0" BlurRadius="20" Opacity="0"/>
+                                    </Border.Effect>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="border" Property="Border.Effect">
+                                            <Setter.Value>
+                                                <DropShadowEffect Color="White" ShadowDepth="0" BlurRadius="20" Opacity="0.5"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
             </Grid>
         </Border>
 
@@ -568,20 +600,48 @@
 
         <!-- Панель управления -->
         <Border Grid.Row="3" Background="White" Padding="10"
-                BorderBrush="#FFCCCCCC" BorderThickness="0,1,0,0">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="StartButton" Content="Начать игру" 
-                        Width="160" Height="40" 
-                        Click="StartButton_Click" FontSize="16"/>
-                <Button x:Name="NextButton" Content="Следующее событие" 
-                        Width="160" Height="40"
-                        Click="NextButton_Click" IsEnabled="False" Margin="15,0" 
-                        FontSize="16"/>
-                <Button x:Name="RestartButton" Content="Начать заново" 
-                        Width="160" Height="40"
-                        Click="RestartButton_Click" IsEnabled="False" 
-                        FontSize="16"/>
-            </StackPanel>
+        BorderBrush="#FFCCCCCC" BorderThickness="0,1,0,0">
+            <Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="StartButton" Content="Начать игру" 
+                    Width="160" Height="40" 
+                    Click="StartButton_Click" FontSize="16"/>
+                    <Button x:Name="NextButton" Content="Следующее событие" 
+                    Width="160" Height="40"
+                    Click="NextButton_Click" IsEnabled="False" Margin="15,0" 
+                    FontSize="16"/>
+                    <Button x:Name="RestartButton" Content="Начать заново" 
+                    Width="160" Height="40"
+                    Click="RestartButton_Click" IsEnabled="False" 
+                    FontSize="16"/>
+                </StackPanel>
+
+                <!-- Кнопка выхода -->
+                <Button x:Name="ExitButton" 
+                Content="Выход" 
+                Width="100" 
+                Height="40"
+                Click="ExitButton_Click"
+                FontSize="16"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Margin="0,0,10,0">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                            <Setter Property="Background" Value="#FFEF5350"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FFE53935"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="#FFD32F2F"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Grid>
         </Border>
         <Image x:Name="EndGameImage" 
                Visibility="Collapsed"

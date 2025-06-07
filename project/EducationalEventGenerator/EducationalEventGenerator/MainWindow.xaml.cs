@@ -27,6 +27,7 @@ namespace EducationalEventGenerator
         private List<Event> eventHistory = new List<Event>();
         private EventChain currentChain = null;
         private int chainProgress = 0;
+        private AchievementManager achievementManager;  
 
         private int oldKnowledge;
         private int oldAwareness;
@@ -47,6 +48,8 @@ namespace EducationalEventGenerator
             oldMotivation = playerStats.Motivation;
             oldResilience = playerStats.Resilience;
             oldCreativity = playerStats.Creativity;
+            achievementManager = new AchievementManager();
+            achievementManager.AchievementUnlocked += AchievementManager_AchievementUnlocked;
 
             // Делаем панель навыков и продвинутых характеристик скрытыми при старте
             SkillsPanel.Visibility = Visibility.Collapsed;
@@ -68,7 +71,33 @@ namespace EducationalEventGenerator
         {
             UpdateHighScoreDisplay();
         }
+        private void AchievementManager_AchievementUnlocked(object sender, Achievement achievement)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                MessageBox.Show($"Получено достижение: {achievement.Title}\n{achievement.Description}",
+                               "Новое достижение!",
+                               MessageBoxButton.OK,
+                               MessageBoxImage.Information);
+            });
+        }
+        private void AchievementsButton_Click(object sender, RoutedEventArgs e)
+        {
+            var achievementsWindow = new AchievementsWindow(achievementManager.GetAchievements());
+            achievementsWindow.Owner = this;
 
+            // Применяем эффект размытия к главному окну
+            var blurEffect = new System.Windows.Media.Effects.BlurEffect
+            {
+                Radius = 5
+            };
+            this.Effect = blurEffect;
+
+            achievementsWindow.ShowDialog();
+
+            // Убираем эффект размытия
+            this.Effect = null;
+        }
         private void UpdateHighScoreDisplay()
         {
             Dispatcher.Invoke(() =>
@@ -377,6 +406,7 @@ namespace EducationalEventGenerator
 
             // Применяем эффекты ОДИН раз
             playerStats.ApplyEffects(selectedOption.Effects);
+            achievementManager.CheckAchievements(playerStats);
 
             if (playerStats.Level >= 5)
             {
@@ -634,6 +664,7 @@ namespace EducationalEventGenerator
                 stats.AppendLine($"Знания: {playerStats.Knowledge}");
                 stats.AppendLine($"Осознанность: {playerStats.Awareness}");
                 stats.AppendLine($"Мотивация: {playerStats.Motivation}");
+                achievementManager.CheckAchievements(playerStats);
                 if (playerStats.Level >= 6)
                 {
                     stats.AppendLine($"Устойчивость: {playerStats.Resilience}");
@@ -831,6 +862,19 @@ namespace EducationalEventGenerator
             else
             {
                 AdvancedStatsPanel.Visibility = Visibility.Collapsed;
+            }
+        }
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show(
+                "Вы уверены, что хотите выйти из игры?",
+                "Подтверждение выхода",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
             }
         }
 
