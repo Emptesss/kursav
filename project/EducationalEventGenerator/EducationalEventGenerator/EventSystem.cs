@@ -535,13 +535,13 @@ namespace EducationalEventGenerator
                 }
             }),
         new Option("Взять больничный",
-            new Effect(5, 5, -5) {
+            new Effect(10, 10, -10) {
                 TemporaryEffects = new List<TemporaryEffect> {
                     new TemporaryEffect("Выздоровление", 2, 2, 2, 3)
                 }
             }),
         new Option("Пить витамины и работать",
-            new Effect(0, 0, -5) {
+            new Effect(5, 10, -5) {
                 TemporaryEffects = new List<TemporaryEffect> {
                     new TemporaryEffect("Лёгкое недомогание", -2, -2, -2, 4)
                 }
@@ -759,7 +759,7 @@ namespace EducationalEventGenerator
                 new Effect(5, 5, 0) {
                     CreativityEffect = 10 // Средний бонус к креативности
                 }),
-            new Option("Провести мозговой штурм с коллегами",
+            new Option("Посоветоваться с коллегами",
                 new Effect(10, 10, 5) {
                     CreativityEffect = 15 // Хороший бонус к креативности
                 })
@@ -832,7 +832,7 @@ namespace EducationalEventGenerator
                 "Сложная задача",
                 "Необходимо оптимизировать важный процесс. Как подойдете к решению?",
                 new List<Option> {
-            new Option("Использовать стандартные методы",
+            new Option("Использовать проверенные методы",
                 new Effect(5, 5, 5) {
                     CreativityEffect = 10,
                     ResilienceEffect = 10
@@ -932,10 +932,10 @@ namespace EducationalEventGenerator
 
             timedEvents.Add(new TimedEvent(
                 "Утечка данных",
-                "Обнаружена утечка! 7 секунд на реакцию!",
+                "Обнаружена утечка данных! 7 секунд на реакцию!",
                 new List<Option> {
             new Option("Отключить доступ всем",
-                new Effect(-15, 10, -10)),
+                new Effect(-20, 5, -20)),
             new Option("Локализовать утечку",
                 new Effect(20, 20, -5) {
                     RequiredSkill = "Стрессоустойчивость",
@@ -1305,14 +1305,14 @@ baseEvents.Add(new Event(
                     ResilienceEffect = 10
                 }),
             new Option("Экспериментальный подход",
-                new Effect(25, 20, -10) {
+                new Effect(20, 20, -10) {
                     CreativityEffect = 35,
                     ResilienceEffect = 25,
                     RequiredCreativity = 50,
                     RequiredSkills = new List<string> { "Устойчивость" }
                 }),
             new Option("Революционное решение",
-                new Effect(40, 35, -20) {
+                new Effect(25, 20, -20) {
                     CreativityEffect = 50,
                     ResilienceEffect = 40,
                     RequiredCreativity = 70,

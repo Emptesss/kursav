@@ -60,3 +60,6 @@ C:\Users\vkali\kursav\project\EducationalEventGenerator\EducationalEventGenerato
 C:\Users\vkali\kursav\project\EducationalEventGenerator\EducationalEventGenerator\obj\Debug\EducationalEventGenerator.csproj.CoreCompileInputs.cache
 C:\Users\vkali\kursav\project\EducationalEventGenerator\EducationalEventGenerator\obj\Debug\EducationalEventGenerator.exe
 C:\Users\vkali\kursav\project\EducationalEventGenerator\EducationalEventGenerator\obj\Debug\EducationalEventGenerator.pdb
+C:\Users\куся\kursav\project\EducationalEventGenerator\EducationalEventGenerator\obj\Debug\AchievementsWindow.g.cs
+C:\Users\куся\kursav\project\EducationalEventGenerator\EducationalEventGenerator\obj\Debug\App.baml
+C:\Users\куся\kursav\project\EducationalEventGenerator\EducationalEventGenerator\obj\Debug\AchievementsWindow.baml

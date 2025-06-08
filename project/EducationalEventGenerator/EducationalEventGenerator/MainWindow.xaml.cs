@@ -850,7 +850,7 @@ namespace EducationalEventGenerator
                 SkillsPanel.Visibility = Visibility.Collapsed;
             }
 
-            // Отдельно проверяем продвинутые характеристики
+            
             if (playerStats.Level >= 6)
             {
                 AdvancedStatsPanel.Visibility = Visibility.Visible;
