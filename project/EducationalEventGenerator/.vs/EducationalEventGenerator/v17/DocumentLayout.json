@@ -1,137 +1,137 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\",
+  "WorkspaceRootPath": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\infowindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\infowindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|c:\\users\\\u043A\u0443\u0441\u044F\\kursav\\project\\educationaleventgenerator\\educationaleventgenerator\\eventsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\eventsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\playerstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\playerstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\achievementswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\achievementswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\achievementswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\achievementswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\achievementstatuscolorconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\achievementstatuscolorconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\achievementstatusconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\achievementstatusconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\achievementbackgroundconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\achievementbackgroundconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\leveltovisibilityconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\leveltovisibilityconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\acquiredconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\acquiredconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\achievementmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\achievementmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\achievementmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|c:\\users\\vkali\\kursav\\project\\educationaleventgenerator\\educationaleventgenerator\\infowindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\infowindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\achievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\achievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\eventsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\eventsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\option.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\option.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\skillsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\skillsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\skillsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\skill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\playerstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\playerstats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\achievementswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\achievementswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\achievementswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\achievementswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\achievementstatuscolorconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\achievementstatuscolorconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\achievementstatusconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\achievementstatusconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\achievementbackgroundconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\achievementbackgroundconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\leveltovisibilityconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\leveltovisibilityconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\acquiredconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\acquiredconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\achievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\achievement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\option.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\option.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\skill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\skill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\progressconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\progressconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\progressconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\effect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\effect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\effect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\temporaryeffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\temporaryeffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\temporaryeffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\eventchain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\eventchain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\eventchain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\highscoremanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\highscoremanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\highscoremanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\requirementinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\requirementinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\requirementinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\timedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\timedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\timedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\info2.png||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\info2.png||{177559E0-D141-11D0-92DF-00A0C9138C45}",
       "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\info2.png||{177559E0-D141-11D0-92DF-00A0C9138C45}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\effectsdisplay.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\effectsdisplay.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\effectsdisplay.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\infowindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\infowindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\infowindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\effectsdisplay.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\educationaleventgenerator\\effectsdisplay.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{62A2591F-A18A-4EFE-A7F7-55A5DDA726F9}|EducationalEventGenerator\\EducationalEventGenerator.csproj|solutionrelative:educationaleventgenerator\\effectsdisplay.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -142,26 +142,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AchievementsWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementsWindow.xaml",
-              "RelativeDocumentMoniker": "EducationalEventGenerator\\AchievementsWindow.xaml",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementsWindow.xaml",
-              "RelativeToolTip": "EducationalEventGenerator\\AchievementsWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-07T16:18:33.444Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\App.xaml",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\App.xaml",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\App.xaml",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\App.xaml",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\App.xaml",
               "RelativeToolTip": "EducationalEventGenerator\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-06-01T17:47:01.632Z",
@@ -169,11 +162,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "App.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\App.xaml.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\App.xaml.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\App.xaml.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\App.xaml.cs",
               "RelativeToolTip": "EducationalEventGenerator\\App.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -181,36 +174,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "InfoWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\InfoWindow.xaml",
-              "RelativeDocumentMoniker": "EducationalEventGenerator\\InfoWindow.xaml",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\InfoWindow.xaml",
-              "RelativeToolTip": "EducationalEventGenerator\\InfoWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-02T17:49:12.422Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "EventSystem.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\EventSystem.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\EventSystem.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\EventSystem.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\EventSystem.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\EventSystem.cs",
               "RelativeToolTip": "EducationalEventGenerator\\EventSystem.cs",
-              "ViewState": "AgIAALADAAAAAAAAAAAQwPkCAAAyAAAAAAAAAA==",
+              "ViewState": "AQIAAGsFAAAAAAAAAAAAwJsFAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-31T18:26:39.773Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "PlayerStats.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\PlayerStats.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\PlayerStats.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\PlayerStats.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\PlayerStats.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\PlayerStats.cs",
               "RelativeToolTip": "EducationalEventGenerator\\PlayerStats.cs",
               "ViewState": "AgIAALoAAAAAAAAAAAAAAFUAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -218,34 +199,85 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\MainWindow.xaml.cs",
               "RelativeToolTip": "EducationalEventGenerator\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAE0DAAAAAAAAAAAQwFQDAAAMAAAAAAAAAA==",
+              "ViewState": "AQIAALoAAAAAAAAAAAAAAMQAAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T17:51:41.251Z"
+              "WhenOpened": "2025-05-31T17:51:41.251Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AchievementManager.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementManager.cs",
+              "RelativeDocumentMoniker": "EducationalEventGenerator\\AchievementManager.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementManager.cs",
+              "RelativeToolTip": "EducationalEventGenerator\\AchievementManager.cs",
+              "ViewState": "AQIAAIgAAAAAAAAAAAAkwJcAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-07T16:19:20.484Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "EducationalEventGenerator\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\MainWindow.xaml",
+              "RelativeToolTip": "EducationalEventGenerator\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-31T17:51:41.298Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "InfoWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\InfoWindow.xaml",
+              "RelativeDocumentMoniker": "EducationalEventGenerator\\InfoWindow.xaml",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\InfoWindow.xaml",
+              "RelativeToolTip": "EducationalEventGenerator\\InfoWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-02T17:49:12.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AchievementsWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementsWindow.xaml",
+              "RelativeDocumentMoniker": "EducationalEventGenerator\\AchievementsWindow.xaml",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementsWindow.xaml",
+              "RelativeToolTip": "EducationalEventGenerator\\AchievementsWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-07T16:18:33.444Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "EducationalEventGenerator\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\MainWindow.xaml",
-              "RelativeToolTip": "EducationalEventGenerator\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-31T17:51:41.298Z"
+              "Title": "SkillSystem.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\SkillSystem.cs",
+              "RelativeDocumentMoniker": "EducationalEventGenerator\\SkillSystem.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\SkillSystem.cs",
+              "RelativeToolTip": "EducationalEventGenerator\\SkillSystem.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAowC0AAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T18:01:02.846Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "AchievementsWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementsWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementsWindow.xaml.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\AchievementsWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementsWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementsWindow.xaml.cs",
               "RelativeToolTip": "EducationalEventGenerator\\AchievementsWindow.xaml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -253,11 +285,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "AchievementStatusConverter.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementStatusConverter.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementStatusConverter.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\AchievementStatusConverter.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementStatusConverter.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementStatusConverter.cs",
               "RelativeToolTip": "EducationalEventGenerator\\AchievementStatusConverter.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -265,11 +297,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "AchievementStatusColorConverter.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementStatusColorConverter.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementStatusColorConverter.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\AchievementStatusColorConverter.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementStatusColorConverter.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementStatusColorConverter.cs",
               "RelativeToolTip": "EducationalEventGenerator\\AchievementStatusColorConverter.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -277,11 +309,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "AchievementBackgroundConverter.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementBackgroundConverter.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementBackgroundConverter.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\AchievementBackgroundConverter.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementBackgroundConverter.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementBackgroundConverter.cs",
               "RelativeToolTip": "EducationalEventGenerator\\AchievementBackgroundConverter.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAqwBYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -289,11 +321,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "LevelToVisibilityConverter.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\LevelToVisibilityConverter.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\LevelToVisibilityConverter.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\LevelToVisibilityConverter.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\LevelToVisibilityConverter.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\LevelToVisibilityConverter.cs",
               "RelativeToolTip": "EducationalEventGenerator\\LevelToVisibilityConverter.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -301,11 +333,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "Option.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Option.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Option.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\Option.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Option.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Option.cs",
               "RelativeToolTip": "EducationalEventGenerator\\Option.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -315,10 +347,10 @@
               "$type": "Document",
               "DocumentIndex": 29,
               "Title": "info2.png -  [\u0420\u0443\u0441\u0441\u043A\u0438\u0439 (\u0420\u043E\u0441\u0441\u0438\u044F)] - PNG [1500x1500, 32-\u0440\u0430\u0437\u0440\u044F\u0434\u043D\u043E\u0435, PNG]",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\info2.png",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\info2.png",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\info2.png",
               "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\info2.png -  [\u0420\u0443\u0441\u0441\u043A\u0438\u0439 (\u0420\u043E\u0441\u0441\u0438\u044F)] - PNG [1500x1500, 32-\u0440\u0430\u0437\u0440\u044F\u0434\u043D\u043E\u0435, PNG]",
-              "RelativeToolTip": "EducationalEventGenerator\\info2.png -  [\u0420\u0443\u0441\u0441\u043A\u0438\u0439 (\u0420\u043E\u0441\u0441\u0438\u044F)] - PNG [1500x1500, 32-\u0440\u0430\u0437\u0440\u044F\u0434\u043D\u043E\u0435, PNG]",
+              "RelativeToolTip": "..\\..\\..\\..\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\info2.png -  [\u0420\u0443\u0441\u0441\u043A\u0438\u0439 (\u0420\u043E\u0441\u0441\u0438\u044F)] - PNG [1500x1500, 32-\u0440\u0430\u0437\u0440\u044F\u0434\u043D\u043E\u0435, PNG]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
               "WhenOpened": "2025-06-03T21:03:09.475Z"
             },
@@ -326,9 +358,9 @@
               "$type": "Document",
               "DocumentIndex": 28,
               "Title": "Logger.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Logger.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Logger.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\Logger.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Logger.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Logger.cs",
               "RelativeToolTip": "EducationalEventGenerator\\Logger.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -338,9 +370,9 @@
               "$type": "Document",
               "DocumentIndex": 21,
               "Title": "Effect.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Effect.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Effect.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\Effect.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Effect.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Effect.cs",
               "RelativeToolTip": "EducationalEventGenerator\\Effect.cs",
               "ViewState": "AQIAABQAAAAAAAAAAAAswCsAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -350,9 +382,9 @@
               "$type": "Document",
               "DocumentIndex": 22,
               "Title": "TemporaryEffect.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\TemporaryEffect.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\TemporaryEffect.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\TemporaryEffect.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\TemporaryEffect.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\TemporaryEffect.cs",
               "RelativeToolTip": "EducationalEventGenerator\\TemporaryEffect.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -362,9 +394,9 @@
               "$type": "Document",
               "DocumentIndex": 26,
               "Title": "RequirementInfo.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\RequirementInfo.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\RequirementInfo.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\RequirementInfo.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\RequirementInfo.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\RequirementInfo.cs",
               "RelativeToolTip": "EducationalEventGenerator\\RequirementInfo.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAA9wCsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -374,9 +406,9 @@
               "$type": "Document",
               "DocumentIndex": 25,
               "Title": "HighScoreManager.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\HighScoreManager.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\HighScoreManager.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\HighScoreManager.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\HighScoreManager.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\HighScoreManager.cs",
               "RelativeToolTip": "EducationalEventGenerator\\HighScoreManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -386,9 +418,9 @@
               "$type": "Document",
               "DocumentIndex": 27,
               "Title": "TimedEvent.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\TimedEvent.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\TimedEvent.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\TimedEvent.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\TimedEvent.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\TimedEvent.cs",
               "RelativeToolTip": "EducationalEventGenerator\\TimedEvent.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -396,23 +428,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "AchievementManager.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementManager.cs",
-              "RelativeDocumentMoniker": "EducationalEventGenerator\\AchievementManager.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AchievementManager.cs",
-              "RelativeToolTip": "EducationalEventGenerator\\AchievementManager.cs",
-              "ViewState": "AQIAACMAAAAAAAAAAAAAABkAAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-07T16:19:20.484Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "App.config",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\App.config",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\App.config",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\App.config",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\App.config",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\App.config",
               "RelativeToolTip": "EducationalEventGenerator\\App.config",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
@@ -420,11 +440,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "AcquiredConverter.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AcquiredConverter.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AcquiredConverter.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\AcquiredConverter.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AcquiredConverter.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\AcquiredConverter.cs",
               "RelativeToolTip": "EducationalEventGenerator\\AcquiredConverter.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -432,11 +452,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "Achievement.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Achievement.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Achievement.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\Achievement.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Achievement.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Achievement.cs",
               "RelativeToolTip": "EducationalEventGenerator\\Achievement.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAABcAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -444,23 +464,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "SkillSystem.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\SkillSystem.cs",
-              "RelativeDocumentMoniker": "EducationalEventGenerator\\SkillSystem.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\SkillSystem.cs",
-              "RelativeToolTip": "EducationalEventGenerator\\SkillSystem.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAowC0AAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T18:01:02.846Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 19,
               "Title": "Skill.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Skill.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Skill.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\Skill.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Skill.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Skill.cs",
               "RelativeToolTip": "EducationalEventGenerator\\Skill.cs",
               "ViewState": "AQIAADAAAAAAAAAAAAAmwFQAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -470,9 +478,9 @@
               "$type": "Document",
               "DocumentIndex": 20,
               "Title": "ProgressConverter.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\ProgressConverter.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\ProgressConverter.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\ProgressConverter.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\ProgressConverter.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\ProgressConverter.cs",
               "RelativeToolTip": "EducationalEventGenerator\\ProgressConverter.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -482,9 +490,9 @@
               "$type": "Document",
               "DocumentIndex": 23,
               "Title": "EventChain.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\EventChain.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\EventChain.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\EventChain.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\EventChain.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\EventChain.cs",
               "RelativeToolTip": "EducationalEventGenerator\\EventChain.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -494,9 +502,9 @@
               "$type": "Document",
               "DocumentIndex": 24,
               "Title": "Event.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Event.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Event.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\Event.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Event.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\Event.cs",
               "RelativeToolTip": "EducationalEventGenerator\\Event.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -506,9 +514,9 @@
               "$type": "Document",
               "DocumentIndex": 31,
               "Title": "InfoWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\InfoWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\InfoWindow.xaml.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\InfoWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\InfoWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\InfoWindow.xaml.cs",
               "RelativeToolTip": "EducationalEventGenerator\\InfoWindow.xaml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -518,9 +526,9 @@
               "$type": "Document",
               "DocumentIndex": 30,
               "Title": "EffectsDisplay.xaml",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\EffectsDisplay.xaml",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\EffectsDisplay.xaml",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\EffectsDisplay.xaml",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\EffectsDisplay.xaml",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\EffectsDisplay.xaml",
               "RelativeToolTip": "EducationalEventGenerator\\EffectsDisplay.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-05-31T20:27:33.625Z"
@@ -529,9 +537,9 @@
               "$type": "Document",
               "DocumentIndex": 32,
               "Title": "EffectsDisplay.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\EffectsDisplay.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\EffectsDisplay.xaml.cs",
               "RelativeDocumentMoniker": "EducationalEventGenerator\\EffectsDisplay.xaml.cs",
-              "ToolTip": "C:\\Users\\\u043A\u0443\u0441\u044F\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\EffectsDisplay.xaml.cs",
+              "ToolTip": "C:\\Users\\vkali\\kursav\\project\\EducationalEventGenerator\\EducationalEventGenerator\\EffectsDisplay.xaml.cs",
               "RelativeToolTip": "EducationalEventGenerator\\EffectsDisplay.xaml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

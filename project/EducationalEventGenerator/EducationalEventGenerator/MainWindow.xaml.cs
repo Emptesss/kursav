@@ -193,22 +193,47 @@ namespace EducationalEventGenerator
                     stopwatch.Stop();
                     TimerPanel.Visibility = Visibility.Collapsed;
 
+                    // Сохраняем старые значения для анимации
+                    oldKnowledge = playerStats.Knowledge;
+                    oldAwareness = playerStats.Awareness;
+                    oldMotivation = playerStats.Motivation;
+                    oldResilience = playerStats.Resilience;
+                    oldCreativity = playerStats.Creativity;
+
                     // Применяем штрафные эффекты
                     playerStats.ApplyEffects(timedEvent.TimeoutEffect);
-                    MessageBox.Show("Время истекло! Применены штрафные эффекты.",
-                                  "Время вышло!", MessageBoxButton.OK, MessageBoxImage.Warning);
 
-                    // Деактивируем все кнопки
+                    // Анимируем изменения
+                    AnimateProgressBar(KnowledgeProgress, KnowledgeText, KnowledgeChangeText,
+                        oldKnowledge, playerStats.Knowledge);
+                    AnimateProgressBar(AwarenessProgress, AwarenessText, AwarenessChangeText,
+                        oldAwareness, playerStats.Awareness);
+                    AnimateProgressBar(MotivationProgress, MotivationText, MotivationChangeText,
+                        oldMotivation, playerStats.Motivation);
+
+                    if (playerStats.Level >= 6)
+                    {
+                        AnimateProgressBar(ResilienceProgress, ResilienceText, ResilienceChangeText,
+                            oldResilience, playerStats.Resilience);
+                        AnimateProgressBar(CreativityProgress, CreativityText, CreativityChangeText,
+                            oldCreativity, playerStats.Creativity);
+                    }
+
+                    // Показываем объяснение
+                    ExplanationBox.Visibility = Visibility.Visible;
+                    ExplanationText.Text = $"Время истекло!\n\n{GetEffectSummary(timedEvent.TimeoutEffect)}";
+
+                    // Отключаем кнопки выбора, но включаем кнопку "Следующее событие"
                     foreach (var child in OptionsPanel.Children)
                     {
                         if (child is Button btn)
                             btn.IsEnabled = false;
                     }
-
-                    ShowRandomEvent();
+                    NextButton.IsEnabled = true;
                 }
             }
         }
+
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
@@ -874,8 +899,25 @@ namespace EducationalEventGenerator
 
             if (result == MessageBoxResult.Yes)
             {
+                achievementManager.SaveAchievements();
                 Application.Current.Shutdown();
             }
+        }
+        private string GetEffectSummary(Effect effect)
+        {
+            var changes = new List<string>();
+            if (effect.KnowledgeEffect != 0)
+                changes.Add($"Знания: {effect.KnowledgeEffect}");
+            if (effect.AwarenessEffect != 0)
+                changes.Add($"Осознанность: {effect.AwarenessEffect}");
+            if (effect.MotivationEffect != 0)
+                changes.Add($"Мотивация: {effect.MotivationEffect}");
+            if (effect.ResilienceEffect != 0)
+                changes.Add($"Устойчивость: {effect.ResilienceEffect}");
+            if (effect.CreativityEffect != 0)
+                changes.Add($"Креативность: {effect.CreativityEffect}");
+            // Добавьте другие характеристики по необходимости
+            return changes.Count > 0 ? "Изменения:\n" + string.Join("\n", changes) : "Изменений нет.";
         }
 
         private int GetPlayerStatValue(string statName, PlayerStats playerStats)
