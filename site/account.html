@@ -21,14 +21,15 @@
                 <li><a href="contact.html" class="">Контакты</a></li>
             </ul>
         </nav>
-        <div class="header-icons">
-            <a href="#"><i class="fas fa-search"></i></a>
-            <a href="account.html"><i class="fas fa-user"></i></a>
-            <a href="cart.html" class="cart-link">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-counter">0</span>
-            </a>
-        </div>
+       <div class="header-icons">
+    <a href="#" id="search-icon"><i class="fas fa-search"></i></a>
+            <input type="text" id="search-input" placeholder="Поиск чая..." style="display:none;">
+    <a href="account.html" class="profile-link"><i class="fas fa-user"></i></a>
+    <a href="cart.html" class="cart-link">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-counter">0</span>
+    </a>
+</div>
     </div>
     </header>
 
@@ -37,10 +38,16 @@
         <div class="container">
             <div class="account-sidebar">
                 <div class="user-profile">
-                    <img src="images/user-avatar.jpg" alt="Аватар" class="avatar">
-                    <h3>Анна К.</h3>
-                    <p>anna@example.com</p>
-                </div>
+    <img id="avatar-img" src="images/user-avatar.jpg" alt="Аватар" class="avatar">
+    <form id="avatar-form" enctype="multipart/form-data">
+        <label class="avatar-upload-label">
+            <input type="file" id="avatar-input" accept="image/*" style="display:none;">
+            <span class="btn-outline">Загрузить фото</span>
+        </label>
+    </form>
+    <h3 id="user-name">Анна К.</h3>
+    <p id="user-email">anna@example.com</p>
+</div>
                 <nav class="account-menu">
                     <ul>
                         <li><a href="#profile" class="active"><i class="fas fa-user-circle"></i> Профиль</a></li>
@@ -54,46 +61,31 @@
 
             <div class="account-content">
                 <!-- Блок профиля -->
-                <section id="profile" class="tab-content active">
-                    <h2>Мой профиль</h2>
-                    <form class="profile-form">
-                        <div class="form-group">
-                            <label>Имя</label>
-                            <input type="text" value="Имя">
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" value="name@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label>Телефон</label>
-                            <input type="tel" value="+7 (123) 456-78-90">
-                        </div>
-                        <button type="submit" class="btn">Сохранить изменения</button>
-                    </form>
-                </section>
+                <!-- Блок профиля -->
+<section id="profile" class="tab-content active">
+    <h2>Мой профиль</h2>
+    <form class="profile-form">
+        <div class="form-group">
+            <label>Имя</label>
+            <input type="text" name="name" value="Имя">
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" value="name@example.com">
+        </div>
+        <div class="form-group">
+            <label>Телефон</label>
+            <input type="tel" name="phone" value="+7 (123) 456-78-90">
+        </div>
+        <button type="submit" class="btn">Сохранить изменения</button>
+    </form>
+</section>
 
-                <!-- Блок заказов -->
-                <section id="orders" class="tab-content">
-                    <h2>История заказов</h2>
-                    <div class="order-card">
-                        <div class="order-header">
-                            <span class="order-date">15.05.2023</span>
-                            <span class="order-status completed">Выполнен</span>
-                            <span class="order-total">2 450 ₽</span>
-                        </div>
-                        <div class="order-items">
-                            <div class="order-item">
-                                <img src="images/tea1.jpg" alt="Нежный жасмин">
-                                <div class="item-info">
-                                    <h4>Нежный жасмин</h4>
-                                    <p>1 × 450 ₽</p>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#" class="btn-outline">Повторить заказ</a>
-                    </div>
-                </section>
+<!-- Блок заказов -->
+<section id="orders" class="tab-content">
+    <h2>История заказов</h2>
+    <div class="orders-list"></div>
+</section>
 
                 <!-- Блок избранного -->
                 <section id="favorites" class="tab-content">

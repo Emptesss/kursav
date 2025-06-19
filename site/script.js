@@ -43,6 +43,56 @@ document.addEventListener('DOMContentLoaded', function() {
             slideInterval = setInterval(nextSlide, 5000);
         });
     };
+    const searchIcon = document.getElementById('search-icon');
+    const searchInput = document.getElementById('search-input');
+
+    // Показать/спрятать поле поиска по клику на иконку
+    if (searchIcon && searchInput) {
+        searchIcon.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (searchInput.style.display === 'none' || !searchInput.style.display) {
+                searchInput.style.display = 'inline-block';
+                searchInput.focus();
+            } else {
+                searchInput.value = '';
+                searchInput.style.display = 'none';
+            }
+        });
+
+        // Логика поиска по Enter
+        searchInput.addEventListener('keydown', async function(e) {
+            if (e.key === 'Enter') {
+                const query = searchInput.value.trim().toLowerCase();
+                if (!query) return;
+                // Загрузка товаров (если на странице каталога, можно использовать переменную products)
+                let productsArr = window.products;
+                if (!productsArr || !Array.isArray(productsArr) || !productsArr.length) {
+                    // Если products нет, пробуем загрузить заново
+                    try {
+                        const resp = await fetch('db.json');
+                        const data = await resp.json();
+                        productsArr = data.products || [];
+                    } catch {
+                        alert('Ошибка загрузки базы товаров');
+                        return;
+                    }
+                }
+                // Прямое совпадение по названию (без учёта регистра)
+                const found = productsArr.find(p => p.name.toLowerCase() === query);
+                if (found) {
+                    window.location.href = `product.html?id=${found.id}`;
+                } else {
+                    // Можно сделать частичный поиск (по вхождению)
+                    const partial = productsArr.find(p => p.name.toLowerCase().includes(query));
+                    if (partial) {
+                        window.location.href = `product.html?id=${partial.id}`;
+                    } else {
+                        alert('Товар не найден');
+                    }
+                }
+            }
+        });
+    }
 
     // 2. Загрузка популярных товаров
     const loadProducts = async () => {
@@ -57,18 +107,21 @@ document.addEventListener('DOMContentLoaded', function() {
             const popularProducts = data.products.slice(0, 4);
 
             productsGrid.innerHTML = popularProducts.map(product => `
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="${product.images[0]}" alt="${product.name}" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3>${product.name}</h3>
-                        <p>${product.description.substring(0, 60)}...</p>
-                        <span class="product-price">${product.price} ₽</span>
-                        <a href="product.html?id=${product.id}" class="btn">Подробнее</a>
-                    </div>
-                </div>
-            `).join('');
+    <div class="product-card">
+        <div class="product-image">
+            <img src="${product.images[0]}" alt="${product.name}" loading="lazy">
+        </div>
+       <div class="product-info">
+        <h3>${escapeHTML(product.name)}</h3>
+        <p>${getProductType(product.type)}</p>
+        <span class="product-price">${formatPrice(product.price)} ₽</span>
+        <a href="product.html?id=${product.id}" class="btn">Подробнее</a>
+        <button class="favorite-star add-to-favorites" data-id="${product.id}" aria-label="В избранное" title="В избранное">
+    <i class="far fa-star"></i>
+</button>
+    </div>
+    </div>
+`).join('');
         } catch (error) {
             console.error('Error loading products:', error);
             productsGrid.innerHTML = '<p>Не удалось загрузить товары. Пожалуйста, попробуйте позже.</p>';

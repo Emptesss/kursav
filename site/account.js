@@ -1,11 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
+  
+
     // Инициализация данных пользователя
     let userData = JSON.parse(localStorage.getItem('userData')) || {
         name: "Имя",
         email: "name@example.com",
         phone: "+7 (123) 456-78-90",
-        favorites: [1, 3] // ID избранных товаров
+        favorites: [1, 3]
     };
+     function updateUserProfileBlock() {
+        // Обновляет имя и email в блоке user-profile
+        const nameBlock = document.getElementById('user-name');
+        const emailBlock = document.getElementById('user-email');
+        if (nameBlock) nameBlock.textContent = userData.name;
+        if (emailBlock) emailBlock.textContent = userData.email;
+    }   
 
     // Инициализация заказов
     let orders = JSON.parse(localStorage.getItem('orders')) || [
@@ -19,7 +28,28 @@ document.addEventListener('DOMContentLoaded', function() {
             ]
         }
     ];
+    // Загружаем аватар из userData, если есть
+    const avatarImg = document.getElementById('avatar-img');
+    if (userData.avatar) {
+        avatarImg.src = userData.avatar;
+    }
 
+    // Обработка загрузки аватара
+    const avatarInput = document.getElementById('avatar-input');
+    if (avatarInput) {
+        avatarInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    avatarImg.src = e.target.result;
+                    userData.avatar = e.target.result;
+                    localStorage.setItem('userData', JSON.stringify(userData));
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    }
     // Загрузка данных профиля
     loadProfile();
     // Загрузка заказов
@@ -30,11 +60,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Обработчики событий
     setupEventListeners();
 
+    // ======================= ФУНКЦИИ =======================
+
     function loadProfile() {
         document.querySelector('.profile-form input[name="name"]').value = userData.name;
         document.querySelector('.profile-form input[name="email"]').value = userData.email;
         document.querySelector('.profile-form input[name="phone"]').value = userData.phone;
+        updateUserProfileBlock();
     }
+   
+
 
     async function loadFavorites() {
         try {
@@ -66,15 +101,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function loadOrders() {
-        const ordersContainer = document.querySelector('#orders .order-card');
+        const ordersContainer = document.querySelector('#orders .orders-list');
         if (ordersContainer) {
             ordersContainer.innerHTML = orders.map(order => `
-                <div class="order">
+                <div class="order-card">
                     <div class="order-header">
                         <span class="order-date">${order.date}</span>
-                        <span class="order-status ${order.status}">${
-                            order.status === 'completed' ? 'Выполнен' : 'В обработке'
-                        }</span>
+                        <span class="order-status ${order.status}">
+                            ${order.status === 'completed' ? 'Выполнен' : 'В обработке'}
+                        </span>
                         <span class="order-total">${order.total} ₽</span>
                     </div>
                     <div class="order-items">
@@ -96,14 +131,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function setupEventListeners() {
         // Сохранение профиля
-        document.querySelector('.profile-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            userData.name = this.querySelector('input[name="name"]').value;
-            userData.email = this.querySelector('input[name="email"]').value;
-            userData.phone = this.querySelector('input[name="phone"]').value;
-            localStorage.setItem('userData', JSON.stringify(userData));
-            alert('Данные успешно сохранены!');
-        });
+        const profileForm = document.querySelector('.profile-form');
+        if (profileForm) {
+            profileForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                userData.name = this.querySelector('input[name="name"]').value;
+                userData.email = this.querySelector('input[name="email"]').value;
+                userData.phone = this.querySelector('input[name="phone"]').value;
+                localStorage.setItem('userData', JSON.stringify(userData));
+                showSuccess(profileForm, 'Профиль успешно сохранён!');
+                updateUserProfileBlock();
+            });
+        }
 
         // Удаление из избранного
         document.addEventListener('click', function(e) {
@@ -117,20 +156,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Переключение вкладок
         document.querySelectorAll('.account-menu a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelectorAll('.account-menu a').forEach(item => {
-                    item.classList.remove('active');
-                });
-                this.classList.add('active');
-                
-                document.querySelectorAll('.tab-content').forEach(tab => {
-                    tab.classList.remove('active');
-                });
-                
-                const tabId = this.getAttribute('href');
-                document.querySelector(tabId).classList.add('active');
-            });
-        });
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Удаляем активные классы у всех ссылок
+        document.querySelectorAll('.account-menu a').forEach(a => a.classList.remove('active'));
+        this.classList.add('active');
+
+        // Скрываем все вкладки
+        document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+
+        // Показываем нужную вкладку
+        const tabId = this.getAttribute('href');
+        const target = document.querySelector(tabId);
+        if (target) target.classList.add('active');
+    });
+});
     }
+
+    function showSuccess(form, message) {
+        let msg = form.querySelector('.success-message');
+        if (!msg) {
+            msg = document.createElement('div');
+            msg.className = 'success-message';
+            msg.style.color = 'green';
+            msg.style.marginBottom = '10px';
+            form.prepend(msg);
+        }
+        msg.textContent = message;
+        msg.style.display = 'block';
+        setTimeout(() => {
+            msg.style.display = 'none';
+        }, 2000);
+    }
+ loadProfile();
+    // Для автозаполнения формы при загрузке (если страница была перезагружена)
+    window.addEventListener('DOMContentLoaded', loadProfile);
+
 });

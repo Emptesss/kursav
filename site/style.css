@@ -1908,3 +1908,31 @@ input:checked + .slider:before {
         grid-template-columns: 1fr;
     }
 }
+.favorite-star {
+    background: none;
+    border: none;
+    padding: 0.5em;
+    font-size: 1.5em;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.favorite-star.active,
+.favorite-star:hover {
+    color: #ffb400;
+}
+.favorite-star:focus,
+.favorite-star:active,
+.favorite-star:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+#search-input {
+    margin-left: 10px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    width: 180px;
+    transition: all 0.2s;
+}

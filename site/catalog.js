@@ -70,21 +70,24 @@ function safeRenderProducts(productsToRender) {
             }
             
             const card = document.createElement('div');
-            card.className = 'product-card';
-            card.innerHTML = `
-                <div class="product-image">
-                    <img src="${product.images?.[0] || 'images/placeholder.jpg'}" 
-                         alt="${product.name}" 
-                         loading="lazy"
-                         onerror="this.src='images/placeholder.jpg'">
-                </div>
-                <div class="product-info">
-                    <h3>${escapeHTML(product.name)}</h3>
-                    <p>${getProductType(product.type)}</p>
-                    <span class="product-price">${formatPrice(product.price)} ₽</span>
-                    <a href="product.html?id=${product.id}" class="btn">Подробнее</a>
-                </div>
-            `;
+card.className = 'product-card';
+card.innerHTML = `
+    <div class="product-image">
+        <img src="${product.images?.[0] || 'images/placeholder.jpg'}" 
+             alt="${product.name}" 
+             loading="lazy"
+             onerror="this.src='images/placeholder.jpg'">
+    </div>
+    <div class="product-info">
+        <h3>${escapeHTML(product.name)}</h3>
+        <p>${getProductType(product.type)}</p>
+        <span class="product-price">${formatPrice(product.price)} ₽</span>
+        <a href="product.html?id=${product.id}" class="btn">Подробнее</a>
+        <button class="favorite-star add-to-favorites" data-id="${product.id}" aria-label="В избранное" title="В избранное">
+    <i class="far fa-star"></i>
+</button>
+    </div>
+`;
             fragment.appendChild(card);
         });
         
@@ -93,6 +96,22 @@ function safeRenderProducts(productsToRender) {
         console.error('Ошибка рендеринга товаров:', error);
         showErrorMessage();
     }
+    let userData = JSON.parse(localStorage.getItem('userData')) || {favorites: []};
+document.querySelectorAll('.add-to-favorites').forEach(btn => {
+    let id = parseInt(btn.dataset.id);
+    const icon = btn.querySelector('i');
+    if (userData.favorites.includes(id)) {
+        icon.classList.remove('far');
+        icon.classList.add('fas');
+        btn.classList.add('active');
+        btn.disabled = false; // звезда всегда доступна для повторного клика (если хочешь убирать из избранного)
+    } else {
+        icon.classList.add('far');
+        icon.classList.remove('fas');
+        btn.classList.remove('active');
+        btn.disabled = false;
+    }
+});
 }
 
 // Инициализация фильтров
@@ -106,10 +125,13 @@ function initFilters() {
             filterSelect.addEventListener('change', safeFilterProducts);
         }
         
-        if (priceInput) {
-            priceInput.style.accentColor = 'var(--primary-color)';
-            priceInput.addEventListener('input', updatePriceDisplay);
-        }
+       if (priceInput) {
+    priceInput.style.accentColor = 'var(--primary-color)';
+    priceInput.addEventListener('input', function() {
+        updatePriceDisplay();
+        safeFilterProducts();
+    });
+}
         
         if (resetBtn) {
             resetBtn.addEventListener('click', () => {
@@ -131,12 +153,12 @@ function safeFilterProducts() {
         if (!isInitialized) return;
         
         const type = document.getElementById('type')?.value || 'all';
-        const price = document.getElementById('price')?.value || 1000;
+        const price = Number(document.getElementById('price')?.value || 1000);
         const stock = document.getElementById('stock')?.value || 'all';
         
         const filtered = products.filter(p => {
             return (type === 'all' || p.type === type) &&
-                   (p.price <= price) &&
+                   (Number(p.price) <= price) &&
                    (stock === 'all' || p.stock === stock);
         });
             
@@ -193,6 +215,33 @@ function showErrorMessage() {
         `;
     }
 }
-
+document.addEventListener('click', function(e) {
+    if (e.target.closest('.add-to-favorites')) {
+        e.preventDefault();
+        const btn = e.target.closest('.add-to-favorites');
+        const productId = parseInt(btn.dataset.id);
+        const icon = btn.querySelector('i');
+        let userData = JSON.parse(localStorage.getItem('userData')) || {
+            name: "Имя",
+            email: "name@example.com",
+            phone: "+7 (123) 456-78-90",
+            favorites: []
+        };
+        if (userData.favorites.includes(productId)) {
+            // Удалить из избранного
+            userData.favorites = userData.favorites.filter(id => id !== productId);
+            icon.classList.add('far');
+            icon.classList.remove('fas');
+            btn.classList.remove('active');
+        } else {
+            // Добавить в избранное
+            userData.favorites.push(productId);
+            icon.classList.remove('far');
+            icon.classList.add('fas');
+            btn.classList.add('active');
+        }
+        localStorage.setItem('userData', JSON.stringify(userData));
+    }
+});
 // Запускаем инициализацию при загрузке страницы
 document.addEventListener('DOMContentLoaded', initCatalog);
