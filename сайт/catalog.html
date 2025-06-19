@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог | Пастельный Чай</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+         <div class="container">
+            <div class="logo">Пастельный Чай</div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html" >Главная</a></li>
+                    <li><a href="catalog.html" class="active">Каталог</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="blog.html">Блог</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#"><i class="fas fa-user"></i></a>
+                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Фильтры -->
+    <section class="filters">
+        <div class="container">
+            <h2>Каталог чая</h2>
+            <div class="filter-group">
+                <div class="filter">
+                    <label for="type">Тип чая:</label>
+                    <select id="type">
+                        <option value="all">Все</option>
+                        <option value="green">Зеленый</option>
+                        <option value="black">Черный</option>
+                        <option value="herbal">Травяной</option>
+                        <option value="fruit">Фруктовый</option>
+                    </select>
+                </div>
+                <div class="filter">
+                    <label for="price">Цена:</label>
+                    <input type="range" id="price" min="0" max="1000" step="50">
+                    <span id="price-value">0-1000 ₽</span>
+                </div>
+                <div class="filter">
+                    <label for="stock">Наличие:</label>
+                    <select id="stock">
+                        <option value="all">Все</option>
+                        <option value="in-stock">В наличии</option>
+                        <option value="pre-order">Под заказ</option>
+                    </select>
+                </div>
+                <button id="reset-filters">Сбросить</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Сетка товаров -->
+    <section class="catalog">
+        <div class="container">
+            <div id="catalog-products" class="products-grid">
+                <!-- Товары загружаются через JS -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+         <div class="container">
+            <div class="footer-column">
+                <h3>Пастельный Чай</h3>
+                <p>Магазин авторских чайных смесей ручной работы</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Меню</h3>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="blog.html">Блог</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Контакты</h3>
+                <p>email: info@pasteltea.ru</p>
+                <p>тел: +7 (123) 456-78-90</p>
+                <p>Москва, ул. Чайная, 15</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Пастельный Чай. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="catalog.js"></script> <!-- Новый файл для логики каталога -->
+</body>
+</html>

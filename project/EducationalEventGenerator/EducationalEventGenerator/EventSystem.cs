@@ -473,7 +473,7 @@ namespace EducationalEventGenerator
             new Effect(15, -5, 20) {
                 CreativityEffect = 10,
                 TemporaryEffects = new List<TemporaryEffect> {
-                    new TemporaryEffect("Технический энтузиазм", 5, 0, 5, 3)
+                    new TemporaryEffect("Энтузиазм", 5, 0, 5, 3)
                 }
             }),
         new Option("Вложить в обучение",
@@ -631,7 +631,7 @@ namespace EducationalEventGenerator
                 "Абсурдная ситуация",
                 "Искусственный интеллект в вашем проекте начал писать стихи вместо кода",
                 new List<Option> {
-        new Option("Перепрограммировать ИИ",
+        new Option("Перепрограммировать",
             new Effect(10, -15, -5) {
                 CreativityEffect = -20,
                 TemporaryEffects = new List<TemporaryEffect> {

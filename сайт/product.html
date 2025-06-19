@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница товара | Пастельный Чай</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+          <div class="container">
+            <div class="logo">Пастельный Чай</div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html" class="active">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="blog.html">Блог</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#"><i class="fas fa-user"></i></a>
+                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Хлебные крошки -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <a href="index.html">Главная</a> / 
+    <a href="catalog.html">Каталог</a> / 
+    <span id="breadcrumb-name">Название товара</span>
+        </div>
+    </section>
+
+    <!-- Карточка товара -->
+    <section class="product-page">
+        <div class="container">
+            <div class="product-gallery">
+                <div class="main-image">
+                    <img src="images/tea1-large.jpg" alt="Нежный жасмин" id="main-img">
+                </div>
+                <div class="thumbnails">
+                    <img src="images/tea1-thumb1.jpg" alt="Миниатюра 1">
+                    <img src="images/tea1-thumb2.jpg" alt="Миниатюра 2">
+                    <img src="images/tea1-thumb3.jpg" alt="Миниатюра 3">
+                </div>
+            </div>
+            <div class="product-details">
+                <h1>Нежный жасмин</h1>
+                <p class="product-type">Зеленый чай</p>
+                <div class="price">450 ₽ <span class="old-price">550 ₽</span></div>
+                <div class="rating">
+                    ★★★★☆ <span class="reviews">(24 отзыва)</span>
+                </div>
+                <div class="description">
+                    <p>Зеленый чай высшего сорта с лепестками жасмина. Нежный цветочный аромат сочетается с мягким вкусом свежесобранных чайных листьев.</p>
+                    <ul>
+                        <li>Состав: зеленый чай, цветы жасмина.</li>
+                        <li>Вес: 100 г.</li>
+                        <li>Страна происхождения: Китай.</li>
+                    </ul>
+                </div>
+                <div class="quantity">
+                    <label>Количество:</label>
+                    <input type="number" min="1" value="1">
+                </div>
+                <button class="btn add-to-cart">В корзину</button>
+                <div class="product-meta">
+                    <p><i class="fas fa-check"></i> В наличии</p>
+                    <p><i class="fas fa-truck"></i> Доставка 1-3 дня</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Похожие товары -->
+    <section class="related-products">
+        <div class="container">
+            <h2>Вам также может понравиться</h2>
+            <div class="products-grid">
+                <!-- Загружаются через JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+         <div class="container">
+            <div class="footer-column">
+                <h3>Пастельный Чай</h3>
+                <p>Магазин авторских чайных смесей ручной работы</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Меню</h3>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="blog.html">Блог</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Контакты</h3>
+                <p>email: info@pasteltea.ru</p>
+                <p>тел: +7 (123) 456-78-90</p>
+                <p>Москва, ул. Чайная, 15</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Пастельный Чай. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="product.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Нежный жасмин",
+      "type": "green",
+      "price": 450,
+      "oldPrice": 550,
+      "stock": "in-stock",
+      "description": "Зеленый чай с цветами жасмина. Нежный аромат и мягкий вкус.",
+      "composition": "зеленый чай, цветы жасмина",
+      "weight": "100 г",
+      "country": "Китай",
+      "rating": 4.5,
+      "reviews": 24,
+      "images": [
+        "images/tea1.jpg",
+        "images/tea1-thumb1.jpg",
+        "images/tea1-thumb2.jpg",
+        "images/tea1-thumb3.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Мятное спокойствие",
+      "type": "herbal",
+      "price": 390,
+      "oldPrice": 480,
+      "stock": "in-stock",
+      "description": "Мята и мелисса для расслабления вечером.",
+      "composition": "мята перечная, мелисса",
+      "weight": "100 г",
+      "country": "Россия",
+      "rating": 4.2,
+      "reviews": 18,
+      "images": [
+        "images/tea2.jpg",
+        "images/tea2-thumb1.jpg",
+        "images/tea2-thumb2.jpg",
+        "images/tea2-thumb3.jpg"
+      ]
+    }
+  ]
+}
