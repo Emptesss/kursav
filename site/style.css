@@ -1667,3 +1667,244 @@ ul {
     }
 }
 
+/* Личный кабинет */
+.account-page {
+    padding: 40px 0;
+}
+
+.account-sidebar {
+    width: 300px;
+    padding: 30px;
+    background: var(--light-gray);
+    border-radius: 15px;
+    margin-right: 30px;
+}
+
+.user-profile {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.account-menu ul {
+    list-style: none;
+}
+
+.account-menu li {
+    margin-bottom: 15px;
+}
+
+.account-menu a {
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.account-menu a:hover,
+.account-menu a.active {
+    color: var(--primary-color);
+}
+
+.account-menu i {
+    margin-right: 10px;
+    width: 20px;
+}
+
+.account-content {
+    flex: 1;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.profile-form .form-group {
+    margin-bottom: 20px;
+}
+
+.profile-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.profile-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.order-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.order-status {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.order-status.completed {
+    background: var(--accent-color);
+    color: white;
+}
+
+.order-items {
+    margin: 15px 0;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.order-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background: var(--primary-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+/* Избранные товары */
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.favorites-grid .product-card {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.favorites-grid .product-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.favorites-grid .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.favorites-grid .product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.favorites-grid .product-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.favorites-grid .btn {
+    width: 100%;
+    margin-top: 10px;
+}
+/* Кнопка удаления из избранного */
+.remove-favorite {
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px;
+    background: #fff;
+    border: 1px solid #ff6b6b;
+    color: #ff6b6b;
+}
+
+.remove-favorite:hover {
+    background: #ffebee;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .account-page .container {
+        flex-direction: column;
+    }
+    
+    .account-sidebar {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+    
+    .favorites-grid {
+        grid-template-columns: 1fr;
+    }
+}
