@@ -1,6 +1,6 @@
 let product;
+let products = [];
 
-// Загрузка данных товара
 async function loadProduct() {
     try {
         const id = new URLSearchParams(window.location.search).get('id');
@@ -10,7 +10,8 @@ async function loadProduct() {
         if (!response.ok) throw new Error('Network response was not ok');
         
         const data = await response.json();
-        product = data.products.find(p => p.id == id);
+        products = data.products;
+        product = products.find(p => p.id == id);
         
         if (!product) throw new Error('Product not found');
         

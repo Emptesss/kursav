@@ -8,38 +8,54 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Шапка (как на главной) -->
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Считаем количество товаров в корзине
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let count = 0;
+    cart.forEach(item => count += item.quantity || 1);
+
+    // Обновляем все счетчики на странице
+    document.querySelectorAll('.cart-counter').forEach(el => {
+        el.textContent = count;
+    });
+});
+</script>
+    <!-- Шапка -->
     <header class="header">
-        <div class="container">
-            <div class="logo">Пастельный Чай</div>
-            <nav class="nav">
-                <ul>
-                    <li><a href="index.html" >Главная</a></li>
-                    <li><a href="catalog.html">Каталог</a></li>
-                    <li><a href="about.html" class="active">О нас</a></li>
-                    <li><a href="blog.html">Блог</a></li>
-                    <li><a href="contact.html">Контакты</a></li>
-                </ul>
-            </nav>
-            <div class="header-icons">
-                <a href="#"><i class="fas fa-search"></i></a>
-                <a href="#"><i class="fas fa-user"></i></a>
-                <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
-            </div>
+    <div class="container">
+        <div class="logo">Пастельный Чай</div>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html" class="">Главная</a></li>
+                <li><a href="catalog.html" class="">Каталог</a></li>
+                <li><a href="about.html" class="active">О нас</a></li>
+                <li><a href="blog.html" class="">Блог</a></li>
+                <li><a href="contact.html" class="">Контакты</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <a href="#"><i class="fas fa-search"></i></a>
+            <a href="#"><i class="fas fa-user"></i></a>
+            <a href="cart.html" class="cart-link">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-counter">0</span>
+            </a>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- Основной контент -->
-    <main class="about-page">
+    <main>
         <section class="about-hero" style="background-image: url('images/about-bg.jpg');">
-            <div class="containeri">
+            <div class="container">
                 <h1>Наша философия</h1>
                 <p>Искусство чая в каждой чашке</p>
             </div>
         </section>
 
         <section class="about-story">
-            <div class="containeri">
+            <div class="container">
                 <div class="story-content">
                     <h2>Как всё начиналось</h2>
                     <p>В 2015 году мы начали с маленькой мастерской в Москве, где вручную смешивали травы с горных склонов Алтая. Сегодня наши чаи пьют в 15 странах мира, но мы сохранили любовь к ручной работе.</p>
@@ -49,7 +65,7 @@
         </section>
 
         <section class="team">
-            <div class="containeri">
+            <div class="container">
                 <h2>Наша команда</h2>
                 <div class="team-grid">
                     <div class="team-member">
@@ -62,14 +78,15 @@
                         <h3>Михаил</h3>
                         <p>Закупщик сырья</p>
                     </div>
+                    <!-- Можно добавить больше участников -->
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Футер (как на главной) -->
+    <!-- Футер -->
     <footer class="footer">
-         <div class="container">
+        <div class="container">
             <div class="footer-column">
                 <h3>Пастельный Чай</h3>
                 <p>Магазин авторских чайных смесей ручной работы</p>
