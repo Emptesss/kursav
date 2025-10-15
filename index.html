@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tea Dreams | Магазин авторских чаев</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Считаем количество товаров в корзине
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let count = 0;
+    cart.forEach(item => count += item.quantity || 1);
+
+    // Обновляем все счетчики на странице
+    document.querySelectorAll('.cart-counter').forEach(el => {
+        el.textContent = count;
+    });
+});
+</script>
+    <!-- Шапка сайта -->
+   <header class="header">
+    <div class="container">
+        <div class="logo">☽ Tea Dreams ☾</div>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html" class="active">Главная</a></li>
+                <li><a href="catalog.html" class="">Каталог</a></li>
+                <li><a href="about.html" class="">О нас</a></li>
+                <li><a href="blog.html" class="">Блог</a></li>
+                <li><a href="contact.html" class="">Контакты</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <a href="#" id="search-icon"><i class="fas fa-search"></i></a>
+            <input type="text" id="search-input" placeholder="Поиск чая..." style="display:none;">
+            <a href="account.html"><i class="fas fa-user"></i></a>
+            <a href="cart.html" class="cart-link">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-counter">0</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+    <!-- Герой-секция -->
+    <section class="hero">
+        <div class="hero-slider">
+            <div class="slide active" style="background-image: url('images/hero1.jpg');">
+                <div class="slide-content">
+                    <h1>Насладитесь искусством чая</h1>
+                    <p>Авторские смеси из разных уголков мира</p>
+                    <a href="catalog.html" class="btn">В каталог</a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('images/hero2.jpg');">
+                <div class="slide-content">
+                    <h1>Новая летняя коллекция</h1>
+                    <p>Нежные цветочные ароматы для вашего настроения</p>
+                    <a href="catalog.html" class="btn">Подробнее</a>
+                </div>
+            </div>
+        </div>
+        <div class="slider-controls">
+            <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
+            <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="features">
+        <div class="container">
+            <div class="feature-box">
+                <i class="fas fa-leaf"></i>
+                <h3>100% Натурально</h3>
+                <p>Только природные ингредиенты без добавок</p>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-seedling"></i>
+                <h3>Экологично</h3>
+                <p>Устойчивое производство и упаковка</p>
+            </div>
+            <div class="feature-box">
+                <i class="fas fa-award"></i>
+                <h3>Ручная сборка</h3>
+                <p>Каждая смесь создается с любовью</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Популярные товары -->
+    <section class="popular-products">
+        <div class="container">
+            <h2 class="section-title">Популярные чаи</h2>
+            <div class="products-grid">
+                <!-- Товары загружаются через JavaScript -->
+            </div>
+            <a href="catalog.html" class="btn">Весь каталог</a>
+        </div>
+    </section>
+
+    <!-- О компании -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <h2>Наша философия</h2>
+                <p>Мы верим, что чай — это не просто напиток, а искусство, способное передавать эмоции и создавать атмосферу. Наши смеси создаются вручную с учетом сезонности и гармонии вкусов.</p>
+                <a href="about.html" class="btn-outline">Узнать больше</a>
+            </div>
+            <div class="about-image">
+                <img src="images/about.jpg" alt="О нашем чае">
+            </div>
+        </div>
+    </section>
+
+    <!-- Подписка на рассылку -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Подпишитесь на наши новости</h2>
+            <p>Получайте эксклюзивные предложения и рецепты</p>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Ваш email" required>
+                <button type="submit" class="btn">Подписаться</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-column">
+                <h3>Tea Dreams</h3>
+                <p>Магазин авторских чайных смесей ручной работы</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/accounts/login/?hl=ru"><i class="fab fa-instagram"></i></a>
+                    <a href="https://vk.com/?ysclid=mc4sa12awl246826843"><i class="fab fa-vk"></i></a>
+                    <a href="https://web.telegram.org/"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Меню</h3>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="blog.html">Блог</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Контакты</h3>
+                <p>email: info@pasteltea.ru</p>
+                <p>тел: +7 (123) 456-78-90</p>
+                <p>Москва, ул. Чайная, 15</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Tea Dreams. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="catalog.js"></script>
+</body>
+</html>
