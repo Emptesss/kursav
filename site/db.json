@@ -39,6 +39,160 @@
         "images/tea2-thumb2.jpg",
         "images/tea2-thumb3.jpg"
       ]
+    },
+    {
+      "id": 3,
+      "name": "Цветочный сад",
+      "type": "fruit",
+      "price": 520,
+      "oldPrice": 600,
+      "stock": "in-stock",
+      "description": "Фруктовый чай с лепестками роз.",
+      "composition": "бутоны роз, апельсин, яблоко",
+      "weight": "120 г",
+      "country": "Беларусь",
+      "rating": 4.8,
+      "reviews": 9,
+      "images": [
+        "images/tea3.jpg",
+        "images/tea3-thumb1.jpg",
+        "images/tea3-thumb2.jpg",
+        "images/tea3-thumb3.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Горный улун",
+      "type": "green",
+      "price": 680,
+      "oldPrice": 730,
+      "stock": "pre-order",
+      "description": "Традиционный китайский улун.",
+      "composition": "китайский улун",
+      "weight": "120 г",
+      "country": "Китай",
+      "rating": 4.0,
+      "reviews": 15,
+      "images": [
+        "images/tea4.jpg",
+        "images/tea4-thumb1.jpg",
+        "images/tea4-thumb2.jpg",
+        "images/tea4-thumb3.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Английский завтрак",
+      "type": "black",
+      "price": 350,
+      "oldPrice": 420,
+      "stock": "in-stock",
+      "description": "Классический крепкий черный чай для утреннего бодрящего настроения.",
+      "composition": "черный чай",
+      "weight": "100 г",
+      "country": "Индия",
+      "rating": 4.3,
+      "reviews": 32,
+      "images": [
+        "images/tea5.jpg",
+        "images/tea5-thumb1.jpg",
+        "images/tea5-thumb2.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Эрл Грей",
+      "type": "black",
+      "price": 480,
+      "oldPrice": 550,
+      "stock": "in-stock",
+      "description": "Черный чай с маслом бергамота, изысканный английский вкус.",
+      "composition": "черный чай, масло бергамота",
+      "weight": "100 г",
+      "country": "Великобритания",
+      "rating": 4.7,
+      "reviews": 28,
+      "images": [
+        "images/tea6.jpg",
+        "images/tea6-thumb1.jpg",
+        "images/tea6-thumb2.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Дарджилинг",
+      "type": "black",
+      "price": 750,
+      "oldPrice": 850,
+      "stock": "in-stock",
+      "description": "Элитный индийский чай с нежным мускатным вкусом.",
+      "composition": "черный чай высшего сорта",
+      "weight": "100 г",
+      "country": "Индия",
+      "rating": 4.9,
+      "reviews": 19,
+      "images": [
+        "images/tea7.jpg",
+        "images/tea7-thumb1.jpg",
+        "images/tea7-thumb2.jpg"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Молочный улун",
+      "type": "green",
+      "price": 590,
+      "oldPrice": 650,
+      "stock": "pre-order",
+      "description": "Зеленый чай с нежным сливочным вкусом и ароматом.",
+      "composition": "зеленый чай, натуральные ароматизаторы",
+      "weight": "100 г",
+      "country": "Китай",
+      "rating": 4.6,
+      "reviews": 21,
+      "images": [
+        "images/tea8.jpg",
+        "images/tea8-thumb1.jpg",
+        "images/tea8-thumb2.jpg"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Каркаде",
+      "type": "herbal",
+      "price": 320,
+      "oldPrice": 400,
+      "stock": "in-stock",
+      "description": "Освежающий кисловатый напиток из цветков гибискуса.",
+      "composition": "гибискус",
+      "weight": "100 г",
+      "country": "Египет",
+      "rating": 4.4,
+      "reviews": 17,
+      "images": [
+        "images/tea9.jpg",
+        "images/tea9-thumb1.jpg",
+        "images/tea9-thumb2.jpg"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Ягодный микс",
+      "type": "fruit",
+      "price": 430,
+      "oldPrice": 500,
+      "stock": "pre-order",
+      "description": "Ароматная смесь лесных ягод с легкой кислинкой.",
+      "composition": "шиповник, малина, черника, смородина",
+      "weight": "120 г",
+      "country": "Россия",
+      "rating": 4.5,
+      "reviews": 14,
+      "images": [
+        "images/tea10.jpg",
+        "images/tea10-thumb1.jpg",
+        "images/tea10-thumb2.jpg"
+      ]
     }
   ]
 }
