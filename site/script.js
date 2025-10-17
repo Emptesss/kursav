@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!productsGrid) return;
 
         try {
-            const response = await fetch('db.json');
+            const response = await fetch('/kursav/site/db.json');
             if (!response.ok) throw new Error('Network response was not ok');
             
             const data = await response.json();
