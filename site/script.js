@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (!productsArr || !Array.isArray(productsArr) || !productsArr.length) {
                     // Если products нет, пробуем загрузить заново
                     try {
-                        const resp = await fetch('db.json');
+                        const resp = await fetch('site/db.json');
                         const data = await resp.json();
                         productsArr = data.products || [];
                     } catch {
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!productsGrid) return;
 
         try {
-            const response = await fetch('db.json');
+            const response = await fetch('site/db.json');
             if (!response.ok) throw new Error('Network response was not ok');
             
             const data = await response.json();
