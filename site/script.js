@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
             productsGrid.innerHTML = popularProducts.map(product => `
     <div class="product-card">
         <div class="product-image">
-            <img src="${product.images[0]}" alt="${product.name}" loading="lazy">
+            <img src="${product.images[0].replace('site/', '')}" alt="${product.name}" loading="lazy">
         </div>
        <div class="product-info">
         <h3>${escapeHTML(product.name)}</h3>
