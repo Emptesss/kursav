@@ -14,10 +14,10 @@
       "rating": 4.5,
       "reviews": 24,
       "images": [
-        "site/images/tea1.jpg",
-        "site/images/tea1-thumb1.jpg",
-        "site/images/tea1-thumb2.jpg",
-        "site/images/tea1-thumb3.jpg"
+        "images/tea1.jpg",
+        "images/tea1-thumb1.jpg",
+        "images/tea1-thumb2.jpg",
+        "images/tea1-thumb3.jpg"
       ]
     },
     {
@@ -34,10 +34,10 @@
       "rating": 4.2,
       "reviews": 18,
       "images": [
-        "site/images/tea2.jpg",
-        "site/images/tea2-thumb1.jpg",
-        "site/images/tea2-thumb2.jpg",
-        "site/images/tea2-thumb3.jpg"
+        "images/tea2.jpg",
+        "images/tea2-thumb1.jpg",
+        "images/tea2-thumb2.jpg",
+        "images/tea2-thumb3.jpg"
       ]
     },
     {
@@ -54,10 +54,10 @@
       "rating": 4.8,
       "reviews": 9,
       "images": [
-        "site/images/tea3.jpg",
-        "site/images/tea3-thumb1.jpg",
-        "site/images/tea3-thumb2.jpg",
-        "site/images/tea3-thumb3.jpg"
+        "images/tea3.jpg",
+        "images/tea3-thumb1.jpg",
+        "images/tea3-thumb2.jpg",
+        "images/tea3-thumb3.jpg"
       ]
     },
     {
@@ -74,10 +74,10 @@
       "rating": 4.0,
       "reviews": 15,
       "images": [
-        "site/images/tea4.jpg",
-        "site/images/tea4-thumb1.jpg",
-        "site/images/tea4-thumb2.jpg",
-        "site/images/tea4-thumb3.jpg"
+        "images/tea4.jpg",
+        "images/tea4-thumb1.jpg",
+        "images/tea4-thumb2.jpg",
+        "images/tea4-thumb3.jpg"
       ]
     },
     {
@@ -94,9 +94,9 @@
       "rating": 4.3,
       "reviews": 32,
       "images": [
-        "site/images/tea5.jpg",
-        "site/images/tea5-thumb1.jpg",
-        "site/images/tea5-thumb2.jpg"
+        "images/tea5.jpg",
+        "images/tea5-thumb1.jpg",
+        "images/tea5-thumb2.jpg"
       ]
     },
     {
@@ -113,9 +113,9 @@
       "rating": 4.7,
       "reviews": 28,
       "images": [
-        "site/images/tea6.jpg",
-        "site/images/tea6-thumb1.jpg",
-        "site/images/tea6-thumb2.jpg"
+        "images/tea6.jpg",
+        "images/tea6-thumb1.jpg",
+        "images/tea6-thumb2.jpg"
       ]
     },
     {
@@ -132,9 +132,9 @@
       "rating": 4.9,
       "reviews": 19,
       "images": [
-        "site/images/tea7.jpg",
-        "site/images/tea7-thumb1.jpg",
-        "site/images/tea7-thumb2.jpg"
+        "images/tea7.jpg",
+        "images/tea7-thumb1.jpg",
+        "images/tea7-thumb2.jpg"
       ]
     },
     {
@@ -151,9 +151,9 @@
       "rating": 4.6,
       "reviews": 21,
       "images": [
-        "site/images/tea8.jpg",
-        "site/images/tea8-thumb1.jpg",
-        "site/images/tea8-thumb2.jpg"
+        "images/tea8.jpg",
+        "images/tea8-thumb1.jpg",
+        "images/tea8-thumb2.jpg"
       ]
     },
     {
@@ -170,9 +170,9 @@
       "rating": 4.4,
       "reviews": 17,
       "images": [
-        "site/images/tea9.jpg",
-        "site/images/tea9-thumb1.jpg",
-        "site/images/tea9-thumb2.jpg"
+        "images/tea9.jpg",
+        "images/tea9-thumb1.jpg",
+        "images/tea9-thumb2.jpg"
       ]
     },
     {
@@ -189,9 +189,9 @@
       "rating": 4.5,
       "reviews": 14,
       "images": [
-        "site/images/tea10.jpg",
-        "site/images/tea10-thumb1.jpg",
-        "site/images/tea10-thumb2.jpg"
+        "images/tea10.jpg",
+        "images/tea10-thumb1.jpg",
+        "images/tea10-thumb2.jpg"
       ]
     }
   ]
