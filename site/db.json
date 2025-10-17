@@ -14,10 +14,10 @@
       "rating": 4.5,
       "reviews": 24,
       "images": [
-        "images/tea1.jpg",
-        "images/tea1-thumb1.jpg",
-        "images/tea1-thumb2.jpg",
-        "images/tea1-thumb3.jpg"
+        "/kursav/site/images/tea1.jpg",
+        "/kursav/site/images/tea1-thumb1.jpg",
+        "/kursav/site/images/tea1-thumb2.jpg",
+        "/kursav/site/images/tea1-thumb3.jpg"
       ]
     },
     {
