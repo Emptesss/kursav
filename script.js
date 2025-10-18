@@ -1,4 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
+        // 🔊 Музыка по клику на логотип
+    const audio = document.getElementById('site-audio');
+    const logo = document.getElementById('logo');
+
+    if (audio && logo) {
+        let isPlaying = localStorage.getItem('musicPlaying') === 'true';
+
+        if (isPlaying) {
+            audio.play().catch(() => {});
+        }
+
+        logo.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+            } else {
+                audio.play().catch(() => {});
+                isPlaying = true;
+            }
+            localStorage.setItem('musicPlaying', isPlaying);
+        });
+    }
+
     // 1. Слайдер героя
     const initSlider = () => {
         const slides = document.querySelectorAll('.slide');
