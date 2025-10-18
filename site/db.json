@@ -34,10 +34,10 @@
       "rating": 4.2,
       "reviews": 18,
       "images": [
-        "images/tea2.jpg",
-        "images/tea2-thumb1.jpg",
-        "images/tea2-thumb2.jpg",
-        "images/tea2-thumb3.jpg"
+        "/kursav/site/images/tea2.jpg",
+        "/kursav/site/images/tea2-thumb1.jpg",
+        "/kursav/site/images/tea2-thumb2.jpg",
+        "/kursav/site/images/tea2-thumb3.jpg"
       ]
     },
     {
@@ -54,10 +54,10 @@
       "rating": 4.8,
       "reviews": 9,
       "images": [
-        "images/tea3.jpg",
-        "images/tea3-thumb1.jpg",
-        "images/tea3-thumb2.jpg",
-        "images/tea3-thumb3.jpg"
+        "/kursav/site/images/tea3.jpg",
+        "/kursav/site/images/tea3-thumb1.jpg",
+        "/kursav/site/images/tea3-thumb2.jpg",
+        "/kursav/site/images/tea3-thumb3.jpg"
       ]
     },
     {
@@ -74,10 +74,10 @@
       "rating": 4.0,
       "reviews": 15,
       "images": [
-        "images/tea4.jpg",
-        "images/tea4-thumb1.jpg",
-        "images/tea4-thumb2.jpg",
-        "images/tea4-thumb3.jpg"
+        "/kursav/site/images/tea4.jpg",
+        "/kursav/site/images/tea4-thumb1.jpg",
+        "/kursav/site/images/tea4-thumb2.jpg",
+        "/kursav/site/images/tea4-thumb3.jpg"
       ]
     },
     {
@@ -94,9 +94,9 @@
       "rating": 4.3,
       "reviews": 32,
       "images": [
-        "images/tea5.jpg",
-        "images/tea5-thumb1.jpg",
-        "images/tea5-thumb2.jpg"
+        "/kursav/site/images/tea5.jpg",
+        "/kursav/site/images/tea5-thumb1.jpg",
+        "/kursav/site/images/tea5-thumb2.jpg"
       ]
     },
     {
@@ -113,9 +113,9 @@
       "rating": 4.7,
       "reviews": 28,
       "images": [
-        "images/tea6.jpg",
-        "images/tea6-thumb1.jpg",
-        "images/tea6-thumb2.jpg"
+        "/kursav/site/images/tea6.jpg",
+        "/kursav/site/images/tea6-thumb1.jpg",
+        "/kursav/site/images/tea6-thumb2.jpg"
       ]
     },
     {
@@ -132,9 +132,9 @@
       "rating": 4.9,
       "reviews": 19,
       "images": [
-        "images/tea7.jpg",
-        "images/tea7-thumb1.jpg",
-        "images/tea7-thumb2.jpg"
+        "/kursav/site/images/tea7.jpg",
+        "/kursav/site/images/tea7-thumb1.jpg",
+        "/kursav/site/images/tea7-thumb2.jpg"
       ]
     },
     {
@@ -151,9 +151,9 @@
       "rating": 4.6,
       "reviews": 21,
       "images": [
-        "images/tea8.jpg",
-        "images/tea8-thumb1.jpg",
-        "images/tea8-thumb2.jpg"
+        "/kursav/site/images/tea8.jpg",
+        "/kursav/site/images/tea8-thumb1.jpg",
+        "/kursav/site/images/tea8-thumb2.jpg"
       ]
     },
     {
@@ -170,9 +170,9 @@
       "rating": 4.4,
       "reviews": 17,
       "images": [
-        "images/tea9.jpg",
-        "images/tea9-thumb1.jpg",
-        "images/tea9-thumb2.jpg"
+        "/kursav/site/images/tea9.jpg",
+        "/kursav/site/images/tea9-thumb1.jpg",
+        "/kursav/site/images/tea9-thumb2.jpg"
       ]
     },
     {
@@ -189,9 +189,9 @@
       "rating": 4.5,
       "reviews": 14,
       "images": [
-        "images/tea10.jpg",
-        "images/tea10-thumb1.jpg",
-        "images/tea10-thumb2.jpg"
+        "/kursav/site/images/tea10.jpg",
+        "/kursav/site/images/tea10-thumb1.jpg",
+        "/kursav/site/images/tea10-thumb2.jpg"
       ]
     }
   ]
